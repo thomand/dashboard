@@ -10,6 +10,11 @@ $(document).ready(function(){
     //updateCurrentVisitors();
     //updateMostPopularPages();
 
+    //Test of changing arrows according to recived values
+    //updateIntervalPercentArrows(-8,"Week");
+    //updateIntervalPercentArrows(2,"Month");
+    //updateIntervalPercentArrows(-8,"Year");
+
 
 
 
@@ -82,9 +87,16 @@ function updateIntervalPercent() {
      dataType: 'json',
      type:'get'
      }).success(function(data) {
-            document.getElementById("changeMonth").innerHTML = data[0].value;
-            document.getElementById("changeYear").innerHTML = data[1].value;
-            document.getElementById("changeWeek").innerHTML = data[2].value;
+        var month = data[0].value;
+        updateIntervalPercentArrows(month, "Month");
+        var year = data[1].value;
+        updateIntervalPercentArrows(year, "Year");
+        var week = data[2].value;
+        updateIntervalPercentArrows(week, "Week");
+
+        document.getElementById("changeMonth").innerHTML = month;
+        document.getElementById("changeYear").innerHTML = year;
+        document.getElementById("changeWeek").innerHTML = week;
 
         /*Change class of arrows depending on if the values have increased/decreased*/
 
@@ -96,6 +108,20 @@ function updateIntervalPercent() {
 
 
     });
+}
+
+function updateIntervalPercentArrows(value, name) {
+    /*This method should not set arrows according to positive/negative values but historic values.*/
+    var id = "change" + name + "-arrow";
+    if (value >= 0) {
+        document.getElementById(id).className = "ion-arrow-graph-up-right";
+    }
+    else {
+        document.getElementById(id).className = "ion-arrow-graph-down-right";
+    }
+
+
+
 }
 
 function updateCurrentVisitors() {
