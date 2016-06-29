@@ -80,190 +80,120 @@
         <!-- Wrapper for slides -->
         <div class="carousel-inner">
 
-            <!-- Second page-->
+            <!-- Forth item -->
             <div class="item active">
-                <div class="row">
-                    <div class="col-md-8">
-                        <div class="row special">
-                            <div class="col-md-4 item2description">
-                                <div class="col-md-12" style="padding-left:0"><span>#</span> visitors ntnu.no</div>
+                <div class="row special">
+                    <div class="row special">
+                        <div class="panelcontent col-md-12 item2description">
+                            <div class="panelcontent col-md-2">
+                                <!--<div class="col-md-12"><span>#</span> current users</div>-->
                             </div>
-                            <div class="col-md-8 item2description">
-                                <div class="col-md-4">Last week</div>
-                                <div class="col-md-4">Last month</div>
-                                <div class="col-md-4">Last year</div>
+                            <div class="panelcontent col-md-5">
+                                <div class="col-md-12">Popular pages and search words</div>
                             </div>
-                        </div>
-                        <div class="row special">
-                            <div class="panel col-md-4 visitors" id="currentVisitors">13237</div>
-                            <div class="col-md-8" style="padding-right:0">
-                                <div class="panel col-md-4 visitors intervaldiv">
-                                    <div class="visitor-percentage">
-                                        <div class="col-md-3"><i class="ion-arrow-graph-up-right" id="changeWeek-arrow"></i></div>
-                                        <div class="col-md-5" style="padding-right:0" id="changeWeek">5.6</div>
-                                        <div class="col-md-3">%</div>
-                                    </div>
-                                </div>
-                                <div class="panel col-md-4 visitors intervaldiv">
-                                    <div class="visitor-percentage">
-                                        <div class="col-md-3" ><i class="ion-arrow-graph-down-right" id="changeMonth-arrow"></i></div>
-                                        <div class="col-md-5" style="padding-right:0" id="changeMonth">1.1</div>
-                                        <div class="col-md-3">%</div>
-                                    </div>
-                                </div>
-                                <div class="panel col-md-4 visitors intervaldiv">
-                                    <div class="visitor-percentage">
-                                        <div class="col-md-3"><i class="ion-arrow-graph-up-right" id="changeYear-arrow"></i></div>
-                                        <div class="col-md-5" style="padding-right:0" id="changeYear">225.6</div>
-                                        <div class="col-md-3">%</div>
-                                    </div>
-                                </div>
+                            <div class="panelcontent col-md-2">
+                                <div class="col-md-12">Broken links</div>
                             </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-4 pull-right" style="padding-left: 0 !important;">
-                        <div class="col-md-12 item2description" style="padding-top:3px !important; padding-left:5px!important;">
-                            User access location
-                        </div>
-                    </div>
-                    <!-- Heatmap of Norway -->
-                    <div class="panel col-md-4 pull-right mapContainer" id="mapdiv"></div>
-
-                    <div class="col-md-8">
-                        <div class="row special">
-                            <div class="col-md-6 item2description">
-                                <div class="col-md-12" style="padding-left:0">Platform</div>
-                            </div>
-                            <div class="col-md-6 item2description">
-                                <div class="col-md-12">Browsers</div>
-                            </div>
-                        </div>
-                        <div class="row special">
-                            <div class="panel col-md-6 visitors device" id="devicediv"></div>
-                            <div class="panelcontent col-md-6" style="padding-right:0">
-                                <div class="panel col-md-12">
-                                    <table class="table browsers">
-                                        <tbody>
-                                        <tr>
-                                            <td class="col-md-1"><img src="img/firefox.svg" height="20" width="20"></td>
-                                            <td class="col-md-5">Firefox</td>
-                                            <td class="col-md-2 float-right" id="firefox-num">13820</td>
-                                            <td class="col-md-3 float-right" id="firefox-percent">66 %</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="col-md-1"><img src="img/chrome.svg" height="20" width="20"></td>
-                                            <td class="col-md-5">Chrome</td>
-                                            <td class="col-md-2 float-right" id="chrome-num">7563</td>
-                                            <td class="col-md-3 float-right" id="chrome-percent">33 %</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="col-md-1"><img src="img/ie.svg" height="20" width="20"></td>
-                                            <td class="col-md-5">Internet Explorer</td>
-                                            <td class="col-md-2 float-right" id="ie-num">1001</td>
-                                            <td class="col-md-3 float-right" id="ie-percent">9.9 %</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="col-md-1"><img src="img/safari.svg" height="20" width="20"></td>
-                                            <td class="col-md-5">Safari</td>
-                                            <td class="col-md-2 float-right" id="safari-num">783</td>
-                                            <td class="col-md-3 float-right" id="safari-percent">8.1 %</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="col-md-1"><img src="img/opera.svg" height="20" width="20"></td>
-                                            <td class="col-md-5">Opera</td>
-                                            <td class="col-md-2 float-right" id="opera-num">78</td>
-                                            <td class="col-md-3 float-right" id="opera-percent">1.2 %</td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-8">
-                        <div class="row special">
-                            <div class="panelcontent col-md-6">
-                                <div class="col-md-12 item2description" style="padding-left:0; padding-right:0">Most popular pages</div>
-                            </div>
-                            <div class="panelcontent col-md-6">
-                                <div class="col-md-12 item2description" style="padding-right:0">Least popular pages</div>
-                            </div>
-                            <div class="row special">
-                                <div class="panelcontent col-md-6 popularSites" style="padding-left:0; padding-right:0">
-                                    <div class="panel col-md-12">
-                                        <table class="table study">
-                                            <thead>
-                                            <tr>
-                                                <td>Rank</td>
-                                                <td>Page</td>
-                                            </tr>
-                                            </thead>
-                                            <tbody>
-                                            <tr>
-                                                <td class="col-md-2">#1</td>
-                                                <td id="pagerank-top-one">http://www.ntnu.no/studier/mtkom/veiledning</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="col-md-2">#2</td>
-                                                <td id="pagerank-top-two">https://www.ntnu.no/studentliv/trondheim</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="col-md-2">#3</td>
-                                                <td id="pagerank-top-three">https://www.ntnu.no/parkering/gloshaugen</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="col-md-2">#4</td>
-                                                <td id="pagerank-top-four">http://www.ntnu.no/kart</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="col-md-2">#5</td>
-                                                <td id="pagerank-top-five">http://www.ntnu.no/studier/emnesok</td>
-                                            </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                                <div class="panelcontent col-md-6 popularSites" style="padding-right:0">
-                                    <div class="panel col-md-12">
-                                        <table class="table study">
-                                            <thead>
-                                            <tr>
-                                                <td>Rank</td>
-                                                <td>Page</td>
-                                            </tr>
-                                            </thead>
-                                            <tbody>
-                                            <tr>
-                                                <td class="col-md-2">#1</td>
-                                                <td id="pagerank-bottom-one">http://www.ntnu.no/studier/mtkom/veiledning</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="col-md-2">#2</td>
-                                                <td id="pagerank-bottom-two">https://www.ntnu.no/studentliv/trondheim</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="col-md-2">#3</td>
-                                                <td id="pagerank-bottom-three">https://www.ntnu.no/parkering/gloshaugen</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="col-md-2">#4</td>
-                                                <td id="pagerank-bottom-four">http://www.ntnu.no/kart</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="col-md-2">#5</td>
-                                                <td id="pagerank-bottom-five">http://www.ntnu.no/studier/emnesok</td>
-                                            </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
+                            <div class="panelcontent col-md-3">
+                                <div class="col-md-12">Visitors per week</div>
                             </div>
                         </div>
                     </div>
                 </div>
+                <div class="row three special">
+                    <div class="panelcontent col-md-12">
+                        <!-- <div class="panelcontent vertical-text">
+                             <div>I <br />N <br />N <br />S <br />I <br />D <br />A</div>
+                         </div>-->
+                        <div class="panelcontent col-md-2" style="display: table">
+                            <div class="row two-row-table-top">
+                                <div class="panelcontent col-md-12 item2description big">Users <span>@</span> Innsida</div>
+                            </div>
+                            <div class="row two-row-table-bottom">
+                                <div class="panel col-md-12 visitors" id="innsidaCount">1234</div>
+                            </div>
+                        </div>
+                        <div class="panelcontent col-md-5">
+                            <div class="panel col-md-12"></div>
+                        </div>
+                        <div class="panelcontent col-md-2">
+                            <div class="panel col-md-12"></div>
+                        </div>
+                        <div class="panelcontent col-md-3">
+                            <div class="panel col-md-12"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row special">
+                    <div class="row special">
+                        <div class="row special">
+                            <div class="col-md-12 item2description">
+                                <div class="col-md-12"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row three special">
+                    <div class="panelcontent col-md-12">
+                        <!--<div class="panelcontent vertical-text">
+                            <div><br />T <br />E <br />M <br />A</div>
+                        </div>-->
+                        <div class="panelcontent col-md-2" style="display: table">
+                            <div class="row two-row-table-top">
+                                <div class="panelcontent col-md-12 item2description big">Users <span>@</span> Tema</div>
+                            </div>
+                            <div class="row two-row-table-bottom">
+                                <div class="panel col-md-12 visitors" id="temaCount">2345</div>
+                            </div>
+                        </div>
+                        <div class="panelcontent col-md-5">
+                            <div class="panel col-md-12"></div>
+                        </div>
+                        <div class="panelcontent col-md-2">
+                            <div class="panel col-md-12"></div>
+                        </div>
+                        <div class="panelcontent col-md-3">
+                            <div class="panel col-md-12"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row special">
+                    <div class="row special">
+                        <div class="row special">
+                            <div class="col-md-12 item2description">
+                                <div class="col-md-12"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row three special">
+                    <div class="panelcontent col-md-12">
+                        <!--<div class="panelcontent vertical-text">
+                            <div><br />W <br />I <br />K <br />I</div>
+                        </div>-->
+                        <div class="panelcontent col-md-2" style="display:table">
+                            <div class="row two-row-table-top">
+                                <div class="panelcontent col-md-12 item2description big">Users <span>@</span> Wiki</div>
+                            </div>
+                            <div class="row two-row-table-bottom">
+                                <div class="panel col-md-12 visitors" id="wikiCount">3456</div>
+                            </div>
+                        </div>
+                        <div class="panelcontent col-md-5">
+                            <div class="panel col-md-12"></div>
+                        </div>
+                        <div class="panelcontent col-md-2">
+                            <div class="panel col-md-12"></div>
+                        </div>
+                        <div class="panelcontent col-md-3">
+                            <div class="panel col-md-12"></div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
-            <!-- /Second item -->
+
+            <!-- Forth item -->
 
 
 

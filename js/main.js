@@ -6,9 +6,9 @@ $(document).ready(function(){
     //updateBrowsers();
     makeMap();
     makeDeviceChart();
-    updateIntervalPercent();
+    //updateIntervalPercent();
     //updateCurrentVisitors();
-    //updateMostPopularPages();
+    updateMostPopularPages();
 
     //Test of changing arrows according to recived values
     //updateIntervalPercentArrows(-8,"Week");
@@ -59,7 +59,7 @@ function prefixZero(hour, min, sec)
 
 function updateMostPopularPages(){
     $.ajax({
-        url:"http://139.59.168.70/ew/visitors/risingStars",
+        url:"http://139.59.168.70/ew/visitors/browsers",
         async:true,
         dataType: 'json',
         type:'get'
@@ -205,61 +205,61 @@ function makeMap() {
             areas: [
                 {   /*Akershus*/
                     id: "NO-02",
-                    value: 4447100},
+                    value: 1},
                 {   /*Østfold*/
                     id: "NO-01",
-                    value: 626932},
+                    value: 2},
                 {   /*Oslo*/
                     id: "NO-03",
-                    value: 5130632},
+                    value: 3},
                 {   /*Hedmark*/
                     id: "NO-04",
-                    value: 2673400},
+                    value: 4},
                 {   /*Oppland*/
                     id: "NO-05",
-                    value: 33871648},
+                    value: 5},
                 {   /*Buskerud*/
                     id: "NO-06",
-                    value: 4301261},
+                    value: 6},
                 {   /*Vestfold*/
                     id: "NO-07",
-                    value: 3405565},
+                    value: 7},
                 {   /*Telemark*/
                     id: "NO-08",
-                    value: 783600},
+                    value: 8},
                 {   /*Aust-Agder*/
                     id: "NO-09",
-                    value: 15982378},
+                    value: 9},
                 {   /*Vest-Adger*/
                     id: "NO-10",
-                    value: 8186453},
+                    value: 10},
                 {   /*Rogaland*/
                     id: "NO-11",
-                    value: 7211537},
+                    value: 11},
                 {   /*Hordaland*/
                     id: "NO-12",
-                    value: 4293953},
+                    value: 12},
                 {   /*Sogn og fjordane*/
                     id: "NO-14",
-                    value: 6080485},
+                    value: 13},
                 {   /*Møre og Romsdal*/
                     id: "NO-15",
-                    value: 2926324},
+                    value: 14},
                 {   /*Sør-Trøndelag*/
                     id: "NO-16",
-                    value: 26088418},
+                    value: 15},
                 {   /*Nord-Trøndelag*/
                     id: "NO-17",
-                    value: 4041769},
+                    value: 16},
                 {   /*Nordland*/
                     id: "NO-18",
-                    value: 4468976},
+                    value: 17},
                 {   /*Troms*/
                     id: "NO-19",
-                    value: 6274923},
+                    value: 18},
                 {   /*Finnmark*/
                     id: "NO-20",
-                    value: 17419293}]
+                    value: 19}]
         };
 
         map.areasSettings = {

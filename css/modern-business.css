@@ -152,6 +152,26 @@ table.study tr td {
     height: 100%;
 }
 
+
+.two-row-table-top {
+    display:table-row;
+    height:30%;
+}
+
+.two-row-table-bottom {
+    display:table-row;
+    height:70%;
+}
+
+
+.item2description.big {
+    font-size: 24px;
+    display: table-cell;
+
+}
+
+
+
 .panel {
     height: 100%;
     color: #ffffff;
