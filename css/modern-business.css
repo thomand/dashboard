@@ -38,6 +38,10 @@ body {
     text-align:center
 }
 
+.five {
+    height: 15%;
+    margin-bottom:25px;
+}
 
 /*USed for testing*/
 .test {
@@ -90,6 +94,15 @@ body {
     margin-right:0;
 }
 
+.ion-pricetag {
+    font-size: 16px;
+    color: rgb(139,210,47);
+}
+
+.italic {
+    font-style: italic;
+}
+
 .device {
     height:199px !important;
 }
@@ -127,6 +140,7 @@ table.extramargin {
 .red {
     color: rgb(249,83,114);
 }
+
 
 .ion-arrow-graph-up-right{
     color: rgb(139,210,47);
