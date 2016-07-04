@@ -28,15 +28,12 @@ body {
 }
 
 .row.three {
-    height:25%;
-    margin-bottom: 35px;
+    height:28%;
+    margin-bottom: 10px;
 }
 
 .vertical-text {
-    width:1.5%;
-    position: absolute;
-    left:0.1%;
-    font-size:18px;
+    font-size:20px;
     color:white;
     text-align:center
 }

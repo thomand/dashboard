@@ -504,6 +504,7 @@ function updateInnsidaWeekChart() {
         legend.useGraphSettings = true;
         legend.color = "#FFFFFF";
         chart.addLegend(legend);
+        chart.creditsPosition = "top-right";
 
         // WRITE
         chart.write("innsidaWeekChart");
@@ -662,6 +663,7 @@ function updateTemaWeekChart() {
         legend.useGraphSettings = true;
         legend.color = "#FFFFFF";
         chart.addLegend(legend);
+        chart.creditsPosition = "top-right";
 
         // WRITE
         chart.write("temaWeekChart");
@@ -820,6 +822,7 @@ function updateWikiWeekChart() {
         legend.useGraphSettings = true;
         legend.color = "#FFFFFF";
         chart.addLegend(legend);
+        chart.creditsPosition = "top-right";
 
         // WRITE
         chart.write("wikiWeekChart");
