@@ -14,7 +14,9 @@ $(document).ready(function(){
     //updateIntervalPercentArrows(-8,"Week");
     //updateIntervalPercentArrows(2,"Month");
     //updateIntervalPercentArrows(-8,"Year");
-
+    updateInnsidaWeekChart();
+    updateTemaWeekChart();
+    updateWikiWeekChart();
 
 
 
@@ -350,4 +352,477 @@ function makeDeviceChart() {
 
 }
 
+function updateInnsidaWeekChart() {
+    var chartData = [
+        {
+            "date": "2016-01-11",
+            "thisWeek": 227,
+            "lastWeek": 113
+
+        },
+        {
+            "date": "2016-01-12",
+            "thisWeek": 371,
+            "lastWeek": 257
+
+        },
+        {
+            "date": "2016-01-13",
+            "thisWeek": 433,
+            "lastWeek": 312
+
+        },
+        {
+            "date": "2016-01-14",
+            "thisWeek": 345,
+            "lastWeek": 225
+
+        },
+        {
+            "date": "2016-01-15",
+            "thisWeek": 480,
+            "lastWeek": 675
+
+        },
+        {
+            "date": "2016-01-16",
+            "thisWeek": 386,
+            "lastWeek": 462
+
+        },
+        {
+            "date": "2016-01-17",
+            "thisWeek": 348,
+            "lastWeek": 147
+        }
+
+    ];
+    var chart;
+
+    AmCharts.ready(function () {
+        // SERIAL CHART
+        chart = new AmCharts.AmSerialChart();
+        chart.dataProvider = chartData;
+        chart.categoryField = "date";
+        chart.dataDateFormat = "YYYY-MM-DD";
+        chart.color = "#FFFFFF";
+        chart.marginLeft = 0;
+
+        // AXES
+        // category
+        var categoryAxis = chart.categoryAxis;
+        categoryAxis.parseDates = true; // as our data is date-based, we set parseDates to true
+        categoryAxis.minPeriod = "DD"; // our data is daily, so we set minPeriod to DD
+        categoryAxis.autoGridCount = false;
+        categoryAxis.gridCount = 50;
+        categoryAxis.gridAlpha = 0.1;
+        categoryAxis.gridColor = "#FFFFFF";
+        categoryAxis.axisColor = "#555555";
+        // we want custom date formatting, so we change it in next line
+        /*categoryAxis.dateFormats = [{
+         period: 'DD',
+         format: 'DD'
+         }, {
+         period: 'WW',
+         format: 'MMM DD'
+         }, {
+         period: 'MM',
+         format: 'MMM'
+         }, {
+         period: 'YYYY',
+         format: 'YYYY'
+         }];*/
+
+        // as we have data of different units, we create three different value axes
+        // thisWeek value axis
+        var thisWeekAxis = new AmCharts.ValueAxis();
+        //  thisWeekAxis.title = "Users";
+        thisWeekAxis.gridAlpha = 0;
+        thisWeekAxis.axisAlpha = 0;
+        chart.addValueAxis(thisWeekAxis);
+
+        // lastWeek value axis
+        var lastWeekAxis = new AmCharts.ValueAxis();
+        lastWeekAxis.gridAlpha = 0;
+        lastWeekAxis.axisAlpha = 0;
+        chart.addValueAxis(lastWeekAxis);
+
+
+        // GRAPHS
+        // thisWeek graph
+        var thisWeekGraph = new AmCharts.AmGraph();
+        thisWeekGraph.id = "v1";
+        thisWeekGraph.valueField = "thisWeek";
+        thisWeekGraph.title = "This week";
+        thisWeekGraph.type = "column";
+        thisWeekGraph.fillAlphas = 0.9;
+        thisWeekGraph.valueAxis = thisWeekAxis; // indicate which axis should be used
+        thisWeekGraph.balloonText = "This week: [[value]]";
+        thisWeekGraph.legendValueText = "[[value]] users";
+        thisWeekGraph.legendPeriodValueText = "total: [[value.sum]]";
+        thisWeekGraph.lineColor = "#8BD22F";
+        thisWeekGraph.dashLengthField = "dashLength";
+        thisWeekGraph.alphaField = "alpha";
+        chart.addGraph(thisWeekGraph);
+
+        // lastWeek graph
+        var lastWeekGraph = new AmCharts.AmGraph();
+        lastWeekGraph.id = "v2";
+        lastWeekGraph.valueField = "lastWeek";
+        lastWeekGraph.title = "Last week";
+        lastWeekGraph.type = "line";
+        lastWeekGraph.synchronizeWith = "v1";
+        lastWeekGraph.synchronizationMultiplier = 1;
+        lastWeekGraph.lineColor = "#F95372";
+        lastWeekGraph.lineThickness = 1;
+        lastWeekGraph.legendValueText = "[[description]] [[value]]";
+        lastWeekGraph.legendPeriodValueText = "total: [[value.sum]]";
+        lastWeekGraph.bullet = "round";
+        lastWeekGraph.bulletBorderColor = "#F95372";
+        lastWeekGraph.bulletBorderAlpha = 1;
+        lastWeekGraph.bulletBorderThickness = 2;
+        lastWeekGraph.balloonText = "Last week:[[value]]";
+        lastWeekGraph.showBalloon = true;
+        lastWeekGraph.dashLengthField = "dashLength";
+        chart.addGraph(lastWeekGraph);
+
+
+
+        // CURSOR
+        var chartCursor = new AmCharts.ChartCursor();
+        chartCursor.zoomable = false;
+        chartCursor.categoryBalloonDateFormat = "EEE";
+        chartCursor.cursorAlpha = 0;
+        chartCursor.valueBalloonsEnabled = false;
+        chart.addChartCursor(chartCursor);
+
+        // LEGEND
+        var legend = new AmCharts.AmLegend();
+        legend.bulletType = "round";
+        legend.equalWidths = false;
+        legend.valueWidth = 100;
+        legend.useGraphSettings = true;
+        legend.color = "#FFFFFF";
+        chart.addLegend(legend);
+
+        // WRITE
+        chart.write("innsidaWeekChart");
+    });
+}
+
+function updateTemaWeekChart() {
+    var chartData = [
+        {
+            "date": "2016-01-11",
+            "thisWeek": 325,
+            "lastWeek": 471
+
+        },
+        {
+            "date": "2016-01-12",
+            "thisWeek": 189,
+            "lastWeek": 234
+
+        },
+        {
+            "date": "2016-01-13",
+            "thisWeek": 433,
+            "lastWeek": 312
+
+        },
+        {
+            "date": "2016-01-14",
+            "thisWeek": 782,
+            "lastWeek": 678
+
+        },
+        {
+            "date": "2016-01-15",
+            "thisWeek": 365,
+            "lastWeek": 675
+
+        },
+        {
+            "date": "2016-01-16",
+            "thisWeek": 286,
+            "lastWeek": 453
+
+        },
+        {
+            "date": "2016-01-17",
+            "thisWeek": 248,
+            "lastWeek": 147
+        }
+
+    ];
+    var chart;
+
+    AmCharts.ready(function () {
+        // SERIAL CHART
+        chart = new AmCharts.AmSerialChart();
+        chart.dataProvider = chartData;
+        chart.categoryField = "date";
+        chart.dataDateFormat = "YYYY-MM-DD";
+        chart.color = "#FFFFFF";
+        chart.marginLeft = 0;
+
+        // AXES
+        // category
+        var categoryAxis = chart.categoryAxis;
+        categoryAxis.parseDates = true; // as our data is date-based, we set parseDates to true
+        categoryAxis.minPeriod = "DD"; // our data is daily, so we set minPeriod to DD
+        categoryAxis.autoGridCount = false;
+        categoryAxis.gridCount = 50;
+        categoryAxis.gridAlpha = 0.1;
+        categoryAxis.gridColor = "#FFFFFF";
+        categoryAxis.axisColor = "#555555";
+        // we want custom date formatting, so we change it in next line
+        /*categoryAxis.dateFormats = [{
+         period: 'DD',
+         format: 'DD'
+         }, {
+         period: 'WW',
+         format: 'MMM DD'
+         }, {
+         period: 'MM',
+         format: 'MMM'
+         }, {
+         period: 'YYYY',
+         format: 'YYYY'
+         }];*/
+
+        // as we have data of different units, we create three different value axes
+        // thisWeek value axis
+        var thisWeekAxis = new AmCharts.ValueAxis();
+        //  thisWeekAxis.title = "Users";
+        thisWeekAxis.gridAlpha = 0;
+        thisWeekAxis.axisAlpha = 0;
+        chart.addValueAxis(thisWeekAxis);
+
+        // lastWeek value axis
+        var lastWeekAxis = new AmCharts.ValueAxis();
+        lastWeekAxis.gridAlpha = 0;
+        lastWeekAxis.axisAlpha = 0;
+        chart.addValueAxis(lastWeekAxis);
+
+
+        // GRAPHS
+        // thisWeek graph
+        var thisWeekGraph = new AmCharts.AmGraph();
+        thisWeekGraph.id = "v1";
+        thisWeekGraph.valueField = "thisWeek";
+        thisWeekGraph.title = "This week";
+        thisWeekGraph.type = "column";
+        thisWeekGraph.fillAlphas = 0.9;
+        thisWeekGraph.valueAxis = thisWeekAxis; // indicate which axis should be used
+        thisWeekGraph.balloonText = "This week: [[value]]";
+        thisWeekGraph.legendValueText = "[[value]] users";
+        thisWeekGraph.legendPeriodValueText = "total: [[value.sum]]";
+        thisWeekGraph.lineColor = "#8BD22F";
+        thisWeekGraph.dashLengthField = "dashLength";
+        thisWeekGraph.alphaField = "alpha";
+        chart.addGraph(thisWeekGraph);
+
+        // lastWeek graph
+        var lastWeekGraph = new AmCharts.AmGraph();
+        lastWeekGraph.id = "v2";
+        lastWeekGraph.valueField = "lastWeek";
+        lastWeekGraph.title = "Last week";
+        lastWeekGraph.type = "line";
+        lastWeekGraph.synchronizeWith = "v1";
+        lastWeekGraph.synchronizationMultiplier = 1;
+        lastWeekGraph.lineColor = "#F95372";
+        lastWeekGraph.lineThickness = 1;
+        lastWeekGraph.legendValueText = "[[description]] [[value]]";
+        lastWeekGraph.legendPeriodValueText = "total: [[value.sum]]";
+        lastWeekGraph.bullet = "round";
+        lastWeekGraph.bulletBorderColor = "#F95372";
+        lastWeekGraph.bulletBorderAlpha = 1;
+        lastWeekGraph.bulletBorderThickness = 2;
+        lastWeekGraph.balloonText = "Last week:[[value]]";
+        lastWeekGraph.showBalloon = true;
+        lastWeekGraph.dashLengthField = "dashLength";
+        chart.addGraph(lastWeekGraph);
+
+
+
+        // CURSOR
+        var chartCursor = new AmCharts.ChartCursor();
+        chartCursor.zoomable = false;
+        chartCursor.categoryBalloonDateFormat = "EEE";
+        chartCursor.cursorAlpha = 0;
+        chartCursor.valueBalloonsEnabled = false;
+        chart.addChartCursor(chartCursor);
+
+        // LEGEND
+        var legend = new AmCharts.AmLegend();
+        legend.bulletType = "round";
+        legend.equalWidths = false;
+        legend.valueWidth = 100;
+        legend.useGraphSettings = true;
+        legend.color = "#FFFFFF";
+        chart.addLegend(legend);
+
+        // WRITE
+        chart.write("temaWeekChart");
+    });
+}
+
+function updateWikiWeekChart() {
+    var chartData = [
+        {
+            "date": "2016-01-11",
+            "thisWeek": 127,
+            "lastWeek": 313
+
+        },
+        {
+            "date": "2016-01-12",
+            "thisWeek": 371,
+            "lastWeek": 457
+
+        },
+        {
+            "date": "2016-01-13",
+            "thisWeek": 633,
+            "lastWeek": 512
+
+        },
+        {
+            "date": "2016-01-14",
+            "thisWeek": 345,
+            "lastWeek": 225
+
+        },
+        {
+            "date": "2016-01-15",
+            "thisWeek": 180,
+            "lastWeek": 375
+
+        },
+        {
+            "date": "2016-01-16",
+            "thisWeek": 236,
+            "lastWeek": 134
+
+        },
+        {
+            "date": "2016-01-17",
+            "thisWeek": 248,
+            "lastWeek": 347
+        }
+
+    ];
+    var chart;
+
+    AmCharts.ready(function () {
+        // SERIAL CHART
+        chart = new AmCharts.AmSerialChart();
+        chart.dataProvider = chartData;
+        chart.categoryField = "date";
+        chart.dataDateFormat = "YYYY-MM-DD";
+        chart.color = "#FFFFFF";
+        chart.marginLeft = 0;
+
+        // AXES
+        // category
+        var categoryAxis = chart.categoryAxis;
+        categoryAxis.parseDates = true; // as our data is date-based, we set parseDates to true
+        categoryAxis.minPeriod = "DD"; // our data is daily, so we set minPeriod to DD
+        categoryAxis.autoGridCount = false;
+        categoryAxis.gridCount = 50;
+        categoryAxis.gridAlpha = 0.1;
+        categoryAxis.gridColor = "#FFFFFF";
+        categoryAxis.axisColor = "#555555";
+        // we want custom date formatting, so we change it in next line
+        /*categoryAxis.dateFormats = [{
+         period: 'DD',
+         format: 'DD'
+         }, {
+         period: 'WW',
+         format: 'MMM DD'
+         }, {
+         period: 'MM',
+         format: 'MMM'
+         }, {
+         period: 'YYYY',
+         format: 'YYYY'
+         }];*/
+
+        // as we have data of different units, we create three different value axes
+        // thisWeek value axis
+        var thisWeekAxis = new AmCharts.ValueAxis();
+        //  thisWeekAxis.title = "Users";
+        thisWeekAxis.gridAlpha = 0;
+        thisWeekAxis.axisAlpha = 0;
+        chart.addValueAxis(thisWeekAxis);
+
+        // lastWeek value axis
+        var lastWeekAxis = new AmCharts.ValueAxis();
+        lastWeekAxis.gridAlpha = 0;
+        lastWeekAxis.axisAlpha = 0;
+        chart.addValueAxis(lastWeekAxis);
+
+
+        // GRAPHS
+        // thisWeek graph
+        var thisWeekGraph = new AmCharts.AmGraph();
+        thisWeekGraph.id = "v1";
+        thisWeekGraph.valueField = "thisWeek";
+        thisWeekGraph.title = "This week";
+        thisWeekGraph.type = "column";
+        thisWeekGraph.fillAlphas = 0.9;
+        thisWeekGraph.valueAxis = thisWeekAxis; // indicate which axis should be used
+        thisWeekGraph.balloonText = "This week: [[value]]";
+        thisWeekGraph.legendValueText = "[[value]] users";
+        thisWeekGraph.legendPeriodValueText = "total: [[value.sum]]";
+        thisWeekGraph.lineColor = "#8BD22F";
+        thisWeekGraph.dashLengthField = "dashLength";
+        thisWeekGraph.alphaField = "alpha";
+        chart.addGraph(thisWeekGraph);
+
+        // lastWeek graph
+        var lastWeekGraph = new AmCharts.AmGraph();
+        lastWeekGraph.id = "v2";
+        lastWeekGraph.valueField = "lastWeek";
+        lastWeekGraph.title = "Last week";
+        lastWeekGraph.type = "line";
+        lastWeekGraph.synchronizeWith = "v1";
+        lastWeekGraph.synchronizationMultiplier = 1;
+        lastWeekGraph.lineColor = "#F95372";
+        lastWeekGraph.lineThickness = 1;
+        lastWeekGraph.legendValueText = "[[description]] [[value]]";
+        lastWeekGraph.legendPeriodValueText = "total: [[value.sum]]";
+        lastWeekGraph.bullet = "round";
+        lastWeekGraph.bulletBorderColor = "#F95372";
+        lastWeekGraph.bulletBorderAlpha = 1;
+        lastWeekGraph.bulletBorderThickness = 2;
+        lastWeekGraph.balloonText = "Last week:[[value]]";
+        lastWeekGraph.showBalloon = true;
+        lastWeekGraph.dashLengthField = "dashLength";
+        chart.addGraph(lastWeekGraph);
+
+
+
+        // CURSOR
+        var chartCursor = new AmCharts.ChartCursor();
+        chartCursor.zoomable = false;
+        chartCursor.categoryBalloonDateFormat = "EEE";
+        chartCursor.cursorAlpha = 0;
+        chartCursor.valueBalloonsEnabled = false;
+        chart.addChartCursor(chartCursor);
+
+        // LEGEND
+        var legend = new AmCharts.AmLegend();
+        legend.bulletType = "round";
+        legend.equalWidths = false;
+        legend.valueWidth = 100;
+        legend.useGraphSettings = true;
+        legend.color = "#FFFFFF";
+        chart.addLegend(legend);
+
+        // WRITE
+        chart.write("wikiWeekChart");
+    });
+}
 
