@@ -273,10 +273,10 @@ function makeMap() {
             outlineColor: "#FFFFFF",
             outlineAlpha: 0.5,
             outlineThickness: 0.5,
-            rollOverColor: "#555555",
+            rollOverColor: "#03A9FC",
             rollOverOutlineColor: "#FFFFFF",
             selectedOutlineColor: "#FFFFFF",
-            selectedColor: "#f15135",
+            selectedColor: "#ffffff",
             unlistedAreasOutlineColor: "#FFFFFF",
             unlistedAreasOutlineAlpha: 0.5,
             autoZoom: true
@@ -302,17 +302,17 @@ function makeDeviceChart() {
         {
             "device": "Computer",
             "visits": 9252,
-            "color": "#8BD22F"
+            "color": "#03A9FC"
         },
         {
             "device": "Smartphone",
             "visits": 1882,
-            "color": "#F95372"
+            "color": "#87CE37"
         },
         {
             "device": "Tablet",
             "visits": 711,
-            "color": "#E7BA08"
+            "color": "#F05576"
         }
     ];
 
@@ -329,14 +329,15 @@ function makeDeviceChart() {
         chart.colorField = "color";
         chart.sequencedAnimation = true;
         chart.startEffect = "elastic";
-        chart.innerRadius = "30%";
-        chart.startDuration = 2;
+        chart.innerRadius = "60%";
+        chart.radius = "40%";
+        //chart.startDuration = 2;
         chart.labelRadius = 15;
         chart.color = "white";
         chart.balloonText = "[[title]]<br><span style='font-size:14px;'><b>[[value]]</b> ([[percents]]%)</span>";
         // the following two lines makes the chart 3D
-        chart.depth3D = 10;
-        chart.angle = 15;
+        //chart.depth3D = 10;
+        //chart.angle = 15;
         //chart.labelsEnabled = false;
         chart.autoMargins = false;
         chart.marginTop = 0;
@@ -460,7 +461,7 @@ function updateInnsidaWeekChart() {
         thisWeekGraph.balloonText = "This week: [[value]]";
         thisWeekGraph.legendValueText = "[[value]] users";
         thisWeekGraph.legendPeriodValueText = "total: [[value.sum]]";
-        thisWeekGraph.lineColor = "#8BD22F";
+        thisWeekGraph.lineColor = "#03A9FC";
         thisWeekGraph.dashLengthField = "dashLength";
         thisWeekGraph.alphaField = "alpha";
         chart.addGraph(thisWeekGraph);
@@ -619,7 +620,7 @@ function updateTemaWeekChart() {
         thisWeekGraph.balloonText = "This week: [[value]]";
         thisWeekGraph.legendValueText = "[[value]] users";
         thisWeekGraph.legendPeriodValueText = "total: [[value.sum]]";
-        thisWeekGraph.lineColor = "#8BD22F";
+        thisWeekGraph.lineColor = "#03A9FC";
         thisWeekGraph.dashLengthField = "dashLength";
         thisWeekGraph.alphaField = "alpha";
         chart.addGraph(thisWeekGraph);
@@ -778,7 +779,7 @@ function updateWikiWeekChart() {
         thisWeekGraph.balloonText = "This week: [[value]]";
         thisWeekGraph.legendValueText = "[[value]] users";
         thisWeekGraph.legendPeriodValueText = "total: [[value.sum]]";
-        thisWeekGraph.lineColor = "#8BD22F";
+        thisWeekGraph.lineColor = "#03A9FC";
         thisWeekGraph.dashLengthField = "dashLength";
         thisWeekGraph.alphaField = "alpha";
         chart.addGraph(thisWeekGraph);
@@ -839,11 +840,31 @@ updateInnsidaVersus();
 
 function updateTrondheimVersus() {
     var chart;
+    var total = 1892;
+    var allLabels = [
+        {
+            "text": "of potential users",
+            "align": "center",
+            "y": 115
+        },
+        {
+            "text": "online this week",
+            "align": "center",
+            "y": 130
+        },
+        {
+            "text": "29%",
+            "align": "center",
+            "bold":true,
+            "size":16,
+            "y": 95
+        }
+    ];
     var chartData = [
         {
             "person": "Students",
             "visits": 252,
-            "color": "#8BD22F"
+            "color": "#03A9FC"
         },
         {
             "person": "Staff",
@@ -852,9 +873,13 @@ function updateTrondheimVersus() {
         }
     ];
 
+    //Set percentage field for amount of visited people out of potential visitors
+    allLabels[2].text = (((chartData[0].visits + chartData[1].visits)/total)*100).toFixed(1).toString() + "%";
+
     AmCharts.ready(function () {
         chart = new AmCharts.AmPieChart();
         chart.dataProvider = chartData;
+        chart.allLabels = allLabels;
         chart.titleField = "person";
         chart.valueField = "visits";
         chart.colorField = "color";
@@ -878,11 +903,31 @@ function updateTrondheimVersus() {
 
 function updateAalesundVersus() {
     var chart;
+    var total = 1892;
+    var allLabels = [
+        {
+            "text": "of potential users",
+            "align": "center",
+            "y": 115
+        },
+        {
+            "text": "online this week",
+            "align": "center",
+            "y": 130
+        },
+        {
+            "text": "29%",
+            "align": "center",
+            "bold":true,
+            "size":16,
+            "y": 95
+        }
+    ];
     var chartData = [
         {
             "person": "Students",
             "visits": 512,
-            "color": "#8BD22F"
+            "color": "#03A9FC"
         },
         {
             "person": "Staff",
@@ -890,10 +935,13 @@ function updateAalesundVersus() {
             "color": "#F95372"
         }
     ];
+    //Set percentage field for amount of visited people out of potential visitors
+    allLabels[2].text = (((chartData[0].visits + chartData[1].visits)/total)*100).toFixed(1).toString() + "%";
 
     AmCharts.ready(function () {
         chart = new AmCharts.AmPieChart();
         chart.dataProvider = chartData;
+        chart.allLabels = allLabels;
         chart.titleField = "person";
         chart.valueField = "visits";
         chart.colorField = "color";
@@ -917,11 +965,32 @@ function updateAalesundVersus() {
 
 function updateGjovikVersus() {
     var chart;
+    var total = 1892;
+    var allLabels = [
+        {
+            "text": "of potential users",
+            "align": "center",
+            "y": 115
+        },
+        {
+            "text": "online this week",
+            "align": "center",
+            "y": 130
+        },
+        {
+            "text": "29%",
+            "align": "center",
+            "bold":true,
+            "size":16,
+            "y": 95
+        }
+    ];
+
     var chartData = [
         {
             "person": "Students",
             "visits": 852,
-            "color": "#8BD22F"
+            "color": "#03A9FC"
         },
         {
             "person": "Staff",
@@ -930,9 +999,13 @@ function updateGjovikVersus() {
         }
     ];
 
+    //Set percentage field for amount of visited people out of potential visitors
+    allLabels[2].text = (((chartData[0].visits + chartData[1].visits)/total)*100).toFixed(1).toString() + "%";
+
     AmCharts.ready(function () {
         chart = new AmCharts.AmPieChart();
         chart.dataProvider = chartData;
+        chart.allLabels = allLabels;
         chart.titleField = "person";
         chart.valueField = "visits";
         chart.colorField = "color";

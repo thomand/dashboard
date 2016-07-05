@@ -16,7 +16,7 @@ body {
 }
 
 #norwaymapcontainer {
-    background: url('../img/norway-arrows.png') no-repeat center center fixed;
+    background: url('../img/norway-arrows2.png') no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -339,6 +339,8 @@ a.heading {
 /* Color for @ and # */
 span {
     color: #00abff;
+/*NTNU blue. Too dark...*/
+/*color: #00509e;*/
 }
 
 .navbar {
