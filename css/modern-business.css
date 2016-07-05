@@ -26,13 +26,65 @@ body {
     margin-top: -10px;
 }
 
+#innsidaTrondheim {
+    margin-top  : 0;
+    /*width		: 100%;*/
+    height		: 250px;
+    font-size	: 11px;
+}
+
+#innsidaGjovik {
+    margin-top  : 0;
+    /*width		: 100%;*/
+    height		: 250px;
+    font-size	: 11px;
+}
+
+#innsidaAalesund {
+    margin-top  : 0;
+    /*width		: 100%;*/
+    height		: 250px;
+    font-size	: 11px;
+}
+
+.noPadding {
+    padding: 0 0 0 0;
+}
+
+.imgcontainer {
+    min-height: 220px;
+    z-index: 0;
+}
+
+.on-top {
+    z-index:1;
+    margin-top:-25px;
+}
+
+.face {
+    height: 100px;
+    width: 60px;
+    display: inline-block;
+    vertical-align: middle;
+    position: absolute;
+    top:0;
+    bottom:0;
+    margin:auto;
+}
+
+.left-pad {
+    padding-left:2%;
+}
+.right-pad {
+    padding-right:2%;
+}
+
 .row {
     margin-left:1%;
     width: 98%;
     margin-right:1%;
 }
 
-/*USed in social media page*/
 .row.two {
     height:40%;
     margin-top:10px;
@@ -57,7 +109,7 @@ body {
 #aalesund {
     margin-top:8%;
     padding-left:10px;
-    padding-right:5px;
+    padding-right:4px;
 }
 
 #trondheim {
@@ -68,7 +120,7 @@ body {
 }
 
 #gjovik {
-    margin-top:-23%;
+    margin-top:-24%;
     padding-right:0;
     padding-left:0;
     margin-right:3.7%;
@@ -166,11 +218,11 @@ table.extramargin {
 
 
 .green{
-    color: rgb(139,210,47);
+    color: #8BD22F;
 }
 
 .red {
-    color: rgb(249,83,114);
+    color: #F95372;
 }
 
 .white {

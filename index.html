@@ -54,6 +54,7 @@
     <script src="charts/amcharts.js" type="text/javascript"></script>
     <script src="charts/pie.js" type="text/javascript"></script>
     <script src="charts/serial.js" type="text/javascript"></script>
+    <script src="charts/light.js"></script>
 
     <!-- JQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
@@ -81,7 +82,7 @@
         <!-- Wrapper for slides -->
         <div class="carousel-inner">
             <!-- First page -->
-            <div class="item">
+            <div class="item active">
                 <div class="row">
                     <div class="col-md-8">
                         <div class="row special">
@@ -704,63 +705,67 @@
             <!-- /Third page -->
             <!-- Forth page -->
             <div class="item">
-                <!-- Level 1 -->
-                <div class="row special">
-                    <div class="description left col-md-4"><i class="socicon-instagram"></i><span> @</span>ntnu / <span>#</span>ntnu</div>
-                    <div class="description right col-md-8"><i class="socicon-facebook"></i><span>@</span>ntnu.no</div>
-                </div>
-                <div class="row special two">
-                    <!-- Instagram carousel -->
-                    <div class="panelcontent col-md-4 carousel slide">
-                        <div class="panel col-md-12">
-                            <div class="carousel-inner">
-                                <div class="item">
-                                    <div class="fill" style="background-image:url('http://placehold.it/1900x1080&text=Slide One');"></div>
+                <div id="norwaymapcontainer">
+                    <div class="row">
+                        <div class="panelcontent col-md-4">
+                            <h2 class="white">Innsida page views</h2>
+                            <h3 class="white">Staff vs Students</h3>
+                        </div>
+                    </div>
+                    <div class="row two">
+                        <div class="panelcontent col-md-3 pull-right" id="trondheim">
+                            <div class="panel col-med-12">
+                                <div class="row special">
+                                    <div class="panelcontent col-md-12 item2description">Trondheim</div>
                                 </div>
-                                <div class="item">
-                                    <div class="fill" style="background-image:url('http://placehold.it/1900x1080&text=Slide Two');"></div>
+                                <div class="row special">
+                                    <div class="panelcontent col-md-2 noPadding imgcontainer"> <img class="face" src="img/people/judge.png"/></div>
+                                    <div class="panelcontent col-md-8 noPadding" id="innsidaTrondheim"></div>
+                                    <div class="panelcontent col-md-2 noPadding imgcontainer"><img class="face" src="img/people/manager.png"/></div>
                                 </div>
-                                <div class="item">
-                                    <div class="fill" style="background-image:url('http://placehold.it/1900x1080&text=Slide Three');"></div>
+                                <div class="row special">
+                                    <h4 class="panelcontent col-md-6 white noPadding left-pad on-top">Staff</h4>
+                                    <h4 class="panelcontent col-md-6 white noPadding float-right right-pad on-top">Students</h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panelcontent col-md-3" id="aalesund">
+                            <div class="panel col-med-12">
+                                <div class="panel col-med-12">
+                                    <div class="row special">
+                                        <div class="panelcontent col-md-12 item2description">Ålesund</div>
+                                    </div>
+                                    <div class="row special">
+                                        <div class="panelcontent col-md-2 noPadding imgcontainer"><img class="face" src="img/people/teacher.png"/></div>
+                                        <div class="panelcontent col-md-8 noPadding" id="innsidaAalesund"></div>
+                                        <div class="panelcontent col-md-2 noPadding imgcontainer"><img class="face" src="img/people/dj.png"/></div>
+                                    </div>
+                                    <div class="row special">
+                                        <h4 class="panelcontent col-md-6 white noPadding left-pad on-top">Staff</h4>
+                                        <h4 class="panelcontent col-md-6 white noPadding float-right right-pad on-top">Students</h4>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <!-- /Instagram carousel --> <!-- HARD TO IMPLEMENT? PROBLEM UPDATING WHICH ITEM IS ACTIVE-->
-                    <!-- Facebook content here -->
-                    <div class="panelcontent col-md-8">
-                        <div class="panelcontent col-md-4">
-                            <div class="panel">Facebook message 1</div>
-                        </div>
-                        <div class="panelcontent col-md-4">
-                            <div class="panel">Facebook message 2</div>
-                        </div>
-                        <div class="panelcontent col-md-4">
-                            <div class="panel">Facebook message 3</div>
-                        </div>
-                    </div>
-                    <!-- End Facebook content -->
                 </div>
-                <!-- Level 2 -->
-                <div class="row special">
-                    <div class="description left col-md-4"><i class="socicon-rss"></i><span> @</span>ntnu</div>
-                    <div class="description right col-md-8"><i class="socicon-twitter"></i><span>@</span>ntnu / <span>@</span>gunnarBovim / <span>#</span>ntnu</div>
-                </div>
-                <!-- RSS content here -->
-                <div class="row two special">
-                    <div class="panelcontent col-md-4">
-                        <div class="panel">RSS feed</div>
-                    </div>
-                    <!-- Twitter content here -->
-                    <div class="panelcontent col-md-8">
-                        <div class="panelcontent col-md-4">
-                            <div class="panel">Twitter feed 1</div>
-                        </div>
-                        <div class="panelcontent col-md-4">
-                            <div class="panel">Twitter feed 2</div>
-                        </div>
-                        <div class="panelcontent col-md-4">
-                            <div class="panel">Twitter feed 3</div>
+                <div class="row two">
+                    <div class="panelcontent col-md-3 pull-right" id="gjovik">
+                        <div class="panel col-med-12">
+                            <div class="panel col-med-12">
+                                <div class="row special">
+                                    <div class="panelcontent col-md-12 item2description">Gjøvik</div>
+                                </div>
+                                <div class="row special">
+                                    <div class="panelcontent col-md-2 noPadding imgcontainer"> <img class="face" src="img/people/writer.png"/></div>
+                                    <div class="panelcontent col-md-8 noPadding" id="innsidaGjovik"></div>
+                                    <div class="panelcontent col-md-2 noPadding imgcontainer"><img class="face" src="img/people/people.png"/></div>
+                                </div>
+                                <div class="row special">
+                                    <h4 class="panelcontent col-md-6 white noPadding left-pad on-top">Staff</h4>
+                                    <h4 class="panelcontent col-md-6 white noPadding float-right right-pad on-top">Students</h4>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -938,40 +943,73 @@
             </div>
             <!-- /Fifth page -->
             <!-- Sixth page -->
-            <div class="item active">
-                <div id="norwaymapcontainer">
-                    <div class="row">
+            <div class="item">
+                <!-- Level 1 -->
+                <div class="row special">
+                    <div class="description left col-md-4"><i class="socicon-instagram"></i><span> @</span>ntnu / <span>#</span>ntnu</div>
+                    <div class="description right col-md-8"><i class="socicon-facebook"></i><span>@</span>ntnu.no</div>
+                </div>
+                <div class="row special two">
+                    <!-- Instagram carousel -->
+                    <div class="panelcontent col-md-4 carousel slide">
+                        <div class="panel col-md-12">
+                            <div class="carousel-inner">
+                                <div class="item">
+                                    <div class="fill" style="background-image:url('http://placehold.it/1900x1080&text=Slide One');"></div>
+                                </div>
+                                <div class="item">
+                                    <div class="fill" style="background-image:url('http://placehold.it/1900x1080&text=Slide Two');"></div>
+                                </div>
+                                <div class="item">
+                                    <div class="fill" style="background-image:url('http://placehold.it/1900x1080&text=Slide Three');"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /Instagram carousel --> <!-- HARD TO IMPLEMENT? PROBLEM UPDATING WHICH ITEM IS ACTIVE-->
+                    <!-- Facebook content here -->
+                    <div class="panelcontent col-md-8">
                         <div class="panelcontent col-md-4">
-                            <h2 class="white">Innsida page views</h2>
-                            <h3 class="white">Staff vs Students</h3>
+                            <div class="panel">Facebook message 1</div>
+                        </div>
+                        <div class="panelcontent col-md-4">
+                            <div class="panel">Facebook message 2</div>
+                        </div>
+                        <div class="panelcontent col-md-4">
+                            <div class="panel">Facebook message 3</div>
                         </div>
                     </div>
-                    <div class="row two">
-                        <div class="panelcontent col-md-3 pull-right" id="trondheim">
-                            <div class="panel col-med-12"></div>
+                    <!-- End Facebook content -->
+                </div>
+                <!-- Level 2 -->
+                <div class="row special">
+                    <div class="description left col-md-4"><i class="socicon-rss"></i><span> @</span>ntnu</div>
+                    <div class="description right col-md-8"><i class="socicon-twitter"></i><span>@</span>ntnu / <span>@</span>gunnarBovim / <span>#</span>ntnu</div>
+                </div>
+                <!-- RSS content here -->
+                <div class="row two special">
+                    <div class="panelcontent col-md-4">
+                        <div class="panel">RSS feed</div>
+                    </div>
+                    <!-- Twitter content here -->
+                    <div class="panelcontent col-md-8">
+                        <div class="panelcontent col-md-4">
+                            <div class="panel">Twitter feed 1</div>
                         </div>
-                        <div class="panelcontent col-md-3" id="aalesund">
-                            <div class="panel col-med-12"></div>
+                        <div class="panelcontent col-md-4">
+                            <div class="panel">Twitter feed 2</div>
+                        </div>
+                        <div class="panelcontent col-md-4">
+                            <div class="panel">Twitter feed 3</div>
                         </div>
                     </div>
                 </div>
-                <div class="row two">
-                    <div class="panelcontent col-md-3 pull-right" id="gjovik">
-                        <div class="panel col-med-12"></div>
-                    </div>
-                </div>
-
             </div>
             <!-- /Sixth page -->
         </div>
     </div>
 
-
-
-
-
-
-    <!-- Page Content -->
+    <!-- /Page Content -->
 
     <!-- jQuery -->
     <!--<script src="js/jquery.js"></script>-->

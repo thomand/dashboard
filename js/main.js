@@ -829,3 +829,128 @@ function updateWikiWeekChart() {
     });
 }
 
+function updateInnsidaVersus() {
+    updateTrondheimVersus();
+    updateGjovikVersus();
+    updateAalesundVersus();
+}
+
+updateInnsidaVersus();
+
+function updateTrondheimVersus() {
+    var chart;
+    var chartData = [
+        {
+            "person": "Students",
+            "visits": 252,
+            "color": "#8BD22F"
+        },
+        {
+            "person": "Staff",
+            "visits": 882,
+            "color": "#F95372"
+        }
+    ];
+
+    AmCharts.ready(function () {
+        chart = new AmCharts.AmPieChart();
+        chart.dataProvider = chartData;
+        chart.titleField = "person";
+        chart.valueField = "visits";
+        chart.colorField = "color";
+        chart.sequencedAnimation = false;
+        chart.innerRadius = "60%";
+        chart.radius = "40%";
+        chart.color = "white";
+        chart.creditsPosition = "top-right";
+
+        chart.labelsEnabled = false;
+        chart.autoMargins = false;
+        chart.marginTop = 0;
+        chart.marginBottom = 0;
+        chart.marginLeft = 0;
+        chart.marginRight = 0;
+        chart.pullOutRadius = 0;
+
+        chart.write("innsidaTrondheim");
+})
+}
+
+function updateAalesundVersus() {
+    var chart;
+    var chartData = [
+        {
+            "person": "Students",
+            "visits": 512,
+            "color": "#8BD22F"
+        },
+        {
+            "person": "Staff",
+            "visits": 672,
+            "color": "#F95372"
+        }
+    ];
+
+    AmCharts.ready(function () {
+        chart = new AmCharts.AmPieChart();
+        chart.dataProvider = chartData;
+        chart.titleField = "person";
+        chart.valueField = "visits";
+        chart.colorField = "color";
+        chart.sequencedAnimation = false;
+        chart.innerRadius = "60%";
+        chart.radius = "40%";
+        chart.color = "white";
+        chart.creditsPosition = "top-right";
+
+        chart.labelsEnabled = false;
+        chart.autoMargins = false;
+        chart.marginTop = 0;
+        chart.marginBottom = 0;
+        chart.marginLeft = 0;
+        chart.marginRight = 0;
+        chart.pullOutRadius = 0;
+
+        chart.write("innsidaAalesund");
+    })
+}
+
+function updateGjovikVersus() {
+    var chart;
+    var chartData = [
+        {
+            "person": "Students",
+            "visits": 852,
+            "color": "#8BD22F"
+        },
+        {
+            "person": "Staff",
+            "visits": 382,
+            "color": "#F95372",
+        }
+    ];
+
+    AmCharts.ready(function () {
+        chart = new AmCharts.AmPieChart();
+        chart.dataProvider = chartData;
+        chart.titleField = "person";
+        chart.valueField = "visits";
+        chart.colorField = "color";
+        chart.sequencedAnimation = false;
+        chart.innerRadius = "60%";
+        chart.radius = "40%";
+        chart.color = "white";
+        chart.creditsPosition = "top-right";
+
+        chart.labelsEnabled = false;
+        chart.autoMargins = false;
+        chart.marginTop = 0;
+        chart.marginBottom = 0;
+        chart.marginLeft = 0;
+        chart.marginRight = 0;
+        chart.pullOutRadius = 0;
+
+        chart.write("innsidaGjovik");
+    })
+}
+
