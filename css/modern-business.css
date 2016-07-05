@@ -15,6 +15,17 @@ body {
     padding-top: 30px;
 }
 
+#norwaymapcontainer {
+    background: url('../img/norway-arrows.png') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height:100%;
+    width:100%;
+    margin-top: -10px;
+}
+
 .row {
     margin-left:1%;
     width: 98%;
@@ -43,6 +54,26 @@ body {
     margin-bottom:25px;
 }
 
+#aalesund {
+    margin-top:8%;
+    padding-left:10px;
+    padding-right:5px;
+}
+
+#trondheim {
+    padding-right:0;
+    padding-left:0;
+    margin-top:-3%;
+    margin-right:3.7%;
+}
+
+#gjovik {
+    margin-top:-23%;
+    padding-right:0;
+    padding-left:0;
+    margin-right:3.7%;
+}
+
 /*USed for testing*/
 .test {
     background-color: red;
@@ -66,6 +97,7 @@ body {
     height: 6%;
     font-size:24px;
 }
+
 
 .visitors {
     font-size: 48px;
@@ -141,6 +173,10 @@ table.extramargin {
     color: rgb(249,83,114);
 }
 
+.white {
+    color:#ffffff;
+}
+
 
 .ion-arrow-graph-up-right{
     color: rgb(139,210,47);
@@ -160,6 +196,7 @@ table.extramargin {
     color: rgb(249,83,114);
     font-size: 24px;
 }
+
 
 .description {
     color: #ffffff;
@@ -194,8 +231,6 @@ table.extramargin {
     display: table-cell;
 
 }
-
-
 
 .panel {
     height: 100%;
