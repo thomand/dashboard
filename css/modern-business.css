@@ -126,9 +126,13 @@ body {
     margin-right:3.7%;
 }
 
+.item {
+    transition: none !important;
+}
+
 .animated.flip {
-    -webkit-animation-duration: 5000ms !important;
-    animation-duration: 5000ms !important;
+    -webkit-animation-duration: 2000ms !important;
+    animation-duration: 2000ms !important;
 }
 
 /*USed for testing*/
