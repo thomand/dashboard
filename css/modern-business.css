@@ -126,6 +126,11 @@ body {
     margin-right:3.7%;
 }
 
+.animated.flip {
+    -webkit-animation-duration: 5000ms !important;
+    animation-duration: 5000ms !important;
+}
+
 /*USed for testing*/
 .test {
     background-color: red;
