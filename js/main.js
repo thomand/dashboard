@@ -3,7 +3,7 @@
  */
 $(document).ready(function(){
     setInterval(getClock, 1000);
-    //updateBrowsers();
+    updateBrowsers();
     makeMap();
     makeDeviceChart();
     //updateIntervalPercent();
@@ -136,42 +136,49 @@ function updateCurrentVisitors() {
 }
 
 function updateBrowsers() {
-    /*$.ajax({
+    $.ajax({
         url:"http://139.59.168.70/ew/visitors/browsers",
         async:true,
         dataType: 'json',
         type:'get'
-    }).done(function(data) {*/
+    }).done(function(data) {
+        console.log(data);
+        console.log(data.Chrome);
         /*Update browser and percentage in updateBrowserTable(data) method*/
 
-        var data = [
+        /*var data = [
             {"id":"firefox", "value":13012},
             {"id":"chrome" , "value":2537},
             {"id":"ie", "value":899},
             {"id":"safari" , "value":431},
             {"id":"opera", "value":157}
 
-        ]
+        ];*/
         updateBrowserTable(data);
 
-    /*});*/
+    });
 
 }
 
 function updateBrowserTable(data) {
+    var firefox = "1325";
+    var chrome = data.Chrome;
+    var ie = data.Others;
+    var safari = data.Safari;
+    var opera = data.Opera;
 
-    document.getElementById("firefox-num").innerHTML = data[0].value;
-    document.getElementById("chrome-num").innerHTML = data[1].value;
-    document.getElementById("ie-num").innerHTML = data[2].value;
-    document.getElementById("safari-num").innerHTML = data[3].value;
-    document.getElementById("opera-num").innerHTML = data[4].value;
-    var sum = parseInt(data[0].value) + parseInt(data[1].value) + parseInt(data[2].value) + parseInt(data[3].value) + parseInt(data[4].value);
+    document.getElementById("firefox-num").innerHTML = firefox;
+    document.getElementById("chrome-num").innerHTML = chrome;
+    document.getElementById("ie-num").innerHTML = ie;
+    document.getElementById("safari-num").innerHTML = safari;
+    document.getElementById("opera-num").innerHTML = opera;
+    var sum = parseInt(firefox) + parseInt(chrome) + parseInt(ie) + parseInt(safari) + parseInt(opera);
 
-    document.getElementById("firefox-percent").innerHTML = calculatePercent(data[0].value,sum) + "%";
-    document.getElementById("chrome-percent").innerHTML = calculatePercent(data[1].value,sum) + "%";
-    document.getElementById("ie-percent").innerHTML = calculatePercent(data[2].value,sum) + "%";
-    document.getElementById("safari-percent").innerHTML = calculatePercent(data[3].value,sum) + "%";
-    document.getElementById("opera-percent").innerHTML = calculatePercent(data[4].value,sum) + "%";
+    document.getElementById("firefox-percent").innerHTML = calculatePercent(firefox,sum) + "%";
+    document.getElementById("chrome-percent").innerHTML = calculatePercent(chrome,sum) + "%";
+    document.getElementById("ie-percent").innerHTML = calculatePercent(ie,sum) + "%";
+    document.getElementById("safari-percent").innerHTML = calculatePercent(safari,sum) + "%";
+    document.getElementById("opera-percent").innerHTML = calculatePercent(opera,sum) + "%";
 
 }
 
