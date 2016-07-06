@@ -16,7 +16,7 @@ body {
 }
 
 #norwaymapcontainer {
-    background: url('../img/norway-arrows2.png') no-repeat center center fixed;
+    background: url('../img/norway-arrows.png') no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -116,14 +116,14 @@ body {
     padding-right:0;
     padding-left:0;
     margin-top:-3%;
-    margin-right:3.7%;
+    margin-right:1%;
 }
 
 #gjovik {
     margin-top:-24%;
     padding-right:0;
     padding-left:0;
-    margin-right:3.7%;
+    margin-right:1%;
 }
 
 .item {
