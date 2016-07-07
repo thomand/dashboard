@@ -62,6 +62,10 @@
     <!-- Project JS -->
     <script src="js/main.js"></script>
 
+    <!-- FIREBASE -->
+    <script src="https://www.gstatic.com/firebasejs/3.0.5/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.0.5/firebase-database.js"></script>
+
 
 
 </head>
@@ -147,34 +151,34 @@
                                     <table class="table browsers">
                                         <tbody>
                                         <tr>
-                                            <td class="col-md-1"><img src="img/firefox.svg" height="20" width="20"></td>
-                                            <td class="col-md-5">Firefox</td>
-                                            <td class="col-md-2 float-right" id="firefox-num">13820</td>
-                                            <td class="col-md-3 float-right" id="firefox-percent">66 %</td>
+                                            <td class="col-md-1" id="browserLogoOne"></td>
+                                            <td class="col-md-5" id="browserNameOne"></td>
+                                            <td class="col-md-2 float-right" id="browserNumOne"></td>
+                                            <td class="col-md-3 float-right" id="browserPercentOne"></td>
                                         </tr>
                                         <tr>
-                                            <td class="col-md-1"><img src="img/chrome.svg" height="20" width="20"></td>
-                                            <td class="col-md-5">Chrome</td>
-                                            <td class="col-md-2 float-right" id="chrome-num">7563</td>
-                                            <td class="col-md-3 float-right" id="chrome-percent">33 %</td>
+                                            <td class="col-md-1" id="browserLogoTwo"></td>
+                                            <td class="col-md-5" id="browserNameTwo"></td>
+                                            <td class="col-md-2 float-right" id="browserNumTwo"></td>
+                                            <td class="col-md-3 float-right" id="browserPercentTwo"></td>
                                         </tr>
                                         <tr>
-                                            <td class="col-md-1"><img src="img/ie.svg" height="20" width="20"></td>
-                                            <td class="col-md-5">Internet Explorer</td>
-                                            <td class="col-md-2 float-right" id="ie-num">1001</td>
-                                            <td class="col-md-3 float-right" id="ie-percent">9.9 %</td>
+                                            <td class="col-md-1" id="browserLogoThree"></td>
+                                            <td class="col-md-5" id="browserNameThree"></td>
+                                            <td class="col-md-2 float-right" id="browserNumThree"></td>
+                                            <td class="col-md-3 float-right" id="browserPercentThree"></td>
                                         </tr>
                                         <tr>
-                                            <td class="col-md-1"><img src="img/safari.svg" height="20" width="20"></td>
-                                            <td class="col-md-5">Safari</td>
-                                            <td class="col-md-2 float-right" id="safari-num">783</td>
-                                            <td class="col-md-3 float-right" id="safari-percent">8.1 %</td>
+                                            <td class="col-md-1" id="browserLogoFour"></td>
+                                            <td class="col-md-5" id="browserNameFour"></td>
+                                            <td class="col-md-2 float-right" id="browserNumFour"></td>
+                                            <td class="col-md-3 float-right" id="browserPercentFour"></td>
                                         </tr>
                                         <tr>
-                                            <td class="col-md-1"><img src="img/opera.svg" height="20" width="20"></td>
-                                            <td class="col-md-5">Opera</td>
-                                            <td class="col-md-2 float-right" id="opera-num">78</td>
-                                            <td class="col-md-3 float-right" id="opera-percent">1.2 %</td>
+                                            <td class="col-md-1" id="browserLogoFive"></td>
+                                            <td class="col-md-5" id="browserNameFive"></td>
+                                            <td class="col-md-2 float-right" id="browserNumFive"></td>
+                                            <td class="col-md-3 float-right" id="browserPercentFive"></td>
                                         </tr>
                                         </tbody>
                                     </table>

@@ -3,7 +3,6 @@
  */
 $(document).ready(function(){
     setInterval(getClock, 1000);
-    updateBrowsers();
     makeMap();
     makeDeviceChart();
     //updateIntervalPercent();
@@ -18,46 +17,76 @@ $(document).ready(function(){
     updateTemaWeekChart();
     updateWikiWeekChart();
 
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyDGxsSprXYHfxsUwvJa74-g3T_JmJmt5kU",
+        authDomain: "dashbordntnu.firebaseapp.com",
+        databaseURL: "https://dashbordntnu.firebaseio.com",
+        storageBucket: "dashbordntnu.appspot.com"
+    };
+    firebase.initializeApp(config);
+    firebase.database().ref('/ew/vistitors/browsers').on("value", function (snap) {
+        // snap.val() will contain the JS object.
+        jsonFromDB = (snap.val());
+        //console.log("DATA:")
+        //console.log(jsonFromDB)
+        //$('#browserInfo').text("DATA: " + JSON.stringify(jsonFromDB));
+        updateEverything(jsonFromDB);
 
-
+    });
 });
 
-var context;
-var d;
-var str;
-function getClock() {
-    //Get Current Time
-    d = new Date();
-    str = prefixZero(d.getHours(), d.getMinutes(), d.getSeconds());
-    //Get the Context 2D or 3D
-    context = clock.getContext("2d");
-    context.clearRect(0, 0, 500, 200);
-    context.font = "30px Tamaho";
-    context.fillStyle = "#ffffff";
-    context.fillText(str,70, 34);
-}
+function updateEverything(data) {
+    updateBrowserTable(data);
+    updateInnsidaVersus();
 
-function prefixZero(hour, min, sec)
-{
-    var curTime;
-    if(hour < 10)
-        curTime = "0"+hour.toString();
-    else
-        curTime = hour.toString();
-
-    if(min < 10)
-        curTime += ":0"+min.toString();
-    else
-        curTime += ":"+min.toString();
-
-    if(sec < 10)
-        curTime += ":0"+sec.toString();
-    else
-        curTime += ":"+sec.toString();
-    return curTime;
 }
 
 
+function updateBrowserTable(data) {
+
+    var firefox = data.Firefox;
+    var chrome = data.Chrome;
+    var ie = data.IE;
+    var safari = data.Safari;
+    var opera = data.Opera;
+    var array = [firefox, chrome, ie, safari, opera];
+    var sorted = array.sort(function(a, b) {
+        return parseInt(a.numbers) - parseInt(b.numbers);
+    });
+    var logoStartString = '<img src="img/';
+    var logoEndString = '.svg" height="20" width="20">';
+    
+    document.getElementById("browserLogoOne").innerHTML = logoStartString + sorted[4].name.toLowerCase() + logoEndString;
+    document.getElementById("browserLogoTwo").innerHTML = logoStartString + sorted[3].name.toLowerCase() + logoEndString;
+    document.getElementById("browserLogoThree").innerHTML = logoStartString + sorted[2].name.toLowerCase() + logoEndString;
+    document.getElementById("browserLogoFour").innerHTML = logoStartString + sorted[1].name.toLowerCase() + logoEndString;
+    document.getElementById("browserLogoFive").innerHTML = logoStartString + sorted[0].name.toLowerCase() + logoEndString;
+
+    document.getElementById("browserNameOne").innerHTML = sorted[4].name;
+    document.getElementById("browserNameTwo").innerHTML = sorted[3].name;
+    document.getElementById("browserNameThree").innerHTML = sorted[2].name;
+    document.getElementById("browserNameFour").innerHTML = sorted[1].name;
+    document.getElementById("browserNameFive").innerHTML = sorted[0].name;
+
+    document.getElementById("browserNumOne").innerHTML = sorted[4].numbers;
+    document.getElementById("browserNumTwo").innerHTML = sorted[3].numbers;
+    document.getElementById("browserNumThree").innerHTML = sorted[2].numbers;
+    document.getElementById("browserNumFour").innerHTML = sorted[1].numbers;
+    document.getElementById("browserNumFive").innerHTML = sorted[0].numbers;
+
+    document.getElementById("browserPercentOne").innerHTML = sorted[4].percent + "%";
+    document.getElementById("browserPercentTwo").innerHTML = sorted[3].percent + "%";
+    document.getElementById("browserPercentThree").innerHTML = sorted[2].percent + "%";
+    document.getElementById("browserPercentFour").innerHTML = sorted[1].percent + "%";
+    document.getElementById("browserPercentFive").innerHTML = sorted[0].percent + "%";
+}
+
+/*
+function calculatePercent(part, total) {
+    return (part/total*100).toFixed(1);
+}
+*/
 
 function updateMostPopularPages(){
     $.ajax({
@@ -68,12 +97,6 @@ function updateMostPopularPages(){
     }).done(function(data) {
 
         /*Change class of arrows depending on if the values have increased/decreased*/
-
-        /*data = [
-         {"id":"LastThirtyDays","value":0.1},
-         {"id":"lastThreeHundredAndSixtyFiveDays", "value":-0.8},
-         {"id":"last7days", "value": 0.5}
-         ]*/
 
     });
 }
@@ -89,6 +112,7 @@ function updateIntervalPercent() {
      dataType: 'json',
      type:'get'
      }).success(function(data) {
+        /*Change class of arrows depending on if the values have increased/decreased*/
         var month = data[0].value;
         updateIntervalPercentArrows(month, "Month");
         var year = data[1].value;
@@ -99,15 +123,6 @@ function updateIntervalPercent() {
         document.getElementById("changeMonth").innerHTML = month;
         document.getElementById("changeYear").innerHTML = year;
         document.getElementById("changeWeek").innerHTML = week;
-
-        /*Change class of arrows depending on if the values have increased/decreased*/
-
-        /*data = [
-            {"id":"LastThirtyDays","value":0.1},
-            {"id":"lastThreeHundredAndSixtyFiveDays", "value":-0.8},
-            {"id":"last7days", "value": 0.5}
-        ]*/
-
 
     });
 }
@@ -122,8 +137,6 @@ function updateIntervalPercentArrows(value, name) {
         document.getElementById(id).className = "ion-arrow-graph-down-right";
     }
 
-
-
 }
 
 function updateCurrentVisitors() {
@@ -135,56 +148,6 @@ function updateCurrentVisitors() {
     document.getElementById("currentVisitors").innerHTML = data[0].value;
 }
 
-function updateBrowsers() {
-    $.ajax({
-        url:"http://139.59.168.70/ew/visitors/browsers",
-        async:true,
-        dataType: 'json',
-        type:'get'
-    }).done(function(data) {
-        console.log(data);
-        console.log(data.Chrome);
-        /*Update browser and percentage in updateBrowserTable(data) method*/
-
-        /*var data = [
-            {"id":"firefox", "value":13012},
-            {"id":"chrome" , "value":2537},
-            {"id":"ie", "value":899},
-            {"id":"safari" , "value":431},
-            {"id":"opera", "value":157}
-
-        ];*/
-        updateBrowserTable(data);
-
-    });
-
-}
-
-function updateBrowserTable(data) {
-    var firefox = "1325";
-    var chrome = data.Chrome;
-    var ie = data.Others;
-    var safari = data.Safari;
-    var opera = data.Opera;
-
-    document.getElementById("firefox-num").innerHTML = firefox;
-    document.getElementById("chrome-num").innerHTML = chrome;
-    document.getElementById("ie-num").innerHTML = ie;
-    document.getElementById("safari-num").innerHTML = safari;
-    document.getElementById("opera-num").innerHTML = opera;
-    var sum = parseInt(firefox) + parseInt(chrome) + parseInt(ie) + parseInt(safari) + parseInt(opera);
-
-    document.getElementById("firefox-percent").innerHTML = calculatePercent(firefox,sum) + "%";
-    document.getElementById("chrome-percent").innerHTML = calculatePercent(chrome,sum) + "%";
-    document.getElementById("ie-percent").innerHTML = calculatePercent(ie,sum) + "%";
-    document.getElementById("safari-percent").innerHTML = calculatePercent(safari,sum) + "%";
-    document.getElementById("opera-percent").innerHTML = calculatePercent(opera,sum) + "%";
-
-}
-
-function calculatePercent(part, total) {
-    return (part/total*100).toFixed(1);
-}
 
 function updatePlatform() {
     $.ajax({
@@ -193,8 +156,7 @@ function updatePlatform() {
         dataType: 'json',
         type:'get'
     }).done(function(data) {
-        /*Update platform in makeDeviceChart() method*/
-        /*Make sure API send color as well. Makes it easier!*/
+
     });
 }
 
@@ -327,9 +289,6 @@ function makeDeviceChart() {
         // PIE CHART
         chart = new AmCharts.AmPieChart();
 
-        // title of the chart
-        //chart.addTitle("Visitors countries", 16);
-
         chart.dataProvider = chartData;
         chart.titleField = "device";
         chart.valueField = "visits";
@@ -338,14 +297,9 @@ function makeDeviceChart() {
         chart.startEffect = "elastic";
         chart.innerRadius = "60%";
         chart.radius = "40%";
-        //chart.startDuration = 2;
         chart.labelRadius = 15;
         chart.color = "white";
         chart.balloonText = "[[title]]<br><span style='font-size:14px;'><b>[[value]]</b> ([[percents]]%)</span>";
-        // the following two lines makes the chart 3D
-        //chart.depth3D = 10;
-        //chart.angle = 15;
-        //chart.labelsEnabled = false;
         chart.autoMargins = false;
         chart.marginTop = 0;
         chart.marginBottom = 0;
@@ -426,20 +380,6 @@ function updateInnsidaWeekChart() {
         categoryAxis.gridAlpha = 0.1;
         categoryAxis.gridColor = "#FFFFFF";
         categoryAxis.axisColor = "#555555";
-        // we want custom date formatting, so we change it in next line
-        /*categoryAxis.dateFormats = [{
-         period: 'DD',
-         format: 'DD'
-         }, {
-         period: 'WW',
-         format: 'MMM DD'
-         }, {
-         period: 'MM',
-         format: 'MMM'
-         }, {
-         period: 'YYYY',
-         format: 'YYYY'
-         }];*/
 
         // as we have data of different units, we create three different value axes
         // thisWeek value axis
@@ -454,7 +394,6 @@ function updateInnsidaWeekChart() {
         lastWeekAxis.gridAlpha = 0;
         lastWeekAxis.axisAlpha = 0;
         chart.addValueAxis(lastWeekAxis);
-
 
         // GRAPHS
         // thisWeek graph
@@ -493,8 +432,6 @@ function updateInnsidaWeekChart() {
         lastWeekGraph.showBalloon = true;
         lastWeekGraph.dashLengthField = "dashLength";
         chart.addGraph(lastWeekGraph);
-
-
 
         // CURSOR
         var chartCursor = new AmCharts.ChartCursor();
@@ -585,20 +522,6 @@ function updateTemaWeekChart() {
         categoryAxis.gridAlpha = 0.1;
         categoryAxis.gridColor = "#FFFFFF";
         categoryAxis.axisColor = "#555555";
-        // we want custom date formatting, so we change it in next line
-        /*categoryAxis.dateFormats = [{
-         period: 'DD',
-         format: 'DD'
-         }, {
-         period: 'WW',
-         format: 'MMM DD'
-         }, {
-         period: 'MM',
-         format: 'MMM'
-         }, {
-         period: 'YYYY',
-         format: 'YYYY'
-         }];*/
 
         // as we have data of different units, we create three different value axes
         // thisWeek value axis
@@ -613,7 +536,6 @@ function updateTemaWeekChart() {
         lastWeekAxis.gridAlpha = 0;
         lastWeekAxis.axisAlpha = 0;
         chart.addValueAxis(lastWeekAxis);
-
 
         // GRAPHS
         // thisWeek graph
@@ -652,8 +574,6 @@ function updateTemaWeekChart() {
         lastWeekGraph.showBalloon = true;
         lastWeekGraph.dashLengthField = "dashLength";
         chart.addGraph(lastWeekGraph);
-
-
 
         // CURSOR
         var chartCursor = new AmCharts.ChartCursor();
@@ -744,20 +664,6 @@ function updateWikiWeekChart() {
         categoryAxis.gridAlpha = 0.1;
         categoryAxis.gridColor = "#FFFFFF";
         categoryAxis.axisColor = "#555555";
-        // we want custom date formatting, so we change it in next line
-        /*categoryAxis.dateFormats = [{
-         period: 'DD',
-         format: 'DD'
-         }, {
-         period: 'WW',
-         format: 'MMM DD'
-         }, {
-         period: 'MM',
-         format: 'MMM'
-         }, {
-         period: 'YYYY',
-         format: 'YYYY'
-         }];*/
 
         // as we have data of different units, we create three different value axes
         // thisWeek value axis
@@ -772,7 +678,6 @@ function updateWikiWeekChart() {
         lastWeekAxis.gridAlpha = 0;
         lastWeekAxis.axisAlpha = 0;
         chart.addValueAxis(lastWeekAxis);
-
 
         // GRAPHS
         // thisWeek graph
@@ -812,8 +717,6 @@ function updateWikiWeekChart() {
         lastWeekGraph.dashLengthField = "dashLength";
         chart.addGraph(lastWeekGraph);
 
-
-
         // CURSOR
         var chartCursor = new AmCharts.ChartCursor();
         chartCursor.zoomable = false;
@@ -842,8 +745,6 @@ function updateInnsidaVersus() {
     updateGjovikVersus();
     updateAalesundVersus();
 }
-
-updateInnsidaVersus();
 
 function updateTrondheimVersus() {
     var chart;
@@ -1032,5 +933,41 @@ function updateGjovikVersus() {
 
         chart.write("innsidaGjovik");
     })
+}
+
+//CLOCK
+function getClock() {
+    var context;
+    var d;
+    var str;
+    //Get Current Time
+    d = new Date();
+    str = prefixZero(d.getHours(), d.getMinutes(), d.getSeconds());
+    //Get the Context 2D or 3D
+    context = clock.getContext("2d");
+    context.clearRect(0, 0, 500, 200);
+    context.font = "30px Tamaho";
+    context.fillStyle = "#ffffff";
+    context.fillText(str,70, 34);
+}
+
+function prefixZero(hour, min, sec)
+{
+    var curTime;
+    if(hour < 10)
+        curTime = "0"+hour.toString();
+    else
+        curTime = hour.toString();
+
+    if(min < 10)
+        curTime += ":0"+min.toString();
+    else
+        curTime += ":"+min.toString();
+
+    if(sec < 10)
+        curTime += ":0"+sec.toString();
+    else
+        curTime += ":"+sec.toString();
+    return curTime;
 }
 
