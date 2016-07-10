@@ -2,43 +2,92 @@
  * Created by thomasandersen on 20.06.2016.
  */
 $(document).ready(function(){
-    setInterval(getClock, 1000);
-    makeMap();
-    makeDeviceChart();
-    //updateIntervalPercent();
-    //updateCurrentVisitors();
-    updateMostPopularPages();
-
-    //Test of changing arrows according to recived values
-    //updateIntervalPercentArrows(-8,"Week");
-    //updateIntervalPercentArrows(2,"Month");
-    //updateIntervalPercentArrows(-8,"Year");
-    updateInnsidaWeekChart();
-    updateTemaWeekChart();
-    updateWikiWeekChart();
-
-    // Initialize Firebase
-    var config = {
+    config = {
         apiKey: "AIzaSyDGxsSprXYHfxsUwvJa74-g3T_JmJmt5kU",
         authDomain: "dashbordntnu.firebaseapp.com",
         databaseURL: "https://dashbordntnu.firebaseio.com",
         storageBucket: "dashbordntnu.appspot.com"
     };
     firebase.initializeApp(config);
-    firebase.database().ref('/ew/vistitors/browsers').on("value", function (snap) {
+    firebase.database().ref('/ew/vistitors/').on("value", function (snap) {
         // snap.val() will contain the JS object.
-        jsonFromDB = (snap.val());
-        //console.log("DATA:")
-        //console.log(jsonFromDB)
-        //$('#browserInfo').text("DATA: " + JSON.stringify(jsonFromDB));
+        jsonFromDB = snap.val();
         updateEverything(jsonFromDB);
-
     });
+
+    setInterval(getClock, 1000);
+    makeMap();
+    updateMostPopularPages();
+    updateInnsidaWeekChart();
+    updateTemaWeekChart();
+    updateWikiWeekChart();
+
+    makeDeviceChart();
+
 });
 
+
 function updateEverything(data) {
-    updateBrowserTable(data);
-    updateInnsidaVersus();
+    makeDeviceChart();
+    updateBrowserTable(data.browsers);
+    //updateInnsidaVersus();
+
+}
+
+function makeDeviceChart() {
+    //console.log(data);
+    var chart;
+    //var chartData2 = [data.computer, data.smartphone, data.tablet];
+      //  console.log(chartData);
+    //console.log(chartData.smartphone);
+    var chartData = [
+     {
+         "color": "#03A9FC",
+         "device": "Computer",
+         "visits": 9252
+
+     },
+     {
+         "color": "#87CE37",
+         "device": "Smartphone",
+         "visits": 1882
+
+     },
+     {
+         "color": "#F05576",
+         "device": "Tablet",
+         "visits": 711
+
+     }
+     ];
+    //WHAT THE FUCK IS WRONG?!?!?
+
+    AmCharts.ready(function () {
+        // PIE CHART
+        chart = new AmCharts.AmPieChart();
+        chart.dataProvider = chartData;
+        chart.titleField = "device";
+        chart.valueField = "visits";
+        chart.colorField = "color";
+        chart.sequencedAnimation = true;
+        chart.startEffect = "elastic";
+        chart.innerRadius = "60%";
+        chart.radius = "40%";
+        chart.labelRadius = 15;
+        chart.color = "white";
+        chart.balloonText = "[[title]]<br><span style='font-size:14px;'><b>[[value]]</b> ([[percents]]%)</span>";
+        chart.autoMargins = false;
+        chart.marginTop = 0;
+        chart.marginBottom = 0;
+        chart.marginLeft = 0;
+        chart.marginRight = 0;
+        chart.pullOutRadius = 0;
+        chart.creditsPosition = "bottom-left";
+        // WRITE
+        chart.write("devicediv");
+    });
+
+
 
 }
 
@@ -51,9 +100,7 @@ function updateBrowserTable(data) {
     var safari = data.Safari;
     var opera = data.Opera;
     var array = [firefox, chrome, ie, safari, opera];
-    var sorted = array.sort(function(a, b) {
-        return parseInt(a.numbers) - parseInt(b.numbers);
-    });
+    var sorted = array.sort(function(a, b) {return parseInt(a.numbers) - parseInt(b.numbers);});
     var logoStartString = '<img src="img/';
     var logoEndString = '.svg" height="20" width="20">';
     
@@ -89,16 +136,6 @@ function calculatePercent(part, total) {
 */
 
 function updateMostPopularPages(){
-    $.ajax({
-        url:"http://139.59.168.70/ew/visitors/browsers",
-        async:true,
-        dataType: 'json',
-        type:'get'
-    }).done(function(data) {
-
-        /*Change class of arrows depending on if the values have increased/decreased*/
-
-    });
 }
 
 function updateLeastPopularPages(){
@@ -146,18 +183,6 @@ function updateCurrentVisitors() {
     ]
 
     document.getElementById("currentVisitors").innerHTML = data[0].value;
-}
-
-
-function updatePlatform() {
-    $.ajax({
-        url:"http://139.59.168.70/ew/visitors/platform",
-        async:true,
-        dataType: 'json',
-        type:'get'
-    }).done(function(data) {
-
-    });
 }
 
 
@@ -264,55 +289,7 @@ function makeMap() {
     });
 }
 
-function makeDeviceChart() {
-    var chart;
 
-    var chartData = [
-        {
-            "device": "Computer",
-            "visits": 9252,
-            "color": "#03A9FC"
-        },
-        {
-            "device": "Smartphone",
-            "visits": 1882,
-            "color": "#87CE37"
-        },
-        {
-            "device": "Tablet",
-            "visits": 711,
-            "color": "#F05576"
-        }
-    ];
-
-    AmCharts.ready(function () {
-        // PIE CHART
-        chart = new AmCharts.AmPieChart();
-
-        chart.dataProvider = chartData;
-        chart.titleField = "device";
-        chart.valueField = "visits";
-        chart.colorField = "color";
-        chart.sequencedAnimation = true;
-        chart.startEffect = "elastic";
-        chart.innerRadius = "60%";
-        chart.radius = "40%";
-        chart.labelRadius = 15;
-        chart.color = "white";
-        chart.balloonText = "[[title]]<br><span style='font-size:14px;'><b>[[value]]</b> ([[percents]]%)</span>";
-        chart.autoMargins = false;
-        chart.marginTop = 0;
-        chart.marginBottom = 0;
-        chart.marginLeft = 0;
-        chart.marginRight = 0;
-        chart.pullOutRadius = 0;
-        chart.creditsPosition = "bottom-left";
-
-        // WRITE
-        chart.write("devicediv");
-    });
-
-}
 
 function updateInnsidaWeekChart() {
     var chartData = [
