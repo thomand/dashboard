@@ -9,7 +9,7 @@ $(document).ready(function(){
         storageBucket: "dashbordntnu.appspot.com"
     };
     firebase.initializeApp(config);
-    firebase.database().ref('/ew/vistitors/').on("value", function (snap) {
+    firebase.database().ref('/ew/vistitors').on("value", function (snap) {
         // snap.val() will contain the JS object.
         jsonFromDB = snap.val();
         updateEverything(jsonFromDB);
@@ -17,7 +17,6 @@ $(document).ready(function(){
 
     setInterval(getClock, 1000);
     makeMap();
-    updateMostPopularPages();
     updateInnsidaWeekChart();
     updateTemaWeekChart();
     updateWikiWeekChart();
@@ -28,18 +27,39 @@ $(document).ready(function(){
 
 
 function updateEverything(data) {
-    makeDeviceChart();
+    //makeDeviceChart(data.platform);
+    updateVisitors(data.visitorCount);
     updateBrowserTable(data.browsers);
     //updateInnsidaVersus();
+}
+
+function updateVisitors(data) {
+    document.getElementById("currentVisitors").innerHTML = data.current;
+    var week = data.lastWeek;
+    updateIntervalPercentArrows(week.change, "Week");
+    var month = data.lastMonth;
+    updateIntervalPercentArrows(month.change, "Month");
+    var year = data.lastYear;
+    updateIntervalPercentArrows(year.change, "Year");
+
+    document.getElementById("changeWeek").innerHTML = week.percent;
+    document.getElementById("weekPercent").innerHTML = "%";
+    document.getElementById("changeMonth").innerHTML = month.percent;
+    document.getElementById("monthPercent").innerHTML = "%";
+    document.getElementById("changeYear").innerHTML = year.percent;
+    document.getElementById("yearPercent").innerHTML = "%";
+}
+
+function updateIntervalPercentArrows(value, name) {
+    var id = name.toLowerCase() + "Arrow";
+    var className = "ion-arrow-graph-" + value + "-right";
+    document.getElementById(id).className = className;
 
 }
 
 function makeDeviceChart() {
-    //console.log(data);
     var chart;
-    //var chartData2 = [data.computer, data.smartphone, data.tablet];
-      //  console.log(chartData);
-    //console.log(chartData.smartphone);
+    //var chartData2 = [data.computer,data.smartphone,data.tablet];
     var chartData = [
      {
          "color": "#03A9FC",
@@ -60,7 +80,6 @@ function makeDeviceChart() {
 
      }
      ];
-    //WHAT THE FUCK IS WRONG?!?!?
 
     AmCharts.ready(function () {
         // PIE CHART
@@ -83,14 +102,11 @@ function makeDeviceChart() {
         chart.marginRight = 0;
         chart.pullOutRadius = 0;
         chart.creditsPosition = "bottom-left";
+
         // WRITE
         chart.write("devicediv");
     });
-
-
-
 }
-
 
 function updateBrowserTable(data) {
 
@@ -134,57 +150,6 @@ function calculatePercent(part, total) {
     return (part/total*100).toFixed(1);
 }
 */
-
-function updateMostPopularPages(){
-}
-
-function updateLeastPopularPages(){
-
-}
-
-function updateIntervalPercent() {
-    $.ajax({
-     url:"http://139.59.168.70/ew/visitors/change",
-     async:true,
-     dataType: 'json',
-     type:'get'
-     }).success(function(data) {
-        /*Change class of arrows depending on if the values have increased/decreased*/
-        var month = data[0].value;
-        updateIntervalPercentArrows(month, "Month");
-        var year = data[1].value;
-        updateIntervalPercentArrows(year, "Year");
-        var week = data[2].value;
-        updateIntervalPercentArrows(week, "Week");
-
-        document.getElementById("changeMonth").innerHTML = month;
-        document.getElementById("changeYear").innerHTML = year;
-        document.getElementById("changeWeek").innerHTML = week;
-
-    });
-}
-
-function updateIntervalPercentArrows(value, name) {
-    /*This method should not set arrows according to positive/negative values but historic values.*/
-    var id = "change" + name + "-arrow";
-    if (value >= 0) {
-        document.getElementById(id).className = "ion-arrow-graph-up-right";
-    }
-    else {
-        document.getElementById(id).className = "ion-arrow-graph-down-right";
-    }
-
-}
-
-function updateCurrentVisitors() {
-
-    var data = [
-        {"id":"currentVisitors", "value":1236}
-    ]
-
-    document.getElementById("currentVisitors").innerHTML = data[0].value;
-}
-
 
 function makeMap() {
     var map;
