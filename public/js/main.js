@@ -4,6 +4,19 @@
 $(document).ready(function(){
     var map;
     var devicechart;
+    init();
+
+    updateInnsidaWeekChart();
+    updateTemaWeekChart();
+    updateWikiWeekChart();
+
+
+});
+
+function init(){
+    makeMap();
+    makeDeviceChart();
+    setInterval(getClock, 1000);
     config = {
         apiKey: "AIzaSyDGxsSprXYHfxsUwvJa74-g3T_JmJmt5kU",
         authDomain: "dashbordntnu.firebaseapp.com",
@@ -11,30 +24,49 @@ $(document).ready(function(){
         storageBucket: "dashbordntnu.appspot.com"
     };
     firebase.initializeApp(config);
-    firebase.database().ref('/ew/vistitors').on("value", function (snap) {
+    firebase.database().ref('/').on("value", function (snap) {
         // snap.val() will contain the JS object.
         jsonFromDB = snap.val();
         updateEverything(jsonFromDB);
     });
-
-    setInterval(getClock, 1000);
-    //makeMap();
-    updateInnsidaWeekChart();
-    updateTemaWeekChart();
-    updateWikiWeekChart();
-    makeMap();
-    makeDeviceChart();
-
-});
+}
 
 
 function updateEverything(data) {
-    updateVisitors(data.visitorCount);
-    updateBrowserTable(data.browsers);
-    updatePopularPages(data.popularPages);
-    updateMapData(data.heatmap);
-    updateDeviceChart(data.platform);
+    updateVisitors(data.ew.vistitors.visitorCount);
+    updateBrowserTable(data.ew.vistitors.browsers);
+    updatePopularPages(data.ew.vistitors.popularPages);
+    updateMapData(data.ew.vistitors.heatmap);
+    updateDeviceChart(data.ew.vistitors.platform);
+    updateStudyPage(data.study);
     //updateInnsidaVersus();
+}
+
+function updateStudyPage(data) {
+    document.getElementById("study-most-visit-one").innerHTML = data.mostVisited.one;
+    document.getElementById("study-most-visit-two").innerHTML = data.mostVisited.two;
+    document.getElementById("study-most-visit-three").innerHTML = data.mostVisited.three;
+    document.getElementById("study-most-visit-four").innerHTML = data.mostVisited.four;
+    document.getElementById("study-most-visit-five").innerHTML = data.mostVisited.five;
+
+    document.getElementById("study-least-visit-one").innerHTML = data.leastVisited.one;
+    document.getElementById("study-least-visit-two").innerHTML = data.leastVisited.two;
+    document.getElementById("study-least-visit-three").innerHTML = data.leastVisited.three;
+    document.getElementById("study-least-visit-four").innerHTML = data.leastVisited.four;
+    document.getElementById("study-least-visit-five").innerHTML = data.leastVisited.five;
+
+    document.getElementById("study-increasing-one").innerHTML = data.increasing.one;
+    document.getElementById("study-increasing-two").innerHTML = data.increasing.two;
+    document.getElementById("study-increasing-three").innerHTML = data.increasing.three;
+    document.getElementById("study-increasing-four").innerHTML = data.increasing.four;
+    document.getElementById("study-increasing-five").innerHTML = data.increasing.five;
+
+    document.getElementById("study-decreasing-one").innerHTML = data.decreasing.one;
+    document.getElementById("study-decreasing-two").innerHTML = data.decreasing.two;
+    document.getElementById("study-decreasing-three").innerHTML = data.decreasing.three;
+    document.getElementById("study-decreasing-four").innerHTML = data.decreasing.four;
+    document.getElementById("study-decreasing-five").innerHTML = data.decreasing.five;
+
 }
 
 function updateDeviceChart(data) {
@@ -71,108 +103,7 @@ function updateMapData(data) {
     map.validateNow();
 }
 
-function makeMap() {
 
-    AmCharts.ready(function() {
-        map = new AmCharts.AmMap();
-
-        /*NOTE: There is no id NO-13!!!*/
-        map.colorSteps = 10;
-
-        var dataProvider = {
-            mapVar: AmCharts.maps.norwayLow,
-
-            areas: [
-                {
-                    id: "NO-02",
-                    value: 0},
-                {
-                    id: "NO-01",
-                    value: 0},
-                {
-                    id: "NO-03",
-                    value: 0},
-                {
-                    id: "NO-04",
-                    value: 0},
-                {
-                    id: "NO-05",
-                    value: 0},
-                {
-                    id: "NO-06",
-                    value: 0},
-                {
-                    id: "NO-07",
-                    value: 0},
-                {
-                    id: "NO-08",
-                    value: 0},
-                {
-                    id: "NO-09",
-                    value: 0},
-                {
-                    id: "NO-10",
-                    value: 0},
-                {
-                    id: "NO-11",
-                    value: 0},
-                {
-                    id: "NO-12",
-                    value: 0},
-                {
-                    id: "NO-14",
-                    value: 0},
-                {
-                    id: "NO-15",
-                    value: 0},
-                {
-                    id: "NO-16",
-                    value: 0},
-                {
-                    id: "NO-17",
-                    value: 0},
-                {
-                    id: "NO-18",
-                    value: 0},
-                {
-                    id: "NO-19",
-                    value: 0},
-                {
-                    id: "NO-20",
-                    value: 0}]
-        };
-
-
-        map.areasSettings = {
-            alpha: 0.8,
-            color: "#F95372",
-            colorSolid: "#8BD22F",
-            unlistedAreasAlpha: 0.4,
-            unlistedAreasColor: "#000000",
-            outlineColor: "#FFFFFF",
-            outlineAlpha: 0.5,
-            outlineThickness: 0.5,
-            rollOverColor: "#03A9FC",
-            rollOverOutlineColor: "#FFFFFF",
-            selectedOutlineColor: "#FFFFFF",
-            selectedColor: "#ffffff",
-            unlistedAreasOutlineColor: "#FFFFFF",
-            unlistedAreasOutlineAlpha: 0.5,
-            autoZoom: true
-        };
-        map.dataProvider = dataProvider;
-
-        var valueLegend = new AmCharts.ValueLegend();
-        valueLegend.right = 10;
-        valueLegend.minValue = "little";
-        valueLegend.maxValue = "a lot!";
-        valueLegend.color = "white";
-        map.valueLegend = valueLegend;
-        map.color = "white";
-
-        map.write("mapdiv");
-    });
-}
 
 
 
@@ -209,59 +140,11 @@ function updateVisitors(data) {
 
 function updateIntervalPercentArrows(value, name) {
     var id = name.toLowerCase() + "Arrow";
-    var className = "ion-arrow-graph-" + value + "-right";
-    document.getElementById(id).className = className;
+    document.getElementById(id).className = "ion-arrow-graph-" + value + "-right";
 
 }
 
-function makeDeviceChart() {
-    var chartData = [
-     {
-         "color": "#03A9FC",
-         "device": "Computer",
-         "visits": 0
 
-     },
-     {
-         "color": "#87CE37",
-         "device": "Smartphone",
-         "visits": 0
-
-     },
-     {
-         "color": "#F05576",
-         "device": "Tablet",
-         "visits": 0
-
-     }
-     ];
-
-    AmCharts.ready(function () {
-        // PIE CHART
-        devicechart = new AmCharts.AmPieChart();
-        devicechart.dataProvider = chartData;
-        devicechart.titleField = "device";
-        devicechart.valueField = "visits";
-        devicechart.colorField = "color";
-        devicechart.sequencedAnimation = true;
-        devicechart.startEffect = "elastic";
-        devicechart.innerRadius = "60%";
-        devicechart.radius = "40%";
-        devicechart.labelRadius = 15;
-        devicechart.color = "white";
-        devicechart.balloonText = "[[title]]<br><span style='font-size:14px;'><b>[[value]]</b> ([[percents]]%)</span>";
-        devicechart.autoMargins = false;
-        devicechart.marginTop = 0;
-        devicechart.marginBottom = 0;
-        devicechart.marginLeft = 0;
-        devicechart.marginRight = 0;
-        devicechart.pullOutRadius = 0;
-        devicechart.creditsPosition = "bottom-left";
-
-        // WRITE
-        devicechart.write("devicediv");
-    });
-}
 
 function updateBrowserTable(data) {
 
@@ -299,13 +182,6 @@ function updateBrowserTable(data) {
     document.getElementById("browserPercentFour").innerHTML = sorted[1].percent + "%";
     document.getElementById("browserPercentFive").innerHTML = sorted[0].percent + "%";
 }
-
-/*
-function calculatePercent(part, total) {
-    return (part/total*100).toFixed(1);
-}
-*/
-
 
 
 
@@ -966,3 +842,156 @@ function prefixZero(hour, min, sec)
     return curTime;
 }
 
+//DeviceChart
+function makeDeviceChart() {
+    var chartData = [
+        {
+            "color": "#03A9FC",
+            "device": "Computer",
+            "visits": 0
+
+        },
+        {
+            "color": "#87CE37",
+            "device": "Smartphone",
+            "visits": 0
+
+        },
+        {
+            "color": "#F05576",
+            "device": "Tablet",
+            "visits": 0
+
+        }
+    ];
+
+    AmCharts.ready(function () {
+        // PIE CHART
+        devicechart = new AmCharts.AmPieChart();
+        devicechart.dataProvider = chartData;
+        devicechart.titleField = "device";
+        devicechart.valueField = "visits";
+        devicechart.colorField = "color";
+        devicechart.sequencedAnimation = true;
+        devicechart.startEffect = "elastic";
+        devicechart.innerRadius = "60%";
+        devicechart.radius = "40%";
+        devicechart.labelRadius = 15;
+        devicechart.color = "white";
+        devicechart.balloonText = "[[title]]<br><span style='font-size:14px;'><b>[[value]]</b> ([[percents]]%)</span>";
+        devicechart.autoMargins = false;
+        devicechart.marginTop = 0;
+        devicechart.marginBottom = 0;
+        devicechart.marginLeft = 0;
+        devicechart.marginRight = 0;
+        devicechart.pullOutRadius = 0;
+        devicechart.creditsPosition = "bottom-left";
+
+        // WRITE
+        devicechart.write("devicediv");
+    });
+}
+
+//norway HeatMap
+function makeMap() {
+
+    AmCharts.ready(function() {
+        map = new AmCharts.AmMap();
+
+        /*NOTE: There is no id NO-13!!!*/
+        map.colorSteps = 10;
+
+        var dataProvider = {
+            mapVar: AmCharts.maps.norwayLow,
+
+            areas: [
+                {
+                    id: "NO-02",
+                    value: 0},
+                {
+                    id: "NO-01",
+                    value: 0},
+                {
+                    id: "NO-03",
+                    value: 0},
+                {
+                    id: "NO-04",
+                    value: 0},
+                {
+                    id: "NO-05",
+                    value: 0},
+                {
+                    id: "NO-06",
+                    value: 0},
+                {
+                    id: "NO-07",
+                    value: 0},
+                {
+                    id: "NO-08",
+                    value: 0},
+                {
+                    id: "NO-09",
+                    value: 0},
+                {
+                    id: "NO-10",
+                    value: 0},
+                {
+                    id: "NO-11",
+                    value: 0},
+                {
+                    id: "NO-12",
+                    value: 0},
+                {
+                    id: "NO-14",
+                    value: 0},
+                {
+                    id: "NO-15",
+                    value: 0},
+                {
+                    id: "NO-16",
+                    value: 0},
+                {
+                    id: "NO-17",
+                    value: 0},
+                {
+                    id: "NO-18",
+                    value: 0},
+                {
+                    id: "NO-19",
+                    value: 0},
+                {
+                    id: "NO-20",
+                    value: 0}]
+        };
+
+
+        map.areasSettings = {
+            alpha: 0.8,
+            color: "#F95372",
+            colorSolid: "#8BD22F",
+            unlistedAreasAlpha: 0.4,
+            unlistedAreasColor: "#000000",
+            outlineColor: "#FFFFFF",
+            outlineAlpha: 0.5,
+            outlineThickness: 0.5,
+            rollOverColor: "#03A9FC",
+            rollOverOutlineColor: "#FFFFFF",
+            selectedOutlineColor: "#FFFFFF",
+            selectedColor: "#ffffff",
+            unlistedAreasOutlineColor: "#FFFFFF",
+            unlistedAreasOutlineAlpha: 0.5,
+            autoZoom: true
+        };
+        map.dataProvider = dataProvider;
+
+        var valueLegend = new AmCharts.ValueLegend();
+        valueLegend.right = 10;
+        valueLegend.minValue = "little";
+        valueLegend.maxValue = "a lot!";
+        valueLegend.color = "white";
+        map.valueLegend = valueLegend;
+        map.color = "white";
+
+        map.write("mapdiv");
+    });
+}
