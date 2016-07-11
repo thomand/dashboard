@@ -149,7 +149,7 @@ body {
 }
 
 .mapContainer {
-    height: 650px !important;
+    height: 648px !important;
 }
 
 .item2description {
@@ -179,6 +179,10 @@ body {
 
 .popularSites {
     height:223px !important;
+}
+
+.visitordiv {
+    height:93px !important;
 }
 
 .special {
