@@ -48,6 +48,7 @@ function updateEverything(data) {
     updateInnsidaWikiTema(data.innsida,"innsida", innsidaVisitorChart);
     updateInnsidaWikiTema(data.tema,"tema", temaVisitorChart);
     updateInnsidaWikiTema(data.wiki,"wiki", wikiVisitorChart);
+    console.log(TrondheimVersuschart.chartData.toString());
     updateVersusCharts(data.innsida.versusChart);
 }
 
@@ -59,12 +60,12 @@ function updateVersusCharts(data) {
     TrondheimVersuschart.validateData();
 
     var AalesundData = data.Aalesund;
-    AalesundVersuschart.chartData = [AalesundData.students, AalesundData.staff];
+    AalesundVersuschart.chartData.dataContext = [AalesundData.students, AalesundData.staff];
     AalesundVersuschart.allLabels[2].text = (((AalesundData.students.visits + AalesundData.staff.visits)/AalesundData.averageVisits)*100).toFixed(1).toString() + "%";
     AalesundVersuschart.validateData();
 
     var GjovikData = data.Gjovik;
-    GjovikVersuschart.chartData = [GjovikData.students, GjovikData.staff];
+    GjovikVersuschart.chartData.dataContext = [GjovikData.students, GjovikData.staff];
     GjovikVersuschart.allLabels[2].text = (((GjovikData.students.visits + GjovikData.staff.visits)/GjovikData.averageVisits)*100).toFixed(1).toString() + "%";
     GjovikVersuschart.validateData();
 }

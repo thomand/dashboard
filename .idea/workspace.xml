@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f594b564-3611-403e-800a-305ea479257a" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/index.html" afterPath="$PROJECT_DIR$/public/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/main.js" afterPath="$PROJECT_DIR$/public/js/main.js" />
     </list>
     <ignored path="startbootstrap-modern-business-1.0.5.iws" />
@@ -55,14 +53,14 @@
           <file leaf-file-name="main.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/public/js/main.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="75">
-                  <caret line="5" column="14" selection-start-line="5" selection-start-column="14" selection-end-line="5" selection-end-column="14" />
+                <state relative-caret-position="165">
+                  <caret line="57" column="83" selection-start-line="57" selection-start-column="83" selection-end-line="57" selection-end-column="83" />
                   <folding>
-                    <element signature="e#2751#3132#0" expanded="false" />
+                    <element signature="e#2835#3216#0" expanded="false" />
                     <element signature="n#!!block;n#makeAalesundVersus#0" expanded="false" />
-                    <element signature="e#4650#5031#0" expanded="false" />
+                    <element signature="e#4734#5115#0" expanded="false" />
                     <element signature="n#!!block;n#makeGjovikVersus#0" expanded="false" />
-                    <element signature="e#6541#6922#0" expanded="false" />
+                    <element signature="e#6625#7006#0" expanded="false" />
                     <element signature="n#!!block;n#updateInnsidaWikiTema#0" expanded="false" />
                     <element signature="n#!!block;n#makeInnsidaWeekChart#0" expanded="false" />
                     <element signature="n#!!block;n#makeTemaWeekChart#0" expanded="false" />
@@ -78,7 +76,7 @@
                     <element signature="n#!!block;n#updateDeviceChart#0" expanded="false" />
                     <element signature="n#!!block;n#makeMap#0" expanded="false" />
                     <element signature="n#!!block;n#updateMapData#0" expanded="false" />
-                    <marker date="1468278482000" expanded="true" signature="31593:31608" placeholder="..." />
+                    <marker date="1468280078000" expanded="true" signature="31677:31692" placeholder="..." />
                   </folding>
                 </state>
               </provider>
@@ -245,12 +243,12 @@
       <workItem from="1466715327957" duration="42163000" />
       <workItem from="1467742601725" duration="13955000" />
       <workItem from="1467905012824" duration="15349000" />
-      <workItem from="1468240536117" duration="19095000" />
+      <workItem from="1468240536117" duration="20359000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="177308000" />
+    <option name="totallyTimeSpent" value="178572000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="873" extended-state="0" />
@@ -476,14 +474,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/js/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="14" selection-start-line="5" selection-start-column="14" selection-end-line="5" selection-end-column="14" />
+        <state relative-caret-position="165">
+          <caret line="57" column="83" selection-start-line="57" selection-start-column="83" selection-end-line="57" selection-end-column="83" />
           <folding>
-            <element signature="e#2751#3132#0" expanded="false" />
+            <element signature="e#2835#3216#0" expanded="false" />
             <element signature="n#!!block;n#makeAalesundVersus#0" expanded="false" />
-            <element signature="e#4650#5031#0" expanded="false" />
+            <element signature="e#4734#5115#0" expanded="false" />
             <element signature="n#!!block;n#makeGjovikVersus#0" expanded="false" />
-            <element signature="e#6541#6922#0" expanded="false" />
+            <element signature="e#6625#7006#0" expanded="false" />
             <element signature="n#!!block;n#updateInnsidaWikiTema#0" expanded="false" />
             <element signature="n#!!block;n#makeInnsidaWeekChart#0" expanded="false" />
             <element signature="n#!!block;n#makeTemaWeekChart#0" expanded="false" />
@@ -499,7 +497,7 @@
             <element signature="n#!!block;n#updateDeviceChart#0" expanded="false" />
             <element signature="n#!!block;n#makeMap#0" expanded="false" />
             <element signature="n#!!block;n#updateMapData#0" expanded="false" />
-            <marker date="1468278482000" expanded="true" signature="31593:31608" placeholder="..." />
+            <marker date="1468280078000" expanded="true" signature="31677:31692" placeholder="..." />
           </folding>
         </state>
       </provider>
