@@ -42,28 +42,28 @@ function updateEverything(data) {
     updateMapData(data.ew.vistitors.heatmap);
     updateDeviceChart(data.ew.vistitors.platform);
     updateStudyPage(data.study);
-    //updateInnsidaWikiTema(data)
+    updateInnsidaWikiTema(data.innsida,"innsida", innsidaVisitorChart);
+    updateInnsidaWikiTema(data.tema,"tema", temaVisitorChart);
+    updateInnsidaWikiTema(data.wiki,"wiki", wikiVisitorChart);
 }
 
-//visitor chart data on innsida not working with firebase. Some error in console...
-function updateInnsidaWikiTema(data) {
-    var innsida = data.innsida;
-    //innsida
+//visitor chart data on innsida not working with firebase. Wont display data...
+function updateInnsidaWikiTema(data,pageName, chart) {
     // broken URL
-    document.getElementById("innsidaBrokenLinks").innerHTML = innsida.brokenUrls.number;
-    document.getElementById("innsidaURLArrow").className = "ion-arrow-graph-" + innsida.brokenUrls.change + "-right bigArrow reverse";
-    document.getElementById("innsidaBrokenURLpercent").innerHTML = innsida.brokenUrls.percent;
-
-    //popular pages and search words
-    document.getElementById("innsidaPopularPage-one").innerHTML = innsida.popular.pages.one;
-    document.getElementById("innsidaPopularPage-two").innerHTML = innsida.popular.pages.two;
-    document.getElementById("innsidaPopularPage-three").innerHTML = innsida.popular.pages.three;
-
-    document.getElementById("innsidaPopularSearch-one").innerHTML = innsida.popular.searches.one;
-    document.getElementById("innsidaPopularSearch-two").innerHTML = innsida.popular.searches.two;
-    document.getElementById("innsidaPopularSearch-three").innerHTML = innsida.popular.searches.three;
-    var days = innsida.visitors;
-    innsidaVisitorChart.dataProvider =
+    document.getElementById(pageName+"BrokenLinks").innerHTML = data.brokenUrls.number;
+    document.getElementById(pageName+"URLArrow").className = "ion-arrow-graph-" + data.brokenUrls.change + "-right bigArrow reverse";
+    document.getElementById(pageName+"BrokenURLpercent").innerHTML = data.brokenUrls.percent;
+    //popular pages
+    document.getElementById(pageName+"PopularPage-one").innerHTML = data.popular.pages.one;
+    document.getElementById(pageName+"PopularPage-two").innerHTML = data.popular.pages.two;
+    document.getElementById(pageName+"PopularPage-three").innerHTML = data.popular.pages.three;
+    //popular search words
+    document.getElementById(pageName+"PopularSearch-one").innerHTML = data.popular.searches.one;
+    document.getElementById(pageName+"PopularSearch-two").innerHTML = data.popular.searches.two;
+    document.getElementById(pageName+"PopularSearch-three").innerHTML = data.popular.searches.three;
+    //visitor charts
+    var days = data.visitors;
+    chart.dataProvider =
         [
             days.monday,
             days.thuesday,
@@ -73,55 +73,55 @@ function updateInnsidaWikiTema(data) {
             days.saturday,
             days.sunday
         ];
-    //innsidaVisitorChart.ignoreZoomed = true;
-    innsidaVisitorChart.startDate = days.monday.date;
-    innsidaVisitorChart.endDate = days.sunday.date;
-    innsidaVisitorChart.zoomToDates(innsidaVisitorChart.startDate, innsidaVisitorChart.endDate);
-    innsidaVisitorChart.validateData();
+    chart.ignoreZoomed = true;
+    chart.startDate = new Date(days.monday.date);
+    chart.endDate = new Date(days.sunday.date);
+    chart.zoomToDates(innsidaVisitorChart.startDate, innsidaVisitorChart.endDate);
+    chart.validateData();
 }
 
 function updateInnsidaWeekChart() {
     var chartData = [
         {
             "date": "2016-07-11",
-            "thisWeek": 0,
-            "lastWeek": 0
+            "lastWeek": 0,
+            "thisWeek": 0
 
         },
         {
             "date": "2016-07-12",
-            "thisWeek": 0,
-            "lastWeek": 0
+            "lastWeek": 0,
+            "thisWeek": 0
 
         },
         {
             "date": "2016-07-13",
-            "thisWeek": 0,
-            "lastWeek": 0
+            "lastWeek": 0,
+            "thisWeek": 0
 
         },
         {
             "date": "2016-07-14",
-            "thisWeek": 0,
-            "lastWeek": 0
+            "lastWeek": 0,
+            "thisWeek": 0
 
         },
         {
             "date": "2016-07-15",
-            "thisWeek": 0,
-            "lastWeek": 0
+            "lastWeek": 0,
+            "thisWeek": 0
 
         },
         {
             "date": "2016-07-16",
-            "thisWeek": 0,
-            "lastWeek": 0
+            "lastWeek": 0,
+            "thisWeek": 0
 
         },
         {
             "date": "2016-07-17",
-            "thisWeek": 0,
-            "lastWeek": 0
+            "lastWeek": 0,
+            "thisWeek": 0
         }
 
     ];
@@ -219,195 +219,51 @@ function updateInnsidaWeekChart() {
         // WRITE
         innsidaVisitorChart.write("innsidaWeekChart");
     });
-
 }
-
-function updateStudyPage(data) {
-    document.getElementById("study-most-visit-one").innerHTML = data.mostVisited.one;
-    document.getElementById("study-most-visit-two").innerHTML = data.mostVisited.two;
-    document.getElementById("study-most-visit-three").innerHTML = data.mostVisited.three;
-    document.getElementById("study-most-visit-four").innerHTML = data.mostVisited.four;
-    document.getElementById("study-most-visit-five").innerHTML = data.mostVisited.five;
-
-    document.getElementById("study-least-visit-one").innerHTML = data.leastVisited.one;
-    document.getElementById("study-least-visit-two").innerHTML = data.leastVisited.two;
-    document.getElementById("study-least-visit-three").innerHTML = data.leastVisited.three;
-    document.getElementById("study-least-visit-four").innerHTML = data.leastVisited.four;
-    document.getElementById("study-least-visit-five").innerHTML = data.leastVisited.five;
-
-    document.getElementById("study-increasing-one").innerHTML = data.increasing.one;
-    document.getElementById("study-increasing-two").innerHTML = data.increasing.two;
-    document.getElementById("study-increasing-three").innerHTML = data.increasing.three;
-    document.getElementById("study-increasing-four").innerHTML = data.increasing.four;
-    document.getElementById("study-increasing-five").innerHTML = data.increasing.five;
-
-    document.getElementById("study-decreasing-one").innerHTML = data.decreasing.one;
-    document.getElementById("study-decreasing-two").innerHTML = data.decreasing.two;
-    document.getElementById("study-decreasing-three").innerHTML = data.decreasing.three;
-    document.getElementById("study-decreasing-four").innerHTML = data.decreasing.four;
-    document.getElementById("study-decreasing-five").innerHTML = data.decreasing.five;
-
-}
-
-function updateDeviceChart(data) {
-    devicechart.dataProvider = [data.computer,data.smartphone,data.tablet];
-    devicechart.validateData();
-}
-
-function updateMapData(data) {
-    // generate bew values
-    map.dataProvider.areas = [
-     data.Akershus,
-     data.AustAgder,
-     data.Buskerud,
-     data.Finnmark,
-     data.Hedmark,
-     data.Hordaland,
-     data.MoreOgRomsdal,
-     data.NordTrondelag,
-     data.Nordland,
-     data.Oppland,
-     data.Oslo,
-     data.Ostfold,
-     data.Rogaland,
-     data.SognOgFjordane,
-     data.SorTrondelag,
-     data.Telemark,
-     data.Troms,
-     data.VestAgder,
-     data.Vestfold
-     ];
-    //TODO: map loses hover after update
-
-    // update map
-    map.validateNow();
-}
-
-
-
-
-
-function updatePopularPages(data) {
-    document.getElementById("mostPopular-one").innerHTML = data.mostPopular.one;
-    document.getElementById("mostPopular-two").innerHTML = data.mostPopular.two;
-    document.getElementById("mostPopular-three").innerHTML = data.mostPopular.three;
-    document.getElementById("mostPopular-four").innerHTML = data.mostPopular.four;
-    document.getElementById("mostPopular-five").innerHTML = data.mostPopular.five;
-
-    document.getElementById("leastPopular-one").innerHTML = data.leastPopular.one;
-    document.getElementById("leastPopular-two").innerHTML = data.leastPopular.two;
-    document.getElementById("leastPopular-three").innerHTML = data.leastPopular.three;
-    document.getElementById("leastPopular-four").innerHTML = data.leastPopular.four;
-    document.getElementById("leastPopular-five").innerHTML = data.leastPopular.five;
-}
-
-function updateVisitors(data) {
-    document.getElementById("currentVisitors").innerHTML = data.current;
-    var week = data.lastWeek;
-    updateIntervalPercentArrows(week.change, "Week");
-    var month = data.lastMonth;
-    updateIntervalPercentArrows(month.change, "Month");
-    var year = data.lastYear;
-    updateIntervalPercentArrows(year.change, "Year");
-
-    document.getElementById("changeWeek").innerHTML = week.percent;
-    document.getElementById("weekPercent").innerHTML = "%";
-    document.getElementById("changeMonth").innerHTML = month.percent;
-    document.getElementById("monthPercent").innerHTML = "%";
-    document.getElementById("changeYear").innerHTML = year.percent;
-    document.getElementById("yearPercent").innerHTML = "%";
-}
-
-function updateIntervalPercentArrows(value, name) {
-    var id = name.toLowerCase() + "Arrow";
-    document.getElementById(id).className = "ion-arrow-graph-" + value + "-right";
-
-}
-
-
-
-function updateBrowserTable(data) {
-
-    var firefox = data.Firefox;
-    var chrome = data.Chrome;
-    var ie = data.IE;
-    var safari = data.Safari;
-    var opera = data.Opera;
-    var array = [firefox, chrome, ie, safari, opera];
-    var sorted = array.sort(function(a, b) {return parseInt(a.numbers) - parseInt(b.numbers);});
-    var logoStartString = '<img src="img/';
-    var logoEndString = '.svg" height="20" width="20">';
-    
-    document.getElementById("browserLogoOne").innerHTML = logoStartString + sorted[4].name.toLowerCase() + logoEndString;
-    document.getElementById("browserLogoTwo").innerHTML = logoStartString + sorted[3].name.toLowerCase() + logoEndString;
-    document.getElementById("browserLogoThree").innerHTML = logoStartString + sorted[2].name.toLowerCase() + logoEndString;
-    document.getElementById("browserLogoFour").innerHTML = logoStartString + sorted[1].name.toLowerCase() + logoEndString;
-    document.getElementById("browserLogoFive").innerHTML = logoStartString + sorted[0].name.toLowerCase() + logoEndString;
-
-    document.getElementById("browserNameOne").innerHTML = sorted[4].name;
-    document.getElementById("browserNameTwo").innerHTML = sorted[3].name;
-    document.getElementById("browserNameThree").innerHTML = sorted[2].name;
-    document.getElementById("browserNameFour").innerHTML = sorted[1].name;
-    document.getElementById("browserNameFive").innerHTML = sorted[0].name;
-
-    document.getElementById("browserNumOne").innerHTML = sorted[4].numbers;
-    document.getElementById("browserNumTwo").innerHTML = sorted[3].numbers;
-    document.getElementById("browserNumThree").innerHTML = sorted[2].numbers;
-    document.getElementById("browserNumFour").innerHTML = sorted[1].numbers;
-    document.getElementById("browserNumFive").innerHTML = sorted[0].numbers;
-
-    document.getElementById("browserPercentOne").innerHTML = sorted[4].percent + "%";
-    document.getElementById("browserPercentTwo").innerHTML = sorted[3].percent + "%";
-    document.getElementById("browserPercentThree").innerHTML = sorted[2].percent + "%";
-    document.getElementById("browserPercentFour").innerHTML = sorted[1].percent + "%";
-    document.getElementById("browserPercentFive").innerHTML = sorted[0].percent + "%";
-}
-
-
 
 
 function updateTemaWeekChart() {
     var chartData = [
         {
             "date": "2016-01-11",
-            "thisWeek": 325,
-            "lastWeek": 471
+            "lastWeek": 0,
+            "thisWeek": 0
 
         },
         {
             "date": "2016-01-12",
-            "thisWeek": 189,
-            "lastWeek": 234
+            "lastWeek": 0,
+            "thisWeek": 0
 
         },
         {
             "date": "2016-01-13",
-            "thisWeek": 433,
-            "lastWeek": 312
+            "lastWeek": 0,
+            "thisWeek": 0
 
         },
         {
             "date": "2016-01-14",
-            "thisWeek": 782,
-            "lastWeek": 678
+            "lastWeek": 0,
+            "thisWeek": 0
 
         },
         {
             "date": "2016-01-15",
-            "thisWeek": 365,
-            "lastWeek": 675
+            "lastWeek": 0,
+            "thisWeek": 0
 
         },
         {
             "date": "2016-01-16",
-            "thisWeek": 286,
-            "lastWeek": 453
+            "lastWeek": 0,
+            "thisWeek": 0
 
         },
         {
             "date": "2016-01-17",
-            "thisWeek": 248,
-            "lastWeek": 147
+            "lastWeek": 0,
+            "thisWeek": 0
         }
 
     ];
@@ -511,46 +367,45 @@ function updateWikiWeekChart() {
     var chartData = [
         {
             "date": "2016-01-11",
-            "thisWeek": 127,
-            "lastWeek": 313
+            "lastWeek": 0,
+            "thisWeek": 0
 
         },
         {
             "date": "2016-01-12",
-            "thisWeek": 371,
-            "lastWeek": 457
+            "lastWeek": 0,
+            "thisWeek": 0
 
         },
         {
             "date": "2016-01-13",
-            "thisWeek": 633,
-            "lastWeek": 512
+            "lastWeek": 0,
+            "thisWeek": 0
 
         },
         {
             "date": "2016-01-14",
-            "thisWeek": 345,
-            "lastWeek": 225
+            "lastWeek": 0,
+            "thisWeek": 0
 
         },
         {
             "date": "2016-01-15",
-            "thisWeek": 180,
-            "lastWeek": 375
+            "lastWeek": 0,
+            "thisWeek": 0
 
         },
         {
             "date": "2016-01-16",
-            "thisWeek": 236,
-            "lastWeek": 134
+            "lastWeek": 0,
+            "thisWeek": 0
 
         },
         {
             "date": "2016-01-17",
-            "thisWeek": 248,
-            "lastWeek": 347
+            "lastWeek": 0,
+            "thisWeek": 0
         }
-
     ];
 
     AmCharts.ready(function () {
@@ -843,6 +698,116 @@ function updateGjovikVersus() {
     })
 }
 
+
+
+
+
+
+
+//update Study pages
+function updateStudyPage(data) {
+    document.getElementById("study-most-visit-one").innerHTML = data.mostVisited.one;
+    document.getElementById("study-most-visit-two").innerHTML = data.mostVisited.two;
+    document.getElementById("study-most-visit-three").innerHTML = data.mostVisited.three;
+    document.getElementById("study-most-visit-four").innerHTML = data.mostVisited.four;
+    document.getElementById("study-most-visit-five").innerHTML = data.mostVisited.five;
+
+    document.getElementById("study-least-visit-one").innerHTML = data.leastVisited.one;
+    document.getElementById("study-least-visit-two").innerHTML = data.leastVisited.two;
+    document.getElementById("study-least-visit-three").innerHTML = data.leastVisited.three;
+    document.getElementById("study-least-visit-four").innerHTML = data.leastVisited.four;
+    document.getElementById("study-least-visit-five").innerHTML = data.leastVisited.five;
+
+    document.getElementById("study-increasing-one").innerHTML = data.increasing.one;
+    document.getElementById("study-increasing-two").innerHTML = data.increasing.two;
+    document.getElementById("study-increasing-three").innerHTML = data.increasing.three;
+    document.getElementById("study-increasing-four").innerHTML = data.increasing.four;
+    document.getElementById("study-increasing-five").innerHTML = data.increasing.five;
+
+    document.getElementById("study-decreasing-one").innerHTML = data.decreasing.one;
+    document.getElementById("study-decreasing-two").innerHTML = data.decreasing.two;
+    document.getElementById("study-decreasing-three").innerHTML = data.decreasing.three;
+    document.getElementById("study-decreasing-four").innerHTML = data.decreasing.four;
+    document.getElementById("study-decreasing-five").innerHTML = data.decreasing.five;
+
+}
+
+function updatePopularPages(data) {
+    document.getElementById("mostPopular-one").innerHTML = data.mostPopular.one;
+    document.getElementById("mostPopular-two").innerHTML = data.mostPopular.two;
+    document.getElementById("mostPopular-three").innerHTML = data.mostPopular.three;
+    document.getElementById("mostPopular-four").innerHTML = data.mostPopular.four;
+    document.getElementById("mostPopular-five").innerHTML = data.mostPopular.five;
+
+    document.getElementById("leastPopular-one").innerHTML = data.leastPopular.one;
+    document.getElementById("leastPopular-two").innerHTML = data.leastPopular.two;
+    document.getElementById("leastPopular-three").innerHTML = data.leastPopular.three;
+    document.getElementById("leastPopular-four").innerHTML = data.leastPopular.four;
+    document.getElementById("leastPopular-five").innerHTML = data.leastPopular.five;
+}
+
+function updateVisitors(data) {
+    document.getElementById("currentVisitors").innerHTML = data.current;
+    var week = data.lastWeek;
+    updateIntervalPercentArrows(week.change, "Week");
+    var month = data.lastMonth;
+    updateIntervalPercentArrows(month.change, "Month");
+    var year = data.lastYear;
+    updateIntervalPercentArrows(year.change, "Year");
+
+    document.getElementById("changeWeek").innerHTML = week.percent;
+    document.getElementById("weekPercent").innerHTML = "%";
+    document.getElementById("changeMonth").innerHTML = month.percent;
+    document.getElementById("monthPercent").innerHTML = "%";
+    document.getElementById("changeYear").innerHTML = year.percent;
+    document.getElementById("yearPercent").innerHTML = "%";
+}
+
+function updateIntervalPercentArrows(value, name) {
+    var id = name.toLowerCase() + "Arrow";
+    document.getElementById(id).className = "ion-arrow-graph-" + value + "-right";
+
+}
+
+
+//BrowserTable ew
+function updateBrowserTable(data) {
+
+    var firefox = data.Firefox;
+    var chrome = data.Chrome;
+    var ie = data.IE;
+    var safari = data.Safari;
+    var opera = data.Opera;
+    var array = [firefox, chrome, ie, safari, opera];
+    var sorted = array.sort(function(a, b) {return parseInt(a.numbers) - parseInt(b.numbers);});
+    var logoStartString = '<img src="img/';
+    var logoEndString = '.svg" height="20" width="20">';
+
+    document.getElementById("browserLogoOne").innerHTML = logoStartString + sorted[4].name.toLowerCase() + logoEndString;
+    document.getElementById("browserLogoTwo").innerHTML = logoStartString + sorted[3].name.toLowerCase() + logoEndString;
+    document.getElementById("browserLogoThree").innerHTML = logoStartString + sorted[2].name.toLowerCase() + logoEndString;
+    document.getElementById("browserLogoFour").innerHTML = logoStartString + sorted[1].name.toLowerCase() + logoEndString;
+    document.getElementById("browserLogoFive").innerHTML = logoStartString + sorted[0].name.toLowerCase() + logoEndString;
+
+    document.getElementById("browserNameOne").innerHTML = sorted[4].name;
+    document.getElementById("browserNameTwo").innerHTML = sorted[3].name;
+    document.getElementById("browserNameThree").innerHTML = sorted[2].name;
+    document.getElementById("browserNameFour").innerHTML = sorted[1].name;
+    document.getElementById("browserNameFive").innerHTML = sorted[0].name;
+
+    document.getElementById("browserNumOne").innerHTML = sorted[4].numbers;
+    document.getElementById("browserNumTwo").innerHTML = sorted[3].numbers;
+    document.getElementById("browserNumThree").innerHTML = sorted[2].numbers;
+    document.getElementById("browserNumFour").innerHTML = sorted[1].numbers;
+    document.getElementById("browserNumFive").innerHTML = sorted[0].numbers;
+
+    document.getElementById("browserPercentOne").innerHTML = sorted[4].percent + "%";
+    document.getElementById("browserPercentTwo").innerHTML = sorted[3].percent + "%";
+    document.getElementById("browserPercentThree").innerHTML = sorted[2].percent + "%";
+    document.getElementById("browserPercentFour").innerHTML = sorted[1].percent + "%";
+    document.getElementById("browserPercentFive").innerHTML = sorted[0].percent + "%";
+}
+
 //CLOCK
 function getClock() {
     var context;
@@ -858,7 +823,7 @@ function getClock() {
     context.fillStyle = "#ffffff";
     context.fillText(str,70, 34);
 }
-
+//Clock helper function
 function prefixZero(hour, min, sec)
 {
     var curTime;
@@ -879,7 +844,7 @@ function prefixZero(hour, min, sec)
     return curTime;
 }
 
-//DeviceChart
+//Generate DeviceChart
 function makeDeviceChart() {
     var chartData = [
         {
@@ -929,7 +894,13 @@ function makeDeviceChart() {
     });
 }
 
-//norway HeatMap
+//update DeviceChart
+function updateDeviceChart(data) {
+    devicechart.dataProvider = [data.computer,data.smartphone,data.tablet];
+    devicechart.validateData();
+}
+
+//Generate norway HeatMap
 function makeMap() {
 
     AmCharts.ready(function() {
@@ -1032,4 +1003,34 @@ function makeMap() {
 
         map.write("mapdiv");
     });
+}
+
+//update norway heatMap
+function updateMapData(data) {
+    // generate bew values
+    map.dataProvider.areas = [
+        data.Akershus,
+        data.AustAgder,
+        data.Buskerud,
+        data.Finnmark,
+        data.Hedmark,
+        data.Hordaland,
+        data.MoreOgRomsdal,
+        data.NordTrondelag,
+        data.Nordland,
+        data.Oppland,
+        data.Oslo,
+        data.Ostfold,
+        data.Rogaland,
+        data.SognOgFjordane,
+        data.SorTrondelag,
+        data.Telemark,
+        data.Troms,
+        data.VestAgder,
+        data.Vestfold
+    ];
+    //TODO: map loses hover after update
+
+    // update map
+    map.validateNow();
 }
