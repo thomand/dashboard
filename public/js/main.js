@@ -7,11 +7,10 @@ $(document).ready(function(){
     var innsidaVisitorChart;
     var temaVisitorChart;
     var wikiVisitorChart;
+    var TrondheimVersuschart;
+    var AalesundVersuschart;
+    var GjovikVersuschart;
     init();
-
-    updateInnsidaWeekChart();
-    updateTemaWeekChart();
-    updateWikiWeekChart();
 
 
 });
@@ -19,6 +18,10 @@ $(document).ready(function(){
 function init(){
     makeMap();
     makeDeviceChart();
+    makeInnsidaWeekChart();
+    makeTemaWeekChart();
+    makeWikiWeekChart();
+    makeInnsidaVersusCharts();
     setInterval(getClock, 1000);
     config = {
         apiKey: "AIzaSyDGxsSprXYHfxsUwvJa74-g3T_JmJmt5kU",
@@ -45,9 +48,225 @@ function updateEverything(data) {
     updateInnsidaWikiTema(data.innsida,"innsida", innsidaVisitorChart);
     updateInnsidaWikiTema(data.tema,"tema", temaVisitorChart);
     updateInnsidaWikiTema(data.wiki,"wiki", wikiVisitorChart);
+    updateVersusCharts(data.innsida.versusChart);
 }
 
-//visitor chart data on innsida not working with firebase. Wont display data...
+
+function updateVersusCharts(data) {
+    var TrondheimData = data.Trondheim;
+    TrondheimVersuschart.chartData = [TrondheimData.students, TrondheimData.staff];
+    TrondheimVersuschart.allLabels[2].text = (((TrondheimData.students.visits + TrondheimData.staff.visits)/TrondheimData.averageVisits)*100).toFixed(1).toString() + "%";
+    TrondheimVersuschart.validateData();
+
+    var AalesundData = data.Aalesund;
+    AalesundVersuschart.chartData = [AalesundData.students, AalesundData.staff];
+    AalesundVersuschart.allLabels[2].text = (((AalesundData.students.visits + AalesundData.staff.visits)/AalesundData.averageVisits)*100).toFixed(1).toString() + "%";
+    AalesundVersuschart.validateData();
+
+    var GjovikData = data.Gjovik;
+    GjovikVersuschart.chartData = [GjovikData.students, GjovikData.staff];
+    GjovikVersuschart.allLabels[2].text = (((GjovikData.students.visits + GjovikData.staff.visits)/GjovikData.averageVisits)*100).toFixed(1).toString() + "%";
+    GjovikVersuschart.validateData();
+}
+
+function makeInnsidaVersusCharts() {
+    makeTrondheimVersus();
+    makeGjovikVersus();
+    makeAalesundVersus();
+}
+
+function makeTrondheimVersus() {
+    var total = 1892;
+    var allLabels = [
+        {
+            "text": "of potential users",
+            "align": "center",
+            "y": 115
+        },
+        {
+            "text": "online this week",
+            "align": "center",
+            "y": 130
+        },
+        {
+            "text": "29%",
+            "align": "center",
+            "bold":true,
+            "size":16,
+            "y": 95
+        }
+    ];
+    var chartData = [
+        {
+            person: "Students",
+            visits: 230,
+            color: "#03A9FC"
+        },
+        {
+            person: "Staff",
+            visits: 120,
+            color: "#F95372"
+        }
+    ];
+
+    //Set percentage field for amount of visited people out of potential visitors
+    allLabels[2].text = (((chartData[0].visits + chartData[1].visits)/total)*100).toFixed(1).toString() + "%";
+
+    AmCharts.ready(function () {
+        TrondheimVersuschart = new AmCharts.AmPieChart();
+        TrondheimVersuschart.dataProvider = chartData;
+        TrondheimVersuschart.allLabels = allLabels;
+        TrondheimVersuschart.titleField = "person";
+        TrondheimVersuschart.valueField = "visits";
+        TrondheimVersuschart.colorField = "color";
+        TrondheimVersuschart.sequencedAnimation = false;
+        TrondheimVersuschart.innerRadius = "60%";
+        TrondheimVersuschart.radius = "40%";
+        TrondheimVersuschart.color = "white";
+        TrondheimVersuschart.creditsPosition = "top-right";
+
+        TrondheimVersuschart.labelsEnabled = false;
+        TrondheimVersuschart.autoMargins = false;
+        TrondheimVersuschart.marginTop = 0;
+        TrondheimVersuschart.marginBottom = 0;
+        TrondheimVersuschart.marginLeft = 0;
+        TrondheimVersuschart.marginRight = 0;
+        TrondheimVersuschart.pullOutRadius = 0;
+
+        TrondheimVersuschart.write("innsidaTrondheim");
+})
+}
+
+function makeAalesundVersus() {
+
+    var total = 1892;
+    var allLabels = [
+        {
+            "text": "of potential users",
+            "align": "center",
+            "y": 115
+        },
+        {
+            "text": "online this week",
+            "align": "center",
+            "y": 130
+        },
+        {
+            "text": "29%",
+            "align": "center",
+            "bold":true,
+            "size":16,
+            "y": 95
+        }
+    ];
+    var chartData = [
+        {
+            "person": "Students",
+            "visits": 512,
+            "color": "#03A9FC"
+        },
+        {
+            "person": "Staff",
+            "visits": 672,
+            "color": "#F95372"
+        }
+    ];
+    //Set percentage field for amount of visited people out of potential visitors
+    allLabels[2].text = (((chartData[0].visits + chartData[1].visits)/total)*100).toFixed(1).toString() + "%";
+
+    AmCharts.ready(function () {
+        AalesundVersuschart = new AmCharts.AmPieChart();
+        AalesundVersuschart.dataProvider = chartData;
+        AalesundVersuschart.allLabels = allLabels;
+        AalesundVersuschart.titleField = "person";
+        AalesundVersuschart.valueField = "visits";
+        AalesundVersuschart.colorField = "color";
+        AalesundVersuschart.sequencedAnimation = false;
+        AalesundVersuschart.innerRadius = "60%";
+        AalesundVersuschart.radius = "40%";
+        AalesundVersuschart.color = "white";
+        AalesundVersuschart.creditsPosition = "top-right";
+
+        AalesundVersuschart.labelsEnabled = false;
+        AalesundVersuschart.autoMargins = false;
+        AalesundVersuschart.marginTop = 0;
+        AalesundVersuschart.marginBottom = 0;
+        AalesundVersuschart.marginLeft = 0;
+        AalesundVersuschart.marginRight = 0;
+        AalesundVersuschart.pullOutRadius = 0;
+
+        AalesundVersuschart.write("innsidaAalesund");
+    })
+}
+
+function makeGjovikVersus() {
+    var total = 1892;
+    var allLabels = [
+        {
+            "text": "of potential users",
+            "align": "center",
+            "y": 115
+        },
+        {
+            "text": "online this week",
+            "align": "center",
+            "y": 130
+        },
+        {
+            "text": "29%",
+            "align": "center",
+            "bold":true,
+            "size":16,
+            "y": 95
+        }
+    ];
+
+    var chartData = [
+        {
+            "person": "Students",
+            "visits": 852,
+            "color": "#03A9FC"
+        },
+        {
+            "person": "Staff",
+            "visits": 382,
+            "color": "#F95372",
+        }
+    ];
+
+    //Set percentage field for amount of visited people out of potential visitors
+    allLabels[2].text = (((chartData[0].visits + chartData[1].visits)/total)*100).toFixed(1).toString() + "%";
+
+    AmCharts.ready(function () {
+        GjovikVersuschart = new AmCharts.AmPieChart();
+        GjovikVersuschart.dataProvider = chartData;
+        GjovikVersuschart.allLabels = allLabels;
+        GjovikVersuschart.titleField = "person";
+        GjovikVersuschart.valueField = "visits";
+        GjovikVersuschart.colorField = "color";
+        GjovikVersuschart.sequencedAnimation = false;
+        GjovikVersuschart.innerRadius = "60%";
+        GjovikVersuschart.radius = "40%";
+        GjovikVersuschart.color = "white";
+        GjovikVersuschart.creditsPosition = "top-right";
+
+        GjovikVersuschart.labelsEnabled = false;
+        GjovikVersuschart.autoMargins = false;
+        GjovikVersuschart.marginTop = 0;
+        GjovikVersuschart.marginBottom = 0;
+        GjovikVersuschart.marginLeft = 0;
+        GjovikVersuschart.marginRight = 0;
+        GjovikVersuschart.pullOutRadius = 0;
+
+        GjovikVersuschart.write("innsidaGjovik");
+    })
+}
+
+
+
+
+
+
 function updateInnsidaWikiTema(data,pageName, chart) {
     // broken URL
     document.getElementById(pageName+"BrokenLinks").innerHTML = data.brokenUrls.number;
@@ -80,7 +299,7 @@ function updateInnsidaWikiTema(data,pageName, chart) {
     chart.validateData();
 }
 
-function updateInnsidaWeekChart() {
+function makeInnsidaWeekChart() {
     var chartData = [
         {
             "date": "2016-07-11",
@@ -222,7 +441,7 @@ function updateInnsidaWeekChart() {
 }
 
 
-function updateTemaWeekChart() {
+function makeTemaWeekChart() {
     var chartData = [
         {
             "date": "2016-01-11",
@@ -363,7 +582,7 @@ function updateTemaWeekChart() {
     });
 }
 
-function updateWikiWeekChart() {
+function makeWikiWeekChart() {
     var chartData = [
         {
             "date": "2016-01-11",
@@ -502,207 +721,6 @@ function updateWikiWeekChart() {
         wikiVisitorChart.write("wikiWeekChart");
     });
 }
-
-function updateInnsidaVersus() {
-    updateTrondheimVersus();
-    updateGjovikVersus();
-    updateAalesundVersus();
-}
-
-function updateTrondheimVersus() {
-    var chart;
-    var total = 1892;
-    var allLabels = [
-        {
-            "text": "of potential users",
-            "align": "center",
-            "y": 115
-        },
-        {
-            "text": "online this week",
-            "align": "center",
-            "y": 130
-        },
-        {
-            "text": "29%",
-            "align": "center",
-            "bold":true,
-            "size":16,
-            "y": 95
-        }
-    ];
-    var chartData = [
-        {
-            "person": "Students",
-            "visits": 252,
-            "color": "#03A9FC"
-        },
-        {
-            "person": "Staff",
-            "visits": 882,
-            "color": "#F95372"
-        }
-    ];
-
-    //Set percentage field for amount of visited people out of potential visitors
-    allLabels[2].text = (((chartData[0].visits + chartData[1].visits)/total)*100).toFixed(1).toString() + "%";
-
-    AmCharts.ready(function () {
-        chart = new AmCharts.AmPieChart();
-        chart.dataProvider = chartData;
-        chart.allLabels = allLabels;
-        chart.titleField = "person";
-        chart.valueField = "visits";
-        chart.colorField = "color";
-        chart.sequencedAnimation = false;
-        chart.innerRadius = "60%";
-        chart.radius = "40%";
-        chart.color = "white";
-        chart.creditsPosition = "top-right";
-
-        chart.labelsEnabled = false;
-        chart.autoMargins = false;
-        chart.marginTop = 0;
-        chart.marginBottom = 0;
-        chart.marginLeft = 0;
-        chart.marginRight = 0;
-        chart.pullOutRadius = 0;
-
-        chart.write("innsidaTrondheim");
-})
-}
-
-function updateAalesundVersus() {
-    var chart;
-    var total = 1892;
-    var allLabels = [
-        {
-            "text": "of potential users",
-            "align": "center",
-            "y": 115
-        },
-        {
-            "text": "online this week",
-            "align": "center",
-            "y": 130
-        },
-        {
-            "text": "29%",
-            "align": "center",
-            "bold":true,
-            "size":16,
-            "y": 95
-        }
-    ];
-    var chartData = [
-        {
-            "person": "Students",
-            "visits": 512,
-            "color": "#03A9FC"
-        },
-        {
-            "person": "Staff",
-            "visits": 672,
-            "color": "#F95372"
-        }
-    ];
-    //Set percentage field for amount of visited people out of potential visitors
-    allLabels[2].text = (((chartData[0].visits + chartData[1].visits)/total)*100).toFixed(1).toString() + "%";
-
-    AmCharts.ready(function () {
-        chart = new AmCharts.AmPieChart();
-        chart.dataProvider = chartData;
-        chart.allLabels = allLabels;
-        chart.titleField = "person";
-        chart.valueField = "visits";
-        chart.colorField = "color";
-        chart.sequencedAnimation = false;
-        chart.innerRadius = "60%";
-        chart.radius = "40%";
-        chart.color = "white";
-        chart.creditsPosition = "top-right";
-
-        chart.labelsEnabled = false;
-        chart.autoMargins = false;
-        chart.marginTop = 0;
-        chart.marginBottom = 0;
-        chart.marginLeft = 0;
-        chart.marginRight = 0;
-        chart.pullOutRadius = 0;
-
-        chart.write("innsidaAalesund");
-    })
-}
-
-function updateGjovikVersus() {
-    var chart;
-    var total = 1892;
-    var allLabels = [
-        {
-            "text": "of potential users",
-            "align": "center",
-            "y": 115
-        },
-        {
-            "text": "online this week",
-            "align": "center",
-            "y": 130
-        },
-        {
-            "text": "29%",
-            "align": "center",
-            "bold":true,
-            "size":16,
-            "y": 95
-        }
-    ];
-
-    var chartData = [
-        {
-            "person": "Students",
-            "visits": 852,
-            "color": "#03A9FC"
-        },
-        {
-            "person": "Staff",
-            "visits": 382,
-            "color": "#F95372",
-        }
-    ];
-
-    //Set percentage field for amount of visited people out of potential visitors
-    allLabels[2].text = (((chartData[0].visits + chartData[1].visits)/total)*100).toFixed(1).toString() + "%";
-
-    AmCharts.ready(function () {
-        chart = new AmCharts.AmPieChart();
-        chart.dataProvider = chartData;
-        chart.allLabels = allLabels;
-        chart.titleField = "person";
-        chart.valueField = "visits";
-        chart.colorField = "color";
-        chart.sequencedAnimation = false;
-        chart.innerRadius = "60%";
-        chart.radius = "40%";
-        chart.color = "white";
-        chart.creditsPosition = "top-right";
-
-        chart.labelsEnabled = false;
-        chart.autoMargins = false;
-        chart.marginTop = 0;
-        chart.marginBottom = 0;
-        chart.marginLeft = 0;
-        chart.marginRight = 0;
-        chart.pullOutRadius = 0;
-
-        chart.write("innsidaGjovik");
-    })
-}
-
-
-
-
-
-
 
 //update Study pages
 function updateStudyPage(data) {
