@@ -48,12 +48,14 @@ function updateEverything(data) {
     updateInnsidaWikiTema(data.innsida,"innsida", innsidaVisitorChart);
     updateInnsidaWikiTema(data.tema,"tema", temaVisitorChart);
     updateInnsidaWikiTema(data.wiki,"wiki", wikiVisitorChart);
-    console.log(TrondheimVersuschart.chartData.toString());
     updateVersusCharts(data.innsida.versusChart);
+    updateGemini(data.gemini);
 }
 
 
+
 function updateVersusCharts(data) {
+    //chart is not updating correctly. Pie is unchanged but text is changed...
     var TrondheimData = data.Trondheim;
     TrondheimVersuschart.chartData = [TrondheimData.students, TrondheimData.staff];
     TrondheimVersuschart.allLabels[2].text = (((TrondheimData.students.visits + TrondheimData.staff.visits)/TrondheimData.averageVisits)*100).toFixed(1).toString() + "%";
@@ -267,6 +269,32 @@ function makeGjovikVersus() {
 
 
 
+function updateGemini(data) {
+    updateElement("gemini-headline-one",data.headlines.one);
+    updateElement("gemini-tag-one",data.tag.one);
+    updateElement("gemini-headline-two",data.headlines.two);
+    updateElement("gemini-tag-two",data.tag.two);
+    updateElement("gemini-headline-three",data.headlines.three);
+    updateElement("gemini-tag-three",data.tag.three);
+    updateElement("gemini-headline-four",data.headlines.four);
+    updateElement("gemini-tag-four",data.tag.four);
+    updateElement("gemini-headline-five",data.headlines.five);
+    updateElement("gemini-tag-five",data.tag.five);
+    updateElement("gemini-headline-six",data.headlines.six);
+    updateElement("gemini-tag-six",data.tag.six);
+    updateElement("gemini-headline-seven",data.headlines.seven);
+    updateElement("gemini-tag-seven",data.tag.seven);
+    updateElement("gemini-headline-eight",data.headlines.eight);
+    updateElement("gemini-tag-eight",data.tag.eight);
+    updateElement("gemini-headline-nine",data.headlines.nine);
+    updateElement("gemini-tag-nine",data.tag.nine);
+    updateElement("gemini-headline-ten",data.headlines.ten);
+    updateElement("gemini-tag-ten",data.tag.ten);
+}
+
+function updateElement(id, value) {
+    document.getElementById(id).innerHTML = value;
+}
 
 function updateInnsidaWikiTema(data,pageName, chart) {
     // broken URL
@@ -440,7 +468,6 @@ function makeInnsidaWeekChart() {
         innsidaVisitorChart.write("innsidaWeekChart");
     });
 }
-
 
 function makeTemaWeekChart() {
     var chartData = [
