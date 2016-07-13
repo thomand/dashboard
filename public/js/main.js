@@ -54,20 +54,22 @@ function updateEverything(data) {
 
 
 
+
+
 function updateVersusCharts(data) {
-    //chart is not updating correctly. Pie is unchanged but text is changed...
     var TrondheimData = data.Trondheim;
-    TrondheimVersuschart.chartData = [TrondheimData.students, TrondheimData.staff];
+    TrondheimVersuschart.dataProvider = [TrondheimData.students, TrondheimData.staff];
     TrondheimVersuschart.allLabels[2].text = (((TrondheimData.students.visits + TrondheimData.staff.visits)/TrondheimData.averageVisits)*100).toFixed(1).toString() + "%";
     TrondheimVersuschart.validateData();
 
+
     var AalesundData = data.Aalesund;
-    AalesundVersuschart.chartData.dataContext = [AalesundData.students, AalesundData.staff];
+    AalesundVersuschart.dataProvider = [AalesundData.students, AalesundData.staff];
     AalesundVersuschart.allLabels[2].text = (((AalesundData.students.visits + AalesundData.staff.visits)/AalesundData.averageVisits)*100).toFixed(1).toString() + "%";
     AalesundVersuschart.validateData();
 
     var GjovikData = data.Gjovik;
-    GjovikVersuschart.chartData.dataContext = [GjovikData.students, GjovikData.staff];
+    GjovikVersuschart.dataProvider = [GjovikData.students, GjovikData.staff];
     GjovikVersuschart.allLabels[2].text = (((GjovikData.students.visits + GjovikData.staff.visits)/GjovikData.averageVisits)*100).toFixed(1).toString() + "%";
     GjovikVersuschart.validateData();
 }
@@ -102,12 +104,12 @@ function makeTrondheimVersus() {
     var chartData = [
         {
             person: "Students",
-            visits: 230,
+            visits: 0,
             color: "#03A9FC"
         },
         {
             person: "Staff",
-            visits: 120,
+            visits: 0,
             color: "#F95372"
         }
     ];
@@ -165,12 +167,12 @@ function makeAalesundVersus() {
     var chartData = [
         {
             "person": "Students",
-            "visits": 512,
+            "visits": 0,
             "color": "#03A9FC"
         },
         {
             "person": "Staff",
-            "visits": 672,
+            "visits": 0,
             "color": "#F95372"
         }
     ];
@@ -227,16 +229,15 @@ function makeGjovikVersus() {
     var chartData = [
         {
             "person": "Students",
-            "visits": 852,
+            "visits": 0,
             "color": "#03A9FC"
         },
         {
             "person": "Staff",
-            "visits": 382,
+            "visits": 0,
             "color": "#F95372",
         }
     ];
-
     //Set percentage field for amount of visited people out of potential visitors
     allLabels[2].text = (((chartData[0].visits + chartData[1].visits)/total)*100).toFixed(1).toString() + "%";
 
@@ -264,9 +265,6 @@ function makeGjovikVersus() {
         GjovikVersuschart.write("innsidaGjovik");
     })
 }
-
-
-
 
 
 function updateGemini(data) {
@@ -382,6 +380,8 @@ function makeInnsidaWeekChart() {
         innsidaVisitorChart.dataDateFormat = "YYYY-MM-DD";
         innsidaVisitorChart.color = "#FFFFFF";
         innsidaVisitorChart.marginLeft = 0;
+        innsidaVisitorChart.marginRight = 0;
+
 
         // AXES
         // category
@@ -523,6 +523,7 @@ function makeTemaWeekChart() {
         temaVisitorChart.dataDateFormat = "YYYY-MM-DD";
         temaVisitorChart.color = "#FFFFFF";
         temaVisitorChart.marginLeft = 0;
+        temaVisitorChart.marginRight = 0;
 
         // AXES
         // category
@@ -663,6 +664,7 @@ function makeWikiWeekChart() {
         wikiVisitorChart.dataDateFormat = "YYYY-MM-DD";
         wikiVisitorChart.color = "#FFFFFF";
         wikiVisitorChart.marginLeft = 0;
+        temaVisitorChart.marginRight = 0;
 
         // AXES
         // category
