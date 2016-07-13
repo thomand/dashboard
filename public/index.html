@@ -88,7 +88,8 @@
         <div class="carousel-inner">
             <!-- First page -->
             <div class="item active animated slideInDown">
-                <div class="row">
+                <div class="row total">
+                    <!-- Visitors -->
                     <div class="col-md-8">
                         <div class="row special">
                             <div class="panelcontent col-md-4 item2description">
@@ -127,7 +128,7 @@
                             </div>
                         </div>
                     </div>
-
+                    <!-- Heatmap headline -->
                     <div class="col-md-4 pull-right" style="padding-left: 0 !important;">
                         <div class="col-md-12 item2description" style="padding-top:3px !important; padding-left:5px!important;">
                             User access location
@@ -138,15 +139,19 @@
 
                     <div class="col-md-8">
                         <div class="row special">
+                            <!-- Platform headline-->
                             <div class="col-md-6 item2description">
                                 <div class="col-md-12" style="padding-left:0">Platform</div>
                             </div>
+                            <!-- Browsers headline-->
                             <div class="col-md-6 item2description">
                                 <div class="col-md-12">Browsers</div>
                             </div>
                         </div>
                         <div class="row special">
+                            <!-- Device platform (pc/smartphone/tablet)-->
                             <div class="panel col-md-6 visitors device" id="devicediv"></div>
+                            <!-- Browser table-->
                             <div class="panelcontent col-md-6 device" style="padding-right:0;">
                                 <div class="panel col-md-12">
                                     <table class="table browsers">
@@ -187,6 +192,7 @@
                             </div>
                         </div>
                     </div>
+                    <!-- Popular pages tables -->
                     <div class="col-md-8">
                         <div class="row special">
                             <div class="panelcontent col-md-6">
@@ -1018,10 +1024,10 @@
     <script>
         $(document).bind('keyup', function(e) {
             if(e.which == 39){
-                $('.carousel').carousel('next');
+                $('#myCarousel').carousel('next');
             }
             else if(e.which == 37){
-                $('.carousel').carousel('prev');
+                $('#myCarousel').carousel('prev');
             }
         });
     </script>
