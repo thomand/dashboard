@@ -30,8 +30,8 @@
           <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/public/index.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="244">
-                  <caret line="711" column="35" selection-start-line="711" selection-start-column="35" selection-end-line="711" selection-end-column="35" />
+                <state relative-caret-position="109">
+                  <caret line="89" column="36" selection-start-line="89" selection-start-column="36" selection-end-line="89" selection-end-column="36" />
                   <folding>
                     <element signature="n#head#0;n#html#0;n#!!top" expanded="false" />
                     <element signature="n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
@@ -55,34 +55,38 @@
           <file leaf-file-name="main.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/public/js/main.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="279">
-                  <caret line="267" column="0" selection-start-line="267" selection-start-column="0" selection-end-line="267" selection-end-column="0" />
+                <state relative-caret-position="60">
+                  <caret line="4" column="38" selection-start-line="4" selection-start-column="38" selection-end-line="4" selection-end-column="38" />
                   <folding>
-                    <element signature="n#!!block;n#updateVersusCharts#0" expanded="false" />
-                    <element signature="n#!!block;n#makeInnsidaVersusCharts#0" expanded="false" />
-                    <element signature="n#!!block;n#makeTrondheimVersus#0" expanded="false" />
-                    <element signature="e#2795#3176#0" expanded="false" />
-                    <element signature="n#!!block;n#makeAalesundVersus#0" expanded="false" />
-                    <element signature="e#4690#5071#0" expanded="false" />
-                    <element signature="n#!!block;n#makeGjovikVersus#0" expanded="false" />
-                    <element signature="e#6577#6958#0" expanded="false" />
-                    <element signature="n#!!block;n#updateGemini#0" expanded="false" />
-                    <element signature="n#!!block;n#updateElement#0" expanded="false" />
-                    <element signature="n#!!block;n#updateInnsidaWikiTema#0" expanded="false" />
-                    <element signature="n#!!block;n#makeInnsidaWeekChart#0" expanded="false" />
-                    <element signature="n#!!block;n#makeTemaWeekChart#0" expanded="false" />
-                    <element signature="n#!!block;n#makeWikiWeekChart#0" expanded="false" />
-                    <element signature="n#!!block;n#updateStudyPage#0" expanded="false" />
-                    <element signature="n#!!block;n#updatePopularPages#0" expanded="false" />
+                    <element signature="n#!!block;n#init#0" expanded="false" />
+                    <element signature="n#!!block;n#updateEverything#0" expanded="false" />
                     <element signature="n#!!block;n#updateVisitors#0" expanded="false" />
                     <element signature="n#!!block;n#updateIntervalPercentArrows#0" expanded="false" />
                     <element signature="n#!!block;n#updateBrowserTable#0" expanded="false" />
-                    <element signature="n#!!block;n#getClock#0" expanded="false" />
-                    <element signature="n#!!block;n#prefixZero#0" expanded="false" />
                     <element signature="n#!!block;n#makeDeviceChart#0" expanded="false" />
+                    <element signature="n#!!block;n#updateDeviceChart#0" expanded="false" />
                     <element signature="n#!!block;n#makeMap#0" expanded="false" />
                     <element signature="n#!!block;n#updateMapData#0" expanded="false" />
-                    <marker date="1468414521000" expanded="true" signature="33018:33033" placeholder="..." />
+                    <element signature="n#!!block;n#updatePopularPages#0" expanded="false" />
+                    <element signature="n#!!block;n#updateStudyPage#0" expanded="false" />
+                    <element signature="n#!!block;n#makeWeekCharts#0" expanded="false" />
+                    <element signature="n#!!block;n#makeInnsidaWeekChart#0" expanded="false" />
+                    <element signature="n#!!block;n#makeTemaWeekChart#0" expanded="false" />
+                    <element signature="n#!!block;n#makeWikiWeekChart#0" expanded="false" />
+                    <element signature="n#!!block;n#updateInnsidaWikiTema#0" expanded="false" />
+                    <element signature="n#!!block;n#makeInnsidaVersusCharts#0" expanded="false" />
+                    <element signature="n#!!block;n#makeTrondheimVersus#0" expanded="false" />
+                    <element signature="e#29374#29755#0" expanded="false" />
+                    <element signature="n#!!block;n#makeAalesundVersus#0" expanded="false" />
+                    <element signature="e#31269#31650#0" expanded="false" />
+                    <element signature="n#!!block;n#makeGjovikVersus#0" expanded="false" />
+                    <element signature="e#33156#33537#0" expanded="false" />
+                    <element signature="n#!!block;n#updateVersusCharts#0" expanded="false" />
+                    <element signature="n#!!block;n#updateGemini#0" expanded="false" />
+                    <element signature="n#!!block;n#updateElement#0" expanded="false" />
+                    <element signature="n#!!block;n#getClock#0" expanded="false" />
+                    <element signature="n#!!block;n#prefixZero#0" expanded="false" />
+                    <marker date="1468415905000" expanded="true" signature="6099:6114" placeholder="..." />
                   </folding>
                 </state>
               </provider>
@@ -122,8 +126,8 @@
         <option value="$PROJECT_DIR$/js/main.js" />
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/public/css/modern-business.css" />
-        <option value="$PROJECT_DIR$/public/index.html" />
         <option value="$PROJECT_DIR$/public/js/main.js" />
+        <option value="$PROJECT_DIR$/public/index.html" />
       </list>
     </option>
   </component>
@@ -249,12 +253,12 @@
       <workItem from="1466715327957" duration="42163000" />
       <workItem from="1467742601725" duration="13955000" />
       <workItem from="1467905012824" duration="15349000" />
-      <workItem from="1468240536117" duration="26980000" />
+      <workItem from="1468240536117" duration="28412000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="185193000" />
+    <option name="totallyTimeSpent" value="186625000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="873" extended-state="0" />
@@ -459,10 +463,48 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="38" selection-start-line="4" selection-start-column="38" selection-end-line="4" selection-end-column="38" />
+          <folding>
+            <element signature="n#!!block;n#init#0" expanded="false" />
+            <element signature="n#!!block;n#updateEverything#0" expanded="false" />
+            <element signature="n#!!block;n#updateVisitors#0" expanded="false" />
+            <element signature="n#!!block;n#updateIntervalPercentArrows#0" expanded="false" />
+            <element signature="n#!!block;n#updateBrowserTable#0" expanded="false" />
+            <element signature="n#!!block;n#makeDeviceChart#0" expanded="false" />
+            <element signature="n#!!block;n#updateDeviceChart#0" expanded="false" />
+            <element signature="n#!!block;n#makeMap#0" expanded="false" />
+            <element signature="n#!!block;n#updateMapData#0" expanded="false" />
+            <element signature="n#!!block;n#updatePopularPages#0" expanded="false" />
+            <element signature="n#!!block;n#updateStudyPage#0" expanded="false" />
+            <element signature="n#!!block;n#makeWeekCharts#0" expanded="false" />
+            <element signature="n#!!block;n#makeInnsidaWeekChart#0" expanded="false" />
+            <element signature="n#!!block;n#makeTemaWeekChart#0" expanded="false" />
+            <element signature="n#!!block;n#makeWikiWeekChart#0" expanded="false" />
+            <element signature="n#!!block;n#updateInnsidaWikiTema#0" expanded="false" />
+            <element signature="n#!!block;n#makeInnsidaVersusCharts#0" expanded="false" />
+            <element signature="n#!!block;n#makeTrondheimVersus#0" expanded="false" />
+            <element signature="e#29374#29755#0" expanded="false" />
+            <element signature="n#!!block;n#makeAalesundVersus#0" expanded="false" />
+            <element signature="e#31269#31650#0" expanded="false" />
+            <element signature="n#!!block;n#makeGjovikVersus#0" expanded="false" />
+            <element signature="e#33156#33537#0" expanded="false" />
+            <element signature="n#!!block;n#updateVersusCharts#0" expanded="false" />
+            <element signature="n#!!block;n#updateGemini#0" expanded="false" />
+            <element signature="n#!!block;n#updateElement#0" expanded="false" />
+            <element signature="n#!!block;n#getClock#0" expanded="false" />
+            <element signature="n#!!block;n#prefixZero#0" expanded="false" />
+            <marker date="1468415905000" expanded="true" signature="6099:6114" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/public/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="244">
-          <caret line="711" column="35" selection-start-line="711" selection-start-column="35" selection-end-line="711" selection-end-column="35" />
+        <state relative-caret-position="109">
+          <caret line="89" column="36" selection-start-line="89" selection-start-column="36" selection-end-line="89" selection-end-column="36" />
           <folding>
             <element signature="n#head#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
@@ -474,40 +516,6 @@
             <element signature="n#div#3;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#4;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="279">
-          <caret line="267" column="0" selection-start-line="267" selection-start-column="0" selection-end-line="267" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!block;n#updateVersusCharts#0" expanded="false" />
-            <element signature="n#!!block;n#makeInnsidaVersusCharts#0" expanded="false" />
-            <element signature="n#!!block;n#makeTrondheimVersus#0" expanded="false" />
-            <element signature="e#2795#3176#0" expanded="false" />
-            <element signature="n#!!block;n#makeAalesundVersus#0" expanded="false" />
-            <element signature="e#4690#5071#0" expanded="false" />
-            <element signature="n#!!block;n#makeGjovikVersus#0" expanded="false" />
-            <element signature="e#6577#6958#0" expanded="false" />
-            <element signature="n#!!block;n#updateGemini#0" expanded="false" />
-            <element signature="n#!!block;n#updateElement#0" expanded="false" />
-            <element signature="n#!!block;n#updateInnsidaWikiTema#0" expanded="false" />
-            <element signature="n#!!block;n#makeInnsidaWeekChart#0" expanded="false" />
-            <element signature="n#!!block;n#makeTemaWeekChart#0" expanded="false" />
-            <element signature="n#!!block;n#makeWikiWeekChart#0" expanded="false" />
-            <element signature="n#!!block;n#updateStudyPage#0" expanded="false" />
-            <element signature="n#!!block;n#updatePopularPages#0" expanded="false" />
-            <element signature="n#!!block;n#updateVisitors#0" expanded="false" />
-            <element signature="n#!!block;n#updateIntervalPercentArrows#0" expanded="false" />
-            <element signature="n#!!block;n#updateBrowserTable#0" expanded="false" />
-            <element signature="n#!!block;n#getClock#0" expanded="false" />
-            <element signature="n#!!block;n#prefixZero#0" expanded="false" />
-            <element signature="n#!!block;n#makeDeviceChart#0" expanded="false" />
-            <element signature="n#!!block;n#makeMap#0" expanded="false" />
-            <element signature="n#!!block;n#updateMapData#0" expanded="false" />
-            <marker date="1468414521000" expanded="true" signature="33018:33033" placeholder="..." />
           </folding>
         </state>
       </provider>

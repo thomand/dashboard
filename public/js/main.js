@@ -2,6 +2,7 @@
  * Created by thomasandersen on 20.06.2016.
  */
 $(document).ready(function(){
+    //charts and map global variables.
     var map;
     var devicechart;
     var innsidaVisitorChart;
@@ -15,12 +16,11 @@ $(document).ready(function(){
 
 });
 
+//Set up charts // Init Firebase // Collect data from firebase
 function init(){
     makeMap();
     makeDeviceChart();
-    makeInnsidaWeekChart();
-    makeTemaWeekChart();
-    makeWikiWeekChart();
+    makeWeekCharts();
     makeInnsidaVersusCharts();
     setInterval(getClock, 1000);
     config = {
@@ -33,11 +33,12 @@ function init(){
     firebase.database().ref('/').on("value", function (snap) {
         // snap.val() will contain the JS object.
         jsonFromDB = snap.val();
+        //update every element with data from firebase (jsonFromDB)
         updateEverything(jsonFromDB);
     });
 }
 
-
+//update everything with data from firebase
 function updateEverything(data) {
     updateVisitors(data.ew.vistitors.visitorCount);
     updateBrowserTable(data.ew.vistitors.browsers);
@@ -52,278 +53,314 @@ function updateEverything(data) {
     updateGemini(data.gemini);
 }
 
+//--------------------First page------------------------//
 
+//# Visitors ntnu.no // Last week / Last Month / Last Year
+function updateVisitors(data) {
+    document.getElementById("currentVisitors").innerHTML = data.current;
+    var week = data.lastWeek;
+    updateIntervalPercentArrows(week.change, "Week");
+    var month = data.lastMonth;
+    updateIntervalPercentArrows(month.change, "Month");
+    var year = data.lastYear;
+    updateIntervalPercentArrows(year.change, "Year");
 
-
-
-function updateVersusCharts(data) {
-    var TrondheimData = data.Trondheim;
-    TrondheimVersuschart.dataProvider = [TrondheimData.students, TrondheimData.staff];
-    TrondheimVersuschart.allLabels[2].text = (((TrondheimData.students.visits + TrondheimData.staff.visits)/TrondheimData.averageVisits)*100).toFixed(1).toString() + "%";
-    TrondheimVersuschart.validateData();
-
-
-    var AalesundData = data.Aalesund;
-    AalesundVersuschart.dataProvider = [AalesundData.students, AalesundData.staff];
-    AalesundVersuschart.allLabels[2].text = (((AalesundData.students.visits + AalesundData.staff.visits)/AalesundData.averageVisits)*100).toFixed(1).toString() + "%";
-    AalesundVersuschart.validateData();
-
-    var GjovikData = data.Gjovik;
-    GjovikVersuschart.dataProvider = [GjovikData.students, GjovikData.staff];
-    GjovikVersuschart.allLabels[2].text = (((GjovikData.students.visits + GjovikData.staff.visits)/GjovikData.averageVisits)*100).toFixed(1).toString() + "%";
-    GjovikVersuschart.validateData();
+    document.getElementById("changeWeek").innerHTML = week.percent;
+    document.getElementById("weekPercent").innerHTML = "%";
+    document.getElementById("changeMonth").innerHTML = month.percent;
+    document.getElementById("monthPercent").innerHTML = "%";
+    document.getElementById("changeYear").innerHTML = year.percent;
+    document.getElementById("yearPercent").innerHTML = "%";
 }
 
-function makeInnsidaVersusCharts() {
-    makeTrondheimVersus();
-    makeGjovikVersus();
-    makeAalesundVersus();
+//helper method for direction of arrows
+function updateIntervalPercentArrows(value, name) {
+    var id = name.toLowerCase() + "Arrow";
+    document.getElementById(id).className = "ion-arrow-graph-" + value + "-right";
+
 }
 
-function makeTrondheimVersus() {
-    var total = 1892;
-    var allLabels = [
-        {
-            "text": "of potential users",
-            "align": "center",
-            "y": 115
-        },
-        {
-            "text": "online this week",
-            "align": "center",
-            "y": 130
-        },
-        {
-            "text": "29%",
-            "align": "center",
-            "bold":true,
-            "size":16,
-            "y": 95
-        }
-    ];
+//BrowserTable
+function updateBrowserTable(data) {
+
+    var firefox = data.Firefox;
+    var chrome = data.Chrome;
+    var ie = data.IE;
+    var safari = data.Safari;
+    var opera = data.Opera;
+    var array = [firefox, chrome, ie, safari, opera];
+    var sorted = array.sort(function(a, b) {return parseInt(a.numbers) - parseInt(b.numbers);});
+    var logoStartString = '<img src="img/';
+    var logoEndString = '.svg" height="20" width="20">';
+
+    document.getElementById("browserLogoOne").innerHTML = logoStartString + sorted[4].name.toLowerCase() + logoEndString;
+    document.getElementById("browserLogoTwo").innerHTML = logoStartString + sorted[3].name.toLowerCase() + logoEndString;
+    document.getElementById("browserLogoThree").innerHTML = logoStartString + sorted[2].name.toLowerCase() + logoEndString;
+    document.getElementById("browserLogoFour").innerHTML = logoStartString + sorted[1].name.toLowerCase() + logoEndString;
+    document.getElementById("browserLogoFive").innerHTML = logoStartString + sorted[0].name.toLowerCase() + logoEndString;
+
+    document.getElementById("browserNameOne").innerHTML = sorted[4].name;
+    document.getElementById("browserNameTwo").innerHTML = sorted[3].name;
+    document.getElementById("browserNameThree").innerHTML = sorted[2].name;
+    document.getElementById("browserNameFour").innerHTML = sorted[1].name;
+    document.getElementById("browserNameFive").innerHTML = sorted[0].name;
+
+    document.getElementById("browserNumOne").innerHTML = sorted[4].numbers;
+    document.getElementById("browserNumTwo").innerHTML = sorted[3].numbers;
+    document.getElementById("browserNumThree").innerHTML = sorted[2].numbers;
+    document.getElementById("browserNumFour").innerHTML = sorted[1].numbers;
+    document.getElementById("browserNumFive").innerHTML = sorted[0].numbers;
+
+    document.getElementById("browserPercentOne").innerHTML = sorted[4].percent + "%";
+    document.getElementById("browserPercentTwo").innerHTML = sorted[3].percent + "%";
+    document.getElementById("browserPercentThree").innerHTML = sorted[2].percent + "%";
+    document.getElementById("browserPercentFour").innerHTML = sorted[1].percent + "%";
+    document.getElementById("browserPercentFive").innerHTML = sorted[0].percent + "%";
+}
+
+//Generate DeviceChart (platform)
+function makeDeviceChart() {
     var chartData = [
         {
-            person: "Students",
-            visits: 0,
-            color: "#03A9FC"
+            "color": "#03A9FC",
+            "device": "Computer",
+            "visits": 0
+
         },
         {
-            person: "Staff",
-            visits: 0,
-            color: "#F95372"
+            "color": "#87CE37",
+            "device": "Smartphone",
+            "visits": 0
+
+        },
+        {
+            "color": "#F05576",
+            "device": "Tablet",
+            "visits": 0
+
         }
     ];
-
-    //Set percentage field for amount of visited people out of potential visitors
-    allLabels[2].text = (((chartData[0].visits + chartData[1].visits)/total)*100).toFixed(1).toString() + "%";
 
     AmCharts.ready(function () {
-        TrondheimVersuschart = new AmCharts.AmPieChart();
-        TrondheimVersuschart.dataProvider = chartData;
-        TrondheimVersuschart.allLabels = allLabels;
-        TrondheimVersuschart.titleField = "person";
-        TrondheimVersuschart.valueField = "visits";
-        TrondheimVersuschart.colorField = "color";
-        TrondheimVersuschart.sequencedAnimation = false;
-        TrondheimVersuschart.innerRadius = "60%";
-        TrondheimVersuschart.radius = "40%";
-        TrondheimVersuschart.color = "white";
-        TrondheimVersuschart.creditsPosition = "top-right";
+        // PIE CHART
+        devicechart = new AmCharts.AmPieChart();
+        devicechart.dataProvider = chartData;
+        devicechart.titleField = "device";
+        devicechart.valueField = "visits";
+        devicechart.colorField = "color";
+        devicechart.sequencedAnimation = true;
+        devicechart.startEffect = "elastic";
+        devicechart.innerRadius = "60%";
+        devicechart.radius = "40%";
+        devicechart.labelRadius = 15;
+        devicechart.color = "white";
+        devicechart.balloonText = "[[title]]<br><span style='font-size:14px;'><b>[[value]]</b> ([[percents]]%)</span>";
+        devicechart.autoMargins = false;
+        devicechart.marginTop = 0;
+        devicechart.marginBottom = 0;
+        devicechart.marginLeft = 0;
+        devicechart.marginRight = 0;
+        devicechart.pullOutRadius = 0;
+        devicechart.creditsPosition = "bottom-left";
 
-        TrondheimVersuschart.labelsEnabled = false;
-        TrondheimVersuschart.autoMargins = false;
-        TrondheimVersuschart.marginTop = 0;
-        TrondheimVersuschart.marginBottom = 0;
-        TrondheimVersuschart.marginLeft = 0;
-        TrondheimVersuschart.marginRight = 0;
-        TrondheimVersuschart.pullOutRadius = 0;
-
-        TrondheimVersuschart.write("innsidaTrondheim");
-})
+        // WRITE
+        devicechart.write("devicediv");
+    });
 }
 
-function makeAalesundVersus() {
+//update DeviceChart (platform)
+function updateDeviceChart(data) {
+    devicechart.dataProvider = [data.computer,data.smartphone,data.tablet];
+    devicechart.validateData();
+}
 
-    var total = 1892;
-    var allLabels = [
-        {
-            "text": "of potential users",
-            "align": "center",
-            "y": 115
-        },
-        {
-            "text": "online this week",
-            "align": "center",
-            "y": 130
-        },
-        {
-            "text": "29%",
-            "align": "center",
-            "bold":true,
-            "size":16,
-            "y": 95
-        }
+//Generate norway HeatMap (user access location)
+function makeMap() {
+
+    AmCharts.ready(function() {
+        map = new AmCharts.AmMap();
+
+        /*NOTE: There is no id NO-13!!!*/
+        map.colorSteps = 10;
+
+        var dataProvider = {
+            mapVar: AmCharts.maps.norwayLow,
+
+            areas: [
+                {
+                    id: "NO-02",
+                    value: 0},
+                {
+                    id: "NO-01",
+                    value: 0},
+                {
+                    id: "NO-03",
+                    value: 0},
+                {
+                    id: "NO-04",
+                    value: 0},
+                {
+                    id: "NO-05",
+                    value: 0},
+                {
+                    id: "NO-06",
+                    value: 0},
+                {
+                    id: "NO-07",
+                    value: 0},
+                {
+                    id: "NO-08",
+                    value: 0},
+                {
+                    id: "NO-09",
+                    value: 0},
+                {
+                    id: "NO-10",
+                    value: 0},
+                {
+                    id: "NO-11",
+                    value: 0},
+                {
+                    id: "NO-12",
+                    value: 0},
+                {
+                    id: "NO-14",
+                    value: 0},
+                {
+                    id: "NO-15",
+                    value: 0},
+                {
+                    id: "NO-16",
+                    value: 0},
+                {
+                    id: "NO-17",
+                    value: 0},
+                {
+                    id: "NO-18",
+                    value: 0},
+                {
+                    id: "NO-19",
+                    value: 0},
+                {
+                    id: "NO-20",
+                    value: 0}]
+        };
+
+
+        map.areasSettings = {
+            alpha: 0.8,
+            //color: "#F95372",
+            color: "#00abff",
+            colorSolid: "#8BD22F",
+            unlistedAreasAlpha: 0.4,
+            unlistedAreasColor: "#000000",
+            outlineColor: "#FFFFFF",
+            outlineAlpha: 0.5,
+            outlineThickness: 1,
+            rollOverColor: "#03A9FC",
+            rollOverOutlineColor: "#FFFFFF",
+            selectedOutlineColor: "#FFFFFF",
+            selectedColor: "#ffffff",
+            unlistedAreasOutlineColor: "#FFFFFF",
+            unlistedAreasOutlineAlpha: 0.5,
+            autoZoom: true
+        };
+        map.dataProvider = dataProvider;
+
+        var valueLegend = new AmCharts.ValueLegend();
+        valueLegend.right = 10;
+        valueLegend.minValue = "little";
+        valueLegend.maxValue = "a lot!";
+        valueLegend.color = "white";
+        map.valueLegend = valueLegend;
+        map.color = "white";
+
+        map.write("mapdiv");
+    });
+}
+
+//update norway heatMap (user access location)
+function updateMapData(data) {
+    // generate bew values
+    map.dataProvider.areas = [
+        data.Akershus,
+        data.AustAgder,
+        data.Buskerud,
+        data.Finnmark,
+        data.Hedmark,
+        data.Hordaland,
+        data.MoreOgRomsdal,
+        data.NordTrondelag,
+        data.Nordland,
+        data.Oppland,
+        data.Oslo,
+        data.Ostfold,
+        data.Rogaland,
+        data.SognOgFjordane,
+        data.SorTrondelag,
+        data.Telemark,
+        data.Troms,
+        data.VestAgder,
+        data.Vestfold
     ];
-    var chartData = [
-        {
-            "person": "Students",
-            "visits": 0,
-            "color": "#03A9FC"
-        },
-        {
-            "person": "Staff",
-            "visits": 0,
-            "color": "#F95372"
-        }
-    ];
-    //Set percentage field for amount of visited people out of potential visitors
-    allLabels[2].text = (((chartData[0].visits + chartData[1].visits)/total)*100).toFixed(1).toString() + "%";
+    //TODO: map loses hover after update
 
-    AmCharts.ready(function () {
-        AalesundVersuschart = new AmCharts.AmPieChart();
-        AalesundVersuschart.dataProvider = chartData;
-        AalesundVersuschart.allLabels = allLabels;
-        AalesundVersuschart.titleField = "person";
-        AalesundVersuschart.valueField = "visits";
-        AalesundVersuschart.colorField = "color";
-        AalesundVersuschart.sequencedAnimation = false;
-        AalesundVersuschart.innerRadius = "60%";
-        AalesundVersuschart.radius = "40%";
-        AalesundVersuschart.color = "white";
-        AalesundVersuschart.creditsPosition = "top-right";
-
-        AalesundVersuschart.labelsEnabled = false;
-        AalesundVersuschart.autoMargins = false;
-        AalesundVersuschart.marginTop = 0;
-        AalesundVersuschart.marginBottom = 0;
-        AalesundVersuschart.marginLeft = 0;
-        AalesundVersuschart.marginRight = 0;
-        AalesundVersuschart.pullOutRadius = 0;
-
-        AalesundVersuschart.write("innsidaAalesund");
-    })
+    // update map
+    map.validateNow();
 }
 
-function makeGjovikVersus() {
-    var total = 1892;
-    var allLabels = [
-        {
-            "text": "of potential users",
-            "align": "center",
-            "y": 115
-        },
-        {
-            "text": "online this week",
-            "align": "center",
-            "y": 130
-        },
-        {
-            "text": "29%",
-            "align": "center",
-            "bold":true,
-            "size":16,
-            "y": 95
-        }
-    ];
+//Most popular pages / Least popular pages
+function updatePopularPages(data) {
+    document.getElementById("mostPopular-one").innerHTML = data.mostPopular.one;
+    document.getElementById("mostPopular-two").innerHTML = data.mostPopular.two;
+    document.getElementById("mostPopular-three").innerHTML = data.mostPopular.three;
+    document.getElementById("mostPopular-four").innerHTML = data.mostPopular.four;
+    document.getElementById("mostPopular-five").innerHTML = data.mostPopular.five;
 
-    var chartData = [
-        {
-            "person": "Students",
-            "visits": 0,
-            "color": "#03A9FC"
-        },
-        {
-            "person": "Staff",
-            "visits": 0,
-            "color": "#F95372",
-        }
-    ];
-    //Set percentage field for amount of visited people out of potential visitors
-    allLabels[2].text = (((chartData[0].visits + chartData[1].visits)/total)*100).toFixed(1).toString() + "%";
-
-    AmCharts.ready(function () {
-        GjovikVersuschart = new AmCharts.AmPieChart();
-        GjovikVersuschart.dataProvider = chartData;
-        GjovikVersuschart.allLabels = allLabels;
-        GjovikVersuschart.titleField = "person";
-        GjovikVersuschart.valueField = "visits";
-        GjovikVersuschart.colorField = "color";
-        GjovikVersuschart.sequencedAnimation = false;
-        GjovikVersuschart.innerRadius = "60%";
-        GjovikVersuschart.radius = "40%";
-        GjovikVersuschart.color = "white";
-        GjovikVersuschart.creditsPosition = "top-right";
-
-        GjovikVersuschart.labelsEnabled = false;
-        GjovikVersuschart.autoMargins = false;
-        GjovikVersuschart.marginTop = 0;
-        GjovikVersuschart.marginBottom = 0;
-        GjovikVersuschart.marginLeft = 0;
-        GjovikVersuschart.marginRight = 0;
-        GjovikVersuschart.pullOutRadius = 0;
-
-        GjovikVersuschart.write("innsidaGjovik");
-    })
+    document.getElementById("leastPopular-one").innerHTML = data.leastPopular.one;
+    document.getElementById("leastPopular-two").innerHTML = data.leastPopular.two;
+    document.getElementById("leastPopular-three").innerHTML = data.leastPopular.three;
+    document.getElementById("leastPopular-four").innerHTML = data.leastPopular.four;
+    document.getElementById("leastPopular-five").innerHTML = data.leastPopular.five;
 }
 
+//--------------------Second page------------------------//
 
-function updateGemini(data) {
-    updateElement("gemini-headline-one",data.headlines.one);
-    updateElement("gemini-tag-one",data.tag.one);
-    updateElement("gemini-headline-two",data.headlines.two);
-    updateElement("gemini-tag-two",data.tag.two);
-    updateElement("gemini-headline-three",data.headlines.three);
-    updateElement("gemini-tag-three",data.tag.three);
-    updateElement("gemini-headline-four",data.headlines.four);
-    updateElement("gemini-tag-four",data.tag.four);
-    updateElement("gemini-headline-five",data.headlines.five);
-    updateElement("gemini-tag-five",data.tag.five);
-    updateElement("gemini-headline-six",data.headlines.six);
-    updateElement("gemini-tag-six",data.tag.six);
-    updateElement("gemini-headline-seven",data.headlines.seven);
-    updateElement("gemini-tag-seven",data.tag.seven);
-    updateElement("gemini-headline-eight",data.headlines.eight);
-    updateElement("gemini-tag-eight",data.tag.eight);
-    updateElement("gemini-headline-nine",data.headlines.nine);
-    updateElement("gemini-tag-nine",data.tag.nine);
-    updateElement("gemini-headline-ten",data.headlines.ten);
-    updateElement("gemini-tag-ten",data.tag.ten);
+//update Study pages
+function updateStudyPage(data) {
+    document.getElementById("study-most-visit-one").innerHTML = data.mostVisited.one;
+    document.getElementById("study-most-visit-two").innerHTML = data.mostVisited.two;
+    document.getElementById("study-most-visit-three").innerHTML = data.mostVisited.three;
+    document.getElementById("study-most-visit-four").innerHTML = data.mostVisited.four;
+    document.getElementById("study-most-visit-five").innerHTML = data.mostVisited.five;
+
+    document.getElementById("study-least-visit-one").innerHTML = data.leastVisited.one;
+    document.getElementById("study-least-visit-two").innerHTML = data.leastVisited.two;
+    document.getElementById("study-least-visit-three").innerHTML = data.leastVisited.three;
+    document.getElementById("study-least-visit-four").innerHTML = data.leastVisited.four;
+    document.getElementById("study-least-visit-five").innerHTML = data.leastVisited.five;
+
+    document.getElementById("study-increasing-one").innerHTML = data.increasing.one;
+    document.getElementById("study-increasing-two").innerHTML = data.increasing.two;
+    document.getElementById("study-increasing-three").innerHTML = data.increasing.three;
+    document.getElementById("study-increasing-four").innerHTML = data.increasing.four;
+    document.getElementById("study-increasing-five").innerHTML = data.increasing.five;
+
+    document.getElementById("study-decreasing-one").innerHTML = data.decreasing.one;
+    document.getElementById("study-decreasing-two").innerHTML = data.decreasing.two;
+    document.getElementById("study-decreasing-three").innerHTML = data.decreasing.three;
+    document.getElementById("study-decreasing-four").innerHTML = data.decreasing.four;
+    document.getElementById("study-decreasing-five").innerHTML = data.decreasing.five;
+
 }
 
-function updateElement(id, value) {
-    document.getElementById(id).innerHTML = value;
-}
-
-function updateInnsidaWikiTema(data,pageName, chart) {
-    // broken URL
-    document.getElementById(pageName+"BrokenLinks").innerHTML = data.brokenUrls.number;
-    document.getElementById(pageName+"URLArrow").className = "ion-arrow-graph-" + data.brokenUrls.change + "-right bigArrow reverse";
-    document.getElementById(pageName+"BrokenURLpercent").innerHTML = data.brokenUrls.percent;
-    //popular pages
-    document.getElementById(pageName+"PopularPage-one").innerHTML = data.popular.pages.one;
-    document.getElementById(pageName+"PopularPage-two").innerHTML = data.popular.pages.two;
-    document.getElementById(pageName+"PopularPage-three").innerHTML = data.popular.pages.three;
-    //popular search words
-    document.getElementById(pageName+"PopularSearch-one").innerHTML = data.popular.searches.one;
-    document.getElementById(pageName+"PopularSearch-two").innerHTML = data.popular.searches.two;
-    document.getElementById(pageName+"PopularSearch-three").innerHTML = data.popular.searches.three;
-    //visitor charts
-    var days = data.visitors;
-    chart.dataProvider =
-        [
-            days.monday,
-            days.thuesday,
-            days.wednesday,
-            days.thursday,
-            days.friday,
-            days.saturday,
-            days.sunday
-        ];
-    chart.ignoreZoomed = true;
-    chart.startDate = new Date(days.monday.date);
-    chart.endDate = new Date(days.sunday.date);
-    chart.zoomToDates(innsidaVisitorChart.startDate, innsidaVisitorChart.endDate);
-    chart.validateData();
+//--------------------Third page-------------------------//
+// Innsida / Tema / Wiki
+// Make chart for last week and this week page views
+function makeWeekCharts() {
+    makeInnsidaWeekChart();
+    makeTemaWeekChart();
+    makeWikiWeekChart();
 }
 
 function makeInnsidaWeekChart() {
@@ -752,110 +789,286 @@ function makeWikiWeekChart() {
     });
 }
 
-//update Study pages
-function updateStudyPage(data) {
-    document.getElementById("study-most-visit-one").innerHTML = data.mostVisited.one;
-    document.getElementById("study-most-visit-two").innerHTML = data.mostVisited.two;
-    document.getElementById("study-most-visit-three").innerHTML = data.mostVisited.three;
-    document.getElementById("study-most-visit-four").innerHTML = data.mostVisited.four;
-    document.getElementById("study-most-visit-five").innerHTML = data.mostVisited.five;
-
-    document.getElementById("study-least-visit-one").innerHTML = data.leastVisited.one;
-    document.getElementById("study-least-visit-two").innerHTML = data.leastVisited.two;
-    document.getElementById("study-least-visit-three").innerHTML = data.leastVisited.three;
-    document.getElementById("study-least-visit-four").innerHTML = data.leastVisited.four;
-    document.getElementById("study-least-visit-five").innerHTML = data.leastVisited.five;
-
-    document.getElementById("study-increasing-one").innerHTML = data.increasing.one;
-    document.getElementById("study-increasing-two").innerHTML = data.increasing.two;
-    document.getElementById("study-increasing-three").innerHTML = data.increasing.three;
-    document.getElementById("study-increasing-four").innerHTML = data.increasing.four;
-    document.getElementById("study-increasing-five").innerHTML = data.increasing.five;
-
-    document.getElementById("study-decreasing-one").innerHTML = data.decreasing.one;
-    document.getElementById("study-decreasing-two").innerHTML = data.decreasing.two;
-    document.getElementById("study-decreasing-three").innerHTML = data.decreasing.three;
-    document.getElementById("study-decreasing-four").innerHTML = data.decreasing.four;
-    document.getElementById("study-decreasing-five").innerHTML = data.decreasing.five;
-
+//Update everything with data from firebase
+//method is called three times. One for each: innsida, tema and wiki.
+function updateInnsidaWikiTema(data,pageName, chart) {
+    // broken URL
+    document.getElementById(pageName+"BrokenLinks").innerHTML = data.brokenUrls.number;
+    document.getElementById(pageName+"URLArrow").className = "ion-arrow-graph-" + data.brokenUrls.change + "-right bigArrow reverse";
+    document.getElementById(pageName+"BrokenURLpercent").innerHTML = data.brokenUrls.percent;
+    //popular pages
+    document.getElementById(pageName+"PopularPage-one").innerHTML = data.popular.pages.one;
+    document.getElementById(pageName+"PopularPage-two").innerHTML = data.popular.pages.two;
+    document.getElementById(pageName+"PopularPage-three").innerHTML = data.popular.pages.three;
+    //popular search words
+    document.getElementById(pageName+"PopularSearch-one").innerHTML = data.popular.searches.one;
+    document.getElementById(pageName+"PopularSearch-two").innerHTML = data.popular.searches.two;
+    document.getElementById(pageName+"PopularSearch-three").innerHTML = data.popular.searches.three;
+    //visitor charts
+    var days = data.visitors;
+    chart.dataProvider =
+        [
+            days.monday,
+            days.thuesday,
+            days.wednesday,
+            days.thursday,
+            days.friday,
+            days.saturday,
+            days.sunday
+        ];
+    chart.ignoreZoomed = true;
+    chart.startDate = new Date(days.monday.date);
+    chart.endDate = new Date(days.sunday.date);
+    chart.zoomToDates(innsidaVisitorChart.startDate, innsidaVisitorChart.endDate);
+    chart.validateData();
 }
 
-function updatePopularPages(data) {
-    document.getElementById("mostPopular-one").innerHTML = data.mostPopular.one;
-    document.getElementById("mostPopular-two").innerHTML = data.mostPopular.two;
-    document.getElementById("mostPopular-three").innerHTML = data.mostPopular.three;
-    document.getElementById("mostPopular-four").innerHTML = data.mostPopular.four;
-    document.getElementById("mostPopular-five").innerHTML = data.mostPopular.five;
+//--------------------Forth page------------------------//
 
-    document.getElementById("leastPopular-one").innerHTML = data.leastPopular.one;
-    document.getElementById("leastPopular-two").innerHTML = data.leastPopular.two;
-    document.getElementById("leastPopular-three").innerHTML = data.leastPopular.three;
-    document.getElementById("leastPopular-four").innerHTML = data.leastPopular.four;
-    document.getElementById("leastPopular-five").innerHTML = data.leastPopular.five;
+// Make innsida Student vs staff views charts
+function makeInnsidaVersusCharts() {
+    makeTrondheimVersus();
+    makeGjovikVersus();
+    makeAalesundVersus();
 }
 
-function updateVisitors(data) {
-    document.getElementById("currentVisitors").innerHTML = data.current;
-    var week = data.lastWeek;
-    updateIntervalPercentArrows(week.change, "Week");
-    var month = data.lastMonth;
-    updateIntervalPercentArrows(month.change, "Month");
-    var year = data.lastYear;
-    updateIntervalPercentArrows(year.change, "Year");
+function makeTrondheimVersus() {
+    var total = 1892;
+    var allLabels = [
+        {
+            "text": "of potential users",
+            "align": "center",
+            "y": 115
+        },
+        {
+            "text": "online this week",
+            "align": "center",
+            "y": 130
+        },
+        {
+            "text": "29%",
+            "align": "center",
+            "bold":true,
+            "size":16,
+            "y": 95
+        }
+    ];
+    var chartData = [
+        {
+            person: "Students",
+            visits: 0,
+            color: "#03A9FC"
+        },
+        {
+            person: "Staff",
+            visits: 0,
+            color: "#F95372"
+        }
+    ];
 
-    document.getElementById("changeWeek").innerHTML = week.percent;
-    document.getElementById("weekPercent").innerHTML = "%";
-    document.getElementById("changeMonth").innerHTML = month.percent;
-    document.getElementById("monthPercent").innerHTML = "%";
-    document.getElementById("changeYear").innerHTML = year.percent;
-    document.getElementById("yearPercent").innerHTML = "%";
+    //Set percentage field for amount of visited people out of potential visitors
+    allLabels[2].text = (((chartData[0].visits + chartData[1].visits)/total)*100).toFixed(1).toString() + "%";
+
+    AmCharts.ready(function () {
+        TrondheimVersuschart = new AmCharts.AmPieChart();
+        TrondheimVersuschart.dataProvider = chartData;
+        TrondheimVersuschart.allLabels = allLabels;
+        TrondheimVersuschart.titleField = "person";
+        TrondheimVersuschart.valueField = "visits";
+        TrondheimVersuschart.colorField = "color";
+        TrondheimVersuschart.sequencedAnimation = false;
+        TrondheimVersuschart.innerRadius = "60%";
+        TrondheimVersuschart.radius = "40%";
+        TrondheimVersuschart.color = "white";
+        TrondheimVersuschart.creditsPosition = "top-right";
+
+        TrondheimVersuschart.labelsEnabled = false;
+        TrondheimVersuschart.autoMargins = false;
+        TrondheimVersuschart.marginTop = 0;
+        TrondheimVersuschart.marginBottom = 0;
+        TrondheimVersuschart.marginLeft = 0;
+        TrondheimVersuschart.marginRight = 0;
+        TrondheimVersuschart.pullOutRadius = 0;
+
+        TrondheimVersuschart.write("innsidaTrondheim");
+})
 }
 
-function updateIntervalPercentArrows(value, name) {
-    var id = name.toLowerCase() + "Arrow";
-    document.getElementById(id).className = "ion-arrow-graph-" + value + "-right";
+function makeAalesundVersus() {
 
+    var total = 1892;
+    var allLabels = [
+        {
+            "text": "of potential users",
+            "align": "center",
+            "y": 115
+        },
+        {
+            "text": "online this week",
+            "align": "center",
+            "y": 130
+        },
+        {
+            "text": "29%",
+            "align": "center",
+            "bold":true,
+            "size":16,
+            "y": 95
+        }
+    ];
+    var chartData = [
+        {
+            "person": "Students",
+            "visits": 0,
+            "color": "#03A9FC"
+        },
+        {
+            "person": "Staff",
+            "visits": 0,
+            "color": "#F95372"
+        }
+    ];
+    //Set percentage field for amount of visited people out of potential visitors
+    allLabels[2].text = (((chartData[0].visits + chartData[1].visits)/total)*100).toFixed(1).toString() + "%";
+
+    AmCharts.ready(function () {
+        AalesundVersuschart = new AmCharts.AmPieChart();
+        AalesundVersuschart.dataProvider = chartData;
+        AalesundVersuschart.allLabels = allLabels;
+        AalesundVersuschart.titleField = "person";
+        AalesundVersuschart.valueField = "visits";
+        AalesundVersuschart.colorField = "color";
+        AalesundVersuschart.sequencedAnimation = false;
+        AalesundVersuschart.innerRadius = "60%";
+        AalesundVersuschart.radius = "40%";
+        AalesundVersuschart.color = "white";
+        AalesundVersuschart.creditsPosition = "top-right";
+
+        AalesundVersuschart.labelsEnabled = false;
+        AalesundVersuschart.autoMargins = false;
+        AalesundVersuschart.marginTop = 0;
+        AalesundVersuschart.marginBottom = 0;
+        AalesundVersuschart.marginLeft = 0;
+        AalesundVersuschart.marginRight = 0;
+        AalesundVersuschart.pullOutRadius = 0;
+
+        AalesundVersuschart.write("innsidaAalesund");
+    })
 }
 
+function makeGjovikVersus() {
+    var total = 1892;
+    var allLabels = [
+        {
+            "text": "of potential users",
+            "align": "center",
+            "y": 115
+        },
+        {
+            "text": "online this week",
+            "align": "center",
+            "y": 130
+        },
+        {
+            "text": "29%",
+            "align": "center",
+            "bold":true,
+            "size":16,
+            "y": 95
+        }
+    ];
 
-//BrowserTable ew
-function updateBrowserTable(data) {
+    var chartData = [
+        {
+            "person": "Students",
+            "visits": 0,
+            "color": "#03A9FC"
+        },
+        {
+            "person": "Staff",
+            "visits": 0,
+            "color": "#F95372",
+        }
+    ];
+    //Set percentage field for amount of visited people out of potential visitors
+    allLabels[2].text = (((chartData[0].visits + chartData[1].visits)/total)*100).toFixed(1).toString() + "%";
 
-    var firefox = data.Firefox;
-    var chrome = data.Chrome;
-    var ie = data.IE;
-    var safari = data.Safari;
-    var opera = data.Opera;
-    var array = [firefox, chrome, ie, safari, opera];
-    var sorted = array.sort(function(a, b) {return parseInt(a.numbers) - parseInt(b.numbers);});
-    var logoStartString = '<img src="img/';
-    var logoEndString = '.svg" height="20" width="20">';
+    AmCharts.ready(function () {
+        GjovikVersuschart = new AmCharts.AmPieChart();
+        GjovikVersuschart.dataProvider = chartData;
+        GjovikVersuschart.allLabels = allLabels;
+        GjovikVersuschart.titleField = "person";
+        GjovikVersuschart.valueField = "visits";
+        GjovikVersuschart.colorField = "color";
+        GjovikVersuschart.sequencedAnimation = false;
+        GjovikVersuschart.innerRadius = "60%";
+        GjovikVersuschart.radius = "40%";
+        GjovikVersuschart.color = "white";
+        GjovikVersuschart.creditsPosition = "top-right";
 
-    document.getElementById("browserLogoOne").innerHTML = logoStartString + sorted[4].name.toLowerCase() + logoEndString;
-    document.getElementById("browserLogoTwo").innerHTML = logoStartString + sorted[3].name.toLowerCase() + logoEndString;
-    document.getElementById("browserLogoThree").innerHTML = logoStartString + sorted[2].name.toLowerCase() + logoEndString;
-    document.getElementById("browserLogoFour").innerHTML = logoStartString + sorted[1].name.toLowerCase() + logoEndString;
-    document.getElementById("browserLogoFive").innerHTML = logoStartString + sorted[0].name.toLowerCase() + logoEndString;
+        GjovikVersuschart.labelsEnabled = false;
+        GjovikVersuschart.autoMargins = false;
+        GjovikVersuschart.marginTop = 0;
+        GjovikVersuschart.marginBottom = 0;
+        GjovikVersuschart.marginLeft = 0;
+        GjovikVersuschart.marginRight = 0;
+        GjovikVersuschart.pullOutRadius = 0;
 
-    document.getElementById("browserNameOne").innerHTML = sorted[4].name;
-    document.getElementById("browserNameTwo").innerHTML = sorted[3].name;
-    document.getElementById("browserNameThree").innerHTML = sorted[2].name;
-    document.getElementById("browserNameFour").innerHTML = sorted[1].name;
-    document.getElementById("browserNameFive").innerHTML = sorted[0].name;
-
-    document.getElementById("browserNumOne").innerHTML = sorted[4].numbers;
-    document.getElementById("browserNumTwo").innerHTML = sorted[3].numbers;
-    document.getElementById("browserNumThree").innerHTML = sorted[2].numbers;
-    document.getElementById("browserNumFour").innerHTML = sorted[1].numbers;
-    document.getElementById("browserNumFive").innerHTML = sorted[0].numbers;
-
-    document.getElementById("browserPercentOne").innerHTML = sorted[4].percent + "%";
-    document.getElementById("browserPercentTwo").innerHTML = sorted[3].percent + "%";
-    document.getElementById("browserPercentThree").innerHTML = sorted[2].percent + "%";
-    document.getElementById("browserPercentFour").innerHTML = sorted[1].percent + "%";
-    document.getElementById("browserPercentFive").innerHTML = sorted[0].percent + "%";
+        GjovikVersuschart.write("innsidaGjovik");
+    })
 }
 
+//update charts with data from firebase
+function updateVersusCharts(data) {
+    var TrondheimData = data.Trondheim;
+    TrondheimVersuschart.dataProvider = [TrondheimData.students, TrondheimData.staff];
+    TrondheimVersuschart.allLabels[2].text = (((TrondheimData.students.visits + TrondheimData.staff.visits)/TrondheimData.averageVisits)*100).toFixed(1).toString() + "%";
+    TrondheimVersuschart.validateData();
+
+
+    var AalesundData = data.Aalesund;
+    AalesundVersuschart.dataProvider = [AalesundData.students, AalesundData.staff];
+    AalesundVersuschart.allLabels[2].text = (((AalesundData.students.visits + AalesundData.staff.visits)/AalesundData.averageVisits)*100).toFixed(1).toString() + "%";
+    AalesundVersuschart.validateData();
+
+    var GjovikData = data.Gjovik;
+    GjovikVersuschart.dataProvider = [GjovikData.students, GjovikData.staff];
+    GjovikVersuschart.allLabels[2].text = (((GjovikData.students.visits + GjovikData.staff.visits)/GjovikData.averageVisits)*100).toFixed(1).toString() + "%";
+    GjovikVersuschart.validateData();
+}
+
+//--------------------Fifth page------------------------//
+
+//update everything with data from firebase
+function updateGemini(data) {
+    updateElement("gemini-headline-one",data.headlines.one);
+    updateElement("gemini-tag-one",data.tag.one);
+    updateElement("gemini-headline-two",data.headlines.two);
+    updateElement("gemini-tag-two",data.tag.two);
+    updateElement("gemini-headline-three",data.headlines.three);
+    updateElement("gemini-tag-three",data.tag.three);
+    updateElement("gemini-headline-four",data.headlines.four);
+    updateElement("gemini-tag-four",data.tag.four);
+    updateElement("gemini-headline-five",data.headlines.five);
+    updateElement("gemini-tag-five",data.tag.five);
+    updateElement("gemini-headline-six",data.headlines.six);
+    updateElement("gemini-tag-six",data.tag.six);
+    updateElement("gemini-headline-seven",data.headlines.seven);
+    updateElement("gemini-tag-seven",data.tag.seven);
+    updateElement("gemini-headline-eight",data.headlines.eight);
+    updateElement("gemini-tag-eight",data.tag.eight);
+    updateElement("gemini-headline-nine",data.headlines.nine);
+    updateElement("gemini-tag-nine",data.tag.nine);
+    updateElement("gemini-headline-ten",data.headlines.ten);
+    updateElement("gemini-tag-ten",data.tag.ten);
+}
+
+//helper method for updating html element by id.
+function updateElement(id, value) {
+    document.getElementById(id).innerHTML = value;
+}
+
+//--------------------General------------------------//
 //CLOCK
 function getClock() {
     var context;
@@ -872,8 +1085,7 @@ function getClock() {
     context.fillText(str,70, 34);
 }
 //Clock helper function
-function prefixZero(hour, min, sec)
-{
+function prefixZero(hour, min, sec) {
     var curTime;
     if(hour < 10)
         curTime = "0"+hour.toString();
@@ -892,193 +1104,4 @@ function prefixZero(hour, min, sec)
     return curTime;
 }
 
-//Generate DeviceChart
-function makeDeviceChart() {
-    var chartData = [
-        {
-            "color": "#03A9FC",
-            "device": "Computer",
-            "visits": 0
 
-        },
-        {
-            "color": "#87CE37",
-            "device": "Smartphone",
-            "visits": 0
-
-        },
-        {
-            "color": "#F05576",
-            "device": "Tablet",
-            "visits": 0
-
-        }
-    ];
-
-    AmCharts.ready(function () {
-        // PIE CHART
-        devicechart = new AmCharts.AmPieChart();
-        devicechart.dataProvider = chartData;
-        devicechart.titleField = "device";
-        devicechart.valueField = "visits";
-        devicechart.colorField = "color";
-        devicechart.sequencedAnimation = true;
-        devicechart.startEffect = "elastic";
-        devicechart.innerRadius = "60%";
-        devicechart.radius = "40%";
-        devicechart.labelRadius = 15;
-        devicechart.color = "white";
-        devicechart.balloonText = "[[title]]<br><span style='font-size:14px;'><b>[[value]]</b> ([[percents]]%)</span>";
-        devicechart.autoMargins = false;
-        devicechart.marginTop = 0;
-        devicechart.marginBottom = 0;
-        devicechart.marginLeft = 0;
-        devicechart.marginRight = 0;
-        devicechart.pullOutRadius = 0;
-        devicechart.creditsPosition = "bottom-left";
-
-        // WRITE
-        devicechart.write("devicediv");
-    });
-}
-
-//update DeviceChart
-function updateDeviceChart(data) {
-    devicechart.dataProvider = [data.computer,data.smartphone,data.tablet];
-    devicechart.validateData();
-}
-
-//Generate norway HeatMap
-function makeMap() {
-
-    AmCharts.ready(function() {
-        map = new AmCharts.AmMap();
-
-        /*NOTE: There is no id NO-13!!!*/
-        map.colorSteps = 10;
-
-        var dataProvider = {
-            mapVar: AmCharts.maps.norwayLow,
-
-            areas: [
-                {
-                    id: "NO-02",
-                    value: 0},
-                {
-                    id: "NO-01",
-                    value: 0},
-                {
-                    id: "NO-03",
-                    value: 0},
-                {
-                    id: "NO-04",
-                    value: 0},
-                {
-                    id: "NO-05",
-                    value: 0},
-                {
-                    id: "NO-06",
-                    value: 0},
-                {
-                    id: "NO-07",
-                    value: 0},
-                {
-                    id: "NO-08",
-                    value: 0},
-                {
-                    id: "NO-09",
-                    value: 0},
-                {
-                    id: "NO-10",
-                    value: 0},
-                {
-                    id: "NO-11",
-                    value: 0},
-                {
-                    id: "NO-12",
-                    value: 0},
-                {
-                    id: "NO-14",
-                    value: 0},
-                {
-                    id: "NO-15",
-                    value: 0},
-                {
-                    id: "NO-16",
-                    value: 0},
-                {
-                    id: "NO-17",
-                    value: 0},
-                {
-                    id: "NO-18",
-                    value: 0},
-                {
-                    id: "NO-19",
-                    value: 0},
-                {
-                    id: "NO-20",
-                    value: 0}]
-        };
-
-
-        map.areasSettings = {
-            alpha: 0.8,
-            //color: "#F95372",
-            color: "#00abff",
-            colorSolid: "#8BD22F",
-            unlistedAreasAlpha: 0.4,
-            unlistedAreasColor: "#000000",
-            outlineColor: "#FFFFFF",
-            outlineAlpha: 0.5,
-            outlineThickness: 1,
-            rollOverColor: "#03A9FC",
-            rollOverOutlineColor: "#FFFFFF",
-            selectedOutlineColor: "#FFFFFF",
-            selectedColor: "#ffffff",
-            unlistedAreasOutlineColor: "#FFFFFF",
-            unlistedAreasOutlineAlpha: 0.5,
-            autoZoom: true
-        };
-        map.dataProvider = dataProvider;
-
-        var valueLegend = new AmCharts.ValueLegend();
-        valueLegend.right = 10;
-        valueLegend.minValue = "little";
-        valueLegend.maxValue = "a lot!";
-        valueLegend.color = "white";
-        map.valueLegend = valueLegend;
-        map.color = "white";
-
-        map.write("mapdiv");
-    });
-}
-
-//update norway heatMap
-function updateMapData(data) {
-    // generate bew values
-    map.dataProvider.areas = [
-        data.Akershus,
-        data.AustAgder,
-        data.Buskerud,
-        data.Finnmark,
-        data.Hedmark,
-        data.Hordaland,
-        data.MoreOgRomsdal,
-        data.NordTrondelag,
-        data.Nordland,
-        data.Oppland,
-        data.Oslo,
-        data.Ostfold,
-        data.Rogaland,
-        data.SognOgFjordane,
-        data.SorTrondelag,
-        data.Telemark,
-        data.Troms,
-        data.VestAgder,
-        data.Vestfold
-    ];
-    //TODO: map loses hover after update
-
-    // update map
-    map.validateNow();
-}
