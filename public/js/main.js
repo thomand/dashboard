@@ -129,7 +129,7 @@ function makeDeviceChart() {
         },
         {
             "color": "#87CE37",
-            "device": "Smartphone",
+            "device": "Phone",
             "visits": 0
 
         },
@@ -152,9 +152,9 @@ function makeDeviceChart() {
         devicechart.startEffect = "elastic";
         devicechart.innerRadius = "60%";
         devicechart.radius = "40%";
-        devicechart.labelRadius = 15;
+        devicechart.labelRadius = 5;
         devicechart.color = "white";
-        devicechart.balloonText = "[[title]]<br><span style='font-size:14px;'><b>[[value]]</b> ([[percents]]%)</span>";
+        devicechart.balloonText = "[[title]]<br><span style='font-size:14px; font-weight: bold'><b>[[value]]</b> ([[percents]]%)</span>";
         devicechart.autoMargins = false;
         devicechart.marginTop = 0;
         devicechart.marginBottom = 0;
@@ -272,6 +272,7 @@ function makeMap() {
         valueLegend.minValue = "little";
         valueLegend.maxValue = "a lot!";
         valueLegend.color = "white";
+        valueLegend.fontSize = 14;
         map.valueLegend = valueLegend;
         map.color = "white";
 

@@ -82,6 +82,12 @@ body {
     margin-right:1%;
 }
 
+.special {
+    width:100%;
+    margin-left:0;
+    margin-right:0;
+}
+
 .row.total {
     height:100%;
 }
@@ -131,57 +137,68 @@ body {
     transition: none !important;
 }
 
+.item2description {
+    color: #ffffff;
+    margin-top:1%;
+    font-size:2em;
+}
 /*Cool animation. Not in use.*/
 .animated.flip {
     -webkit-animation-duration: 2000ms !important;
     animation-duration: 2000ms !important;
 }
 
+/*Heatmap container*/
 .mapContainer {
-    height: 90% !important;
+    height: 92% !important;
 }
 
-.item2description {
-    color: #ffffff;
-    margin-top:1%;
-    height: 6%;
-    font-size:24px;
-}
-
-
-.visitors {
-    font-size: 48px;
-    text-align: center;
-    padding-top: 15px;
-    padding-bottom: 10px;
-}
-
-
-.visitors.intervaldiv {
-    padding-top: 25px;
-    padding-bottom: 28px;
-}
-
-.browsers {
-    font-size: 16px;
-}
-
-.popularSites {
-    height:223px !important;
+/*Container for rest of page one*/
+.visitorsNTNU {
+    height: 92% !important;
 }
 
 .visitordiv {
-    height:93px !important;
+    height:12%;
 }
 
-.device {
-    height:199px !important;
+.platformAndBrowsers {
+    height:34% !important;
 }
 
-.special {
-    width:100%;
-    margin-left:0;
-    margin-right:0;
+.popularSites {
+    height:34%;
+}
+
+.headline {
+    height:6%;
+}
+
+.visitors {
+    font-size: 4em;
+    text-align: center;
+    vertical-align:middle;
+}
+
+.visitor-percentage {
+    font-size: 2.5em;
+    vertical-align:middle;
+}
+
+.middle {
+    top: 25%;
+}
+
+.browsers {
+    font-size: 1.5em;
+}
+
+.test {
+    background-color: red;
+}
+
+.teste {
+    background-color: green;
 }
 
 .ion-pricetag {
@@ -193,19 +210,13 @@ body {
     font-style: italic;
 }
 
-
-
 .float-right {
-    text-align: right;
-}
-
-.visitor-percentage {
-    font-size: 28px;
     text-align: right;
 }
 
 table.study {
     font-weight: bold;
+    font-size:1.1em;
 }
 
 table.study tr td {
@@ -220,7 +231,6 @@ table.extramargin {
     font-size: 22px;
 }
 
-
 .green{
     color: #8BD22F;
 }
@@ -233,11 +243,9 @@ table.extramargin {
     color:#ffffff;
 }
 
-
 .ion-arrow-graph-up-right{
     color: rgb(139,210,47);
 }
-
 
 .ion-arrow-graph-down-right{
     color: rgb(249,83,114);
