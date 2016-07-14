@@ -38,6 +38,15 @@ function init(){
     });
 }
 
+function loader() {
+    setTimeout(showPage, 4000);
+}
+
+function showPage() {
+    document.getElementById("wrapper").style.display = "none";
+    document.getElementById("myCarousel").style.display = "block";
+}
+
 //update everything with data from firebase
 function updateEverything(data) {
     updateVisitors(data.ew.vistitors.visitorCount);
