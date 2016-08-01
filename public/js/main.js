@@ -49,11 +49,11 @@ function showPage() {
 
 //update everything with data from firebase
 function updateEverything(data) {
-    updateVisitors(data.ew.vistitors.visitorCount);
-    updateBrowserTable(data.ew.vistitors.browsers);
-    updatePopularPages(data.ew.vistitors.popularPages);
-    updateMapData(data.ew.vistitors.heatmap);
-    updateDeviceChart(data.ew.vistitors.platform);
+    updateVisitors(data.ew.visitors.visitorCount);
+    updateBrowserTable(data.ew.visitors.browsers);
+    updatePopularPages(data.ew.visitors.popularPages);
+    updateMapData(data.ew.visitors.heatmap);
+    updateDeviceChart(data.ew.visitors.platform);
     updateStudyPage(data.study);
     updateInnsidaWikiTema(data.innsida,"innsida", innsidaVisitorChart);
     updateInnsidaWikiTema(data.tema,"tema", temaVisitorChart);
