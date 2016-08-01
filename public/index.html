@@ -1017,8 +1017,15 @@
 
     <!-- Script to Activate the Carousel -->
     <script>
+        var arr = document.URL.match(/interval=([0-9]+)/);
+        var interval = 30000;
+        //if the url contains parameters for the interval (arr != null)
+        if (arr != null) {
+            interval = arr[1];
+        }
+
     $('#myCarousel').carousel({
-        interval: 500000 //changes the speed
+        interval: interval //changes the speed
     });
     </script>
 
