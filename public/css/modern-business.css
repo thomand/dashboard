@@ -8,8 +8,8 @@
 
 html,
 body {
-    height: 100%;
-    width:100%;
+    height: 100% !important;
+    width:100% !important;
     background-image: url("../img/sky-bg.jpg");
     font-family: 'Roboto', sans-serif;
     padding-top: 30px;
@@ -442,7 +442,7 @@ div.carousel .fill {
 }
 
 /* Responsive Styles */
-
+/*
 @media(max-width:991px) {
     .customer-img,
     .img-related {
@@ -459,3 +459,4 @@ div.carousel .fill {
         height: 70%;
     }
 }
+*/
