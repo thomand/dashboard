@@ -97,7 +97,8 @@ function updateBrowserTable(data) {
     var ie = data.IE;
     var safari = data.Safari;
     var opera = data.Opera;
-    var array = [firefox, chrome, ie, safari, opera];
+    var edge = data.Edge;
+    var array = [firefox, chrome, ie, safari, opera, edge];
     var sorted = array.sort(function(a, b) {return parseInt(a.numbers) - parseInt(b.numbers);});
     var logoStartString = '<img src="img/';
     var logoEndString = '.svg" height="20" width="20">';
@@ -163,8 +164,9 @@ function makeDeviceChart() {
         devicechart.radius = "40%";
         devicechart.labelRadius = 5;
         devicechart.color = "white";
-        devicechart.balloonText = "[[title]]<br><span style='font-size:14px; font-weight: bold'><b>[[value]]</b> ([[percents]]%)</span>";
+        devicechart.balloonText = "[[title]]<br><span style='font-size:2vw; font-weight: bold'><b>[[value]]</b> ([[percents]]%)</span>";
         devicechart.autoMargins = false;
+        devicechart.fontSize = 18;
         devicechart.marginTop = 0;
         devicechart.marginBottom = 0;
         devicechart.marginLeft = 0;
@@ -373,6 +375,7 @@ function makeWeekCharts() {
     makeWikiWeekChart();
 }
 
+//TODO: Make chart text a little bit bigger in the three following charts?
 function makeInnsidaWeekChart() {
     var chartData = [
         {
