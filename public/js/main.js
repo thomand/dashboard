@@ -98,7 +98,9 @@ function updateBrowserTable(data) {
     var safari = data.Safari;
     var opera = data.Opera;
     var edge = data.Edge;
-    var array = [firefox, chrome, ie, safari, opera, edge];
+    var others = data.Others;
+    //TODO: get image placeholder svg file for Others browser
+    var array = [firefox, chrome, ie, safari, opera, edge, others];
     var sorted = array.sort(function(a, b) {return parseInt(a.numbers) - parseInt(b.numbers);});
     var logoStartString = '<img src="img/';
     var logoEndString = '.svg" height="20" width="20">';
