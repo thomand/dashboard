@@ -63,6 +63,7 @@ function updateEverything(data) {
     updateVersusCharts(data.innsida.versusChart);
     updateGemini(data.gemini);
     updateWorldChart(data.ew.visitors.worldVisits);
+    updateGeminiImages(data.gemini.image);
 }
 
 //--------------------First page------------------------//
@@ -1122,6 +1123,19 @@ function updateGemini(data) {
     updateElement("gemini-tag-nine",data.tag.nine);
     updateElement("gemini-headline-ten",data.headlines.ten);
     updateElement("gemini-tag-ten",data.tag.ten);
+}
+
+function updateGeminiImages(data) {
+    document.getElementById("gemini-img-one").src = data.one;
+    document.getElementById("gemini-img-two").src = data.two;
+    document.getElementById("gemini-img-three").src = data.three;
+    document.getElementById("gemini-img-four").src = data.four;
+    document.getElementById("gemini-img-five").src = data.five;
+    document.getElementById("gemini-img-six").src = data.six;
+    document.getElementById("gemini-img-seven").src = data.seven;
+    document.getElementById("gemini-img-eight").src = data.eight;
+    document.getElementById("gemini-img-nine").src = data.nine;
+    document.getElementById("gemini-img-ten").src = data.ten;
 }
 
 //helper method for updating html element by id.

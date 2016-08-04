@@ -30,6 +30,16 @@ body {
     /*margin-top: -10px;*/
 }
 
+.gemini-image {
+    padding-top:1vw;
+    height:7vw;
+    width:7vw;
+}
+
+.item2description.gemini {
+    font-size: 1.5vw;
+}
+
 #innsidaTrondheim {
     margin-top  : 0;
     height		: 250px;
