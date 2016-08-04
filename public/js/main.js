@@ -11,6 +11,7 @@ $(document).ready(function(){
     var TrondheimVersuschart;
     var AalesundVersuschart;
     var GjovikVersuschart;
+    var worldChart;
     init();
 
 
@@ -22,6 +23,7 @@ function init(){
     makeDeviceChart();
     makeWeekCharts();
     makeInnsidaVersusCharts();
+    makeWorldChart();
     setInterval(getClock, 1000);
     config = {
         apiKey: "AIzaSyDGxsSprXYHfxsUwvJa74-g3T_JmJmt5kU",
@@ -60,6 +62,7 @@ function updateEverything(data) {
     updateInnsidaWikiTema(data.wiki,"wiki", wikiVisitorChart);
     updateVersusCharts(data.innsida.versusChart);
     updateGemini(data.gemini);
+    updateWorldChart(data.ew.visitors.worldVisits);
 }
 
 //--------------------First page------------------------//
@@ -361,12 +364,46 @@ function updateStudyPage(data) {
     document.getElementById("study-increasing-three").innerHTML = data.increasing.three;
     document.getElementById("study-increasing-four").innerHTML = data.increasing.four;
     document.getElementById("study-increasing-five").innerHTML = data.increasing.five;
+}
 
-    document.getElementById("study-decreasing-one").innerHTML = data.decreasing.one;
-    document.getElementById("study-decreasing-two").innerHTML = data.decreasing.two;
-    document.getElementById("study-decreasing-three").innerHTML = data.decreasing.three;
-    document.getElementById("study-decreasing-four").innerHTML = data.decreasing.four;
-    document.getElementById("study-decreasing-five").innerHTML = data.decreasing.five;
+function updateWorldChart(data) {
+    worldChart.dataProvider = [data.one,data.two,data.three,data.four,data.five];
+    worldChart.validateData();
+}
+
+function makeWorldChart() {
+    worldChart = AmCharts.makeChart("worldChart", {
+        "type": "serial",
+        "theme": "light",
+        "color": "#FFFFFF",
+        "creditsPosition" : "top-right",
+        "marginRight": 40,
+        "dataProvider": [],
+
+        "startDuration": 1,
+        "graphs": [{
+            "balloonText": "<b>[[category]]: [[value]]</b>",
+            "fillColorsField": "color",
+            "fillAlphas": 0.9,
+            "lineAlpha": 0.2,
+            "type": "column",
+            "valueField": "visits"
+        }],
+        "chartCursor": {
+            "categoryBalloonEnabled": false,
+            "cursorAlpha": 0,
+            "zoomable": false
+        },
+        "categoryField": "country",
+        "categoryAxis": {
+            "gridPosition": "start",
+            "labelRotation": 45
+        },
+        "export": {
+            "enabled": true
+        }
+
+    });
 
 }
 
