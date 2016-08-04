@@ -15,6 +15,12 @@ def getTopFifteen():
 		text = webpage[top[i]+1:top[i+1]]
 		result = text[text.index("href=")+6:text.index(" rel")-1]
 		liste.append(result)
+	
+	img = [(a.end()) for a in list(re.finditer('"article-thumbnail">', webpage))]
+	for i in range(0,len(top)-1):
+		text = webpage[img[i]+1:img[i+1]]
+		result = text[text.index('<img src=')+10:text.index(" alt")-1]
+		imageList.append(result)
 	return liste
 
 #open each page and extract part of html that contains title and tags
@@ -39,6 +45,8 @@ def getTags(html):
 translate = {0:"one", 1:"two", 2:"three", 3:"four", 4:"five", 5:"six", 6:"seven", 7:"eight", 8:"nine", 9:"ten"}
 headlines = {}
 tag = {}
+imageList = []
+images = {}
 
 def run():
 	#get top 10 stories urls
@@ -56,10 +64,13 @@ def run():
 		headlines[indexName] = title
 		#add tag to tags dictionary
 		tag[indexName] = collectedTag
+		#add images to dictionary
+		images[indexName] = imageList[i]
 	
 	#open a connection to firebase and update all tags and titles in accordance with collected data
 	f = firebase.FirebaseApplication('https://dashbordntnu.firebaseio.com/gemini/', None)
 	snapshot = f.patch('headlines', headlines)
 	snapshot2 = f.patch('tag',tag)
+	snapshot3 = f.patch('image',images)
 	
 run()
