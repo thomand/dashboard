@@ -10,7 +10,11 @@ html,
 body {
     height: 100% !important;
     width:100% !important;
-    background-image: url("../img/sky-bg.jpg");
+    background: url("../img/sky-bg.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
     font-family: 'Roboto', sans-serif;
     padding-top: 30px;
 }
@@ -103,9 +107,14 @@ body {
 }
 
 .vertical-text {
-    font-size:20px;
+    font-size:1.5vw;
     color:white;
-    text-align:center
+    /*text-align:center;*/
+    /*vertical-align: middle;*/
+    width:0;
+    word-wrap: break-word;
+
+    /*writing-mode: vertical-lr;*/
 }
 
 .five {
@@ -140,7 +149,7 @@ body {
 .item2description {
     color: #ffffff;
     margin-top:1%;
-    font-size:2em;
+    font-size:1.7vw;
 }
 /*Cool animation. Not in use.*/
 .animated.flip {
@@ -167,7 +176,7 @@ body {
 }
 
 .popularSites {
-    height:34%;
+    height:32.75%;
 }
 
 .headline {
@@ -175,13 +184,13 @@ body {
 }
 
 .visitors {
-    font-size: 4em;
+    font-size: 4vw;
     text-align: center;
     vertical-align:middle;
 }
 
 .visitor-percentage {
-    font-size: 2.5em;
+    font-size: 1.8vw;
     vertical-align:middle;
 }
 
@@ -190,7 +199,7 @@ body {
 }
 
 .browsers {
-    font-size: 1.5em;
+    font-size: 1.45vw;
 }
 
 .test {
@@ -202,12 +211,13 @@ body {
 }
 
 .ion-pricetag {
-    font-size: 16px;
+    font-size: 1vw;
     color: rgb(139,210,47);
 }
 
 .italic {
     font-style: italic;
+    font-size:0.9vw;
 }
 
 .float-right {
@@ -215,8 +225,21 @@ body {
 }
 
 table.study {
+    /*font-weight: bold;*/
+    font-size:1.4vw;
+}
+
+.table-heading {
     font-weight: bold;
-    font-size:1.1em;
+}
+
+table.externalWeb {
+    font-weight: bold;
+    font-size:0.94vw;
+}
+
+.table.study-ITW {
+    font-size: 1.1vw;
 }
 
 table.study tr td {
@@ -253,14 +276,13 @@ table.extramargin {
 
 .ion-arrow-graph-down-right.reverse {
     color: rgb(139,210,47);
-    font-size: 24px;
+    font-size: 1.8vw;
 }
 
 .ion-arrow-graph-up-right.reverse {
     color: rgb(249,83,114);
-    font-size: 24px;
+    font-size: 1.8vw;
 }
-
 
 .description {
     color: #ffffff;
@@ -278,7 +300,6 @@ table.extramargin {
     height: 100%;
 }
 
-
 .two-row-table-top {
     display:table-row;
     height:30%;
@@ -289,11 +310,9 @@ table.extramargin {
     height:70%;
 }
 
-
 .item2description.big {
     font-size: 24px;
     display: table-cell;
-
 }
 
 .panel {
@@ -314,8 +333,6 @@ table.extramargin {
     margin: 0 auto;
     float: right;
     margin-right: 2%;
-
-
 }
 
 #clock {
@@ -350,45 +367,9 @@ span {
     height: 60px;
 }
 
-
-.img-portfolio {
-    margin-bottom: 30px;
-}
-
 .img-hover:hover {
     opacity: 0.8;
 }
-
-/* Twitter */
-blockquote.twitter-tweet {
-    display: inline-block;
-    padding: 16px;
-    margin: 10px 0;
-    max-width: 468px;
-    border: #ddd 1px solid;
-    border-top-color: #eee;
-    border-bottom-color: #bbb;
-    border-radius: 5px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.15);
-    font: bold 14px/18px Helvetica, Arial, sans-serif;
-    color: #000;
-}
-
-blockquote.twitter-tweet p {
-    font: normal 18px/24px Georgia, "Times New Roman", Palatino, serif;
-    margin: 0 5px 10px 0;
-}
-
-blockquote.twitter-tweet a[href^="https://twitter.com"] {
-    font-weight: normal;
-    color: #666;
-    font-size: 12px;
-}
-
-
-
-
-
 
 /* Home Page Carousel */
 
@@ -414,31 +395,6 @@ div.carousel .fill {
     height: 100%;
     background-position: center;
     background-size: cover;
-}
-
-/* 404 Page Styles */
-
-.error-404 {
-    font-size: 100px;
-}
-
-/* Pricing Page Styles */
-
-.price {
-    display: block;
-    font-size: 50px;
-    line-height: 50px;
-}
-
-.price sup {
-    top: -20px;
-    left: 2px;
-    font-size: 20px;
-}
-
-.period {
-    display: block;
-    font-style: italic;
 }
 
 /* Responsive Styles */
