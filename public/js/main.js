@@ -327,17 +327,17 @@ function updateMapData(data) {
 
 //Most popular pages / Least popular pages
 function updatePopularPages(data) {
-    document.getElementById("mostPopular-one").innerHTML = data.mostPopular.one;
-    document.getElementById("mostPopular-two").innerHTML = data.mostPopular.two;
-    document.getElementById("mostPopular-three").innerHTML = data.mostPopular.three;
-    document.getElementById("mostPopular-four").innerHTML = data.mostPopular.four;
-    document.getElementById("mostPopular-five").innerHTML = data.mostPopular.five;
+    document.getElementById("popularNO-one").innerHTML = data.popularNO.one;
+    document.getElementById("popularNO-two").innerHTML = data.popularNO.two;
+    document.getElementById("popularNO-three").innerHTML = data.popularNO.three;
+    document.getElementById("popularNO-four").innerHTML = data.popularNO.four;
+    document.getElementById("popularNO-five").innerHTML = data.popularNO.five;
 
-    document.getElementById("leastPopular-one").innerHTML = data.leastPopular.one;
-    document.getElementById("leastPopular-two").innerHTML = data.leastPopular.two;
-    document.getElementById("leastPopular-three").innerHTML = data.leastPopular.three;
-    document.getElementById("leastPopular-four").innerHTML = data.leastPopular.four;
-    document.getElementById("leastPopular-five").innerHTML = data.leastPopular.five;
+    document.getElementById("popularEDU-one").innerHTML = data.popularEDU.one;
+    document.getElementById("popularEDU-two").innerHTML = data.popularEDU.two;
+    document.getElementById("popularEDU-three").innerHTML = data.popularEDU.three;
+    document.getElementById("popularEDU-four").innerHTML = data.popularEDU.four;
+    document.getElementById("popularEDU-five").innerHTML = data.popularEDU.five;
 }
 
 //--------------------Second page------------------------//
