@@ -98,36 +98,38 @@ function updateBrowserTable(data) {
     var safari = data.Safari;
     var opera = data.Opera;
     var edge = data.Edge;
-    var others = data.Others;
-    //TODO: get image placeholder svg file for Others browser
-    var array = [firefox, chrome, ie, safari, opera, edge, others];
+    var array = [firefox, chrome, ie, safari, opera, edge];
     var sorted = array.sort(function(a, b) {return parseInt(a.numbers) - parseInt(b.numbers);});
     var logoStartString = '<img src="img/';
     var logoEndString = '.svg" height="20" width="20">';
 
-    document.getElementById("browserLogoOne").innerHTML = logoStartString + sorted[4].name.toLowerCase() + logoEndString;
-    document.getElementById("browserLogoTwo").innerHTML = logoStartString + sorted[3].name.toLowerCase() + logoEndString;
-    document.getElementById("browserLogoThree").innerHTML = logoStartString + sorted[2].name.toLowerCase() + logoEndString;
-    document.getElementById("browserLogoFour").innerHTML = logoStartString + sorted[1].name.toLowerCase() + logoEndString;
-    document.getElementById("browserLogoFive").innerHTML = logoStartString + sorted[0].name.toLowerCase() + logoEndString;
+    document.getElementById("browserLogoOne").innerHTML = logoStartString + sorted[5].name.toLowerCase() + logoEndString;
+    document.getElementById("browserLogoTwo").innerHTML = logoStartString + sorted[4].name.toLowerCase() + logoEndString;
+    document.getElementById("browserLogoThree").innerHTML = logoStartString + sorted[3].name.toLowerCase() + logoEndString;
+    document.getElementById("browserLogoFour").innerHTML = logoStartString + sorted[2].name.toLowerCase() + logoEndString;
+    document.getElementById("browserLogoFive").innerHTML = logoStartString + sorted[1].name.toLowerCase() + logoEndString;
+    document.getElementById("browserLogoSix").innerHTML = logoStartString + sorted[0].name.toLowerCase() + logoEndString;
 
-    document.getElementById("browserNameOne").innerHTML = sorted[4].name;
-    document.getElementById("browserNameTwo").innerHTML = sorted[3].name;
-    document.getElementById("browserNameThree").innerHTML = sorted[2].name;
-    document.getElementById("browserNameFour").innerHTML = sorted[1].name;
-    document.getElementById("browserNameFive").innerHTML = sorted[0].name;
+    document.getElementById("browserNameOne").innerHTML = sorted[5].name;
+    document.getElementById("browserNameTwo").innerHTML = sorted[4].name;
+    document.getElementById("browserNameThree").innerHTML = sorted[3].name;
+    document.getElementById("browserNameFour").innerHTML = sorted[2].name;
+    document.getElementById("browserNameFive").innerHTML = sorted[1].name;
+    document.getElementById("browserNameSix").innerHTML = sorted[0].name;
 
-    document.getElementById("browserNumOne").innerHTML = sorted[4].numbers;
-    document.getElementById("browserNumTwo").innerHTML = sorted[3].numbers;
-    document.getElementById("browserNumThree").innerHTML = sorted[2].numbers;
-    document.getElementById("browserNumFour").innerHTML = sorted[1].numbers;
-    document.getElementById("browserNumFive").innerHTML = sorted[0].numbers;
+    document.getElementById("browserNumOne").innerHTML = sorted[5].numbers;
+    document.getElementById("browserNumTwo").innerHTML = sorted[4].numbers;
+    document.getElementById("browserNumThree").innerHTML = sorted[3].numbers;
+    document.getElementById("browserNumFour").innerHTML = sorted[2].numbers;
+    document.getElementById("browserNumFive").innerHTML = sorted[1].numbers;
+    document.getElementById("browserNumSix").innerHTML = sorted[0].numbers;
 
-    document.getElementById("browserPercentOne").innerHTML = sorted[4].percent + "%";
-    document.getElementById("browserPercentTwo").innerHTML = sorted[3].percent + "%";
-    document.getElementById("browserPercentThree").innerHTML = sorted[2].percent + "%";
-    document.getElementById("browserPercentFour").innerHTML = sorted[1].percent + "%";
-    document.getElementById("browserPercentFive").innerHTML = sorted[0].percent + "%";
+    document.getElementById("browserPercentOne").innerHTML = sorted[5].percent + "%";
+    document.getElementById("browserPercentTwo").innerHTML = sorted[4].percent + "%";
+    document.getElementById("browserPercentThree").innerHTML = sorted[3].percent + "%";
+    document.getElementById("browserPercentFour").innerHTML = sorted[2].percent + "%";
+    document.getElementById("browserPercentFive").innerHTML = sorted[1].percent + "%";
+    document.getElementById("browserPercentSix").innerHTML = sorted[0].percent + "%";
 }
 
 //Generate DeviceChart (platform)
