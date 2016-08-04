@@ -359,11 +359,18 @@ function updateStudyPage(data) {
     document.getElementById("study-least-visit-four").innerHTML = data.leastVisited.four;
     document.getElementById("study-least-visit-five").innerHTML = data.leastVisited.five;
 
-    document.getElementById("study-increasing-one").innerHTML = data.increasing.one;
-    document.getElementById("study-increasing-two").innerHTML = data.increasing.two;
-    document.getElementById("study-increasing-three").innerHTML = data.increasing.three;
-    document.getElementById("study-increasing-four").innerHTML = data.increasing.four;
-    document.getElementById("study-increasing-five").innerHTML = data.increasing.five;
+    document.getElementById("study-increasing-one").innerHTML = data.increasing.one.url;
+    document.getElementById("study-increasing-two").innerHTML = data.increasing.two.url;
+    document.getElementById("study-increasing-three").innerHTML = data.increasing.three.url;
+    document.getElementById("study-increasing-four").innerHTML = data.increasing.four.url;
+    document.getElementById("study-increasing-five").innerHTML = data.increasing.five.url;
+
+    document.getElementById("study-change-one").className = "ion-arrow-graph-" + data.increasing.one.change + "-right bigArrow";
+    document.getElementById("study-change-two").className = "ion-arrow-graph-" + data.increasing.two.change + "-right bigArrow";
+    document.getElementById("study-change-three").className = "ion-arrow-graph-" + data.increasing.three.change + "-right bigArrow";
+    document.getElementById("study-change-four").className = "ion-arrow-graph-" + data.increasing.four.change + "-right bigArrow";
+    document.getElementById("study-change-five").className = "ion-arrow-graph-" + data.increasing.five.change + "-right bigArrow";
+
 }
 
 function updateWorldChart(data) {
