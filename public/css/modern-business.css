@@ -107,12 +107,11 @@ body {
 }
 
 .vertical-text {
-    font-size:1.5vw;
     color:white;
-    /*text-align:center;*/
-    /*vertical-align: middle;*/
-    width:0;
-    word-wrap: break-word;
+    width: 1em;
+    font-size: 1.3vw;
+    letter-spacing: 1.5vw;
+    font-family: Consolas;
 
     /*writing-mode: vertical-lr;*/
 }
