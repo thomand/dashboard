@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f594b564-3611-403e-800a-305ea479257a" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/firebase-debug.log" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/index.html" afterPath="$PROJECT_DIR$/public/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/main.js" afterPath="$PROJECT_DIR$/public/js/main.js" />
     </list>
     <ignored path="startbootstrap-modern-business-1.0.5.iws" />
@@ -105,10 +103,9 @@
           <file leaf-file-name="main.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/public/js/main.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="124">
-                  <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+                <state relative-caret-position="359">
+                  <caret line="324" column="22" selection-start-line="324" selection-start-column="22" selection-end-line="324" selection-end-column="22" />
                   <folding>
-                    <element signature="n#!!block;n#init#0" expanded="false" />
                     <element signature="n#!!block;n#loader#0" expanded="false" />
                     <element signature="n#!!block;n#showPage#0" expanded="false" />
                     <element signature="n#!!block;n#updateVisitors#0" expanded="false" />
@@ -128,18 +125,18 @@
                     <element signature="n#!!block;n#updateInnsidaWikiTema#0" expanded="false" />
                     <element signature="n#!!block;n#makeInnsidaVersusCharts#0" expanded="false" />
                     <element signature="n#!!block;n#makeTrondheimVersus#0" expanded="false" />
-                    <element signature="e#32406#32787#0" expanded="false" />
+                    <element signature="e#32362#32743#0" expanded="false" />
                     <element signature="n#!!block;n#makeAalesundVersus#0" expanded="false" />
-                    <element signature="e#34301#34682#0" expanded="false" />
+                    <element signature="e#34257#34638#0" expanded="false" />
                     <element signature="n#!!block;n#makeGjovikVersus#0" expanded="false" />
-                    <element signature="e#36188#36569#0" expanded="false" />
+                    <element signature="e#36144#36525#0" expanded="false" />
                     <element signature="n#!!block;n#updateVersusCharts#0" expanded="false" />
                     <element signature="n#!!block;n#updateGemini#0" expanded="false" />
                     <element signature="n#!!block;n#updateGeminiImages#0" expanded="false" />
                     <element signature="n#!!block;n#updateElement#0" expanded="false" />
                     <element signature="n#!!block;n#getClock#0" expanded="false" />
                     <element signature="n#!!block;n#prefixZero#0" expanded="false" />
-                    <marker date="1470413040000" expanded="true" signature="6826:6858" placeholder="..." />
+                    <marker date="1470414938000" expanded="true" signature="6825:6857" placeholder="..." />
                   </folding>
                 </state>
               </provider>
@@ -361,12 +358,12 @@
       <workItem from="1467905012824" duration="15349000" />
       <workItem from="1468240536117" duration="45660000" />
       <workItem from="1468523051666" duration="237000" />
-      <workItem from="1469957745130" duration="29281000" />
+      <workItem from="1469957745130" duration="30644000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="233391000" />
+    <option name="totallyTimeSpent" value="234754000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="873" extended-state="0" />
@@ -503,7 +500,6 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="n#!!block;n#init#0" expanded="false" />
             <element signature="n#!!block;n#loader#0" expanded="false" />
             <element signature="n#!!block;n#showPage#0" expanded="false" />
             <element signature="n#!!block;n#updateVisitors#0" expanded="false" />
@@ -523,18 +519,18 @@
             <element signature="n#!!block;n#updateInnsidaWikiTema#0" expanded="false" />
             <element signature="n#!!block;n#makeInnsidaVersusCharts#0" expanded="false" />
             <element signature="n#!!block;n#makeTrondheimVersus#0" expanded="false" />
-            <element signature="e#32406#32787#0" expanded="false" />
+            <element signature="e#32362#32743#0" expanded="false" />
             <element signature="n#!!block;n#makeAalesundVersus#0" expanded="false" />
-            <element signature="e#34301#34682#0" expanded="false" />
+            <element signature="e#34257#34638#0" expanded="false" />
             <element signature="n#!!block;n#makeGjovikVersus#0" expanded="false" />
-            <element signature="e#36188#36569#0" expanded="false" />
+            <element signature="e#36144#36525#0" expanded="false" />
             <element signature="n#!!block;n#updateVersusCharts#0" expanded="false" />
             <element signature="n#!!block;n#updateGemini#0" expanded="false" />
             <element signature="n#!!block;n#updateGeminiImages#0" expanded="false" />
             <element signature="n#!!block;n#updateElement#0" expanded="false" />
             <element signature="n#!!block;n#getClock#0" expanded="false" />
             <element signature="n#!!block;n#prefixZero#0" expanded="false" />
-            <marker date="1470413040000" expanded="true" signature="6826:6858" placeholder="..." />
+            <marker date="1470414938000" expanded="true" signature="6825:6857" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -664,7 +660,6 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="n#!!block;n#init#0" expanded="false" />
             <element signature="n#!!block;n#loader#0" expanded="false" />
             <element signature="n#!!block;n#showPage#0" expanded="false" />
             <element signature="n#!!block;n#updateVisitors#0" expanded="false" />
@@ -684,18 +679,18 @@
             <element signature="n#!!block;n#updateInnsidaWikiTema#0" expanded="false" />
             <element signature="n#!!block;n#makeInnsidaVersusCharts#0" expanded="false" />
             <element signature="n#!!block;n#makeTrondheimVersus#0" expanded="false" />
-            <element signature="e#32406#32787#0" expanded="false" />
+            <element signature="e#32362#32743#0" expanded="false" />
             <element signature="n#!!block;n#makeAalesundVersus#0" expanded="false" />
-            <element signature="e#34301#34682#0" expanded="false" />
+            <element signature="e#34257#34638#0" expanded="false" />
             <element signature="n#!!block;n#makeGjovikVersus#0" expanded="false" />
-            <element signature="e#36188#36569#0" expanded="false" />
+            <element signature="e#36144#36525#0" expanded="false" />
             <element signature="n#!!block;n#updateVersusCharts#0" expanded="false" />
             <element signature="n#!!block;n#updateGemini#0" expanded="false" />
             <element signature="n#!!block;n#updateGeminiImages#0" expanded="false" />
             <element signature="n#!!block;n#updateElement#0" expanded="false" />
             <element signature="n#!!block;n#getClock#0" expanded="false" />
             <element signature="n#!!block;n#prefixZero#0" expanded="false" />
-            <marker date="1470413040000" expanded="true" signature="6826:6858" placeholder="..." />
+            <marker date="1470414938000" expanded="true" signature="6825:6857" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -919,10 +914,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/js/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="124">
-          <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+        <state relative-caret-position="359">
+          <caret line="324" column="22" selection-start-line="324" selection-start-column="22" selection-end-line="324" selection-end-column="22" />
           <folding>
-            <element signature="n#!!block;n#init#0" expanded="false" />
             <element signature="n#!!block;n#loader#0" expanded="false" />
             <element signature="n#!!block;n#showPage#0" expanded="false" />
             <element signature="n#!!block;n#updateVisitors#0" expanded="false" />
@@ -942,18 +936,18 @@
             <element signature="n#!!block;n#updateInnsidaWikiTema#0" expanded="false" />
             <element signature="n#!!block;n#makeInnsidaVersusCharts#0" expanded="false" />
             <element signature="n#!!block;n#makeTrondheimVersus#0" expanded="false" />
-            <element signature="e#32406#32787#0" expanded="false" />
+            <element signature="e#32362#32743#0" expanded="false" />
             <element signature="n#!!block;n#makeAalesundVersus#0" expanded="false" />
-            <element signature="e#34301#34682#0" expanded="false" />
+            <element signature="e#34257#34638#0" expanded="false" />
             <element signature="n#!!block;n#makeGjovikVersus#0" expanded="false" />
-            <element signature="e#36188#36569#0" expanded="false" />
+            <element signature="e#36144#36525#0" expanded="false" />
             <element signature="n#!!block;n#updateVersusCharts#0" expanded="false" />
             <element signature="n#!!block;n#updateGemini#0" expanded="false" />
             <element signature="n#!!block;n#updateGeminiImages#0" expanded="false" />
             <element signature="n#!!block;n#updateElement#0" expanded="false" />
             <element signature="n#!!block;n#getClock#0" expanded="false" />
             <element signature="n#!!block;n#prefixZero#0" expanded="false" />
-            <marker date="1470413040000" expanded="true" signature="6826:6858" placeholder="..." />
+            <marker date="1470414938000" expanded="true" signature="6825:6857" placeholder="..." />
           </folding>
         </state>
       </provider>

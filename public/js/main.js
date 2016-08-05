@@ -17,7 +17,6 @@ $(document).ready(function(){
 
 });
 
-
 //Set up charts // Init Firebase // Collect data from firebase
 function init(){
     makeMap();
@@ -277,7 +276,7 @@ function makeMap() {
             outlineColor: "#FFFFFF",
             outlineAlpha: 0.5,
             outlineThickness: 1,
-            rollOverColor: "#03A9FC",
+            rollOverColor: "#FFFFFF",
             rollOverOutlineColor: "#FFFFFF",
             selectedOutlineColor: "#FFFFFF",
             selectedColor: "#ffffff",
@@ -295,7 +294,6 @@ function makeMap() {
         valueLegend.fontSize = 14;
         map.valueLegend = valueLegend;
         map.color = "white";
-
         map.write("mapdiv");
     });
 }
@@ -304,26 +302,24 @@ function makeMap() {
 function updateMapData(data) {
     // generate new values
     map.dataProvider.areas[0].value = data.Akershus.value;
-    map.dataProvider.areas[1].value = data.AustAgder.value;
-    map.dataProvider.areas[2].value = data.Buskerud.value;
-    map.dataProvider.areas[3].value = data.Finnmark.value;
-    map.dataProvider.areas[4].value = data.Hedmark.value;
-    map.dataProvider.areas[5].value = data.Hordaland.value;
-    map.dataProvider.areas[6].value = data.MoreOgRomsdal.value;
-    map.dataProvider.areas[7].value = data.NordTrondelag.value;
-    map.dataProvider.areas[8].value = data.Nordland.value;
-    map.dataProvider.areas[9].value = data.Oppland.value;
-    map.dataProvider.areas[10].value = data.Oslo.value;
-    map.dataProvider.areas[11].value = data.Ostfold.value;
-    map.dataProvider.areas[12].value = data.Rogaland.value;
-    map.dataProvider.areas[13].value = data.SognOgFjordane.value;
+    map.dataProvider.areas[1].value = data.Ostfold.value;
+    map.dataProvider.areas[2].value = data.Oslo.value;
+    map.dataProvider.areas[3].value = data.Hedmark.value;
+    map.dataProvider.areas[4].value = data.Oppland.value;
+    map.dataProvider.areas[5].value = data.Buskerud.value;
+    map.dataProvider.areas[6].value = data.Vestfold.value;
+    map.dataProvider.areas[7].value = data.Telemark.value;
+    map.dataProvider.areas[8].value = data.AustAgder.value;
+    map.dataProvider.areas[9].value = data.VestAgder.value;
+    map.dataProvider.areas[10].value = data.Rogaland.value;
+    map.dataProvider.areas[11].value = data.Hordaland.value;
+    map.dataProvider.areas[12].value = data.SognOgFjordane.value;
+    map.dataProvider.areas[13].value = data.MoreOgRomsdal.value;
     map.dataProvider.areas[14].value = data.SorTrondelag.value;
-    map.dataProvider.areas[15].value = data.Telemark.value;
-    map.dataProvider.areas[16].value = data.Troms.value;
-    map.dataProvider.areas[17].value = data.VestAgder.value;
-    map.dataProvider.areas[18].value = data.Vestfold.value;
-
-    //TODO: map loses hover after update
+    map.dataProvider.areas[15].value = data.NordTrondelag.value;
+    map.dataProvider.areas[16].value = data.Nordland.value;
+    map.dataProvider.areas[17].value = data.Troms.value;
+    map.dataProvider.areas[18].value = data.Finnmark.value;
 
     // update map
     map.validateNow();
