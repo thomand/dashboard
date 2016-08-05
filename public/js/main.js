@@ -411,7 +411,8 @@ function makeWorldChart() {
         "categoryAxis": {
             "gridPosition": "start",
             "labelRotation": 30,
-            "fontSize": 16
+            "fontSize": 18,
+            "titleBold":true
         },
         "export": {
             "enabled": true

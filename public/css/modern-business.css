@@ -117,6 +117,12 @@ body {
     margin-bottom: 10px;
 }
 
+.last-week {
+    font-size:1.2vw;
+    margin-top:20%;
+    text-align: center;
+}
+
 .vertical-text {
     color:white;
     width: 1em;
@@ -159,7 +165,7 @@ body {
 .item2description {
     color: #ffffff;
     margin-top:1%;
-    font-size:1.7vw;
+    font-size:1.6vw;
 }
 /*Cool animation. Not in use.*/
 .animated.flip {
