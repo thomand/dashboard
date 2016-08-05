@@ -3,8 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="f594b564-3611-403e-800a-305ea479257a" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/modern-business.css" afterPath="$PROJECT_DIR$/public/css/modern-business.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/index.html" afterPath="$PROJECT_DIR$/public/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/main.js" afterPath="$PROJECT_DIR$/public/js/main.js" />
     </list>
     <ignored path="startbootstrap-modern-business-1.0.5.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -104,8 +103,8 @@
           <file leaf-file-name="main.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/public/js/main.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="151">
-                  <caret line="329" column="1" selection-start-line="329" selection-start-column="1" selection-end-line="329" selection-end-column="1" />
+                <state relative-caret-position="408">
+                  <caret line="412" column="31" selection-start-line="412" selection-start-column="31" selection-end-line="412" selection-end-column="31" />
                   <folding>
                     <element signature="n#!!block;n#init#0" expanded="false" />
                     <element signature="n#!!block;n#loader#0" expanded="false" />
@@ -120,7 +119,6 @@
                     <element signature="n#!!block;n#updatePopularPages#0" expanded="false" />
                     <element signature="n#!!block;n#updateStudyPage#0" expanded="false" />
                     <element signature="n#!!block;n#updateWorldChart#0" expanded="false" />
-                    <element signature="n#!!block;n#makeWorldChart#0" expanded="false" />
                     <element signature="n#!!block;n#makeWeekCharts#0" expanded="false" />
                     <element signature="n#!!block;n#makeInnsidaWeekChart#0" expanded="false" />
                     <element signature="n#!!block;n#makeTemaWeekChart#0" expanded="false" />
@@ -128,18 +126,18 @@
                     <element signature="n#!!block;n#updateInnsidaWikiTema#0" expanded="false" />
                     <element signature="n#!!block;n#makeInnsidaVersusCharts#0" expanded="false" />
                     <element signature="n#!!block;n#makeTrondheimVersus#0" expanded="false" />
-                    <element signature="e#31690#32071#0" expanded="false" />
+                    <element signature="e#31718#32099#0" expanded="false" />
                     <element signature="n#!!block;n#makeAalesundVersus#0" expanded="false" />
-                    <element signature="e#33585#33966#0" expanded="false" />
+                    <element signature="e#33613#33994#0" expanded="false" />
                     <element signature="n#!!block;n#makeGjovikVersus#0" expanded="false" />
-                    <element signature="e#35472#35853#0" expanded="false" />
+                    <element signature="e#35500#35881#0" expanded="false" />
                     <element signature="n#!!block;n#updateVersusCharts#0" expanded="false" />
                     <element signature="n#!!block;n#updateGemini#0" expanded="false" />
                     <element signature="n#!!block;n#updateGeminiImages#0" expanded="false" />
                     <element signature="n#!!block;n#updateElement#0" expanded="false" />
                     <element signature="n#!!block;n#getClock#0" expanded="false" />
                     <element signature="n#!!block;n#prefixZero#0" expanded="false" />
-                    <marker date="1470402819000" expanded="true" signature="6825:6857" placeholder="..." />
+                    <marker date="1470405305000" expanded="true" signature="6825:6857" placeholder="..." />
                   </folding>
                 </state>
               </provider>
@@ -148,8 +146,8 @@
           <file leaf-file-name="modern-business.css" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/public/css/modern-business.css">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="389">
-                  <caret line="146" column="0" selection-start-line="146" selection-start-column="0" selection-end-line="146" selection-end-column="0" />
+                <state relative-caret-position="166">
+                  <caret line="119" column="0" selection-start-line="119" selection-start-column="0" selection-end-line="119" selection-end-column="0" />
                   <folding>
                     <element signature="e#232#553#0" expanded="false" />
                     <element signature="e#1034#1101#0" expanded="false" />
@@ -163,6 +161,7 @@
                     <element signature="e#1808#1828#0" expanded="false" />
                     <element signature="e#1839#1879#0" expanded="false" />
                     <element signature="e#1892#1936#0" expanded="false" />
+                    <element signature="e#1953#2129#0" expanded="false" />
                     <element signature="e#2137#2181#0" expanded="false" />
                     <element signature="e#2193#2261#0" expanded="false" />
                     <element signature="e#2274#2359#0" expanded="false" />
@@ -226,9 +225,9 @@
         <option value="$PROJECT_DIR$/js/main.js" />
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/public/css/spinnerstyle.css" />
-        <option value="$PROJECT_DIR$/public/js/main.js" />
         <option value="$PROJECT_DIR$/public/index.html" />
         <option value="$PROJECT_DIR$/public/css/modern-business.css" />
+        <option value="$PROJECT_DIR$/public/js/main.js" />
       </list>
     </option>
   </component>
@@ -362,12 +361,12 @@
       <workItem from="1467905012824" duration="15349000" />
       <workItem from="1468240536117" duration="45660000" />
       <workItem from="1468523051666" duration="237000" />
-      <workItem from="1469957745130" duration="25136000" />
+      <workItem from="1469957745130" duration="25496000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="229246000" />
+    <option name="totallyTimeSpent" value="229606000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="873" extended-state="0" />
@@ -517,7 +516,6 @@
             <element signature="n#!!block;n#updatePopularPages#0" expanded="false" />
             <element signature="n#!!block;n#updateStudyPage#0" expanded="false" />
             <element signature="n#!!block;n#updateWorldChart#0" expanded="false" />
-            <element signature="n#!!block;n#makeWorldChart#0" expanded="false" />
             <element signature="n#!!block;n#makeWeekCharts#0" expanded="false" />
             <element signature="n#!!block;n#makeInnsidaWeekChart#0" expanded="false" />
             <element signature="n#!!block;n#makeTemaWeekChart#0" expanded="false" />
@@ -525,18 +523,18 @@
             <element signature="n#!!block;n#updateInnsidaWikiTema#0" expanded="false" />
             <element signature="n#!!block;n#makeInnsidaVersusCharts#0" expanded="false" />
             <element signature="n#!!block;n#makeTrondheimVersus#0" expanded="false" />
-            <element signature="e#31690#32071#0" expanded="false" />
+            <element signature="e#31718#32099#0" expanded="false" />
             <element signature="n#!!block;n#makeAalesundVersus#0" expanded="false" />
-            <element signature="e#33585#33966#0" expanded="false" />
+            <element signature="e#33613#33994#0" expanded="false" />
             <element signature="n#!!block;n#makeGjovikVersus#0" expanded="false" />
-            <element signature="e#35472#35853#0" expanded="false" />
+            <element signature="e#35500#35881#0" expanded="false" />
             <element signature="n#!!block;n#updateVersusCharts#0" expanded="false" />
             <element signature="n#!!block;n#updateGemini#0" expanded="false" />
             <element signature="n#!!block;n#updateGeminiImages#0" expanded="false" />
             <element signature="n#!!block;n#updateElement#0" expanded="false" />
             <element signature="n#!!block;n#getClock#0" expanded="false" />
             <element signature="n#!!block;n#prefixZero#0" expanded="false" />
-            <marker date="1470402819000" expanded="true" signature="6825:6857" placeholder="..." />
+            <marker date="1470405305000" expanded="true" signature="6825:6857" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -558,6 +556,7 @@
             <element signature="e#1808#1828#0" expanded="false" />
             <element signature="e#1839#1879#0" expanded="false" />
             <element signature="e#1892#1936#0" expanded="false" />
+            <element signature="e#1953#2129#0" expanded="false" />
             <element signature="e#2137#2181#0" expanded="false" />
             <element signature="e#2193#2261#0" expanded="false" />
             <element signature="e#2274#2359#0" expanded="false" />
@@ -680,7 +679,6 @@
             <element signature="n#!!block;n#updatePopularPages#0" expanded="false" />
             <element signature="n#!!block;n#updateStudyPage#0" expanded="false" />
             <element signature="n#!!block;n#updateWorldChart#0" expanded="false" />
-            <element signature="n#!!block;n#makeWorldChart#0" expanded="false" />
             <element signature="n#!!block;n#makeWeekCharts#0" expanded="false" />
             <element signature="n#!!block;n#makeInnsidaWeekChart#0" expanded="false" />
             <element signature="n#!!block;n#makeTemaWeekChart#0" expanded="false" />
@@ -688,18 +686,18 @@
             <element signature="n#!!block;n#updateInnsidaWikiTema#0" expanded="false" />
             <element signature="n#!!block;n#makeInnsidaVersusCharts#0" expanded="false" />
             <element signature="n#!!block;n#makeTrondheimVersus#0" expanded="false" />
-            <element signature="e#31690#32071#0" expanded="false" />
+            <element signature="e#31718#32099#0" expanded="false" />
             <element signature="n#!!block;n#makeAalesundVersus#0" expanded="false" />
-            <element signature="e#33585#33966#0" expanded="false" />
+            <element signature="e#33613#33994#0" expanded="false" />
             <element signature="n#!!block;n#makeGjovikVersus#0" expanded="false" />
-            <element signature="e#35472#35853#0" expanded="false" />
+            <element signature="e#35500#35881#0" expanded="false" />
             <element signature="n#!!block;n#updateVersusCharts#0" expanded="false" />
             <element signature="n#!!block;n#updateGemini#0" expanded="false" />
             <element signature="n#!!block;n#updateGeminiImages#0" expanded="false" />
             <element signature="n#!!block;n#updateElement#0" expanded="false" />
             <element signature="n#!!block;n#getClock#0" expanded="false" />
             <element signature="n#!!block;n#prefixZero#0" expanded="false" />
-            <marker date="1470402819000" expanded="true" signature="6825:6857" placeholder="..." />
+            <marker date="1470405305000" expanded="true" signature="6825:6857" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -721,6 +719,7 @@
             <element signature="e#1808#1828#0" expanded="false" />
             <element signature="e#1839#1879#0" expanded="false" />
             <element signature="e#1892#1936#0" expanded="false" />
+            <element signature="e#1953#2129#0" expanded="false" />
             <element signature="e#2137#2181#0" expanded="false" />
             <element signature="e#2193#2261#0" expanded="false" />
             <element signature="e#2274#2359#0" expanded="false" />
@@ -810,103 +809,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/css/modern-business.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="389">
-          <caret line="146" column="0" selection-start-line="146" selection-start-column="0" selection-end-line="146" selection-end-column="0" />
-          <folding>
-            <element signature="e#232#553#0" expanded="false" />
-            <element signature="e#1034#1101#0" expanded="false" />
-            <element signature="e#1118#1185#0" expanded="false" />
-            <element signature="e#1204#1271#0" expanded="false" />
-            <element signature="e#1284#1309#0" expanded="false" />
-            <element signature="e#1598#1622#0" expanded="false" />
-            <element signature="e#1634#1659#0" expanded="false" />
-            <element signature="e#1666#1726#0" expanded="false" />
-            <element signature="e#1737#1795#0" expanded="false" />
-            <element signature="e#1808#1828#0" expanded="false" />
-            <element signature="e#1839#1879#0" expanded="false" />
-            <element signature="e#1892#1936#0" expanded="false" />
-            <element signature="e#2137#2181#0" expanded="false" />
-            <element signature="e#2193#2261#0" expanded="false" />
-            <element signature="e#2274#2359#0" expanded="false" />
-            <element signature="e#2369#2455#0" expanded="false" />
-            <element signature="e#2463#2499#0" expanded="false" />
-            <element signature="e#2630#2727#0" expanded="false" />
-            <element signature="e#2765#2796#0" expanded="false" />
-            <element signature="e#2847#2878#0" expanded="false" />
-            <element signature="e#2892#2911#0" expanded="false" />
-            <element signature="e#2934#2964#0" expanded="false" />
-            <element signature="e#3014#3032#0" expanded="false" />
-            <element signature="e#3887#3918#0" expanded="false" />
-            <element signature="e#3938#3961#0" expanded="false" />
-            <element signature="e#3973#3997#0" expanded="false" />
-            <element signature="e#4005#4028#0" expanded="false" />
-            <element signature="e#4035#4058#0" expanded="false" />
-            <element signature="e#4067#4089#0" expanded="false" />
-            <element signature="e#4116#4147#0" expanded="false" />
-            <element signature="e#4176#4207#0" expanded="false" />
-            <element signature="e#4245#4298#0" expanded="false" />
-            <element signature="e#4334#4387#0" expanded="false" />
-            <element signature="e#4402#4496#0" expanded="false" />
-            <element signature="e#4517#4533#0" expanded="false" />
-            <element signature="e#4549#4570#0" expanded="false" />
-            <element signature="e#4591#4633#0" expanded="false" />
-            <element signature="e#4657#4699#0" expanded="false" />
-            <element signature="e#4723#4772#0" expanded="false" />
-            <element signature="e#4781#5035#0" expanded="false" />
-            <element signature="e#5047#5144#0" expanded="false" />
-            <element signature="e#5153#5241#0" expanded="false" />
-            <element signature="e#5274#5532#0" expanded="false" />
-            <element signature="e#5562#5632#0" expanded="false" />
-            <element signature="e#5642#5663#0" expanded="false" />
-            <element signature="e#5682#5703#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="151">
-          <caret line="329" column="1" selection-start-line="329" selection-start-column="1" selection-end-line="329" selection-end-column="1" />
-          <folding>
-            <element signature="n#!!block;n#init#0" expanded="false" />
-            <element signature="n#!!block;n#loader#0" expanded="false" />
-            <element signature="n#!!block;n#showPage#0" expanded="false" />
-            <element signature="n#!!block;n#updateVisitors#0" expanded="false" />
-            <element signature="n#!!block;n#updateIntervalPercentArrows#0" expanded="false" />
-            <element signature="n#!!block;n#updateBrowserTable#0" expanded="false" />
-            <element signature="n#!!block;n#makeDeviceChart#0" expanded="false" />
-            <element signature="n#!!block;n#updateDeviceChart#0" expanded="false" />
-            <element signature="n#!!block;n#makeMap#0" expanded="false" />
-            <element signature="e#10496#10952#0" expanded="false" />
-            <element signature="n#!!block;n#updatePopularPages#0" expanded="false" />
-            <element signature="n#!!block;n#updateStudyPage#0" expanded="false" />
-            <element signature="n#!!block;n#updateWorldChart#0" expanded="false" />
-            <element signature="n#!!block;n#makeWorldChart#0" expanded="false" />
-            <element signature="n#!!block;n#makeWeekCharts#0" expanded="false" />
-            <element signature="n#!!block;n#makeInnsidaWeekChart#0" expanded="false" />
-            <element signature="n#!!block;n#makeTemaWeekChart#0" expanded="false" />
-            <element signature="n#!!block;n#makeWikiWeekChart#0" expanded="false" />
-            <element signature="n#!!block;n#updateInnsidaWikiTema#0" expanded="false" />
-            <element signature="n#!!block;n#makeInnsidaVersusCharts#0" expanded="false" />
-            <element signature="n#!!block;n#makeTrondheimVersus#0" expanded="false" />
-            <element signature="e#31690#32071#0" expanded="false" />
-            <element signature="n#!!block;n#makeAalesundVersus#0" expanded="false" />
-            <element signature="e#33585#33966#0" expanded="false" />
-            <element signature="n#!!block;n#makeGjovikVersus#0" expanded="false" />
-            <element signature="e#35472#35853#0" expanded="false" />
-            <element signature="n#!!block;n#updateVersusCharts#0" expanded="false" />
-            <element signature="n#!!block;n#updateGemini#0" expanded="false" />
-            <element signature="n#!!block;n#updateGeminiImages#0" expanded="false" />
-            <element signature="n#!!block;n#updateElement#0" expanded="false" />
-            <element signature="n#!!block;n#getClock#0" expanded="false" />
-            <element signature="n#!!block;n#prefixZero#0" expanded="false" />
-            <marker date="1470402819000" expanded="true" signature="6825:6857" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="118">
@@ -961,6 +863,103 @@
             <element signature="n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#5;n#div#4;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#div#5;n#div#4;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
             <marker date="1470403676000" expanded="false" signature="58477:60830" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/css/modern-business.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="166">
+          <caret line="119" column="0" selection-start-line="119" selection-start-column="0" selection-end-line="119" selection-end-column="0" />
+          <folding>
+            <element signature="e#232#553#0" expanded="false" />
+            <element signature="e#1034#1101#0" expanded="false" />
+            <element signature="e#1118#1185#0" expanded="false" />
+            <element signature="e#1204#1271#0" expanded="false" />
+            <element signature="e#1284#1309#0" expanded="false" />
+            <element signature="e#1598#1622#0" expanded="false" />
+            <element signature="e#1634#1659#0" expanded="false" />
+            <element signature="e#1666#1726#0" expanded="false" />
+            <element signature="e#1737#1795#0" expanded="false" />
+            <element signature="e#1808#1828#0" expanded="false" />
+            <element signature="e#1839#1879#0" expanded="false" />
+            <element signature="e#1892#1936#0" expanded="false" />
+            <element signature="e#1953#2129#0" expanded="false" />
+            <element signature="e#2137#2181#0" expanded="false" />
+            <element signature="e#2193#2261#0" expanded="false" />
+            <element signature="e#2274#2359#0" expanded="false" />
+            <element signature="e#2369#2455#0" expanded="false" />
+            <element signature="e#2463#2499#0" expanded="false" />
+            <element signature="e#2630#2727#0" expanded="false" />
+            <element signature="e#2765#2796#0" expanded="false" />
+            <element signature="e#2847#2878#0" expanded="false" />
+            <element signature="e#2892#2911#0" expanded="false" />
+            <element signature="e#2934#2964#0" expanded="false" />
+            <element signature="e#3014#3032#0" expanded="false" />
+            <element signature="e#3887#3918#0" expanded="false" />
+            <element signature="e#3938#3961#0" expanded="false" />
+            <element signature="e#3973#3997#0" expanded="false" />
+            <element signature="e#4005#4028#0" expanded="false" />
+            <element signature="e#4035#4058#0" expanded="false" />
+            <element signature="e#4067#4089#0" expanded="false" />
+            <element signature="e#4116#4147#0" expanded="false" />
+            <element signature="e#4176#4207#0" expanded="false" />
+            <element signature="e#4245#4298#0" expanded="false" />
+            <element signature="e#4334#4387#0" expanded="false" />
+            <element signature="e#4402#4496#0" expanded="false" />
+            <element signature="e#4517#4533#0" expanded="false" />
+            <element signature="e#4549#4570#0" expanded="false" />
+            <element signature="e#4591#4633#0" expanded="false" />
+            <element signature="e#4657#4699#0" expanded="false" />
+            <element signature="e#4723#4772#0" expanded="false" />
+            <element signature="e#4781#5035#0" expanded="false" />
+            <element signature="e#5047#5144#0" expanded="false" />
+            <element signature="e#5153#5241#0" expanded="false" />
+            <element signature="e#5274#5532#0" expanded="false" />
+            <element signature="e#5562#5632#0" expanded="false" />
+            <element signature="e#5642#5663#0" expanded="false" />
+            <element signature="e#5682#5703#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="412" column="31" selection-start-line="412" selection-start-column="31" selection-end-line="412" selection-end-column="31" />
+          <folding>
+            <element signature="n#!!block;n#init#0" expanded="false" />
+            <element signature="n#!!block;n#loader#0" expanded="false" />
+            <element signature="n#!!block;n#showPage#0" expanded="false" />
+            <element signature="n#!!block;n#updateVisitors#0" expanded="false" />
+            <element signature="n#!!block;n#updateIntervalPercentArrows#0" expanded="false" />
+            <element signature="n#!!block;n#updateBrowserTable#0" expanded="false" />
+            <element signature="n#!!block;n#makeDeviceChart#0" expanded="false" />
+            <element signature="n#!!block;n#updateDeviceChart#0" expanded="false" />
+            <element signature="n#!!block;n#makeMap#0" expanded="false" />
+            <element signature="e#10496#10952#0" expanded="false" />
+            <element signature="n#!!block;n#updatePopularPages#0" expanded="false" />
+            <element signature="n#!!block;n#updateStudyPage#0" expanded="false" />
+            <element signature="n#!!block;n#updateWorldChart#0" expanded="false" />
+            <element signature="n#!!block;n#makeWeekCharts#0" expanded="false" />
+            <element signature="n#!!block;n#makeInnsidaWeekChart#0" expanded="false" />
+            <element signature="n#!!block;n#makeTemaWeekChart#0" expanded="false" />
+            <element signature="n#!!block;n#makeWikiWeekChart#0" expanded="false" />
+            <element signature="n#!!block;n#updateInnsidaWikiTema#0" expanded="false" />
+            <element signature="n#!!block;n#makeInnsidaVersusCharts#0" expanded="false" />
+            <element signature="n#!!block;n#makeTrondheimVersus#0" expanded="false" />
+            <element signature="e#31718#32099#0" expanded="false" />
+            <element signature="n#!!block;n#makeAalesundVersus#0" expanded="false" />
+            <element signature="e#33613#33994#0" expanded="false" />
+            <element signature="n#!!block;n#makeGjovikVersus#0" expanded="false" />
+            <element signature="e#35500#35881#0" expanded="false" />
+            <element signature="n#!!block;n#updateVersusCharts#0" expanded="false" />
+            <element signature="n#!!block;n#updateGemini#0" expanded="false" />
+            <element signature="n#!!block;n#updateGeminiImages#0" expanded="false" />
+            <element signature="n#!!block;n#updateElement#0" expanded="false" />
+            <element signature="n#!!block;n#getClock#0" expanded="false" />
+            <element signature="n#!!block;n#prefixZero#0" expanded="false" />
+            <marker date="1470405305000" expanded="true" signature="6825:6857" placeholder="..." />
           </folding>
         </state>
       </provider>

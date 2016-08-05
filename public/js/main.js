@@ -410,7 +410,8 @@ function makeWorldChart() {
         "categoryField": "country",
         "categoryAxis": {
             "gridPosition": "start",
-            "labelRotation": 45
+            "labelRotation": 30,
+            "fontSize": 16
         },
         "export": {
             "enabled": true
