@@ -167,6 +167,12 @@ body {
     margin-top:1%;
     font-size:1.6vw;
 }
+
+.weekMonthYear-text {
+    font-size:1.1vw;
+    text-align: center;
+    margin-top:7%;
+}
 /*Cool animation. Not in use.*/
 .animated.flip {
     -webkit-animation-duration: 2000ms !important;
@@ -211,7 +217,7 @@ body {
 }
 
 .middle {
-    top: 25%;
+    top: 15%;
 }
 
 .browsers {
