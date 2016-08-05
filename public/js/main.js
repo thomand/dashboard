@@ -375,6 +375,11 @@ function updateStudyPage(data) {
 }
 
 function updateWorldChart(data) {
+    data.one["color"] = "#8BD22F";
+    data.two["color"] = "#AAD75A";
+    data.three["color"] = "#77C68D";
+    data.four["color"] = "#44B5C0";
+    data.five["color"] = "#11A4F3";
     worldChart.dataProvider = [data.one,data.two,data.three,data.four,data.five];
     worldChart.validateData();
 }

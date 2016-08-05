@@ -83,6 +83,12 @@ body {
     margin:auto;
 }
 
+.test2 {
+
+    background-color: #8BD22F;
+    color: #03A9FC;
+}
+
 .left-pad {
     padding-left:2%;
 }
