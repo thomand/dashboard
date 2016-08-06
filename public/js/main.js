@@ -903,19 +903,23 @@ function makeTrondheimVersus() {
         {
             "text": "of potential users",
             "align": "center",
-            "y": 115
+            "size":14,
+            "bold":true,
+            "y": 135
         },
         {
             "text": "online this week",
             "align": "center",
-            "y": 130
+            "size":14,
+            "bold":true,
+            "y": 150
         },
         {
-            "text": "29%",
+            "text": "35%",
             "align": "center",
             "bold":true,
-            "size":16,
-            "y": 95
+            "size":20,
+            "y": 110
         }
     ];
     var chartData = [
@@ -966,19 +970,23 @@ function makeAalesundVersus() {
         {
             "text": "of potential users",
             "align": "center",
-            "y": 115
+            "size":14,
+            "bold":true,
+            "y": 135
         },
         {
             "text": "online this week",
             "align": "center",
-            "y": 130
+            "size":14,
+            "bold":true,
+            "y": 150
         },
         {
             "text": "29%",
             "align": "center",
             "bold":true,
-            "size":16,
-            "y": 95
+            "size":20,
+            "y": 110
         }
     ];
     var chartData = [
@@ -1027,19 +1035,23 @@ function makeGjovikVersus() {
         {
             "text": "of potential users",
             "align": "center",
-            "y": 115
+            "size":14,
+            "bold":true,
+            "y": 135
         },
         {
             "text": "online this week",
             "align": "center",
-            "y": 130
+            "size":14,
+            "bold":true,
+            "y": 150
         },
         {
             "text": "29%",
             "align": "center",
             "bold":true,
-            "size":16,
-            "y": 95
+            "size":20,
+            "y": 110
         }
     ];
 

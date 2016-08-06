@@ -42,19 +42,19 @@ body {
 
 #innsidaTrondheim {
     margin-top  : 0;
-    height		: 250px;
-    font-size	: 11px;
+    height		: 300px;
+    font-size	: 1.1vw;
 }
 
 #innsidaGjovik {
     margin-top  : 0;
-    height		: 250px;
+    height		: 300px;
     font-size	: 11px;
 }
 
 #innsidaAalesund {
     margin-top  : 0;
-    height		: 250px;
+    height		: 300px;
     font-size	: 11px;
 }
 
