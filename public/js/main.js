@@ -322,7 +322,7 @@ function updateMapData(data) {
     map.dataProvider.areas[18].value = data.Finnmark.value;
 
     // update map
-    map.validateNow();
+    map.validateData();
 }
 
 //Most popular pages / Least popular pages
