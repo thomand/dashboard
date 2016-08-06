@@ -324,6 +324,7 @@ function updateMapData(data) {
     // update map
     map.validateNow();
     map.validateData();
+    map.write("mapdiv");
 }
 
 //Most popular pages / Least popular pages
