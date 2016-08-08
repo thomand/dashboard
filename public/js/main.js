@@ -64,9 +64,21 @@ function updateEverything(data) {
     updateGemini(data.gemini);
     updateWorldChart(data.ew.visitors.worldVisits);
     updateGeminiImages(data.gemini.image);
+    setInterval(validateMap, 10000);
 }
 
 //--------------------First page------------------------//
+
+function validateMap() {
+    var divLength = document.getElementById("mapdiv").innerHTML.length;
+    if (divLength < 100000) {
+        console.log("map needs to be updated. Length " + divLength);
+        map.write("mapdiv");
+    }
+    else {
+        console.log("map is showing " + divLength);
+    }
+}
 
 //# Visitors ntnu.no // Last week / Last Month / Last Year
 function updateVisitors(data) {
@@ -1120,26 +1132,26 @@ function updateVersusCharts(data) {
 
 //update everything with data from firebase
 function updateGemini(data) {
-    updateElement("gemini-headline-one",data.headlines.one);
-    updateElement("gemini-tag-one",data.tag.one);
-    updateElement("gemini-headline-two",data.headlines.two);
-    updateElement("gemini-tag-two",data.tag.two);
-    updateElement("gemini-headline-three",data.headlines.three);
-    updateElement("gemini-tag-three",data.tag.three);
-    updateElement("gemini-headline-four",data.headlines.four);
-    updateElement("gemini-tag-four",data.tag.four);
-    updateElement("gemini-headline-five",data.headlines.five);
-    updateElement("gemini-tag-five",data.tag.five);
-    updateElement("gemini-headline-six",data.headlines.six);
-    updateElement("gemini-tag-six",data.tag.six);
-    updateElement("gemini-headline-seven",data.headlines.seven);
-    updateElement("gemini-tag-seven",data.tag.seven);
-    updateElement("gemini-headline-eight",data.headlines.eight);
-    updateElement("gemini-tag-eight",data.tag.eight);
-    updateElement("gemini-headline-nine",data.headlines.nine);
-    updateElement("gemini-tag-nine",data.tag.nine);
-    updateElement("gemini-headline-ten",data.headlines.ten);
-    updateElement("gemini-tag-ten",data.tag.ten);
+    updateElement("gemini-headline-one",data.headlines.one, "h");
+    updateElement("gemini-tag-one",data.tag.one, "t");
+    updateElement("gemini-headline-two",data.headlines.two, "h");
+    updateElement("gemini-tag-two",data.tag.two, "t");
+    updateElement("gemini-headline-three",data.headlines.three, "h");
+    updateElement("gemini-tag-three",data.tag.three, "t");
+    updateElement("gemini-headline-four",data.headlines.four, "h");
+    updateElement("gemini-tag-four",data.tag.four, "t");
+    updateElement("gemini-headline-five",data.headlines.five, "h");
+    updateElement("gemini-tag-five",data.tag.five, "t");
+    updateElement("gemini-headline-six",data.headlines.six, "h");
+    updateElement("gemini-tag-six",data.tag.six, "t");
+    updateElement("gemini-headline-seven",data.headlines.seven, "h");
+    updateElement("gemini-tag-seven",data.tag.seven, "t");
+    updateElement("gemini-headline-eight",data.headlines.eight, "h");
+    updateElement("gemini-tag-eight",data.tag.eight, "t");
+    updateElement("gemini-headline-nine",data.headlines.nine, "h");
+    updateElement("gemini-tag-nine",data.tag.nine, "t");
+    updateElement("gemini-headline-ten",data.headlines.ten, "h");
+    updateElement("gemini-tag-ten",data.tag.ten, "t");
 }
 
 function updateGeminiImages(data) {
@@ -1156,8 +1168,16 @@ function updateGeminiImages(data) {
 }
 
 //helper method for updating html element by id.
-function updateElement(id, value) {
-    document.getElementById(id).innerHTML = value;
+function updateElement(id, value, type) {
+    if (type == "t" && value.length > 140) {
+        document.getElementById(id).innerHTML = value.substring(0,140) + "...";
+    }
+    else if (type == "h" && value.length > 48) {
+        document.getElementById(id).innerHTML = value.substring(0,46) + "...";
+    }
+    else {
+        document.getElementById(id).innerHTML = value;
+    }
 }
 
 //--------------------General------------------------//

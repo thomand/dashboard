@@ -268,12 +268,14 @@ table.study {
 
 table.externalWeb {
     font-weight: bold;
-    font-size:0.94vw;
+    font-size:1.1vw;
+    margin-top: 3%;
 }
 
 .table.study-ITW {
     font-size: 1.1vw;
 }
+
 
 table.study tr td {
     vertical-align: middle;
