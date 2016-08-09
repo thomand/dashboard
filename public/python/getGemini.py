@@ -72,7 +72,5 @@ def run():
 	snapshot = f.patch('headlines', headlines)
 	snapshot2 = f.patch('tag',tag)
 	snapshot3 = f.patch('image',images)
-	print(snapshot3)
-	print(type(snapshot3))
 	
 run()

@@ -31,7 +31,7 @@ body {
 }
 
 .gemini-image {
-    padding-top:1vw;
+    padding-top:0.9vw;
     height:7vw;
     width:7vw;
 }
@@ -42,19 +42,19 @@ body {
 
 #innsidaTrondheim {
     margin-top  : 0;
-    height		: 300px;
+    height		: 330px;
     font-size	: 1.1vw;
 }
 
 #innsidaGjovik {
     margin-top  : 0;
-    height		: 300px;
+    height		: 330px;
     font-size	: 11px;
 }
 
 #innsidaAalesund {
     margin-top  : 0;
-    height		: 300px;
+    height		: 330px;
     font-size	: 11px;
 }
 
@@ -69,16 +69,22 @@ body {
 
 .on-top {
     z-index:1;
-    margin-top:-25px;
+    margin-top:-35px;
+}
+
+.on-top-data {
+    z-index:1;
+    margin-top:-75px;
+    font-size: 1vw;
 }
 
 .face {
-    height: 100px;
-    width: 60px;
+    height: 120px;
+    width: 72px;
     display: inline-block;
     vertical-align: middle;
     position: absolute;
-    top:0;
+    top:35%;
     bottom:0;
     margin:auto;
 }
@@ -112,13 +118,23 @@ body {
     margin-top:10px;
 }
 
+.row.study-row-top {
+    height:29%;
+    margin-top:10px;
+}
+
+.row.study-row-bottom {
+    height:51%;
+    margin-top:10px;
+}
+
 .row.three {
     height:28%;
     margin-bottom: 10px;
 }
 
 .last-week {
-    font-size:1.2vw;
+    font-size:1.1vw;
     margin-top:20%;
     text-align: center;
 }
@@ -126,7 +142,7 @@ body {
 .vertical-text {
     color:white;
     width: 1em;
-    font-size: 1.3vw;
+    font-size: 1.4vw;
     letter-spacing: 1.5vw;
     font-family: "Consolas", "Courier New", monospace;
 
@@ -221,7 +237,7 @@ body {
 }
 
 .browsers {
-    font-size: 0.95vw;
+    font-size: 1.18vw;
 }
 
 .test {
@@ -268,7 +284,7 @@ table.study {
 
 table.externalWeb {
     font-weight: bold;
-    font-size:1.1vw;
+    font-size:1.2vw;
     margin-top: 3%;
 }
 
@@ -363,11 +379,11 @@ table.extramargin {
 }
 
 #clockdiv {
-    width:180px;
+    width:190px;
     height:60px;
     margin: 0 auto;
     float: right;
-    margin-right: 2%;
+    margin-right: 3%;
 }
 
 #clock {
