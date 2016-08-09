@@ -41,20 +41,20 @@ body {
 }
 
 #innsidaTrondheim {
-    margin-top  : 0;
-    height		: 330px;
+    margin-top  : -5%;
+    height		: 350px;
     font-size	: 1.1vw;
 }
 
 #innsidaGjovik {
-    margin-top  : 0;
-    height		: 330px;
+    margin-top  : -5%;
+    height		: 350px;
     font-size	: 11px;
 }
 
 #innsidaAalesund {
-    margin-top  : 0;
-    height		: 330px;
+    margin-top  : -5%;
+    height		: 350px;
     font-size	: 11px;
 }
 
@@ -69,13 +69,14 @@ body {
 
 .on-top {
     z-index:1;
-    margin-top:-35px;
+    margin-top:-75px;
+    font-size: 1.4vw;
 }
 
 .on-top-data {
     z-index:1;
-    margin-top:-75px;
-    font-size: 1vw;
+    margin-top:-35px;
+    font-size: 1.1vw;
 }
 
 .face {
@@ -84,7 +85,7 @@ body {
     display: inline-block;
     vertical-align: middle;
     position: absolute;
-    top:35%;
+    top:60%;
     bottom:0;
     margin:auto;
 }

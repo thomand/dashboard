@@ -64,7 +64,7 @@ function updateEverything(data) {
     updateGemini(data.gemini);
     updateWorldChart(data.ew.visitors.worldVisits);
     updateGeminiImages(data.gemini.image);
-    setInterval(validateMap, 10000);
+    setInterval(validateMap, 20000);
 }
 
 //--------------------First page------------------------//
@@ -72,7 +72,6 @@ function updateEverything(data) {
 function validateMap() {
     var divLength = document.getElementById("mapdiv").innerHTML.length;
     if (divLength < 100000) {
-        console.log(data);
         console.log("map needs to be updated. Length " + divLength);
         map.write("mapdiv");
     }
@@ -923,21 +922,21 @@ function makeTrondheimVersus() {
             "align": "center",
             "size":14,
             "bold":true,
-            "y": 150
+            "y": 160
         },
         {
             "text": "online this week",
             "align": "center",
             "size":14,
             "bold":true,
-            "y": 165
+            "y": 175
         },
         {
             "text": "35%",
             "align": "center",
             "bold":true,
-            "size":20,
-            "y": 120
+            "size":22,
+            "y": 130
         }
     ];
     var chartData = [
@@ -990,21 +989,21 @@ function makeAalesundVersus() {
             "align": "center",
             "size":14,
             "bold":true,
-            "y": 150
+            "y": 160
         },
         {
             "text": "online this week",
             "align": "center",
             "size":14,
             "bold":true,
-            "y": 165
+            "y": 175
         },
         {
             "text": "29%",
             "align": "center",
             "bold":true,
-            "size":20,
-            "y": 120
+            "size":22,
+            "y": 130
         }
     ];
     var chartData = [
@@ -1055,21 +1054,21 @@ function makeGjovikVersus() {
             "align": "center",
             "size":14,
             "bold":true,
-            "y": 150
+            "y": 160
         },
         {
             "text": "online this week",
             "align": "center",
             "size":14,
             "bold":true,
-            "y": 165
+            "y": 175
         },
         {
             "text": "29%",
             "align": "center",
             "bold":true,
-            "size":20,
-            "y": 120
+            "size":22,
+            "y": 130
         }
     ];
 
@@ -1119,23 +1118,23 @@ function updateVersusCharts(data) {
     TrondheimVersuschart.dataProvider = [TrondheimData.students, TrondheimData.staff];
     TrondheimVersuschart.allLabels[2].text = (((TrondheimData.students.visits + TrondheimData.staff.visits)/TrondheimData.averageVisits)*100).toFixed(1).toString() + "%";
     TrondheimVersuschart.validateData();
-    document.getElementById("innsidaTrondheimStaffCount").innerHTML = TrondheimData.staff.visits + " / " + TrondheimData.staff.potential;
-    document.getElementById("innsidaTrondheimStudentCount").innerHTML = TrondheimData.students.visits + " / " + TrondheimData.students.potential;
+    document.getElementById("innsidaTrondheimStaffCount").innerHTML = TrondheimData.staff.visits + " of " + TrondheimData.staff.potential;
+    document.getElementById("innsidaTrondheimStudentCount").innerHTML = TrondheimData.students.visits + " of " + TrondheimData.students.potential;
 
 
     var AalesundData = data.Aalesund;
     AalesundVersuschart.dataProvider = [AalesundData.students, AalesundData.staff];
     AalesundVersuschart.allLabels[2].text = (((AalesundData.students.visits + AalesundData.staff.visits)/AalesundData.averageVisits)*100).toFixed(1).toString() + "%";
     AalesundVersuschart.validateData();
-    document.getElementById("innsidaAalesundStaffCount").innerHTML = AalesundData.staff.visits + " / " + AalesundData.staff.potential;
-    document.getElementById("innsidaAalesundStudentCount").innerHTML = AalesundData.students.visits + " / " + AalesundData.students.potential;
+    document.getElementById("innsidaAalesundStaffCount").innerHTML = AalesundData.staff.visits + " of " + AalesundData.staff.potential;
+    document.getElementById("innsidaAalesundStudentCount").innerHTML = AalesundData.students.visits + " of " + AalesundData.students.potential;
 
     var GjovikData = data.Gjovik;
     GjovikVersuschart.dataProvider = [GjovikData.students, GjovikData.staff];
     GjovikVersuschart.allLabels[2].text = (((GjovikData.students.visits + GjovikData.staff.visits)/GjovikData.averageVisits)*100).toFixed(1).toString() + "%";
     GjovikVersuschart.validateData();
-    document.getElementById("innsidaGjovikStaffCount").innerHTML = GjovikData.staff.visits + " / " + GjovikData.staff.potential;
-    document.getElementById("innsidaGjovikStudentCount").innerHTML = GjovikData.students.visits + " / " + GjovikData.students.potential;
+    document.getElementById("innsidaGjovikStaffCount").innerHTML = GjovikData.staff.visits + " of " + GjovikData.staff.potential;
+    document.getElementById("innsidaGjovikStudentCount").innerHTML = GjovikData.students.visits + " of " + GjovikData.students.potential;
 }
 
 //--------------------Fifth page------------------------//
