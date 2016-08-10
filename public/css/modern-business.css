@@ -36,6 +36,10 @@ body {
     width:7vw;
 }
 
+.gemini-headline {
+    padding-left: 5%;
+}
+
 .item2description.gemini {
     font-size: 1.5vw;
 }
