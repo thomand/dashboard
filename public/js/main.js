@@ -12,6 +12,7 @@ $(document).ready(function(){
     var AalesundVersuschart;
     var GjovikVersuschart;
     var worldChart;
+    var monthChart;
     init();
 
 
@@ -24,6 +25,7 @@ function init(){
     makeWeekCharts();
     makeInnsidaVersusCharts();
     makeWorldChart();
+    makeMonthChart();
     setInterval(getClock, 1000);
     config = {
         apiKey: "AIzaSyDGxsSprXYHfxsUwvJa74-g3T_JmJmt5kU",
@@ -65,6 +67,7 @@ function updateEverything(data) {
     updateWorldChart(data.ew.visitors.worldVisits);
     updateGeminiImages(data.gemini.image);
     setInterval(validateMap, 20000);
+    updateMonthChart(data.study.visitorsByMonth);
 }
 
 //--------------------First page------------------------//
@@ -425,10 +428,79 @@ function makeWorldChart() {
             "titleBold":true
         },
         "export": {
-            "enabled": true
+            "enabled": false
         }
 
     });
+
+}
+
+function updateMonthChart(data) {
+    monthChart.dataProvider = [
+        data.jan,data.feb,data.mar,data.apr,
+        data.may,data.jun,data.jul,data.aug,
+        data.sep,data.oct,data.nov,data.dec];
+    monthChart.validateData();
+}
+
+function makeMonthChart() {
+    monthChart = AmCharts.makeChart("monthChart", {
+            "type": "serial",
+            "theme": "light",
+            "color": "#FFFFFF",
+            "creditsPosition":"top-right",
+            "legend": {
+                "equalWidths": false,
+                "useGraphSettings": false,
+                "valueAlign": "left",
+                "valueWidth": 180,
+                "color":"#FFFFFF",
+                "fontSize":13,
+                "align":"left"
+            },
+            "valueAxes": [{
+                "id":"v1",
+                "axisAlpha": 0,
+                "position": "left"
+            }],
+            "graphs": [{
+                "id": "g1",
+                "lineColor":"#8BD22F",
+                "bullet": "round",
+                "bulletBorderAlpha": 1,
+                "bulletColor": "#8BD22F",
+                "legendPeriodValueText": "Total: [[value.sum]] views",
+                "bulletSize": 10,
+                "lineThickness": 5,
+                "title": "This year.",
+                "useLineColorForBulletBorder": true,
+                "valueField": "thisYear"
+            },
+                {
+                    "id": "g2",
+                    "lineColor":"#00abff",
+                    "bullet": "round",
+                    "bulletBorderAlpha": 1,
+                    "bulletColor": "#00abff",
+                    "legendPeriodValueText": "Total: [[value.sum]] views",
+                    "bulletSize": 10,
+                    "lineThickness": 5,
+                    "title": "Last year.",
+                    "useLineColorForBulletBorder": true,
+                    "valueField": "lastYear"
+                }],
+            "categoryField": "month",
+            "categoryAxis": {
+                "parseDates": false,
+                "dashLength": 1,
+                "minorGridEnabled": false,
+                "position": "bottom",
+                "fontSize":16
+                //"axisColor" : "#FFFFFF"
+            },
+            "dataProvider": []
+        }
+    );
 
 }
 
