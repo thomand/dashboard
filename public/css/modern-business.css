@@ -85,13 +85,13 @@ span {
     font-size:1.6vw;
     height:3% !important;
 }
-
+/*
 .row {
-    margin-left:0.5%;
-    width: 99%;
-    margin-right:0.5%;
+    margin-left:0;
+    width: 100%;
+    margin-right:0;
 }
-
+*/
 .row.two {
     height:40%;
 }
@@ -129,6 +129,16 @@ span {
 
 .noPadding {
     padding: 0 0 0 0;
+}
+
+#notifier {
+    text-align: center;
+    font-size: 2.5vw;
+    margin-top: 20%;
+}
+
+#notifier-small {
+    font-size: 1.8vw;
 }
 
 /* Carousel */
@@ -248,13 +258,11 @@ table.externalWeb {
 }
 
 .row.study-row-top {
-    height:29%;
-    margin-top:10px;
+    height:32%;
 }
 
 .row.study-row-bottom {
-    height:51%;
-    margin-top:10px;
+    height:53%;
 }
 
 table.study {
@@ -267,7 +275,7 @@ table.study tr td {
 }
 
 .bigArrow {
-    font-size: 22px;
+    font-size: 1.4vw;
 }
 
 /*------------------------------------------------*/

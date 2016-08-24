@@ -49,6 +49,7 @@ function loader() {
 
 function showPage() {
     document.getElementById("wrapper").style.display = "none";
+    document.getElementById("notifier").style.display = "none";
     document.getElementById("myCarousel").style.display = "block";
 }
 
@@ -188,7 +189,7 @@ function makeDeviceChart() {
         devicechart.radius = "40%";
         devicechart.labelRadius = 5;
         devicechart.color = "white";
-        devicechart.balloonText = "[[title]]<br><span style='font-size:2vw; font-weight: bold'><b>[[value]]</b> ([[percents]]%)</span>";
+        devicechart.balloonText = "[[title]]<br><span style='font-size:1vw; font-weight: bold'><b>[[value]]</b> ([[percents]]%)</span>";
         devicechart.autoMargins = false;
         devicechart.fontSize = 18;
         devicechart.marginTop = 0;
