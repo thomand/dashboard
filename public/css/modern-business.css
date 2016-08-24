@@ -4,7 +4,7 @@
  * For details, see http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-/* Global Styles */
+/* ---------------Global Styles--------------- */
 
 html,
 body {
@@ -16,33 +16,263 @@ body {
     -o-background-size: cover;
     background-size: cover;
     font-family: 'Roboto', sans-serif;
-    padding-top: 30px;
+    padding-top: 35px;
 }
-/*Not heatmap! Map on innsida versus charts.*/
-#norwaymapcontainer {
-    background: url('../img/norway-arrows.png') no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    height:100%;
+
+/* Top page title */
+a.heading {
+    color: #ffffff !important;
+    display: block;
+    font-size: 24px;
+    font-family: 'Roboto', sans-serif;
+    white-space: nowrap;
+    float: left;
+    outline: none !important;
+    line-height: 60px;
+    text-decoration: none;
+    margin-left: 3%;
+}
+
+/* Color for @ and # */
+span {
+    color: #00abff;
+    /*NTNU blue. Too dark...*/
+    /*color: #00509e;*/
+}
+
+.navbar {
+    height: 60px;
+}
+
+#clockdiv {
+    width:190px;
+    height:40px;
+    margin: 0 auto;
+    float: right;
+    margin-right: 3%;
+}
+
+#clock {
+    display: block;
+    margin: auto;
+    position: absolute;
+    top: 0; bottom: 0;
+}
+
+.ion-arrow-graph-up-right{
+    color: rgb(139,210,47);
+}
+
+.ion-arrow-graph-down-right{
+    color: rgb(249,83,114);
+}
+
+.green{
+    color: #8BD22F;
+}
+
+.red {
+    color: #F95372;
+}
+
+.white {
+    color:#ffffff;
+}
+
+.item2description {
+    color: #ffffff;
+    /*margin-top:1% !important;*/
+    font-size:1.6vw;
+    height:3% !important;
+}
+
+.row {
+    margin-left:0.5%;
+    width: 99%;
+    margin-right:0.5%;
+}
+
+.row.two {
+    height:40%;
+}
+
+.row.three {
+    height:28%;
+}
+
+.special {
     width:100%;
-    /*margin-top: -10px;*/
+    margin-left:0;
+    margin-right:0;
+    margin-bottom: 1%;
 }
 
-.gemini-image {
-    padding-top:0.9vw;
-    height:7vw;
-    width:7vw;
+.item {
+    transition: none !important;
 }
 
-.gemini-headline {
-    padding-left: 5%;
+.panel {
+    height: 100%;
+    color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 0;
+    border-radius: 0.3vw;
+    position: relative;
+    margin-bottom: 1.5vw;
+    box-shadow: 0.1vw 0.1vw 0.3vw rgba(0, 0, 0, 0.15);
+    /*margin-right: 1.2%;*/
 }
 
-.item2description.gemini {
-    font-size: 1.5vw;
+.panelcontent {
+    height: 100%;
 }
+
+.noPadding {
+    padding: 0 0 0 0;
+}
+
+/* Carousel */
+
+div.carousel {
+    height: 100%;
+
+}
+.carousel-indicators {
+    visibility: hidden;
+}
+div.carousel .item,
+div.carousel .item.active,
+div.carousel .carousel-inner {
+    height: 100%;
+    width:100%;
+
+}
+div.carousel .fill {
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-size: cover;
+}
+/*------------------------------------------------*/
+
+
+
+/* ---------------FIRST PAGE--------------- */
+
+/*Heatmap container*/
+.mapContainer {
+    height: 93.5% !important;
+}
+
+/*Container for rest of page one*/
+.visitorsNTNU {
+    height: 93% !important;
+}
+
+.visitordiv {
+    height: 13% !important;
+}
+
+.platformAndBrowsers {
+    height: 37.5% !important;
+}
+
+.popularSites {
+    height: 37.5% !important;
+}
+
+.visitors {
+    font-size: 2.8vw;
+    text-align: center;
+    margin-bottom: 0 !important;
+}
+
+.currentVisitors-text {
+    font-size:1.1vw;
+    text-align: center;
+    margin-bottom: 0 !important;
+
+}
+
+.visitor-percentage {
+    font-size: 1.8vw;
+    vertical-align:middle;
+    margin-top: 5%;
+}
+
+.middle {
+    top: 15%;
+}
+
+.browsers {
+    font-size: 1.18vw;
+}
+
+.noPadding-left {
+    padding-left:0;
+}
+
+.noPadding-right {
+    padding-right:0;
+}
+
+
+.weekMonthYear-text {
+    font-size:1.1vw;
+    text-align: center;
+    position: relative;
+    top: 30%;
+    transform: translateY(-50%);
+}
+
+table.externalWeb {
+    font-weight: bold;
+    font-size:1.2vw;
+    margin-top: 3%;
+}
+
+/*------------------------------------------------*/
+
+/* ---------------PAGE TWO--------------- */
+
+#worldChart {
+    width		: 100%;
+    height		: 100%;
+    font-size	: 1.5vw;
+}
+
+#monthChart {
+    width		: 100%;
+    height		: 100%;
+    font-size	: 1.5vw;
+}
+
+.row.study-row-top {
+    height:29%;
+    margin-top:10px;
+}
+
+.row.study-row-bottom {
+    height:51%;
+    margin-top:10px;
+}
+
+table.study {
+    /*font-weight: bold;*/
+    font-size:1.4vw;
+}
+
+table.study tr td {
+    vertical-align: middle;
+}
+
+.bigArrow {
+    font-size: 22px;
+}
+
+/*------------------------------------------------*/
+
+/* ---------------PAGE THREE--------------- */
 
 #innsidaTrondheim {
     margin-top  : -5%;
@@ -62,8 +292,72 @@ body {
     font-size	: 11px;
 }
 
-.noPadding {
-    padding: 0 0 0 0;
+.vertical-text {
+    color:white;
+    width: 1em;
+    font-size: 1.4vw;
+    letter-spacing: 1.5vw;
+    font-family: "Consolas", "Courier New", monospace;
+
+    /*writing-mode: vertical-lr;*/
+}
+
+.last-week {
+    font-size:1.1vw;
+    margin-top:20%;
+    text-align: center;
+}
+
+.table.study-ITW {
+    font-size: 1.1vw;
+}
+
+table.extramargin {
+    margin-top: 5%;
+}
+
+.ion-arrow-graph-down-right.reverse {
+    color: rgb(139,210,47);
+    font-size: 1.8vw;
+}
+
+.ion-arrow-graph-up-right.reverse {
+    color: rgb(249,83,114);
+    font-size: 1.8vw;
+}
+
+/*------------------------------------------------*/
+
+/* ---------------Page FOUR--------------- */
+#norwaymapcontainer {
+    background: url('../img/norway-arrows.png') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height:100%;
+    width:100%;
+    /*margin-top: -1vw;*/
+}
+
+#aalesund {
+    margin-top:8%;
+    padding-left:10px;
+    padding-right:4px;
+}
+
+#trondheim {
+    padding-right:0;
+    padding-left:0;
+    margin-top:-3%;
+    margin-right:1%;
+}
+
+#gjovik {
+    margin-top:-24%;
+    padding-right:0;
+    padding-left:0;
+    margin-right:1%;
 }
 
 .imgcontainer {
@@ -94,64 +388,43 @@ body {
     margin:auto;
 }
 
-
 .left-pad {
     padding-left:2%;
 }
+
 .right-pad {
     padding-right:2%;
 }
 
-.row {
-    margin-left:1%;
-    width: 98%;
-    margin-right:1%;
+.float-right {
+    text-align: right;
 }
 
-.special {
-    width:100%;
-    margin-left:0;
-    margin-right:0;
+/*------------------------------------------------*/
+
+/* ---------------PAGE FIVE (Gemini)--------------- */
+.gemini-image {
+    padding-top:0.9vw;
+    height:7vw;
+    width:7vw;
 }
 
-.row.total {
-    height:100%;
+.gemini-headline {
+    padding-left: 5%;
 }
 
-.row.two {
-    height:40%;
-    margin-top:10px;
+.ion-pricetag {
+    font-size: 1vw;
+    color: rgb(139,210,47);
 }
 
-.row.study-row-top {
-    height:29%;
-    margin-top:10px;
+.item2description.gemini {
+    font-size: 1.5vw;
 }
 
-.row.study-row-bottom {
-    height:51%;
-    margin-top:10px;
-}
-
-.row.three {
-    height:28%;
-    margin-bottom: 10px;
-}
-
-.last-week {
-    font-size:1.1vw;
-    margin-top:20%;
-    text-align: center;
-}
-
-.vertical-text {
-    color:white;
-    width: 1em;
-    font-size: 1.4vw;
-    letter-spacing: 1.5vw;
-    font-family: "Consolas", "Courier New", monospace;
-
-    /*writing-mode: vertical-lr;*/
+.italic {
+    font-style: italic;
+    font-size:0.9vw;
 }
 
 .five {
@@ -159,92 +432,9 @@ body {
     margin-bottom:25px;
 }
 
-#aalesund {
-    margin-top:8%;
-    padding-left:10px;
-    padding-right:4px;
-}
+/*------------------------------------------------*/
 
-#trondheim {
-    padding-right:0;
-    padding-left:0;
-    margin-top:-3%;
-    margin-right:1%;
-}
-
-#gjovik {
-    margin-top:-24%;
-    padding-right:0;
-    padding-left:0;
-    margin-right:1%;
-}
-
-.item {
-    transition: none !important;
-}
-
-.item2description {
-    color: #ffffff;
-    margin-top:1%;
-    font-size:1.6vw;
-}
-
-.weekMonthYear-text {
-    font-size:1.1vw;
-    text-align: center;
-    margin-top:7%;
-}
-/*Cool animation. Not in use.*/
-.animated.flip {
-    -webkit-animation-duration: 2000ms !important;
-    animation-duration: 2000ms !important;
-}
-
-/*Heatmap container*/
-.mapContainer {
-    height: 92% !important;
-}
-
-/*Container for rest of page one*/
-.visitorsNTNU {
-    height: 92% !important;
-}
-
-.visitordiv {
-    height:12%;
-}
-
-.platformAndBrowsers {
-    height:34% !important;
-}
-
-.popularSites {
-    height:32.75%;
-}
-
-.headline {
-    height:6%;
-}
-
-.visitors {
-    font-size: 4vw;
-    text-align: center;
-    vertical-align:middle;
-}
-
-.visitor-percentage {
-    font-size: 1.8vw;
-    vertical-align:middle;
-}
-
-.middle {
-    top: 15%;
-}
-
-.browsers {
-    font-size: 1.18vw;
-}
-
+/* ---------------TESTING--------------- */
 .test {
     background-color: red;
 }
@@ -253,211 +443,21 @@ body {
     background-color: green;
 }
 
-.ion-pricetag {
-    font-size: 1vw;
-    color: rgb(139,210,47);
-}
+/*------------------------------------------------*/
 
-.italic {
-    font-style: italic;
-    font-size:0.9vw;
-}
 
-#worldChart {
-    width		: 100%;
-    height		: 100%;
-    font-size	: 1.5vw;
-}
 
-#monthChart {
-    width		: 100%;
-    height		: 100%;
-    font-size	: 1.5vw;
-}
 
-.amcharts-export-menu-top-right {
-    top: 10px;
-    right: 0;
-}
 
-.float-right {
-    text-align: right;
-}
 
-table.study {
-    /*font-weight: bold;*/
-    font-size:1.4vw;
-}
-
-.table-heading {
-    font-weight: bold;
-}
-
-table.externalWeb {
-    font-weight: bold;
-    font-size:1.2vw;
-    margin-top: 3%;
-}
-
-.table.study-ITW {
-    font-size: 1.1vw;
+/* OTHER */
+/*Cool animation. Not in use.*/
+.animated.flip {
+    -webkit-animation-duration: 2000ms !important;
+    animation-duration: 2000ms !important;
 }
 
 
-table.study tr td {
-    vertical-align: middle;
-}
-
-table.extramargin {
-    margin-top: 5%;
-}
-
-.bigArrow {
-    font-size: 22px;
-}
-
-.green{
-    color: #8BD22F;
-}
-
-.red {
-    color: #F95372;
-}
-
-.white {
-    color:#ffffff;
-}
-
-.ion-arrow-graph-up-right{
-    color: rgb(139,210,47);
-}
-
-.ion-arrow-graph-down-right{
-    color: rgb(249,83,114);
-}
-
-.ion-arrow-graph-down-right.reverse {
-    color: rgb(139,210,47);
-    font-size: 1.8vw;
-}
-
-.ion-arrow-graph-up-right.reverse {
-    color: rgb(249,83,114);
-    font-size: 1.8vw;
-}
-
-.description {
-    color: #ffffff;
-    margin-top:1%;
-    height: 6%;
-    width: 30%;
-    font-size:24px;
-}
-
-.description.right {
-    left:4%;
-}
-
-.panelcontent {
-    height: 100%;
-}
-
-.two-row-table-top {
-    display:table-row;
-    height:30%;
-}
-
-.two-row-table-bottom {
-    display:table-row;
-    height:70%;
-}
-
-.item2description.big {
-    font-size: 24px;
-    display: table-cell;
-}
-
-.panel {
-    height: 100%;
-    color: #ffffff;
-    background-color: rgba(255, 255, 255, 0.1);
-    border: 0;
-    border-radius: 7px;
-    position: relative;
-    margin-bottom: 24px;
-    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.15);
-    /*margin-right: 1.2%;*/
-}
-
-#clockdiv {
-    width:190px;
-    height:60px;
-    margin: 0 auto;
-    float: right;
-    margin-right: 3%;
-}
-
-#clock {
-    display: block;
-    margin: auto;
-    position: absolute;
-    top: 0; bottom: 0;
-}
-
-/* Top page title */
-a.heading {
-    color: #ffffff !important;
-    display: block;
-    font-size: 24px;
-    font-family: 'Roboto', sans-serif;
-    white-space: nowrap;
-    float: left;
-    outline: none !important;
-    line-height: 60px;
-    text-decoration: none;
-    margin-left: 3%;
-
-}
-/* Color for @ and # */
-span {
-    color: #00abff;
-/*NTNU blue. Too dark...*/
-/*color: #00509e;*/
-}
-
-.navbar {
-    height: 60px;
-}
-
-.img-hover:hover {
-    opacity: 0.8;
-}
-
-/* Home Page Carousel */
-
-div.carousel {
-    height: 100%;
-
-}
-
-.carousel-indicators {
-    visibility: hidden;
-}
-
-div.carousel .item,
-div.carousel .item.active,
-div.carousel .carousel-inner {
-    height: 100%;
-    width:100%;
-
-}
-
-div.carousel .fill {
-    width: 100%;
-    height: 100%;
-    background-position: center;
-    background-size: cover;
-}
 
 /* Responsive Styles */
 /*

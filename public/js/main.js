@@ -43,7 +43,8 @@ function init(){
 }
 
 function loader() {
-    setTimeout(showPage, 4000);
+    setTimeout(showPage, 500);
+    /*timeout = 4000*/
 }
 
 function showPage() {
@@ -465,10 +466,10 @@ function makeMonthChart() {
             }],
             "graphs": [{
                 "id": "g1",
-                "lineColor":"#8BD22F",
+                "lineColor":"#8BD25F",
                 "bullet": "round",
                 "bulletBorderAlpha": 1,
-                "bulletColor": "#8BD22F",
+                "bulletColor": "#8BD25F",
                 "legendPeriodValueText": "Total: [[value.sum]] views",
                 "bulletSize": 10,
                 "lineThickness": 5,
@@ -478,10 +479,10 @@ function makeMonthChart() {
             },
                 {
                     "id": "g2",
-                    "lineColor":"#00abff",
+                    "lineColor":"#F95372",
                     "bullet": "round",
                     "bulletBorderAlpha": 1,
-                    "bulletColor": "#00abff",
+                    "bulletColor": "#F95372",
                     "legendPeriodValueText": "Total: [[value.sum]] views",
                     "bulletSize": 10,
                     "lineThickness": 5,

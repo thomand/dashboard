@@ -103,196 +103,196 @@
             <!-- First page -->
             <!-- slideInDown-->
             <div class="item active animated slideInDown">
-                <div class="row total">
-                    <!-- First line headlines-->
-                    <div class="row special">
-                        <div class="col-sm-8 col-md-8 col-lg-8">
-                            <div class="col-sm-4 col-md-4 col-lg-4 item2description">
-                                Current visitors ntnu.no
-                            </div>
-                            <div class="col-sm-8 col-lg-8 col-md-8 item2description">
-                                <div class="col-sm-4 col-lg-4 col-md-4">Weekly views</div>
-                                <div class="col-sm-4 col-lg-4 col-md-4">Monthly views</div>
-                                <div class="col-sm-4 col-lg-4 col-md-4">Yearly views</div>
-                            </div>
-                        </div>
-                        <!-- Heatmap headline -->
-                        <div class="col-md-4 col-sm-4 col-lg-4 pull-right" style="padding-left:0">
-                            <div class="col-md-12 col-sm-12 col-lg-12 item2description">
-                                User access location
+                    <!-- Left side container -->
+                    <div class="panelcontent col-md-8 col-sm-8 col-lg-8 noPadding-right">
+                        <!-- Left side first line headlines-->
+                        <div class="row special item2description">
+                            <div class="col-sm-12 col-md-12 col-lg-12">
+                                <div class="col-sm-4 col-md-4 col-lg-4">Live statistics <span>ntnu.no</span></div>
+                                <div class="col-sm-8 col-lg-8 col-md-8">
+                                    <div class="col-sm-4 col-lg-4 col-md-4">Weekly views</div>
+                                    <div class="col-sm-4 col-lg-4 col-md-4">Monthly views</div>
+                                    <div class="col-sm-4 col-lg-4 col-md-4">Yearly views</div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <!-- Left container div-->
-                    <div class="col-md-8 col-sm-8 col-lg-8 visitorsNTNU" style="padding-right:0">
-                        <div class="row special visitordiv">
-                            <div class="panel col-md-4 col-sm-4 col-lg-4 visitors" id="currentVisitors"></div>
-                            <div class="panelcontent col-md-8 visitor-percentage">
-                                <div class="panel col-md-4 col-sm-4 col-lg-4">
-                                    <div class="row special two">
-                                        <div class="panelcontent col-md-3 col-sm-3 col-lg-3 middle"><i id="weekArrow"></i></div>
-                                        <div class="panelcontent col-md-5 col-sm-5 col-lg-5 middle" id="changeWeek"></div>
-                                        <div class="panelcontent col-md-3 col-sm-3 col-lg-3 middle" id="weekPercent"></div>
+                        <!-- Left container div-->
+                        <div class="row special visitorsNTNU">
+                            <div class="row special visitordiv">
+                                <div class="panelcontent col-md-4 col-sm-4 col-lg-4">
+                                    <div class="panel col-md-12 col-sm-12 col-lg-12">
+                                        <div class="row special visitors" id="currentVisitors"></div>
+                                        <div class="row special currentVisitors-text">Current active sessions</div>
                                     </div>
-                                    <div class="row special weekMonthYear-text">Since last week</div>
                                 </div>
-                                <div class="panel col-md-4 col-sm-4 col-lg-4">
-                                    <div class="row special two">
-                                        <div class="panelcontent col-md-3 col-sm-3 col-lg-3 middle"><i id="monthArrow"></i></div>
-                                        <div class="panelcontent col-md-5 col-sm-5 col-lg-5 middle" id="changeMonth"></div>
-                                        <div class="panelcontent col-md-3 col-sm-3 col-lg-3 middle" id="monthPercent"></div>
+                                <div class="panelcontent col-md-8">
+                                    <div class="panel col-md-4 col-sm-4 col-lg-4">
+                                        <div class="row two special visitor-percentage">
+                                            <div class="panelcontent col-md-3 col-sm-3 col-lg-3 middle"><i id="weekArrow"></i></div>
+                                            <div class="panelcontent col-md-5 col-sm-5 col-lg-5 middle" id="changeWeek"></div>
+                                            <div class="panelcontent col-md-3 col-sm-3 col-lg-3 middle" id="weekPercent"></div>
+                                        </div>
+                                        <div class="row special weekMonthYear-text">Since last week</div>
                                     </div>
-                                    <div class="row special weekMonthYear-text">Since last month</div>
-                                </div>
-                                <div class="panel col-md-4 col-sm-4 col-lg-4">
-                                    <div class="row two special">
-                                        <div class="panelcontent col-md-3 col-sm-3 col-lg-3 middle"><i id="yearArrow"></i></div>
-                                        <div class="panelcontent col-md-5 col-sm-5 col-lg-5 middle" id="changeYear"></div>
-                                        <div class="panelcontent col-md-3 col-sm-3 col-lg-3 middle" id="yearPercent"></div>
+                                    <div class="panel col-md-4 col-sm-4 col-lg-4">
+                                        <div class="row two special visitor-percentage">
+                                            <div class="panelcontent col-md-3 col-sm-3 col-lg-3 middle"><i id="monthArrow"></i></div>
+                                            <div class="panelcontent col-md-5 col-sm-5 col-lg-5 middle" id="changeMonth"></div>
+                                            <div class="panelcontent col-md-3 col-sm-3 col-lg-3 middle" id="monthPercent"></div>
+                                        </div>
+                                        <div class="row special weekMonthYear-text">Since last month</div>
                                     </div>
-                                    <div class="row special weekMonthYear-text">Since last year</div>
+                                    <div class="panel col-md-4 col-sm-4 col-lg-4">
+                                        <div class="row two special visitor-percentage">
+                                            <div class="panelcontent col-md-3 col-sm-3 col-lg-3 middle"><i id="yearArrow"></i></div>
+                                            <div class="panelcontent col-md-5 col-sm-5 col-lg-5 middle" id="changeYear"></div>
+                                            <div class="panelcontent col-md-3 col-sm-3 col-lg-3 middle" id="yearPercent"></div>
+                                        </div>
+                                        <div class="row special weekMonthYear-text">Since last year</div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="row special headline">
-                            <div class="col-md-12 col-sm-12 col-lg-12" style="padding-left:0">
-                                <!-- Platform headline-->
-                                <div class="col-md-6 col-sm-6 col-lg-6 item2description" >Platform</div>
-                                <!-- Browsers headline-->
-                                <div class="col-md-6 col-sm-6 col-lg-6 item2description">Browsers</div>
-                            </div>
-                        </div>
-                        <div class="row special platformAndBrowsers" style="margin-bottom:5.5%;">
-                            <!-- Device platform (pc/smartphone/tablet)-->
-                            <div class="panelcontent col-sm-6 col-lg-6 col-md-6" style="padding-left: 0">
-                                <div class="panel col-md-12 col-sm-12 col-lg-12" id="devicediv"></div>
-                            </div>
-                            <!-- Browser table-->
-                            <div class="panelcontent col-md-6 col-sm-6 col-lg-6" style="padding-left: 0">
-                                <div class="panel col-md-12 col-sm-12 col-lg-12">
-                                    <table class="table browsers">
-                                        <tbody>
-                                        <tr>
-                                            <td class="col-md-1 col-sm-1 col-lg-1" id="browserLogoOne"></td>
-                                            <td class="col-md-5 col-sm-5 col-lg-5" id="browserNameOne"></td>
-                                            <td class="col-md-2 col-sm-2 col-lg-2 float-right" id="browserNumOne"></td>
-                                            <td class="col-md-3 col-sm-3 col-lg-3 float-right" id="browserPercentOne"></td>
-                                        </tr>
-                                        <tr>
-                                            <td class="col-md-1 col-sm-1 col-lg-1" id="browserLogoTwo"></td>
-                                            <td class="col-md-5 col-sm-5 col-lg-5" id="browserNameTwo"></td>
-                                            <td class="col-md-2 col-sm-2 col-lg-2 float-right" id="browserNumTwo"></td>
-                                            <td class="col-md-3 col-sm-3 col-lg-3 float-right" id="browserPercentTwo"></td>
-                                        </tr>
-                                        <tr>
-                                            <td class="col-md-1 col-sm-1 col-lg-1" id="browserLogoThree"></td>
-                                            <td class="col-md-5 col-sm-5 col-lg-5" id="browserNameThree"></td>
-                                            <td class="col-md-2 col-sm-2 col-lg-2 float-right" id="browserNumThree"></td>
-                                            <td class="col-md-3 col-sm-3 col-lg-3 float-right" id="browserPercentThree"></td>
-                                        </tr>
-                                        <tr>
-                                            <td class="col-md-1 col-sm-1 col-lg-1" id="browserLogoFour"></td>
-                                            <td class="col-md-5 col-sm-5 col-lg-5" id="browserNameFour"></td>
-                                            <td class="col-md-2 col-sm-2 col-lg-2 float-right" id="browserNumFour"></td>
-                                            <td class="col-md-3 col-sm-3 col-lg-3 float-right" id="browserPercentFour"></td>
-                                        </tr>
-                                        <tr>
-                                            <td class="col-md-1 col-sm-1 col-lg-1" id="browserLogoFive"></td>
-                                            <td class="col-md-5 col-sm-5 col-lg-5" id="browserNameFive"></td>
-                                            <td class="col-md-2 col-sm-2 col-lg-2 float-right" id="browserNumFive"></td>
-                                            <td class="col-md-3 col-sm-3 col-lg-3 float-right" id="browserPercentFive"></td>
-                                        </tr>
-                                        <tr>
-                                            <td class="col-md-1 col-sm-1 col-lg-1" id="browserLogoSix"></td>
-                                            <td class="col-md-5 col-sm-5 col-lg-5" id="browserNameSix"></td>
-                                            <td class="col-md-2 col-sm-2 col-lg-2 float-right" id="browserNumSix"></td>
-                                            <td class="col-md-3 col-sm-3 col-lg-3 float-right" id="browserPercentSix"></td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
+                            <div class="row special item2description">
+                                <div class="col-md-12 col-sm-12 col-lg-12">
+                                    <!-- Platform headline-->
+                                    <div class="col-md-6 col-sm-6 col-lg-6">Platform</div>
+                                    <!-- Browsers headline-->
+                                    <div class="col-md-6 col-sm-6 col-lg-6">Browsers</div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="row special headline">
-                            <div class="col-md-12 col-sm-12 col-lg-12" style="padding-left:0">
-                                <div class="col-md-6 col-sm-6 col-lg-6 item2description">Popular pages ntnu.no</div>
-                                <div class="col-md-6 col-sm-6 col-lg-6 item2description">Popular pages ntnu.edu</div>
-                            </div>
-                        </div>
-                        <div class="row special popularSites">
-                            <div class="panelcontent col-md-6 col-sm-6 col-lg-6" style="padding-left: 0">
-                                <div class="panel col-md-12 col-sm-12 col-lg-12">
-                                    <table class="table externalWeb">
-                                        <!--<thead>
-                                        <tr>
-                                            <td class="table-heading">Rank</td>
-                                            <td class="table-heading">Page</td>
-                                        </tr>
-                                        </thead>-->
-                                        <tbody>
-                                        <tr>
-                                            <td class="col-md-2 col-sm-2 col-lg-2">#1</td>
-                                            <td id="popularNO-one"></td>
-                                        </tr>
-                                        <tr>
-                                            <td class="col-md-2 col-sm-2 col-lg-2">#2</td>
-                                            <td id="popularNO-two"></td>
-                                        </tr>
-                                        <tr>
-                                            <td class="col-md-2 col-sm-2 col-lg-2">#3</td>
-                                            <td id="popularNO-three"></td>
-                                        </tr>
-                                        <tr>
-                                            <td class="col-md-2 col-sm-2 col-lg-2">#4</td>
-                                            <td id="popularNO-four"></td>
-                                        </tr>
-                                        <tr>
-                                            <td class="col-md-2 col-sm-2 col-lg-2">#5</td>
-                                            <td id="popularNO-five"></td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
+                            <div class="row special platformAndBrowsers">
+                                <!-- Device platform (pc/smartphone/tablet)-->
+                                <div class="panelcontent col-sm-6 col-lg-6 col-md-6" >
+                                    <div class="panel col-md-12 col-sm-12 col-lg-12" id="devicediv"></div>
+                                </div>
+                                <!-- Browser table-->
+                                <div class="panelcontent col-md-6 col-sm-6 col-lg-6" >
+                                    <div class="panel col-md-12 col-sm-12 col-lg-12">
+                                        <table class="table browsers">
+                                            <tbody>
+                                            <tr>
+                                                <td class="col-md-1 col-sm-1 col-lg-1" id="browserLogoOne"></td>
+                                                <td class="col-md-5 col-sm-5 col-lg-5" id="browserNameOne"></td>
+                                                <td class="col-md-2 col-sm-2 col-lg-2 float-right" id="browserNumOne"></td>
+                                                <td class="col-md-3 col-sm-3 col-lg-3 float-right" id="browserPercentOne"></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="col-md-1 col-sm-1 col-lg-1" id="browserLogoTwo"></td>
+                                                <td class="col-md-5 col-sm-5 col-lg-5" id="browserNameTwo"></td>
+                                                <td class="col-md-2 col-sm-2 col-lg-2 float-right" id="browserNumTwo"></td>
+                                                <td class="col-md-3 col-sm-3 col-lg-3 float-right" id="browserPercentTwo"></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="col-md-1 col-sm-1 col-lg-1" id="browserLogoThree"></td>
+                                                <td class="col-md-5 col-sm-5 col-lg-5" id="browserNameThree"></td>
+                                                <td class="col-md-2 col-sm-2 col-lg-2 float-right" id="browserNumThree"></td>
+                                                <td class="col-md-3 col-sm-3 col-lg-3 float-right" id="browserPercentThree"></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="col-md-1 col-sm-1 col-lg-1" id="browserLogoFour"></td>
+                                                <td class="col-md-5 col-sm-5 col-lg-5" id="browserNameFour"></td>
+                                                <td class="col-md-2 col-sm-2 col-lg-2 float-right" id="browserNumFour"></td>
+                                                <td class="col-md-3 col-sm-3 col-lg-3 float-right" id="browserPercentFour"></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="col-md-1 col-sm-1 col-lg-1" id="browserLogoFive"></td>
+                                                <td class="col-md-5 col-sm-5 col-lg-5" id="browserNameFive"></td>
+                                                <td class="col-md-2 col-sm-2 col-lg-2 float-right" id="browserNumFive"></td>
+                                                <td class="col-md-3 col-sm-3 col-lg-3 float-right" id="browserPercentFive"></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="col-md-1 col-sm-1 col-lg-1" id="browserLogoSix"></td>
+                                                <td class="col-md-5 col-sm-5 col-lg-5" id="browserNameSix"></td>
+                                                <td class="col-md-2 col-sm-2 col-lg-2 float-right" id="browserNumSix"></td>
+                                                <td class="col-md-3 col-sm-3 col-lg-3 float-right" id="browserPercentSix"></td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="panelcontent col-md-6 col-sm-6 col-lg-6" style="padding-left: 0">
-                                <div class="panel col-md-12 col-sm-12 col-lg-12">
-                                    <table class="table externalWeb">
-                                        <!--<thead>
-                                        <tr>
-                                            <td class="table-heading">Rank</td>
-                                            <td class="table-heading">Page</td>
-                                        </tr>
-                                        </thead>-->
-                                        <tbody>
-                                        <tr>
-                                            <td class="col-md-2 col-sm-2 col-lg-2">#1</td>
-                                            <td id="popularEDU-one"></td>
-                                        </tr>
-                                        <tr>
-                                            <td class="col-md-2 col-sm-2 col-lg-2">#2</td>
-                                            <td id="popularEDU-two"></td>
-                                        </tr>
-                                        <tr>
-                                            <td class="col-md-2 col-sm-2 col-lg-2">#3</td>
-                                            <td id="popularEDU-three"></td>
-                                        </tr>
-                                        <tr>
-                                            <td class="col-md-2 col-sm-2 col-lg-2">#4</td>
-                                            <td id="popularEDU-four"></td>
-                                        </tr>
-                                        <tr>
-                                            <td class="col-md-2 col-sm-2 col-lg-2">#5</td>
-                                            <td id="popularEDU-five"></td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
+                            <div class="row special item2description">
+                                <div class="col-md-12 col-sm-12 col-lg-12">
+                                    <div class="col-md-6 col-sm-6 col-lg-6">Popular pages ntnu.no</div>
+                                    <div class="col-md-6 col-sm-6 col-lg-6">Popular pages ntnu.edu</div>
+                                </div>
+                            </div>
+                            <div class="row special popularSites">
+                                <div class="panelcontent col-md-6 col-sm-6 col-lg-6">
+                                    <div class="panel col-md-12 col-sm-12 col-lg-12">
+                                        <table class="table externalWeb">
+                                            <tbody>
+                                            <tr>
+                                                <td class="col-md-2 col-sm-2 col-lg-2">#1</td>
+                                                <td id="popularNO-one"></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="col-md-2 col-sm-2 col-lg-2">#2</td>
+                                                <td id="popularNO-two"></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="col-md-2 col-sm-2 col-lg-2">#3</td>
+                                                <td id="popularNO-three"></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="col-md-2 col-sm-2 col-lg-2">#4</td>
+                                                <td id="popularNO-four"></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="col-md-2 col-sm-2 col-lg-2">#5</td>
+                                                <td id="popularNO-five"></td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="panelcontent col-md-6 col-sm-6 col-lg-6">
+                                    <div class="panel col-md-12 col-sm-12 col-lg-12">
+                                        <table class="table externalWeb">
+                                            <tbody>
+                                            <tr>
+                                                <td class="col-md-2 col-sm-2 col-lg-2">#1</td>
+                                                <td id="popularEDU-one"></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="col-md-2 col-sm-2 col-lg-2">#2</td>
+                                                <td id="popularEDU-two"></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="col-md-2 col-sm-2 col-lg-2">#3</td>
+                                                <td id="popularEDU-three"></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="col-md-2 col-sm-2 col-lg-2">#4</td>
+                                                <td id="popularEDU-four"></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="col-md-2 col-sm-2 col-lg-2">#5</td>
+                                                <td id="popularEDU-five"></td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <!-- Heatmap of Norway -->
-                    <div class="panel col-md-4 col-sm-4 col-lg-4 pull-right mapContainer" id="mapdiv"></div>
-                </div>
+
+                    <!-- Right side first line headline -->
+                    <div class="panelcontent col-md-4 col-sm-4 col-lg-4 noPadding-left">
+                        <div class="row special item2description">
+                            <div class="col-md-12 col-sm-12 col-lg-12">
+                                <!-- Heatmap headline -->
+                                <div class="col-md-12 col-sm-12 col-lg-12">User access location</div>
+                            </div>
+                        </div>
+                        <div class="row special mapContainer">
+                            <!-- Heatmap of Norway -->
+                            <div class="panelcontent col-m2-12 col-sm-12 col-lg-12">
+                                <div class="panel col-md-12 col-sm-12 col-lg-12" id="mapdiv"></div>
+                            </div>
+                        </div>
+                    </div>
             </div>
             <!-- /First page -->
             <!-- Second page-->
