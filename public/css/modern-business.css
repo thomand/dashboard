@@ -19,6 +19,13 @@ body {
     padding-top: 35px;
 }
 
+.pageInfo {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+}
+
 /* Top page title */
 a.heading {
     color: #ffffff !important;
@@ -131,6 +138,7 @@ span {
     padding: 0 0 0 0;
 }
 
+
 #notifier {
     text-align: center;
     font-size: 2.5vw;
@@ -139,6 +147,13 @@ span {
 
 #notifier-small {
     font-size: 1.8vw;
+}
+
+.extrapad-left {
+    padding-left:3% !important;
+}
+.extraExtrapad-left {
+    padding-left:6% !important;
 }
 
 /* Carousel */
@@ -171,7 +186,7 @@ div.carousel .fill {
 
 /*Heatmap container*/
 .mapContainer {
-    height: 93.5% !important;
+    height: 93% !important;
 }
 
 /*Container for rest of page one*/
@@ -280,6 +295,29 @@ table.study tr td {
 
 /*------------------------------------------------*/
 
+
+/*---------------NEW PAGE THREE------------------*/
+
+.rightInnsidaContainer {
+    height: 93% !important;
+}
+
+/*Container for rest of page one*/
+.visitorsInnsida {
+    height: 93% !important;
+}
+
+.topPanel {
+    height:56.5% !important;
+    margin-bottom: 3% !important;
+}
+
+#bottomPanel {
+    height: 30% !important;
+}
+
+
+
 /* ---------------PAGE THREE--------------- */
 
 #innsidaTrondheim {
@@ -343,9 +381,9 @@ table.extramargin {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-    height:100%;
-    width:100%;
-    /*margin-top: -1vw;*/
+    height:100% !important;
+    width:100% !important;
+
 }
 
 #aalesund {
@@ -412,22 +450,31 @@ table.extramargin {
 
 /* ---------------PAGE FIVE (Gemini)--------------- */
 .gemini-image {
-    padding-top:0.9vw;
     height:7vw;
     width:7vw;
+}
+
+.gemini-image-container {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 .gemini-headline {
     padding-left: 5%;
 }
 
+.gemini-description {
+    padding-left:3%;
+}
 .ion-pricetag {
-    font-size: 1vw;
+    font-size: 1.3vw;
     color: rgb(139,210,47);
+    vertical-align: top;
 }
 
 .item2description.gemini {
-    font-size: 1.5vw;
+    font-size: 1.8vw;
 }
 
 .italic {
@@ -436,8 +483,7 @@ table.extramargin {
 }
 
 .five {
-    height: 15%;
-    margin-bottom:25px;
+    height: 17%;
 }
 
 /*------------------------------------------------*/

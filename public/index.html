@@ -99,6 +99,9 @@
         <div class="white"><i class="ion-arrow-left-b"></i>        Please use keyboard arrows to navigate between the pages        <i class="ion-arrow-right-b"></i></div>
         <div class="white" id="notifier-small">(A new page will appear every 30 seconds if you don't)</div>
     </section>
+    <!--<section class="pageInfo" id="firstPageInfo">
+        <div class="white">Statistics for ntnu.no and ntnu.edu</div>
+    </section>-->
 
     <!-- Header Carousel -->
     <div id="myCarousel" class="carousel slide" data-ride="carousel" data-pause="false" style="display: none">
@@ -106,7 +109,7 @@
         <div class="carousel-inner">
             <!-- First page -->
             <!-- slideInDown-->
-            <div class="item animated slideInDown">
+            <div class="item active animated slideInDown">
                     <!-- Left side container -->
                     <div class="panelcontent col-md-8 col-sm-8 col-lg-8 noPadding-left noPadding-right">
                         <!-- Left side first line headlines-->
@@ -125,32 +128,32 @@
                             <div class="row special visitordiv">
                                 <div class="panelcontent col-md-4 col-sm-4 col-lg-4">
                                     <div class="panel col-md-12 col-sm-12 col-lg-12">
-                                        <div class="row special visitors" id="currentVisitors"></div>
+                                        <div class="row special visitors" id="currentVisitorsExternal"></div>
                                         <div class="row special currentVisitors-text">Current active sessions</div>
                                     </div>
                                 </div>
                                 <div class="panelcontent col-md-8">
                                     <div class="panel col-md-4 col-sm-4 col-lg-4">
                                         <div class="row two special visitor-percentage">
-                                            <div class="panelcontent col-md-3 col-sm-3 col-lg-3 middle"><i id="weekArrow"></i></div>
-                                            <div class="panelcontent col-md-5 col-sm-5 col-lg-5 middle" id="changeWeek"></div>
-                                            <div class="panelcontent col-md-3 col-sm-3 col-lg-3 middle" id="weekPercent"></div>
+                                            <div class="panelcontent col-md-3 col-sm-3 col-lg-3 middle"><i id="weekArrowExternal"></i></div>
+                                            <div class="panelcontent col-md-5 col-sm-5 col-lg-5 middle" id="changeWeekExternal"></div>
+                                            <div class="panelcontent col-md-3 col-sm-3 col-lg-3 middle" id="weekPercentExternal"></div>
                                         </div>
                                         <div class="row special weekMonthYear-text">Since last week</div>
                                     </div>
                                     <div class="panel col-md-4 col-sm-4 col-lg-4">
                                         <div class="row two special visitor-percentage">
-                                            <div class="panelcontent col-md-3 col-sm-3 col-lg-3 middle"><i id="monthArrow"></i></div>
-                                            <div class="panelcontent col-md-5 col-sm-5 col-lg-5 middle" id="changeMonth"></div>
-                                            <div class="panelcontent col-md-3 col-sm-3 col-lg-3 middle" id="monthPercent"></div>
+                                            <div class="panelcontent col-md-3 col-sm-3 col-lg-3 middle"><i id="monthArrowExternal"></i></div>
+                                            <div class="panelcontent col-md-5 col-sm-5 col-lg-5 middle" id="changeMonthExternal"></div>
+                                            <div class="panelcontent col-md-3 col-sm-3 col-lg-3 middle" id="monthPercentExternal"></div>
                                         </div>
                                         <div class="row special weekMonthYear-text">Since last month</div>
                                     </div>
                                     <div class="panel col-md-4 col-sm-4 col-lg-4">
                                         <div class="row two special visitor-percentage">
-                                            <div class="panelcontent col-md-3 col-sm-3 col-lg-3 middle"><i id="yearArrow"></i></div>
-                                            <div class="panelcontent col-md-5 col-sm-5 col-lg-5 middle" id="changeYear"></div>
-                                            <div class="panelcontent col-md-3 col-sm-3 col-lg-3 middle" id="yearPercent"></div>
+                                            <div class="panelcontent col-md-3 col-sm-3 col-lg-3 middle"><i id="yearArrowExternal"></i></div>
+                                            <div class="panelcontent col-md-5 col-sm-5 col-lg-5 middle" id="changeYearExternal"></div>
+                                            <div class="panelcontent col-md-3 col-sm-3 col-lg-3 middle" id="yearPercentExternal"></div>
                                         </div>
                                         <div class="row special weekMonthYear-text">Since last year</div>
                                     </div>
@@ -161,7 +164,7 @@
                                     <!-- Platform headline-->
                                     <div class="col-md-6 col-sm-6 col-lg-6">Platform</div>
                                     <!-- Browsers headline-->
-                                    <div class="col-md-6 col-sm-6 col-lg-6">Browsers</div>
+                                    <div class="col-md-6 col-sm-6 col-lg-6 extrapad-left">Browsers</div>
                                 </div>
                             </div>
                             <div class="row special platformAndBrowsers">
@@ -218,7 +221,7 @@
                             <div class="row special item2description">
                                 <div class="col-md-12 col-sm-12 col-lg-12">
                                     <div class="col-md-6 col-sm-6 col-lg-6">Popular pages ntnu.no</div>
-                                    <div class="col-md-6 col-sm-6 col-lg-6">Popular pages ntnu.edu</div>
+                                    <div class="col-md-6 col-sm-6 col-lg-6 extrapad-left">Popular pages ntnu.edu</div>
                                 </div>
                             </div>
                             <div class="row special popularSites">
@@ -287,7 +290,9 @@
                         <div class="row special item2description">
                             <div class="col-md-12 col-sm-12 col-lg-12">
                                 <!-- Heatmap headline -->
-                                <div class="col-md-12 col-sm-12 col-lg-12">User access location</div>
+                                <div class="col-md-12 col-sm-12 col-lg-12 noPadding-left">
+                                    <div class="col-md-12 col-sm-12 col-lg-12">User access location</div>
+                                </div>
                             </div>
                         </div>
                         <div class="row special mapContainer">
@@ -297,11 +302,11 @@
                             </div>
                         </div>
                     </div>
-            </div>
+                </div>
             <!-- /First page -->
             <!-- Second page-->
             <!--slideInUp -->
-            <div class="item active animated slideInUp">
+            <div class="item animated slideInUp">
                 <div class="row special item2description">
                     <div class="col-md-4">
                         <div class="col-md-12">Most visited study programs</div>
@@ -451,8 +456,189 @@
             </div>
             <!-- /Second page -->
             <!-- Third page -->
+            <div class="item animated slideInDown">
+                <!-- Left side container -->
+                <div class="panelcontent col-md-8 col-sm-8 col-lg-8 noPadding-left noPadding-right">
+                    <!-- Left side first line headlines-->
+                    <div class="row special item2description">
+                        <div class="col-sm-12 col-md-12 col-lg-12">
+                            <div class="col-sm-4 col-md-4 col-lg-4">Live statistics <span>innsida</span></div>
+                            <div class="col-sm-8 col-lg-8 col-md-8">
+                                <div class="col-sm-4 col-lg-4 col-md-4">Weekly views</div>
+                                <div class="col-sm-4 col-lg-4 col-md-4">Monthly views</div>
+                                <div class="col-sm-4 col-lg-4 col-md-4">Yearly views</div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Left container div-->
+                    <div class="row special visitorsInnsida">
+                        <div class="row special visitordiv">
+                            <div class="panelcontent col-md-4 col-sm-4 col-lg-4">
+                                <div class="panel col-md-12 col-sm-12 col-lg-12">
+                                    <div class="row special visitors" id="currentVisitorsInnsida"></div>
+                                    <div class="row special currentVisitors-text">Current active sessions</div>
+                                </div>
+                            </div>
+                            <div class="panelcontent col-md-8">
+                                <div class="panel col-md-4 col-sm-4 col-lg-4">
+                                    <div class="row two special visitor-percentage">
+                                        <div class="panelcontent col-md-3 col-sm-3 col-lg-3 middle"><i id="weekArrowInnsida"></i></div>
+                                        <div class="panelcontent col-md-5 col-sm-5 col-lg-5 middle" id="changeWeekInnsida"></div>
+                                        <div class="panelcontent col-md-3 col-sm-3 col-lg-3 middle" id="weekPercentInnsida"></div>
+                                    </div>
+                                    <div class="row special weekMonthYear-text">Since last week</div>
+                                </div>
+                                <div class="panel col-md-4 col-sm-4 col-lg-4">
+                                    <div class="row two special visitor-percentage">
+                                        <div class="panelcontent col-md-3 col-sm-3 col-lg-3 middle"><i id="monthArrowInnsida"></i></div>
+                                        <div class="panelcontent col-md-5 col-sm-5 col-lg-5 middle" id="changeMonthInnsida"></div>
+                                        <div class="panelcontent col-md-3 col-sm-3 col-lg-3 middle" id="monthPercentInnsida"></div>
+                                    </div>
+                                    <div class="row special weekMonthYear-text">Since last month</div>
+                                </div>
+                                <div class="panel col-md-4 col-sm-4 col-lg-4">
+                                    <div class="row two special visitor-percentage">
+                                        <div class="panelcontent col-md-3 col-sm-3 col-lg-3 middle"><i id="yearArrowInnsida"></i></div>
+                                        <div class="panelcontent col-md-5 col-sm-5 col-lg-5 middle" id="changeYearInnsida"></div>
+                                        <div class="panelcontent col-md-3 col-sm-3 col-lg-3 middle" id="yearPercentInnsida"></div>
+                                    </div>
+                                    <div class="row special weekMonthYear-text">Since last year</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row special item2description">
+                            <div class="col-md-12 col-sm-12 col-lg-12">
+                                <!-- Platform headline-->
+                                <div class="col-md-12 col-sm-12 col-lg-12">Users on innsida by day of week</div>
+                            </div>
+                        </div>
+                        <div class="row special platformAndBrowsers">
+                            <!-- Innsida views this week and last week -->
+                            <div class="panelcontent col-sm-12 col-lg-12 col-md-12" >
+                                <div class="panel col-md-12 col-sm-12 col-lg-12" id="innsidaWeekChart"></div>
+                            </div>
+                        </div>
+                        <div class="row special item2description">
+                            <div class="col-md-12 col-sm-12 col-lg-12">
+                                <div class="col-md-6 col-sm-6 col-lg-6">Popular wiki pages</div>
+                                <div class="col-md-6 col-sm-6 col-lg-6 extrapad-left">Most popular tema pages</div>
+                            </div>
+                        </div>
+                        <div class="row special popularSites">
+                            <div class="panelcontent col-md-6 col-sm-6 col-lg-6">
+                                <div class="panel col-md-12 col-sm-12 col-lg-12">
+                                    <table class="table externalWeb">
+                                        <tbody>
+                                        <tr>
+                                            <td class="col-md-1 col-sm-1 col-lg-1">#1</td>
+                                            <td id="popularWiki-one"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="col-md-1 col-sm-1 col-lg-1">#2</td>
+                                            <td id="popularWiki-two"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="col-md-1 col-sm-1 col-lg-1">#3</td>
+                                            <td id="popularWiki-three"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="col-md-1 col-sm-1 col-lg-1">#4</td>
+                                            <td id="popularWiki-four"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="col-md-1 col-sm-1 col-lg-1">#5</td>
+                                            <td id="popularWiki-five"></td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="panelcontent col-md-6 col-sm-6 col-lg-6">
+                                <div class="panel col-md-12 col-sm-12 col-lg-12">
+                                    <table class="table externalWeb">
+                                        <tbody>
+                                        <tr>
+                                            <td class="col-md-1 col-sm-1 col-lg-1">#1</td>
+                                            <td id="mostPopularTema-one"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="col-md-1 col-sm-1 col-lg-1">#2</td>
+                                            <td id="mostPopularTema-two"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="col-md-1 col-sm-1 col-lg-1">#3</td>
+                                            <td id="mostPopularTema-three"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="col-md-1 col-sm-1 col-lg-1">#4</td>
+                                            <td id="mostPopularTema-four"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="col-md-1 col-sm-1 col-lg-1">#5</td>
+                                            <td id="mostPopularTema-five"></td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Right side first line headline -->
+                <div class="panelcontent col-md-4 col-sm-4 col-lg-4 noPadding-left noPadding-right">
+                    <div class="row special item2description">
+                        <div class="col-md-12 col-sm-12 col-lg-12 noPadding-left">
+                            <!-- Heatmap headline -->
+                            <div class="col-md-12 col-sm-12 col-lg-12">
+                                <div class="col-md-12 col-sm-12 col-lg-12">Something here</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row special rightInnsidaContainer">
+                        <!-- Heatmap of Norway -->
+                        <div class="row special topPanel">
+                            <div class="panelcontent col-md-12 col-sm-12 col-lg-12">
+                                <div class="panel col-md-12 col-sm-12 col-lg-12"></div>
+                            </div>
+                        </div>
+                        <div class="row special item2description">
+                                <div class="col-md-12 col-sm-12 col-lg-12 extraExtrapad-left">Least popular tema pages</div>
+                        </div>
+                        <div class="row special popularSites">
+                            <div class="panelcontent col-md-12 col-sm-12 col-lg-12">
+                                <div class="panel col-md-12 col-sm-12 col-lg-12">
+                                    <table class="table externalWeb">
+                                        <tbody>
+                                        <tr>
+                                            <td class="col-md-1 col-sm-1 col-lg-1">#1</td>
+                                            <td id="leastPopularTema-one"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="col-md-1 col-sm-1 col-lg-1">#2</td>
+                                            <td id="leastPopularTema-two"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="col-md-1 col-sm-1 col-lg-1">#3</td>
+                                            <td id="leastPopularTema-three"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="col-md-1 col-sm-1 col-lg-1">#4</td>
+                                            <td id="leastPopularTema-four"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="col-md-1 col-sm-1 col-lg-1">#5</td>
+                                            <td id="leastPopularTema-five"></td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <!--slideInLeft -->
-            <div class="item animated slideInLeft">
+            <!--<div class="item animated slideInLeft">
                 <div class="row special">
                     <div class="row special">
                         <div class="panelcontent col-md-12 item2description">
@@ -474,7 +660,7 @@
                         <div class="panelcontent col-md-2">
                             <div class="panelcontent col-md-3">
                                 <div id="innsida-vertical" class="vertical-text">I N N S I D A</div>
-                                <!--<div class="vertical-text">I <br />N <br />N <br />S <br />I <br />D <br />A</div>-->
+                                <!--<div class="vertical-text">I <br />N <br />N <br />S <br />I <br />D <br />A</div>
                             </div>
                             <div class="panel col-md-9">
                                 <div class="row two" id="innsidaBrokenLinks" style="font-size: 3.5vw; text-align: center; margin-top: 20px;"></div>
@@ -558,7 +744,7 @@
                         <div class="panelcontent col-md-2">
                             <div class="panelcontent col-md-3">
                                 <div id="tema-vertical" class="vertical-text">T E M A</div>
-                                <!--<div class="vertical-text"><br />T <br />E <br />M <br />A</div>-->
+                                <!--<div class="vertical-text"><br />T <br />E <br />M <br />A</div>
                             </div>
                             <div class="panel col-md-9">
                                 <div class="row two" id="temaBrokenLinks" style="font-size: 3.5vw; text-align: center; margin-top: 20px;"></div>
@@ -643,7 +829,6 @@
                         <div class="panelcontent col-md-2">
                             <div class="panelcontent col-md-3">
                                 <div id="wiki-vertical" class="vertical-text">W I K I</div>
-                                <!--<div class="vertical-text"><br />W <br />I <br />K <br />I</div>-->
                             </div>
                             <div class="panel col-md-9">
                                 <div class="row two" id="wikiBrokenLinks" style="font-size: 3.5vw; text-align: center; margin-top: 20px;"></div>
@@ -713,11 +898,11 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div>-->
             <!-- /Third page -->
             <!-- Forth page -->
             <!--slideInRight -->
-            <div class="item animated slideInRight">
+            <!--<div class="item animated slideInRight">
                 <div id="norwaymapcontainer">
                     <div class="row">
                         <div class="panelcontent col-md-4">
@@ -794,15 +979,13 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div>-->
             <!-- Forth page -->
             <!-- Fifth page -->
             <!--slideInDown -->
             <div class="item animated slideInDown">
                 <div class="row special item2description">
-                    <div class="panelcontent col-md-12">
-                        <div class="panelcontent col-md-6">Top 10 gemini.no last 30 days</div>
-                    </div>
+                    <div class="panelcontent col-md-12 gemini-description">Top 10 gemini.no last 30 days</div>
                 </div>
                 <div class="row special five">
                     <div class="panelcontent col-md-12">
@@ -810,17 +993,17 @@
                             <div class="panel col-md-12">
                                 <div class="col-md-10 noPadding">
                                     <div class="row two special item2description gemini">
-                                        <div class="col-md-1">#1</div>
-                                        <div class="col-md-11 gemini-headline" id="gemini-headline-one"></div>
+                                        <div class="col-md-1 noPadding-left">#1</div>
+                                        <div class="col-md-11 gemini-headline" style="padding-left: 2%;" id="gemini-headline-one"></div>
                                     </div>
                                     <div class="row two special">
                                         <div class="panelcontent col-md-12">
-                                            <div class="col-md-1"><i class="ion-pricetag"></i></div>
-                                            <div class="col-md-11 italic" id="gemini-tag-one"></div>
+                                            <div class="col-md-1 noPadding-left"><i class="ion-pricetag"></i></div>
+                                            <div class="col-md-11 italic" style="padding-left: 2%;" id="gemini-tag-one"></div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-2 noPadding">
+                                <div class="col-md-2 noPadding gemini-image-container">
                                     <img class="gemini-image" id="gemini-img-one" src="http://gemini.no/wp-content/uploads/2016/07/menneske-robot-thinkstockphotos-330x190.jpg">
                                 </div>
                             </div>
@@ -829,17 +1012,17 @@
                             <div class="panel col-md-12">
                                 <div class="col-md-10 noPadding">
                                     <div class="row two special item2description gemini">
-                                        <div class="col-md-1">#6</div>
-                                        <div class="col-md-11 gemini-headline" id="gemini-headline-six"></div>
+                                        <div class="col-md-1 noPadding-left">#6</div>
+                                        <div class="col-md-11 gemini-headline" style="padding-left: 2%;" id="gemini-headline-six"></div>
                                     </div>
                                     <div class="row two special">
                                     <div class="panelcontent col-md-12">
-                                        <div class="col-md-1"><i class="ion-pricetag"></i></div>
-                                        <div class="col-md-11 italic" id="gemini-tag-six"></div>
+                                        <div class="col-md-1 noPadding-left"><i class="ion-pricetag"></i></div>
+                                        <div class="col-md-11 italic" style="padding-left: 2%;" id="gemini-tag-six"></div>
                                     </div>
                                 </div>
                                 </div>
-                                <div class="col-md-2 noPadding">
+                                <div class="col-md-2 noPadding gemini-image-container">
                                     <img class="gemini-image" id="gemini-img-six" src="http://gemini.no/wp-content/uploads/2016/07/menneske-robot-thinkstockphotos-330x190.jpg">
                                 </div>
                             </div>
@@ -852,17 +1035,17 @@
                             <div class="panel col-md-12">
                                 <div class="col-md-10 noPadding">
                                     <div class="row two special item2description gemini">
-                                        <div class="col-md-1">#2</div>
-                                        <div class="col-md-11 gemini-headline" id="gemini-headline-two"></div>
+                                        <div class="col-md-1 noPadding-left">#2</div>
+                                        <div class="col-md-11 gemini-headline" style="padding-left: 2%;" id="gemini-headline-two"></div>
                                     </div>
                                     <div class="row two special">
                                         <div class="panelcontent col-md-12">
-                                            <div class="col-md-1"><i class="ion-pricetag"></i></div>
-                                            <div class="col-md-11 italic" id="gemini-tag-two"></div>
+                                            <div class="col-md-1 noPadding-left"><i class="ion-pricetag"></i></div>
+                                            <div class="col-md-11 italic" style="padding-left: 2%;" id="gemini-tag-two"></div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-2 noPadding">
+                                <div class="col-md-2 noPadding gemini-image-container">
                                     <img class="gemini-image" id="gemini-img-two" src="http://gemini.no/wp-content/uploads/2016/07/menneske-robot-thinkstockphotos-330x190.jpg">
                                 </div>
                             </div>
@@ -871,17 +1054,17 @@
                             <div class="panel col-md-12">
                                 <div class="col-md-10 noPadding">
                                     <div class="row two special item2description gemini">
-                                        <div class="col-md-1">#7</div>
-                                        <div class="col-md-11 gemini-headline" id="gemini-headline-seven"></div>
+                                        <div class="col-md-1 noPadding-left">#7</div>
+                                        <div class="col-md-11 gemini-headline" style="padding-left: 2%;" id="gemini-headline-seven"></div>
                                     </div>
                                     <div class="row two special">
                                     <div class="panelcontent col-md-12">
-                                        <div class="col-md-1"><i class="ion-pricetag"></i></div>
-                                        <div class="col-md-11 italic" id="gemini-tag-seven"></div>
+                                        <div class="col-md-1 noPadding-left"><i class="ion-pricetag"></i></div>
+                                        <div class="col-md-11 italic " style="padding-left: 2%;" id="gemini-tag-seven"></div>
                                     </div>
                                 </div>
                                 </div>
-                                <div class="col-md-2 noPadding">
+                                <div class="col-md-2 noPadding gemini-image-container">
                                     <img class="gemini-image" id="gemini-img-seven" src="http://gemini.no/wp-content/uploads/2016/07/menneske-robot-thinkstockphotos-330x190.jpg">
                                 </div>
                             </div>
@@ -894,17 +1077,17 @@
                             <div class="panel col-md-12">
                                 <div class="col-md-10 noPadding">
                                     <div class="row two special item2description gemini">
-                                        <div class="col-md-1">#3</div>
-                                        <div class="col-md-11 gemini-headline" id="gemini-headline-three"></div>
+                                        <div class="col-md-1 noPadding-left">#3</div>
+                                        <div class="col-md-11 gemini-headline" style="padding-left: 2%;" id="gemini-headline-three"></div>
                                     </div>
                                     <div class="row two special">
                                         <div class="panelcontent col-md-12">
-                                            <div class="col-md-1"><i class="ion-pricetag"></i></div>
-                                            <div class="col-md-11 italic" id="gemini-tag-three"></div>
+                                            <div class="col-md-1 noPadding-left"><i class="ion-pricetag"></i></div>
+                                            <div class="col-md-11 italic" style="padding-left: 2%;" id="gemini-tag-three"></div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-2 noPadding">
+                                <div class="col-md-2 noPadding gemini-image-container">
                                     <img class="gemini-image" id="gemini-img-three" src="http://gemini.no/wp-content/uploads/2016/07/menneske-robot-thinkstockphotos-330x190.jpg">
                                 </div>
                             </div>
@@ -913,17 +1096,17 @@
                             <div class="panel col-md-12">
                                 <div class="col-md-10 noPadding">
                                     <div class="row two special item2description gemini">
-                                        <div class="col-md-1">#8</div>
-                                        <div class="col-md-11 gemini-headline" id="gemini-headline-eight"></div>
+                                        <div class="col-md-1 noPadding-left">#8</div>
+                                        <div class="col-md-11 gemini-headline" style="padding-left: 2%;" id="gemini-headline-eight"></div>
                                     </div>
                                     <div class="row two special">
                                         <div class="panelcontent col-md-12">
-                                            <div class="col-md-1"><i class="ion-pricetag"></i></div>
-                                            <div class="col-md-11 italic" id="gemini-tag-eight"></div>
+                                            <div class="col-md-1 noPadding-left"><i class="ion-pricetag"></i></div>
+                                            <div class="col-md-11 italic" style="padding-left: 2%;" id="gemini-tag-eight"></div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-2 noPadding">
+                                <div class="col-md-2 noPadding gemini-image-container">
                                     <img class="gemini-image" id="gemini-img-eight" src="http://gemini.no/wp-content/uploads/2016/07/menneske-robot-thinkstockphotos-330x190.jpg">
                                 </div>
                             </div>
@@ -936,17 +1119,17 @@
                             <div class="panel col-md-12">
                                 <div class="col-md-10 noPadding">
                                     <div class="row two special item2description gemini">
-                                        <div class="col-md-1">#4</div>
-                                        <div class="col-md-11 gemini-headline" id="gemini-headline-four"></div>
+                                        <div class="col-md-1 noPadding-left">#4</div>
+                                        <div class="col-md-11 gemini-headline" style="padding-left: 2%;" id="gemini-headline-four"></div>
                                     </div>
                                     <div class="row two special">
                                         <div class="panelcontent col-md-12">
-                                            <div class="col-md-1"><i class="ion-pricetag"></i></div>
-                                            <div class="col-md-11 italic" id="gemini-tag-four"></div>
+                                            <div class="col-md-1 noPadding-left"><i class="ion-pricetag"></i></div>
+                                            <div class="col-md-11 italic" style="padding-left: 2%;" id="gemini-tag-four"></div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-2 noPadding">
+                                <div class="col-md-2 noPadding gemini-image-container">
                                     <img class="gemini-image" id="gemini-img-four" src="http://gemini.no/wp-content/uploads/2016/07/menneske-robot-thinkstockphotos-330x190.jpg">
                                 </div>
                             </div>
@@ -955,17 +1138,17 @@
                             <div class="panel col-md-12">
                                 <div class="col-md-10 noPadding">
                                     <div class="row two special item2description gemini">
-                                        <div class="col-md-1">#9</div>
-                                        <div class="col-md-11 gemini-headline" id="gemini-headline-nine"></div>
+                                        <div class="col-md-1 noPadding-left">#9</div>
+                                        <div class="col-md-11 gemini-headline" style="padding-left: 2%;" id="gemini-headline-nine"></div>
                                     </div>
                                     <div class="row two special">
                                         <div class="panelcontent col-md-12">
-                                            <div class="col-md-1"><i class="ion-pricetag"></i></div>
-                                            <div class="col-md-11 italic" id="gemini-tag-nine"></div>
+                                            <div class="col-md-1 noPadding-left"><i class="ion-pricetag"></i></div>
+                                            <div class="col-md-11 italic" style="padding-left: 2%;" id="gemini-tag-nine"></div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-2 noPadding">
+                                <div class="col-md-2 noPadding gemini-image-container">
                                     <img class="gemini-image" id="gemini-img-nine" src="http://gemini.no/wp-content/uploads/2016/07/menneske-robot-thinkstockphotos-330x190.jpg">
                                 </div>
                             </div>
@@ -978,17 +1161,17 @@
                             <div class="panel col-md-12">
                                 <div class="col-md-10 noPadding">
                                     <div class="row two special item2description gemini">
-                                        <div class="col-md-1">#5</div>
-                                        <div class="col-md-11 gemini-headline" id="gemini-headline-five"></div>
+                                        <div class="col-md-1 noPadding-left">#5</div>
+                                        <div class="col-md-11 gemini-headline" style="padding-left: 2%;" id="gemini-headline-five"></div>
                                     </div>
                                     <div class="row two special">
                                         <div class="panelcontent col-md-12">
-                                            <div class="col-md-1"><i class="ion-pricetag"></i></div>
-                                            <div class="col-md-11 italic" id="gemini-tag-five"></div>
+                                            <div class="col-md-1 noPadding-left"><i class="ion-pricetag"></i></div>
+                                            <div class="col-md-11 italic" style="padding-left: 2%;" id="gemini-tag-five"></div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-2 noPadding">
+                                <div class="col-md-2 noPadding gemini-image-container">
                                     <img class="gemini-image" id="gemini-img-five" src="http://gemini.no/wp-content/uploads/2016/07/menneske-robot-thinkstockphotos-330x190.jpg">
                                 </div>
                             </div>
@@ -997,17 +1180,17 @@
                             <div class="panel col-md-12">
                                 <div class="col-md-10 noPadding">
                                     <div class="row two special item2description gemini">
-                                        <div class="col-md-1">#10</div>
-                                        <div class="col-md-11 gemini-headline" id="gemini-headline-ten"></div>
+                                        <div class="col-md-1 noPadding-left">#10</div>
+                                        <div class="col-md-11 gemini-headline" style="padding-left: 2%;" id="gemini-headline-ten"></div>
                                     </div>
                                     <div class="row two special">
                                         <div class="panelcontent col-md-12">
-                                            <div class="col-md-1"><i class="ion-pricetag"></i></div>
-                                            <div class="col-md-11 italic" id="gemini-tag-ten"></div>
+                                            <div class="col-md-1 noPadding-left"><i class="ion-pricetag"></i></div>
+                                            <div class="col-md-11 italic" style="padding-left: 2%;" id="gemini-tag-ten"></div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-2 noPadding">
+                                <div class="col-md-2 noPadding gemini-image-container">
                                     <img class="gemini-image" id="gemini-img-ten" src="http://gemini.no/wp-content/uploads/2016/07/menneske-robot-thinkstockphotos-330x190.jpg">
                                 </div>
                             </div>
@@ -1085,7 +1268,7 @@
     <!-- Script to Activate the Carousel -->
     <script>
         var arr = document.URL.match(/interval=([0-9]+)/);
-        var interval = 30000;
+        var interval = 45000;
         //if the url contains parameters for the interval (arr != null)
         if (arr != null) {
             interval = arr[1];

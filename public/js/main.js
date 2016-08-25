@@ -5,12 +5,13 @@ $(document).ready(function(){
     //charts and map global variables.
     var map;
     var devicechart;
-    var innsidaVisitorChart;
-    var temaVisitorChart;
-    var wikiVisitorChart;
-    var TrondheimVersuschart;
-    var AalesundVersuschart;
-    var GjovikVersuschart;
+    var innsidaWeekChart;
+    //var innsidaVisitorChart;
+    //var temaVisitorChart;
+    //var wikiVisitorChart;
+    //var TrondheimVersuschart;
+    //var AalesundVersuschart;
+    //var GjovikVersuschart;
     var worldChart;
     var monthChart;
     init();
@@ -22,10 +23,11 @@ $(document).ready(function(){
 function init(){
     makeMap();
     makeDeviceChart();
-    makeWeekCharts();
-    makeInnsidaVersusCharts();
+    makeInnsidaWeekChart();
+    /*makeInnsidaVersusCharts();*/
     makeWorldChart();
     makeMonthChart();
+    //makeWeekChart();
     setInterval(getClock, 1000);
     config = {
         apiKey: "AIzaSyDGxsSprXYHfxsUwvJa74-g3T_JmJmt5kU",
@@ -55,16 +57,20 @@ function showPage() {
 
 //update everything with data from firebase
 function updateEverything(data) {
-    updateVisitors(data.ew.visitors.visitorCount);
+    updateVisitors(data.ew.visitors.visitorCount, "External");
+    updateVisitors(data.innsida.visitors, "Innsida");
     updateBrowserTable(data.ew.visitors.browsers);
     updatePopularPages(data.ew.visitors.popularPages);
     updateMapData(data.ew.visitors.heatmap);
     updateDeviceChart(data.ew.visitors.platform);
+    updateInnsidaWeekChart(data.innsida.visitors);
+    updateInnsidaPopularPages(data.innsida.popular);
+
     updateStudyPage(data.study);
-    updateInnsidaWikiTema(data.innsida,"innsida", innsidaVisitorChart);
-    updateInnsidaWikiTema(data.tema,"tema", temaVisitorChart);
-    updateInnsidaWikiTema(data.wiki,"wiki", wikiVisitorChart);
-    updateVersusCharts(data.innsida.versusChart);
+    //updateInnsidaWikiTema(data.innsida,"innsida", innsidaVisitorChart);
+    //updateInnsidaWikiTema(data.tema,"tema", temaVisitorChart);
+    //updateInnsidaWikiTema(data.wiki,"wiki", wikiVisitorChart);
+    //updateVersusCharts(data.innsida.versusChart);
     updateGemini(data.gemini);
     updateWorldChart(data.ew.visitors.worldVisits);
     updateGeminiImages(data.gemini.image);
@@ -72,7 +78,36 @@ function updateEverything(data) {
     updateMonthChart(data.study.visitorsByMonth);
 }
 
+//------------------Used on more than one page----------//
+
+//# Visitors ntnu.no and innsida // Last week / Last Month / Last Year
+function updateVisitors(data, page) {
+    document.getElementById("currentVisitors" + page).innerHTML = data.current;
+    var week = data.lastWeek;
+    updateIntervalPercentArrows(week.change, "Week", page);
+    var month = data.lastMonth;
+    updateIntervalPercentArrows(month.change, "Month", page);
+    var year = data.lastYear;
+    updateIntervalPercentArrows(year.change, "Year", page);
+
+    document.getElementById("changeWeek" + page).innerHTML = week.percent;
+    document.getElementById("weekPercent" + page).innerHTML = "%";
+    document.getElementById("changeMonth" + page).innerHTML = month.percent;
+    document.getElementById("monthPercent" + page).innerHTML = "%";
+    document.getElementById("changeYear" + page).innerHTML = year.percent;
+    document.getElementById("yearPercent" + page).innerHTML = "%";
+}
+
+//helper method for direction of arrows
+function updateIntervalPercentArrows(value, name, page) {
+    var id = name.toLowerCase() + "Arrow" + page;
+    document.getElementById(id).className = "ion-arrow-graph-" + value + "-right";
+
+}
+
+
 //--------------------First page------------------------//
+
 
 function validateMap() {
     var divLength = document.getElementById("mapdiv").innerHTML.length;
@@ -83,31 +118,6 @@ function validateMap() {
     else {
         console.log("map is showing " + divLength);
     }
-}
-
-//# Visitors ntnu.no // Last week / Last Month / Last Year
-function updateVisitors(data) {
-    document.getElementById("currentVisitors").innerHTML = data.current;
-    var week = data.lastWeek;
-    updateIntervalPercentArrows(week.change, "Week");
-    var month = data.lastMonth;
-    updateIntervalPercentArrows(month.change, "Month");
-    var year = data.lastYear;
-    updateIntervalPercentArrows(year.change, "Year");
-
-    document.getElementById("changeWeek").innerHTML = week.percent;
-    document.getElementById("weekPercent").innerHTML = "%";
-    document.getElementById("changeMonth").innerHTML = month.percent;
-    document.getElementById("monthPercent").innerHTML = "%";
-    document.getElementById("changeYear").innerHTML = year.percent;
-    document.getElementById("yearPercent").innerHTML = "%";
-}
-
-//helper method for direction of arrows
-function updateIntervalPercentArrows(value, name) {
-    var id = name.toLowerCase() + "Arrow";
-    document.getElementById(id).className = "ion-arrow-graph-" + value + "-right";
-
 }
 
 //BrowserTable
@@ -187,7 +197,8 @@ function makeDeviceChart() {
         devicechart.startEffect = "elastic";
         devicechart.innerRadius = "60%";
         devicechart.radius = "40%";
-        devicechart.labelRadius = 5;
+        /*devicechart.labelRadius = 5;*/
+        devicechart.labelsEnabled = false;
         devicechart.color = "white";
         devicechart.balloonText = "[[title]]<br><span style='font-size:1vw; font-weight: bold'><b>[[value]]</b> ([[percents]]%)</span>";
         devicechart.autoMargins = false;
@@ -198,6 +209,15 @@ function makeDeviceChart() {
         devicechart.marginRight = 0;
         devicechart.pullOutRadius = 0;
         devicechart.creditsPosition = "bottom-left";
+
+        var legend = new AmCharts.AmLegend();
+        legend.bulletType = "round";
+        legend.equalWidths = false;
+        legend.valueWidth = 40;
+        legend.useGraphSettings = false;
+        legend.color = "#FFFFFF";
+        legend.fontSize = 15;
+        devicechart.addLegend(legend);
 
         // WRITE
         devicechart.write("devicediv");
@@ -509,7 +529,94 @@ function makeMonthChart() {
 //--------------------Third page-------------------------//
 // Innsida / Tema / Wiki
 // Make chart for last week and this week page views
-function makeWeekCharts() {
+
+function makeInnsidaWeekChart() {
+    innsidaWeekChart = AmCharts.makeChart("innsidaWeekChart", {
+            "type": "serial",
+            "theme": "light",
+            "color": "#FFFFFF",
+            "creditsPosition":"top-right",
+            "legend": {
+                "equalWidths": false,
+                "useGraphSettings": false,
+                "valueAlign": "left",
+                "valueWidth": 180,
+                "color":"#FFFFFF",
+                "fontSize":13,
+                "align":"left"
+            },
+            "valueAxes": [{
+                "id":"v1",
+                "axisAlpha": 0,
+                "position": "left"
+            }],
+            "graphs": [{
+                "id": "g1",
+                "lineColor":"#8BD25F",
+                "bullet": "round",
+                "bulletBorderAlpha": 1,
+                "bulletColor": "#8BD25F",
+                "legendPeriodValueText": "Total: [[value.sum]] views",
+                "bulletSize": 10,
+                "lineThickness": 5,
+                "title": "This week.",
+                "useLineColorForBulletBorder": true,
+                "valueField": "thisWeek"
+            },
+                {
+                    "id": "g2",
+                    "lineColor":"#F95372",
+                    "bullet": "round",
+                    "bulletBorderAlpha": 1,
+                    "bulletColor": "#F95372",
+                    "legendPeriodValueText": "Total: [[value.sum]] views",
+                    "bulletSize": 10,
+                    "lineThickness": 5,
+                    "title": "Last week.",
+                    "useLineColorForBulletBorder": true,
+                    "valueField": "lastWeek"
+                }],
+            "categoryField": "day",
+            "categoryAxis": {
+                "parseDates": false,
+                "dashLength": 1,
+                "minorGridEnabled": false,
+                "position": "bottom",
+                "fontSize":16
+                //"axisColor" : "#FFFFFF"
+            },
+            "dataProvider": []
+        }
+    );
+
+}
+
+function updateInnsidaWeekChart(data) {
+    innsidaWeekChart.dataProvider = [data.monday,data.thuesday,data.wednesday,data.thursday,data.friday,data.saturday,data.sunday];
+    innsidaWeekChart.validateData();
+}
+
+function updateInnsidaPopularPages(data) {
+    document.getElementById("popularWiki-one").innerHTML = data.popularWiki.one;
+    document.getElementById("popularWiki-two").innerHTML = data.popularWiki.two;
+    document.getElementById("popularWiki-three").innerHTML = data.popularWiki.three;
+    document.getElementById("popularWiki-four").innerHTML = data.popularWiki.four;
+    document.getElementById("popularWiki-five").innerHTML = data.popularWiki.five;
+
+    document.getElementById("mostPopularTema-one").innerHTML = data.mostPopularTema.one;
+    document.getElementById("mostPopularTema-two").innerHTML = data.mostPopularTema.two;
+    document.getElementById("mostPopularTema-three").innerHTML = data.mostPopularTema.three;
+    document.getElementById("mostPopularTema-four").innerHTML = data.mostPopularTema.four;
+    document.getElementById("mostPopularTema-five").innerHTML = data.mostPopularTema.five;
+
+    document.getElementById("leastPopularTema-one").innerHTML = data.leastPopularTema.one;
+    document.getElementById("leastPopularTema-two").innerHTML = data.leastPopularTema.two;
+    document.getElementById("leastPopularTema-three").innerHTML = data.leastPopularTema.three;
+    document.getElementById("leastPopularTema-four").innerHTML = data.leastPopularTema.four;
+    document.getElementById("leastPopularTema-five").innerHTML = data.leastPopularTema.five;
+}
+
+/*function makeWeekCharts() {
     makeInnsidaWeekChart();
     makeTemaWeekChart();
     makeWikiWeekChart();
@@ -978,7 +1085,7 @@ function updateInnsidaWikiTema(data,pageName, chart) {
     chart.zoomToDates(innsidaVisitorChart.startDate, innsidaVisitorChart.endDate);
     chart.validateData();
 }
-
+*/
 //--------------------Forth page------------------------//
 
 // Make innsida Student vs staff views charts
@@ -1238,16 +1345,19 @@ function updateGemini(data) {
 }
 
 function updateGeminiImages(data) {
-    document.getElementById("gemini-img-one").src = data.one;
-    document.getElementById("gemini-img-two").src = data.two;
-    document.getElementById("gemini-img-three").src = data.three;
-    document.getElementById("gemini-img-four").src = data.four;
-    document.getElementById("gemini-img-five").src = data.five;
-    document.getElementById("gemini-img-six").src = data.six;
-    document.getElementById("gemini-img-seven").src = data.seven;
-    document.getElementById("gemini-img-eight").src = data.eight;
-    document.getElementById("gemini-img-nine").src = data.nine;
-    document.getElementById("gemini-img-ten").src = data.ten;
+    var images = [data.one, data.two, data.three, data.four, data.five, data.six, data.seven, data.eight, data.nine, data.ten];
+    var translation = {0:"one",1:"two",2:"three",3:"four",4:"five",5:"six",6:"seven",7:"eight",8:"nine",9:"ten"};
+    for (var i=0; i<images.length;i++){
+        var id = "gemini-img-";
+        if (images[i] != "") {
+            id += translation[i];
+            document.getElementById(id).src = images[i];
+        }
+        else {
+            id += translation[i];
+            document.getElementById(id).src = "img/placeholder.jpg";
+        }
+    }
 }
 
 //helper method for updating html element by id.
