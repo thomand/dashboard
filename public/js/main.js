@@ -29,6 +29,7 @@ function init(){
     makeMonthChart();
     //makeWeekChart();
     setInterval(getClock, 1000);
+    //setTimeout(pageInfo, 1000);
     config = {
         apiKey: "AIzaSyDGxsSprXYHfxsUwvJa74-g3T_JmJmt5kU",
         authDomain: "dashbordntnu.firebaseapp.com",
@@ -45,7 +46,7 @@ function init(){
 }
 
 function loader() {
-    setTimeout(showPage, 500);
+    setTimeout(showPage, 5000);
     /*timeout = 4000*/
 }
 
@@ -53,6 +54,14 @@ function showPage() {
     document.getElementById("wrapper").style.display = "none";
     document.getElementById("notifier").style.display = "none";
     document.getElementById("myCarousel").style.display = "block";
+}
+
+function pageInfo() {
+    document.getElementById("firstPageInfo").style.display = "block";
+    setTimeout(function() {
+        document.getElementById("firstPageInfo").className = "pageInfo animated zoomOut";
+        //document.getElementById("firstPageInfo").style.display = "none";
+    }, 3000);
 }
 
 //update everything with data from firebase
@@ -1365,7 +1374,7 @@ function updateElement(id, value, type) {
     if (type == "t" && value.length > 140) {
         document.getElementById(id).innerHTML = value.substring(0,140) + "...";
     }
-    else if (type == "h" && value.length > 48) {
+    else if (type == "h" && value.length > 70) {
         document.getElementById(id).innerHTML = value.substring(0,46) + "...";
     }
     else {

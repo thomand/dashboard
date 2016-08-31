@@ -20,10 +20,14 @@ body {
 }
 
 .pageInfo {
-    position: relative;
+    position: absolute;
     top: 50%;
+    width: 100%;
     transform: translateY(-50%);
     text-align: center;
+    font-size: 6vw;
+    z-index: 9999;
+    text-shadow: 2px 2px #000000;
 }
 
 /* Top page title */
@@ -480,6 +484,10 @@ table.extramargin {
 .italic {
     font-style: italic;
     font-size:0.9vw;
+}
+
+.geminiPad {
+    padding-left:2%;
 }
 
 .five {
