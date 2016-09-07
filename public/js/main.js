@@ -46,7 +46,7 @@ function init(){
 }
 
 function loader() {
-    setTimeout(showPage, 5000);
+    setTimeout(showPage, 200);
     /*timeout = 4000*/
 }
 

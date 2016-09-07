@@ -372,8 +372,8 @@ table.extramargin {
 }
 
 .ion-arrow-graph-up-right.reverse {
-    color: rgb(249,83,114);
     font-size: 1.8vw;
+    color: rgb(249,83,114);
 }
 
 /*------------------------------------------------*/
@@ -482,8 +482,8 @@ table.extramargin {
 }
 
 .italic {
-    font-style: italic;
     font-size:0.9vw;
+    font-style: italic;
 }
 
 .geminiPad {
@@ -496,7 +496,7 @@ table.extramargin {
 
 /*------------------------------------------------*/
 
-/* ---------------TESTING--------------- */
+/* ---------------TESTING/DEBUGGING--------------- */
 .test {
     background-color: red;
 }
@@ -521,22 +521,58 @@ table.extramargin {
 
 
 
-/* Responsive Styles */
-/*
-@media(max-width:991px) {
-    .customer-img,
-    .img-related {
-        margin-bottom: 30px;
-    }
+/*SCREEN WIDTH BREAK POINTS*/
+
+/* Extra small devices (portrait phones, less than 544px) xs*/
+@media (max-width: 543px) {
+
+
+
+}
+/* Small devices (landscape phones, 544px and up) sm*/
+@media (min-width: 544px) and (max-width: 767px) {
+
 }
 
-@media(max-width:767px) {
-    .img-portfolio {
-        margin-bottom: 15px;
-    }
+/* Medium devices (tablets, 768px and up) md */
+@media (min-width: 768px) and (max-width: 991px) {
 
-    div.carousel .carousel {
-        height: 70%;
-    }
 }
-*/
+/* Large devices (desktops, 992px and up) lg */
+
+@media (min-width: 992px) and (max-width: 1269px) {
+
+}
+/*Tweeked for special breakpoint in this design*/
+/* Extra large devices (large desktops, 1200px and up) xl*/
+@media (min-width: 1270px) and (max-width: 1439px){
+
+    /*TODO: FIX FONT-SIZE MESS!! */
+
+    .italic { font-size:0.9vw; }
+    .table.study-ITW { font-size: 1.1vw; }
+    .last-week { font-size:1.1vw; }
+    .currentVisitors-text { font-size: 1.1vw; }
+    .weekMonthYear-text { font-size:1.1vw; }
+    .browsers { font-size: 1.18vw; }
+    table.externalWeb { font-size:1.2vw; }
+    .ion-pricetag { font-size: 1.3vw; }
+    .bigArrow { font-size: 1.4vw; }
+    table.study { font-size:1.4vw; }
+    #worldChart { font-size: 1.5vw; }
+    #monthChart { font-size: 1.5vw; }
+
+    .item2description { font-size:24px; }
+
+    .item2description.gemini { font-size: 22px; }
+    .ion-arrow-graph-up-right.reverse { font-size: 24px; }
+    .ion-arrow-graph-down-right.reverse { font-size: 24px; }
+    .visitor-percentage { font-size: 24px; }
+
+    .visitors { font-size: 40px; }
+
+}
+
+@media (min-width: 1440px) {
+
+}
