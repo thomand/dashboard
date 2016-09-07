@@ -46,7 +46,7 @@ function init(){
 }
 
 function loader() {
-    setTimeout(showPage, 200);
+    setTimeout(showPage, 5000);
     /*timeout = 4000*/
 }
 
@@ -1351,6 +1351,17 @@ function updateGemini(data) {
     updateElement("gemini-tag-nine",data.tag.nine, "t");
     updateElement("gemini-headline-ten",data.headlines.ten, "h");
     updateElement("gemini-tag-ten",data.tag.ten, "t");
+
+    document.getElementById("gemini-url-one").setAttribute("href",data.url.one);
+    document.getElementById("gemini-url-two").setAttribute("href",data.url.two);
+    document.getElementById("gemini-url-three").setAttribute("href",data.url.three);
+    document.getElementById("gemini-url-four").setAttribute("href",data.url.four);
+    document.getElementById("gemini-url-five").setAttribute("href",data.url.five);
+    document.getElementById("gemini-url-six").setAttribute("href",data.url.six);
+    document.getElementById("gemini-url-seven").setAttribute("href",data.url.seven);
+    document.getElementById("gemini-url-eight").setAttribute("href",data.url.eight);
+    document.getElementById("gemini-url-nine").setAttribute("href",data.url.nine);
+    document.getElementById("gemini-url-ten").setAttribute("href",data.url.ten);
 }
 
 function updateGeminiImages(data) {
@@ -1371,8 +1382,8 @@ function updateGeminiImages(data) {
 
 //helper method for updating html element by id.
 function updateElement(id, value, type) {
-    if (type == "t" && value.length > 140) {
-        document.getElementById(id).innerHTML = value.substring(0,140) + "...";
+    if (type == "t" && value.length > 150) {
+        document.getElementById(id).innerHTML = value.substring(0,150) + "...";
     }
     else if (type == "h" && value.length > 70) {
         document.getElementById(id).innerHTML = value.substring(0,46) + "...";
