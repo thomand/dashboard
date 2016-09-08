@@ -609,3 +609,26 @@ table.extramargin {
 @media (min-width: 1440px) {
 
 }
+
+#controller {
+    background-color: #222222 !important;
+    z-index:9999;
+    transition-duration: 0.800s;
+    height:60px;
+    opacity: .0;
+}
+
+
+#carouselButtons {
+    text-align: center;
+}
+
+#controller:hover {
+    transition-duration: 0.800s;
+    opacity: 1.0 !important;
+}
+
+#prevButton, #playButton, #pauseButton {
+    margin-right:2% !important;
+}
+

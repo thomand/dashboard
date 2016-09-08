@@ -96,12 +96,28 @@
         </div>
     </section>
     <section id="notifier">
-        <div class="white"><i class="ion-arrow-left-b"></i>        Please use keyboard arrows to navigate between the pages        <i class="ion-arrow-right-b"></i></div>
+        <div class="white"><i class="ion-arrow-left-b"></i>        Use keyboard arrows or control panel at the bottom of the screen to navigate        <i class="ion-arrow-right-b"></i></div>
         <div class="white" id="notifier-small">(A new page will appear every 45 seconds if you don't)</div>
     </section>
     <section class="pageInfo animated zoomIn" id="firstPageInfo" style="display:none">
         <div class="white">Statistics for ntnu.no and ntnu.edu</div>
     </section>
+    <footer class="navbar navbar-fixed-bottom" id="controller">
+        <div id="carouselButtons">
+            <button id="prevButton" type="button" class="btn btn-default btn-md">
+                <i class="ion-skip-backward"></i>
+            </button>
+            <button id="playButton" type="button" class="btn btn-primary btn-md">
+                <i class="ion-play"></i>
+            </button>
+            <button id="pauseButton" type="button" class="btn btn-default btn-md">
+                <i class="ion-pause"></i>
+            </button>
+            <button id="nextButton" type="button" class="btn btn-default btn-md">
+                <i class="ion-skip-forward"></i>
+            </button>
+        </div>
+    </footer>
 
     <!-- Header Carousel -->
     <div id="myCarousel" class="carousel slide" data-ride="carousel" data-pause="false" style="display: none">
@@ -1261,8 +1277,30 @@
         }
 
     $('#myCarousel').carousel({
-        interval: interval //changes the speed
+        interval: interval, //changes the speed
+        pause: "false"
     });
+    $('#playButton').click(function () {
+        $('#myCarousel').carousel('cycle');
+        $(this).removeClass("btn-default");
+        $(this).addClass("btn-primary");
+        $("#pauseButton").removeClass("btn-primary");
+        $("#pauseButton").addClass("btn-default");
+    });
+    $('#pauseButton').click(function () {
+        $('#myCarousel').carousel('pause');
+        $(this).removeClass("btn-default");
+        $(this).addClass("btn-primary");
+        $("#playButton").removeClass("btn-primary");
+        $("#playButton").addClass("btn-default");
+    });
+    $('#nextButton').click(function () {
+        $('#myCarousel').carousel('next');
+    });
+    $('#prevButton').click(function () {
+        $('#myCarousel').carousel('prev');
+    });
+
     </script>
 
     <script>

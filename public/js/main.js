@@ -46,12 +46,14 @@ function init(){
 }
 
 function loader() {
+    document.getElementById("controller").style.opacity = "1.0";
     setTimeout(showPage, 5000);
     /*timeout = 4000*/
 }
 
 function showPage() {
     document.getElementById("wrapper").style.display = "none";
+    document.getElementById("controller").style.opacity = ".0";
     document.getElementById("notifier").style.display = "none";
     document.getElementById("myCarousel").style.display = "block";
 }
@@ -251,6 +253,7 @@ function makeMap() {
         var dataProvider = {
             mapVar: AmCharts.maps.norwayLow,
 
+
             areas: [
                 {
                     id: "NO-02",
@@ -312,7 +315,7 @@ function makeMap() {
         };
 
 
-        map.areasSettings = {
+            map.areasSettings = {
             alpha: 0.8,
             //color: "#F95372",
             color: "#00abff",
@@ -328,6 +331,7 @@ function makeMap() {
             selectedColor: "#ffffff",
             unlistedAreasOutlineColor: "#FFFFFF",
             unlistedAreasOutlineAlpha: 0.5,
+            balloonText: "[[percent]] % of total views in [[title]]",
             autoZoom: true
         };
         map.dataProvider = dataProvider;
