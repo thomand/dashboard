@@ -117,7 +117,7 @@ function updateIntervalPercentArrows(value, name, page) {
 
 //--------------------First page------------------------//
 
-
+//brute force solution to map bug
 function validateMap() {
     var divLength = document.getElementById("mapdiv").innerHTML.length;
     if (divLength < 100000) {
