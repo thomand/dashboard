@@ -610,6 +610,8 @@ table.extramargin {
 
 }
 
+/* CONTROL PANEL */
+
 #controller {
     background-color: #222222 !important;
     z-index:9999;
@@ -631,4 +633,6 @@ table.extramargin {
 #prevButton, #playButton, #pauseButton {
     margin-right:2% !important;
 }
+
+
 

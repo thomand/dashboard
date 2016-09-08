@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="f594b564-3611-403e-800a-305ea479257a" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/main.js" afterPath="$PROJECT_DIR$/public/js/main.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/modern-business.css" afterPath="$PROJECT_DIR$/public/css/modern-business.css" />
     </list>
     <ignored path="startbootstrap-modern-business-1.0.5.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -22,14 +22,14 @@
     <favorites_list name="startbootstrap-modern-business-1.0.5" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.28259337">
+    <splitter split-orientation="horizontal" split-proportion="0.6018323">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/public/index.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="255">
-                  <caret line="117" column="21" selection-start-line="117" selection-start-column="21" selection-end-line="117" selection-end-column="21" />
+                <state relative-caret-position="300">
+                  <caret line="115" column="35" selection-start-line="115" selection-start-column="35" selection-end-line="115" selection-end-column="35" />
                   <folding>
                     <element signature="n#head#0;n#html#0;n#!!top" expanded="false" />
                     <element signature="n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="false" />
@@ -48,8 +48,8 @@
                     <element signature="n#div#0;n#div#0;n#a#1;n#div#0;n#div#4;n#div#3;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
                     <element signature="n#div#0;n#div#0;n#a#0;n#div#0;n#div#5;n#div#3;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
                     <element signature="e#73707#76067#0" expanded="false" />
-                    <marker date="1473371164000" expanded="false" signature="37450:37467" ph="..." />
-                    <marker date="1473371164000" expanded="false" signature="42397:42421" ph="..." />
+                    <marker date="1473374588000" expanded="false" signature="37450:37467" ph="..." />
+                    <marker date="1473374588000" expanded="false" signature="42397:42421" ph="..." />
                   </folding>
                 </state>
               </provider>
@@ -69,11 +69,11 @@
       </split-first>
       <split-second>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="main.js" pinned="false" current-in-tab="true">
+          <file leaf-file-name="main.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/public/js/main.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="166">
-                  <caret line="352" column="99" selection-start-line="352" selection-start-column="99" selection-end-line="352" selection-end-column="99" />
+                <state relative-caret-position="331">
+                  <caret line="372" column="58" selection-start-line="372" selection-start-column="58" selection-end-line="372" selection-end-column="58" />
                   <folding>
                     <element signature="n#!!block;n#updateVisitors#0" expanded="false" />
                     <element signature="n#!!block;n#updateIntervalPercentArrows#0" expanded="false" />
@@ -81,7 +81,6 @@
                     <element signature="n#!!block;n#updateBrowserTable#0" expanded="false" />
                     <element signature="n#!!block;n#makeDeviceChart#0" expanded="false" />
                     <element signature="n#!!block;n#updateDeviceChart#0" expanded="false" />
-                    <element signature="n#!!block;n#updateMapData#0" expanded="false" />
                     <element signature="n#!!block;n#updatePopularPages#0" expanded="false" />
                     <element signature="n#!!block;n#updateStudyPage#0" expanded="false" />
                     <element signature="n#!!block;n#updateWorldChart#0" expanded="false" />
@@ -110,11 +109,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="modern-business.css" pinned="false" current-in-tab="false">
+          <file leaf-file-name="modern-business.css" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/public/css/modern-business.css">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="440">
-                  <caret line="627" column="27" selection-start-line="627" selection-start-column="27" selection-end-line="627" selection-end-column="27" />
+                <state relative-caret-position="94">
+                  <caret line="612" column="3" selection-start-line="612" selection-start-column="3" selection-end-line="612" selection-end-column="3" />
                   <folding>
                     <element signature="e#262#583#0" expanded="false" />
                     <element signature="e#816#1073#0" expanded="false" />
@@ -229,9 +228,9 @@
         <option value="$PROJECT_DIR$/js/main.js" />
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/public/css/spinnerstyle.css" />
-        <option value="$PROJECT_DIR$/public/css/modern-business.css" />
-        <option value="$PROJECT_DIR$/public/index.html" />
         <option value="$PROJECT_DIR$/public/js/main.js" />
+        <option value="$PROJECT_DIR$/public/index.html" />
+        <option value="$PROJECT_DIR$/public/css/modern-business.css" />
       </list>
     </option>
   </component>
@@ -365,12 +364,12 @@
       <workItem from="1471869735460" duration="47702000" />
       <workItem from="1472670278273" duration="3565000" />
       <workItem from="1472986238302" duration="1621000" />
-      <workItem from="1473245485444" duration="16475000" />
+      <workItem from="1473245485444" duration="17630000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="325594000" />
+    <option name="totallyTimeSpent" value="326749000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="873" extended-state="0" />
@@ -382,7 +381,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24947146" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.058898848" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.35211268" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -447,7 +446,6 @@
             <element signature="n#!!block;n#updateBrowserTable#0" expanded="false" />
             <element signature="n#!!block;n#makeDeviceChart#0" expanded="false" />
             <element signature="n#!!block;n#updateDeviceChart#0" expanded="false" />
-            <element signature="n#!!block;n#updateMapData#0" expanded="false" />
             <element signature="n#!!block;n#updatePopularPages#0" expanded="false" />
             <element signature="n#!!block;n#updateStudyPage#0" expanded="false" />
             <element signature="n#!!block;n#updateWorldChart#0" expanded="false" />
@@ -590,8 +588,8 @@
             <element signature="n#div#0;n#div#0;n#a#1;n#div#0;n#div#4;n#div#3;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#0;n#div#0;n#a#0;n#div#0;n#div#5;n#div#3;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="e#73707#76067#0" expanded="false" />
-            <marker date="1473371164000" expanded="false" signature="37450:37467" ph="..." />
-            <marker date="1473371164000" expanded="false" signature="42397:42421" ph="..." />
+            <marker date="1473374588000" expanded="false" signature="37450:37467" ph="..." />
+            <marker date="1473374588000" expanded="false" signature="42397:42421" ph="..." />
           </folding>
         </state>
       </provider>
@@ -615,7 +613,6 @@
             <element signature="n#!!block;n#updateBrowserTable#0" expanded="false" />
             <element signature="n#!!block;n#makeDeviceChart#0" expanded="false" />
             <element signature="n#!!block;n#updateDeviceChart#0" expanded="false" />
-            <element signature="n#!!block;n#updateMapData#0" expanded="false" />
             <element signature="n#!!block;n#updatePopularPages#0" expanded="false" />
             <element signature="n#!!block;n#updateStudyPage#0" expanded="false" />
             <element signature="n#!!block;n#updateWorldChart#0" expanded="false" />
@@ -758,8 +755,8 @@
             <element signature="n#div#0;n#div#0;n#a#1;n#div#0;n#div#4;n#div#3;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#0;n#div#0;n#a#0;n#div#0;n#div#5;n#div#3;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="e#73707#76067#0" expanded="false" />
-            <marker date="1473371164000" expanded="false" signature="37450:37467" ph="..." />
-            <marker date="1473371164000" expanded="false" signature="42397:42421" ph="..." />
+            <marker date="1473374588000" expanded="false" signature="37450:37467" ph="..." />
+            <marker date="1473374588000" expanded="false" signature="42397:42421" ph="..." />
           </folding>
         </state>
       </provider>
@@ -783,7 +780,6 @@
             <element signature="n#!!block;n#updateBrowserTable#0" expanded="false" />
             <element signature="n#!!block;n#makeDeviceChart#0" expanded="false" />
             <element signature="n#!!block;n#updateDeviceChart#0" expanded="false" />
-            <element signature="n#!!block;n#updateMapData#0" expanded="false" />
             <element signature="n#!!block;n#updatePopularPages#0" expanded="false" />
             <element signature="n#!!block;n#updateStudyPage#0" expanded="false" />
             <element signature="n#!!block;n#updateWorldChart#0" expanded="false" />
@@ -962,10 +958,76 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="331">
+          <caret line="372" column="58" selection-start-line="372" selection-start-column="58" selection-end-line="372" selection-end-column="58" />
+          <folding>
+            <element signature="n#!!block;n#updateVisitors#0" expanded="false" />
+            <element signature="n#!!block;n#updateIntervalPercentArrows#0" expanded="false" />
+            <element signature="n#!!block;n#validateMap#0" expanded="false" />
+            <element signature="n#!!block;n#updateBrowserTable#0" expanded="false" />
+            <element signature="n#!!block;n#makeDeviceChart#0" expanded="false" />
+            <element signature="n#!!block;n#updateDeviceChart#0" expanded="false" />
+            <element signature="n#!!block;n#updatePopularPages#0" expanded="false" />
+            <element signature="n#!!block;n#updateStudyPage#0" expanded="false" />
+            <element signature="n#!!block;n#updateWorldChart#0" expanded="false" />
+            <element signature="n#!!block;n#updateMonthChart#0" expanded="false" />
+            <element signature="n#!!block;n#makeMonthChart#0" expanded="false" />
+            <element signature="n#!!block;n#makeInnsidaWeekChart#0" expanded="false" />
+            <element signature="n#!!block;n#updateInnsidaWeekChart#0" expanded="false" />
+            <element signature="n#!!block;n#updateInnsidaPopularPages#0" expanded="false" />
+            <element signature="e#26006#42092#0" expanded="false" />
+            <element signature="n#!!block;n#makeInnsidaVersusCharts#0" expanded="false" />
+            <element signature="n#!!block;n#makeTrondheimVersus#0" expanded="false" />
+            <element signature="e#42891#43104#0" expanded="false" />
+            <element signature="e#43332#44303#0" expanded="false" />
+            <element signature="n#!!block;n#makeAalesundVersus#0" expanded="false" />
+            <element signature="n#!!block;n#makeGjovikVersus#0" expanded="false" />
+            <element signature="n#!!block;n#updateVersusCharts#0" expanded="false" />
+            <element signature="n#!!block;n#updateGeminiImages#0" expanded="false" />
+            <element signature="n#!!block;n#getClock#0" expanded="false" />
+            <element signature="n#!!block;n#prefixZero#0" expanded="false" />
+            <marker date="1473372875000" expanded="true" signature="8299:8331" ph="..." />
+            <marker date="1473372875000" expanded="false" signature="31009:35711" ph="..." />
+            <marker date="1473372875000" expanded="false" signature="35742:40443" ph="..." />
+            <marker date="1473372875000" expanded="false" signature="40612:42089" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="115" column="35" selection-start-line="115" selection-start-column="35" selection-end-line="115" selection-end-column="35" />
+          <folding>
+            <element signature="n#head#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#section#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="e#37027#52084#0" expanded="false" />
+            <element signature="e#52195#58103#0" expanded="false" />
+            <element signature="n#div#0;n#div#0;n#a#0;n#div#0;n#div#1;n#div#3;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#0;n#div#0;n#a#1;n#div#0;n#div#1;n#div#3;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#0;n#div#0;n#a#0;n#div#0;n#div#2;n#div#3;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#0;n#div#0;n#a#1;n#div#0;n#div#2;n#div#3;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#0;n#div#0;n#a#0;n#div#0;n#div#3;n#div#3;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#0;n#div#0;n#a#1;n#div#0;n#div#3;n#div#3;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#0;n#div#0;n#a#0;n#div#0;n#div#4;n#div#3;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#0;n#div#0;n#a#1;n#div#0;n#div#4;n#div#3;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#0;n#div#0;n#a#0;n#div#0;n#div#5;n#div#3;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="e#73707#76067#0" expanded="false" />
+            <marker date="1473374588000" expanded="false" signature="37450:37467" ph="..." />
+            <marker date="1473374588000" expanded="false" signature="42397:42421" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/public/css/modern-business.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="627" column="27" selection-start-line="627" selection-start-column="27" selection-end-line="627" selection-end-column="27" />
+        <state relative-caret-position="94">
+          <caret line="612" column="3" selection-start-line="612" selection-start-column="3" selection-end-line="612" selection-end-column="3" />
           <folding>
             <element signature="e#262#583#0" expanded="false" />
             <element signature="e#816#1073#0" expanded="false" />
@@ -1051,73 +1113,6 @@
             <element signature="e#8346#8376#0" expanded="false" />
             <element signature="e#8385#8417#0" expanded="false" />
             <element signature="e#8537#8634#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="117" column="21" selection-start-line="117" selection-start-column="21" selection-end-line="117" selection-end-column="21" />
-          <folding>
-            <element signature="n#head#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#section#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="e#37027#52084#0" expanded="false" />
-            <element signature="e#52195#58103#0" expanded="false" />
-            <element signature="n#div#0;n#div#0;n#a#0;n#div#0;n#div#1;n#div#3;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#0;n#div#0;n#a#1;n#div#0;n#div#1;n#div#3;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#0;n#div#0;n#a#0;n#div#0;n#div#2;n#div#3;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#0;n#div#0;n#a#1;n#div#0;n#div#2;n#div#3;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#0;n#div#0;n#a#0;n#div#0;n#div#3;n#div#3;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#0;n#div#0;n#a#1;n#div#0;n#div#3;n#div#3;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#0;n#div#0;n#a#0;n#div#0;n#div#4;n#div#3;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#0;n#div#0;n#a#1;n#div#0;n#div#4;n#div#3;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#0;n#div#0;n#a#0;n#div#0;n#div#5;n#div#3;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="e#73707#76067#0" expanded="false" />
-            <marker date="1473371164000" expanded="false" signature="37450:37467" ph="..." />
-            <marker date="1473371164000" expanded="false" signature="42397:42421" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="166">
-          <caret line="352" column="99" selection-start-line="352" selection-start-column="99" selection-end-line="352" selection-end-column="99" />
-          <folding>
-            <element signature="n#!!block;n#updateVisitors#0" expanded="false" />
-            <element signature="n#!!block;n#updateIntervalPercentArrows#0" expanded="false" />
-            <element signature="n#!!block;n#validateMap#0" expanded="false" />
-            <element signature="n#!!block;n#updateBrowserTable#0" expanded="false" />
-            <element signature="n#!!block;n#makeDeviceChart#0" expanded="false" />
-            <element signature="n#!!block;n#updateDeviceChart#0" expanded="false" />
-            <element signature="n#!!block;n#updateMapData#0" expanded="false" />
-            <element signature="n#!!block;n#updatePopularPages#0" expanded="false" />
-            <element signature="n#!!block;n#updateStudyPage#0" expanded="false" />
-            <element signature="n#!!block;n#updateWorldChart#0" expanded="false" />
-            <element signature="n#!!block;n#updateMonthChart#0" expanded="false" />
-            <element signature="n#!!block;n#makeMonthChart#0" expanded="false" />
-            <element signature="n#!!block;n#makeInnsidaWeekChart#0" expanded="false" />
-            <element signature="n#!!block;n#updateInnsidaWeekChart#0" expanded="false" />
-            <element signature="n#!!block;n#updateInnsidaPopularPages#0" expanded="false" />
-            <element signature="e#26006#42092#0" expanded="false" />
-            <element signature="n#!!block;n#makeInnsidaVersusCharts#0" expanded="false" />
-            <element signature="n#!!block;n#makeTrondheimVersus#0" expanded="false" />
-            <element signature="e#42891#43104#0" expanded="false" />
-            <element signature="e#43332#44303#0" expanded="false" />
-            <element signature="n#!!block;n#makeAalesundVersus#0" expanded="false" />
-            <element signature="n#!!block;n#makeGjovikVersus#0" expanded="false" />
-            <element signature="n#!!block;n#updateVersusCharts#0" expanded="false" />
-            <element signature="n#!!block;n#updateGeminiImages#0" expanded="false" />
-            <element signature="n#!!block;n#getClock#0" expanded="false" />
-            <element signature="n#!!block;n#prefixZero#0" expanded="false" />
-            <marker date="1473372875000" expanded="true" signature="8299:8331" ph="..." />
-            <marker date="1473372875000" expanded="false" signature="31009:35711" ph="..." />
-            <marker date="1473372875000" expanded="false" signature="35742:40443" ph="..." />
-            <marker date="1473372875000" expanded="false" signature="40612:42089" ph="..." />
           </folding>
         </state>
       </provider>
