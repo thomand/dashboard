@@ -14,6 +14,7 @@ $(document).ready(function(){
     //var GjovikVersuschart;
     var worldChart;
     var monthChart;
+    var hourlyVisitsChart;
     init();
 
 
@@ -27,6 +28,7 @@ function init(){
     /*makeInnsidaVersusCharts();*/
     makeWorldChart();
     makeMonthChart();
+    makeHourlyVisitsChart();
     //makeWeekChart();
     setInterval(getClock, 1000);
     //setTimeout(pageInfo, 1000);
@@ -211,7 +213,7 @@ function makeDeviceChart() {
         /*devicechart.labelRadius = 5;*/
         devicechart.labelsEnabled = false;
         devicechart.color = "white";
-        devicechart.balloonText = "[[title]]<br><span style='font-size:1vw; font-weight: bold'><b>[[value]]</b> ([[percents]]%)</span>";
+        devicechart.balloonText = "[[title]] users<br><span style='font-size:1vw; font-weight: bold'><b>[[value]]</b> ([[percents]]%)</span>";
         devicechart.autoMargins = false;
         devicechart.fontSize = 18;
         devicechart.marginTop = 0;
@@ -543,6 +545,7 @@ function makeMonthChart() {
                 "bulletBorderAlpha": 1,
                 "bulletColor": "#8BD25F",
                 "legendPeriodValueText": "Total: [[value.sum]] views",
+                "balloonText": "[[value]] visits [[month]] this year",
                 "bulletSize": 10,
                 "lineThickness": 5,
                 "title": "This year.",
@@ -556,6 +559,7 @@ function makeMonthChart() {
                     "bulletBorderAlpha": 1,
                     "bulletColor": "#F95372",
                     "legendPeriodValueText": "Total: [[value.sum]] views",
+                    "balloonText": "[[value]] visits [[month]] last year",
                     "bulletSize": 10,
                     "lineThickness": 5,
                     "title": "Last year.",
@@ -608,6 +612,7 @@ function makeInnsidaWeekChart() {
                 "bulletBorderAlpha": 1,
                 "bulletColor": "#8BD25F",
                 "legendPeriodValueText": "Total: [[value.sum]] views",
+                "balloonText": "[[value]] visits [[day]] this week",
                 "bulletSize": 10,
                 "lineThickness": 5,
                 "title": "This week.",
@@ -621,6 +626,7 @@ function makeInnsidaWeekChart() {
                     "bulletBorderAlpha": 1,
                     "bulletColor": "#F95372",
                     "legendPeriodValueText": "Total: [[value.sum]] views",
+                    "balloonText": "[[value]] visits [[day]] last week",
                     "bulletSize": 10,
                     "lineThickness": 5,
                     "title": "Last week.",
@@ -666,6 +672,113 @@ function updateInnsidaPopularPages(data) {
     document.getElementById("leastPopularTema-four").innerHTML = data.leastPopularTema.four;
     document.getElementById("leastPopularTema-five").innerHTML = data.leastPopularTema.five;
 }
+
+function makeHourlyVisitsChart() {
+    hourlyVisitsChart = AmCharts.makeChart("hourlyVisitsChart", {
+        "type": "radar",
+        "theme": "light",
+        "color":"#FFFFFF",
+        "creditsPosition":"top-right",
+        "dataProvider": [
+            {
+                "hour": "00:00",
+                "visits": 156.9
+            }, {
+                "hour": "01:00",
+                "visits": 131.1
+            }, {
+                "hour": "02:00",
+                "visits": 115.8
+            }, {
+                "hour": "03:00",
+                "visits": 109.9
+            }, {
+                "hour": "04:00",
+                "visits": 108.3
+            }, {
+                "hour": "05:00",
+                "visits": 99
+            }, {
+                "hour": "06:00",
+                "visits": 156.9
+            }, {
+                "hour": "07:00",
+                "visits": 131.1
+            }, {
+                "hour": "08:00",
+                "visits": 115.8
+            }, {
+                "hour": "09:00",
+                "visits": 109.9
+            }, {
+                "hour": "10:00",
+                "visits": 108.3
+            }, {
+                "hour": "11:00",
+                "visits": 99
+            }, {
+                "hour": "12:00",
+                "visits": 156.9
+            }, {
+                "hour": "13:00",
+                "visits": 131.1
+            }, {
+                "hour": "14:00",
+                "visits": 115.8
+            }, {
+                "hour": "15:00",
+                "visits": 109.9
+            }, {
+                "hour": "16:00",
+                "visits": 108.3
+            }, {
+                "hour": "17:00",
+                "visits": 99
+            }, {
+                "hour": "18:00",
+                "visits": 156.9
+            }, {
+                "hour": "19:00",
+                "visits": 131.1
+            }, {
+                "hour": "20:00",
+                "visits": 115.8
+            }, {
+                "hour": "21:00",
+                "visits": 109.9
+            }, {
+                "hour": "22:00",
+                "visits": 108.3
+            }, {
+                "hour": "23:00",
+                "visits": 99
+            }],
+        "valueAxes": [ {
+            "axisTitleOffset": 20,
+            "minimum": 0,
+            "axisAlpha": 0.45,
+            "axisColor":"#FFFFFF",
+            "gridThickness": 2,
+            "gridColor":"#FFFFFF",
+            "labelsEnabled": false
+        } ],
+        "startDuration": 2,
+        "graphs": [ {
+            "balloonText": "[[visits]] visits at [[hour]] last 30 days",
+            "bullet": "round",
+            "lineThickness": 4,
+            "valueField": "visits",
+            "bulletColor": "#8BD25F",
+            "lineColor":"#8BD25F",
+            "bulletSize": 10
+        } ],
+        "categoryField": "hour",
+        "export": {
+            "enabled": false
+        }
+    } );
+}
+
 
 /*function makeWeekCharts() {
     makeInnsidaWeekChart();
