@@ -49,7 +49,7 @@ function init(){
 
 function loader() {
     document.getElementById("controller").style.opacity = "1.0";
-    setTimeout(showPage, 5000);
+    setTimeout(showPage, 500);
     /*timeout = 4000*/
 }
 
@@ -89,6 +89,7 @@ function updateEverything(data) {
     updateGeminiImages(data.gemini.image);
     setInterval(validateMap, 20000);
     updateMonthChart(data.study.visitorsByMonth);
+    updateHourlyVisitsChart(data.innsida.visitors.hourly);
 }
 
 //------------------Used on more than one page----------//
@@ -679,80 +680,7 @@ function makeHourlyVisitsChart() {
         "theme": "light",
         "color":"#FFFFFF",
         "creditsPosition":"top-right",
-        "dataProvider": [
-            {
-                "hour": "00:00",
-                "visits": 156.9
-            }, {
-                "hour": "01:00",
-                "visits": 131.1
-            }, {
-                "hour": "02:00",
-                "visits": 115.8
-            }, {
-                "hour": "03:00",
-                "visits": 109.9
-            }, {
-                "hour": "04:00",
-                "visits": 108.3
-            }, {
-                "hour": "05:00",
-                "visits": 99
-            }, {
-                "hour": "06:00",
-                "visits": 156.9
-            }, {
-                "hour": "07:00",
-                "visits": 131.1
-            }, {
-                "hour": "08:00",
-                "visits": 115.8
-            }, {
-                "hour": "09:00",
-                "visits": 109.9
-            }, {
-                "hour": "10:00",
-                "visits": 108.3
-            }, {
-                "hour": "11:00",
-                "visits": 99
-            }, {
-                "hour": "12:00",
-                "visits": 156.9
-            }, {
-                "hour": "13:00",
-                "visits": 131.1
-            }, {
-                "hour": "14:00",
-                "visits": 115.8
-            }, {
-                "hour": "15:00",
-                "visits": 109.9
-            }, {
-                "hour": "16:00",
-                "visits": 108.3
-            }, {
-                "hour": "17:00",
-                "visits": 99
-            }, {
-                "hour": "18:00",
-                "visits": 156.9
-            }, {
-                "hour": "19:00",
-                "visits": 131.1
-            }, {
-                "hour": "20:00",
-                "visits": 115.8
-            }, {
-                "hour": "21:00",
-                "visits": 109.9
-            }, {
-                "hour": "22:00",
-                "visits": 108.3
-            }, {
-                "hour": "23:00",
-                "visits": 99
-            }],
+        "dataProvider": [],
         "valueAxes": [ {
             "axisTitleOffset": 20,
             "minimum": 0,
@@ -777,6 +705,16 @@ function makeHourlyVisitsChart() {
             "enabled": false
         }
     } );
+}
+
+function updateHourlyVisitsChart(data) {
+    hourlyVisitsChart.dataProvider = [
+        data.one, data.two, data.three, data.four, data.five, data.six,
+        data.seven, data.eight, data.nine, data.ten, data.eleven, data.twelve,
+        data.thirteen, data.fourteen, data.fifteen, data.sixteen, data.seventeen, data.eighteen,
+        data.nineteen, data.twenty, data.twentyone, data.twentytwo, data.twentythree, data.zero
+    ];
+    hourlyVisitsChart.validateData();
 }
 
 
