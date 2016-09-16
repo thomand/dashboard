@@ -15,6 +15,7 @@ $(document).ready(function(){
     var worldChart;
     var monthChart;
     var hourlyVisitsChart;
+    var nationalChart;
     init();
 
 
@@ -22,6 +23,9 @@ $(document).ready(function(){
 
 //Set up charts // Init Firebase // Collect data from firebase
 function init(){
+
+    retrieverFeed();
+
     makeMap();
     makeDeviceChart();
     makeInnsidaWeekChart();
@@ -29,6 +33,7 @@ function init(){
     makeWorldChart();
     makeMonthChart();
     makeHourlyVisitsChart();
+    makeRetrieverNationalChart();
     //makeWeekChart();
     setInterval(getClock, 1000);
     //setTimeout(pageInfo, 1000);
@@ -49,7 +54,7 @@ function init(){
 
 function loader() {
     document.getElementById("controller").style.opacity = "1.0";
-    setTimeout(showPage, 500);
+    setTimeout(showPage, 5000);
     /*timeout = 4000*/
 }
 
@@ -90,6 +95,7 @@ function updateEverything(data) {
     setInterval(validateMap, 20000);
     updateMonthChart(data.study.visitorsByMonth);
     updateHourlyVisitsChart(data.innsida.visitors.hourly);
+    updateRetrieverNationalChart(data.retriever.national);
 }
 
 //------------------Used on more than one page----------//
@@ -650,7 +656,7 @@ function makeInnsidaWeekChart() {
 }
 
 function updateInnsidaWeekChart(data) {
-    innsidaWeekChart.dataProvider = [data.monday,data.thuesday,data.wednesday,data.thursday,data.friday,data.saturday,data.sunday];
+    innsidaWeekChart.dataProvider = [data.monday,data.tuesday,data.wednesday,data.thursday,data.friday,data.saturday,data.sunday];
     innsidaWeekChart.validateData();
 }
 
@@ -709,10 +715,10 @@ function makeHourlyVisitsChart() {
 
 function updateHourlyVisitsChart(data) {
     hourlyVisitsChart.dataProvider = [
-        data.one, data.two, data.three, data.four, data.five, data.six,
-        data.seven, data.eight, data.nine, data.ten, data.eleven, data.twelve,
-        data.thirteen, data.fourteen, data.fifteen, data.sixteen, data.seventeen, data.eighteen,
-        data.nineteen, data.twenty, data.twentyone, data.twentytwo, data.twentythree, data.zero
+        data.zero, data.one, data.two, data.three, data.four, data.five,
+        data.six, data.seven, data.eight, data.nine, data.ten, data.eleven,
+        data.twelve, data.thirteen, data.fourteen, data.fifteen, data.sixteen, data.seventeen,
+        data.eighteen, data.nineteen, data.twenty, data.twentyone, data.twentytwo, data.twentythree
     ];
     hourlyVisitsChart.validateData();
 }
@@ -1484,6 +1490,90 @@ function updateElement(id, value, type) {
     else {
         document.getElementById(id).innerHTML = value;
     }
+}
+
+//--------------------Fifth page------------------------//
+//RETRIEVER
+
+function updateRetrieverNationalChart(data) {
+    data.NTNU["color"] = "#FF0F00";
+    data.UiO["color"] = "#FF6600";
+    data.UiB["color"] = "#FF9E01";
+    data.BI["color"] = "#FCD202";
+    data.UiTo["color"] = "#F8FF01";
+    data.UiA["color"] = "#B0DE09";
+    data.NMBU["color"] = "#04D215";
+    data.NHH["color"] = "#0D8ECF";
+    data.Nord["color"] = "#0D52D1";
+    data.UiS["color"] = "#2A0CD0";
+    nationalChart.dataProvider = [
+        data.NTNU,data.UiO,data.UiB, data.BI, data.UiTo, data.UiA,
+        data.NMBU, data.NHH, data.Nord, data.UiS
+    ];
+    nationalChart.validateData();
+}
+
+function makeRetrieverNationalChart() {
+    nationalChart = AmCharts.makeChart("nationalChart", {
+        "type": "serial",
+        "theme": "light",
+        "color": "#FFFFFF",
+        "creditsPosition":"top-right",
+        "dataProvider": [],
+        "valueAxes": [{
+            "axisAlpha": 0,
+            "position": "left",
+            "title": "Articles",
+            "titleFontSize" : 16
+        }],
+        "startDuration": 1,
+        "graphs": [{
+            "balloonText": "<b>[[category]]: [[value]]</b>",
+            "fillColorsField": "color",
+            "fillAlphas": 0.9,
+            "lineAlpha": 0.2,
+            "type": "column",
+            "valueField": "articles"
+        }],
+        "chartCursor": {
+            "categoryBalloonEnabled": false,
+            "cursorAlpha": 0,
+            "zoomable": false
+        },
+        "categoryField": "uni",
+        "categoryAxis": {
+            "gridPosition": "start",
+            "labelRotation": 30,
+            "fontSize": 18,
+            "titleBold": true
+        },
+        "export": {
+            "enabled": false
+        }
+
+    });
+
+}
+
+function retrieverFeed() {
+    var url = "https://www.retriever-info.com/feed/2002900/generelt43987/aktuelt_-_feed.xml";
+    feednami.load(url,function(result){
+        if(result.error) {
+            console.log(result.error);
+        } else {
+            var entries = result.feed.entries;
+            for(var i = 0; i < 4; i++){
+                var entry = entries[i];
+                console.dir(entry);
+                //make a article div and write it to container
+                var text =
+                    "<a class='feedEntryLink' href='" + entry.guid + "'>" + "<div class='feedEntry'><h4>" + entry.title + "</h4>" +
+                    "<h5>" + entry.summary + "</h5>" +
+                    "<h5 class='float-right author'>" + entry.author + "</h5></div></a>";
+                document.getElementById("retrieverFeed").innerHTML += text;
+            }
+        }
+    });
 }
 
 //--------------------General------------------------//

@@ -11,6 +11,9 @@
 
     <title>NTNU LiveFeed</title>
 
+    <!-- RSS FEED -->
+    <script src="https://cdn.rawgit.com/sekando/feednami-client/master/releases/1.0.2.min.js"></script>
+
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
@@ -126,7 +129,7 @@
         <div class="carousel-inner">
             <!-- First page -->
             <!-- slideInDown-->
-            <div class="item animated slideInDown">
+            <div class="item active animated slideInDown">
                     <!-- Left side container -->
                     <div class="panelcontent col-md-8 col-sm-8 col-lg-8 noPadding-left noPadding-right">
                         <!-- Left side first line headlines-->
@@ -186,7 +189,7 @@
                             </div>
                             <div class="row special platformAndBrowsers">
                                 <!-- Device platform (pc/smartphone/tablet)-->
-                                <div class="panelcontent col-xs-6 " >
+                                <div class="panelcontent col-xs-6" >
                                     <div class="panel col-xs-12" id="devicediv"></div>
                                 </div>
                                 <!-- Browser table-->
@@ -1257,42 +1260,42 @@
             </div>
             -->
             <!-- /Sixth page -->
-            <div class="item active animated slideInUp">
+            <div class="item animated slideInUp">
                 <div class="row special item2description">
-                    <div class="col-xs-6">
+                    <div class="col-xs-8">
                         <div class="col-xs-12">Coverage in national media last six months</div>
                     </div>
-                    <div class="col-xs-6">
-                        <div class="col-xs-12">Share of voice internationally</div>
-                    </div>
-                </div>
-                <div class="row media special">
-                    <div class="panelcontent col-xs-6">
-                        <div class="panel col-xs-12"></div>
-                    </div>
-                    <div class="panelcontent col-xs-6">
-                        <div class="panel col-xs-12"></div>
-                    </div>
-                </div>
-                <div class="row special item2description">
-                    <div class="col-xs-6">
-                        <div class="col-xs-12">Coverage in international media last six months</div>
-                    </div>
-                    <div class="col-xs-6">
+                    <div class="col-xs-4">
                         <div class="col-xs-12">Latest news articles</div>
                     </div>
                 </div>
-                <div class="row media special">
-                    <div class="panelcontent col-xs-6">
-                        <div class="panel col-xs-12">
-
+                <div class="panelcontent col-xs-8">
+                    <div class="row media special">
+                        <div class="panelcontent col-xs-12">
+                            <div class="panel col-xs-12" id="nationalChart"></div>
                         </div>
                     </div>
-                    <div class="panelcontent col-xs-6">
-                        <div class="panel col-xs-12">
-
+                    <div class="row special item2description">
+                        <div class="col-xs-7">
+                            <div class="col-xs-12">Coverage in international media last six months</div>
+                        </div>
+                        <div class="col-xs-5">
+                            <div class="col-xs-12">Share of voice globally</div>
                         </div>
                     </div>
+                    <div class="row media special">
+                    <div class="panelcontent col-xs-7">
+                        <div class="panel col-xs-12">
+                        </div>
+                    </div>
+                    <div class="panelcontent col-xs-5">
+                        <div class="panel col-xs-12">
+                        </div>
+                    </div>
+                </div>
+                </div>
+                <div class="panelcontent col-xs-4">
+                    <div class="panel col-xs-12" id="retrieverFeed"></div>
                 </div>
             </div>
         </div>
