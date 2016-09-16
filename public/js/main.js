@@ -650,7 +650,7 @@ function makeInnsidaWeekChart() {
 }
 
 function updateInnsidaWeekChart(data) {
-    innsidaWeekChart.dataProvider = [data.monday,data.thuesday,data.wednesday,data.thursday,data.friday,data.saturday,data.sunday];
+    innsidaWeekChart.dataProvider = [data.monday,data.tuesday,data.wednesday,data.thursday,data.friday,data.saturday,data.sunday];
     innsidaWeekChart.validateData();
 }
 
@@ -1174,7 +1174,7 @@ function updateInnsidaWikiTema(data,pageName, chart) {
     chart.dataProvider =
         [
             days.monday,
-            days.thuesday,
+            days.tuesday,
             days.wednesday,
             days.thursday,
             days.friday,
