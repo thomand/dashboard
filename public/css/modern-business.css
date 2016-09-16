@@ -646,11 +646,19 @@ table.extramargin {
 /*TODO: MAYBE PANELS FOR EACH ARTICLE?*/
 
 .feedEntry {
-    margin-top:10%;
+    margin-top:2%;
+    background: none;
+    border-radius: 2px;
+    outline: none !important;
+    text-decoration: none;
     color:#FFFFFF;
-    -webkit-box-shadow: 5px 6px 3px -3px rgba(255,255,255,1);
-    -moz-box-shadow: 5px 6px 3px -3px rgba(255,255,255,1);
-    box-shadow: 5px 6px 3px -3px rgba(255,255,255,1);
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    padding: 8px;
+    -webkit-box-shadow: 1px 2px 1px #d1d1d1;
+    -moz-box-shadow: 1px 2px 1px #d1d1d1;
+    box-shadow: 1px 2px 1px #d1d1d1;
+    margin-bottom:5%;
 }
 
 .feedEntry > h4 {
@@ -664,7 +672,6 @@ table.extramargin {
 }
 
 .feedEntry > .author {
-    padding-bottom: 2%;
     padding-right: 2%;
 }
 
