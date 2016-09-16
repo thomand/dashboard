@@ -1180,7 +1180,7 @@ function updateInnsidaWikiTema(data,pageName, chart) {
     chart.dataProvider =
         [
             days.monday,
-            days.thuesday,
+            days.tuesday,
             days.wednesday,
             days.thursday,
             days.friday,
