@@ -107,8 +107,12 @@ span {
     height:40%;
 }
 
-.row.media {
-    height:43%;
+.row.nationalMedia {
+    height:36%;
+}
+
+.row.internationalMedia {
+    height:50%;
 }
 
 .row.three {
@@ -640,45 +644,63 @@ table.extramargin {
 
 #retrieverFeed {
     height: 93%;
+    overflow-y: scroll;
 }
+
 
 /*TODO: FIX HEIGHT OF LEFT AND RIGHT CONTAINERS*/
 /*TODO: MAYBE PANELS FOR EACH ARTICLE?*/
 
 .feedEntry {
-    margin-top:2%;
-    background: none;
-    border-radius: 2px;
     outline: none !important;
     text-decoration: none;
     color:#FFFFFF;
-    -webkit-border-radius: 2px;
-    -moz-border-radius: 2px;
-    padding: 8px;
-    -webkit-box-shadow: 1px 2px 1px #d1d1d1;
-    -moz-box-shadow: 1px 2px 1px #d1d1d1;
-    box-shadow: 1px 2px 1px #d1d1d1;
-    margin-bottom:5%;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 0;
+    border-radius: 0.3vw;
+    position: relative;
+    margin-bottom: 1.5vw;
+    box-shadow: 0.1vw 0.1vw 0.3vw rgba(0, 0, 0, 0.15);
+    margin-top: 0;
 }
 
 .feedEntry > h4 {
-    text-decoration: underline;
-    margin-bottom: 10px;
+    font-size: 18px;
+    margin-bottom: 5%;
     font-weight: 600;
+    padding-top:5px;
 }
 
-.feedEntry >h4, h5 {
+.feedEntry > h4:after {
+    content:' ';
+    display:block;
+    border:1px solid #d0d0d0;
+    margin-top: 5px;
+    border-radius:4px;
+    -webkit-border-radius:4px;
+    -moz-border-radius:4px;
+    box-shadow:inset 0 1px 1px rgba(0, 0, 0, .05);
+    -webkit-box-shadow:inset 0 1px 1px rgba(0, 0, 0, .05);
+    -moz-box-shadow:inset 0 1px 1px rgba(0, 0, 0, .05);
+}
+
+.feedEntry > h4, h5 {
     margin-left:2%;
+    margin-right:2%;
 }
 
 .feedEntry > .author {
+    padding-top: 5%;
     padding-right: 2%;
+    padding-bottom: 2%;
 }
 
-.feedEntryLink:hover {
+a.feedEntryLink:hover, a.feedEntryLink:active, a.feedEntryLink:visited {
     outline: none !important;
-    text-decoration: none;
+    text-decoration: none !important;
+    border:0;
     color:#FFFFFF;
 }
+
 
 

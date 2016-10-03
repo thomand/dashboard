@@ -16,8 +16,8 @@ $(document).ready(function(){
     var monthChart;
     var hourlyVisitsChart;
     var nationalChart;
+    var internationalChart;
     init();
-
 
 });
 
@@ -34,6 +34,7 @@ function init(){
     makeMonthChart();
     makeHourlyVisitsChart();
     makeRetrieverNationalChart();
+    makeRetrieverInternationalChart();
     //makeWeekChart();
     setInterval(getClock, 1000);
     //setTimeout(pageInfo, 1000);
@@ -54,7 +55,7 @@ function init(){
 
 function loader() {
     document.getElementById("controller").style.opacity = "1.0";
-    setTimeout(showPage, 5000);
+    setTimeout(showPage, 500);
     /*timeout = 4000*/
 }
 
@@ -698,13 +699,13 @@ function makeHourlyVisitsChart() {
         } ],
         "startDuration": 2,
         "graphs": [ {
-            "balloonText": "[[visits]] visits at [[hour]] last 30 days",
+            "balloonText": "On average [[visits]] visits at [[hour]] last 30 days",
             "bullet": "round",
             "lineThickness": 4,
             "valueField": "visits",
             "bulletColor": "#8BD25F",
             "lineColor":"#8BD25F",
-            "bulletSize": 10
+            "bulletSize": 4
         } ],
         "categoryField": "hour",
         "export": {
@@ -1555,22 +1556,152 @@ function makeRetrieverNationalChart() {
 
 }
 
+function makeRetrieverInternationalChart() {
+    internationalChart = AmCharts.makeChart("internationalChart", {
+            "type": "serial",
+            "theme": "light",
+            "color": "#FFFFFF",
+            "creditsPosition":"top-right",
+            "autoMargins":true,
+            "legend": {
+                "equalWidths": true,
+                "useGraphSettings": false,
+                "valueAlign": "left",
+                //"valueWidth": 280,
+                "color":"#FFFFFF",
+                "fontSize":14,
+                "align":"left"
+            },
+            "valueAxes": [{
+                "id":"v1",
+                "axisAlpha": 0,
+                "position": "left"
+            }],
+            "graphs": [{
+                "id": "g1",
+                "lineColor":"#8BD25F",
+                "bullet": "round",
+                "bulletBorderAlpha": 1,
+                "bulletColor": "#8BD25F",
+                //"legendPeriodValueText": "total: [[value.sum]]",
+                "balloonText": "[[value]] articles for [[title]] in [[period]]",
+                "bulletSize": 0,
+                "lineThickness": 5,
+                "title": "NTNU",
+                "useLineColorForBulletBorder": true,
+                "valueField": "NTNU"
+            },
+                {
+                    "id": "g2",
+                    "lineColor":"#F95372",
+                    "bullet": "round",
+                    "bulletBorderAlpha": 1,
+                    "bulletColor": "#F95372",
+                    //"legendPeriodValueText": "total: [[value.sum]]",
+                    "balloonText": "[[value]] articles for [[title]] in [[period]]",
+                    "bulletSize": 0,
+                    "lineThickness": 5,
+                    "title": "UiO",
+                    "useLineColorForBulletBorder": true,
+                    "valueField": "UiO"
+                },
+                {
+                    "id": "g3",
+                    "lineColor":"#03A9FC",
+                    "bullet": "round",
+                    "bulletBorderAlpha": 1,
+                    "bulletColor": "#03A9FC",
+                    //"legendPeriodValueText": "total: [[value.sum]]",
+                    "balloonText": "[[value]] articles for [[title]] in [[period]]",
+                    "bulletSize": 0,
+                    "lineThickness": 5,
+                    "title": "UiB",
+                    "useLineColorForBulletBorder": true,
+                    "valueField": "UiB"
+                }],
+            "categoryField": "period",
+            "categoryAxis": {
+                "parseDates": false,
+                "dashLength": 1,
+                "minorGridEnabled": false,
+                "position": "bottom",
+                "fontSize":12,
+                "labelRotation": 30
+            },
+            "dataProvider": [
+                {"NTNU":200,
+                "UiB":100,
+                "UiO":150,
+                "period":"Q1-Q2 08"},
+                {"NTNU":300,
+                    "UiB":100,
+                    "UiO":450,
+                    "period":"Q3-Q4 08"},
+                {"NTNU":200,
+                    "UiB":310,
+                    "UiO":250,
+                    "period":"Q1-Q2 09"},
+                {"NTNU":300,
+                    "UiB":150,
+                    "UiO":250,
+                    "period":"Q3-Q4 09"},
+                {"NTNU":200,
+                    "UiB":100,
+                    "UiO":150,
+                    "period":"Q1-Q2 10"},
+                {"NTNU":300,
+                    "UiB":100,
+                    "UiO":450,
+                    "period":"Q3-Q4 10"},
+                {"NTNU":200,
+                    "UiB":310,
+                    "UiO":250,
+                    "period":"Q1-Q2 11"},
+                {"NTNU":300,
+                    "UiB":150,
+                    "UiO":250,
+                    "period":"Q3-Q4 11"},
+                {"NTNU":200,
+                    "UiB":100,
+                    "UiO":150,
+                    "period":"Q1-Q2 12"},
+                {"NTNU":300,
+                    "UiB":100,
+                    "UiO":450,
+                    "period":"Q3-Q4 12"},
+                {"NTNU":200,
+                    "UiB":310,
+                    "UiO":250,
+                    "period":"Q1-Q2 13"},
+                {"NTNU":300,
+                    "UiB":150,
+                    "UiO":250,
+                    "period":"Q3-Q4 13"}
+            ]
+        }
+    );
+
+}
+
 function retrieverFeed() {
     var url = "https://www.retriever-info.com/feed/2002900/generelt43987/aktuelt_-_feed.xml";
+    //var url = "https://www.retriever-info.com/feed/2002900/generell_arkiv166/aktuelt_-_feed.xml";
     feednami.load(url,function(result){
         if(result.error) {
             console.log(result.error);
         } else {
             var entries = result.feed.entries;
-            for(var i = 0; i < 4; i++){
+            console.dir(entries);
+            for(var i = 0; i < entries.length; i++){
                 var entry = entries[i];
-                console.dir(entry);
+                //console.dir(entry);
                 //make a article div and write it to container
-                var text =
-                    "<a class='feedEntryLink' href='" + entry.guid + "'>" + "<div class='feedEntry'><h4>" + entry.title + "</h4>" +
+                document.getElementById("retrieverFeed").innerHTML +=
+                    "<a class='feedEntryLink' href='" + entry.guid + "' target='_blank'>" + "<div class='feedEntry'><h4>" + entry.title + "</h4>" +
                     "<h5>" + entry.summary + "</h5>" +
-                    "<h5 class='float-right author'>" + entry.author + "</h5></div></a>";
-                document.getElementById("retrieverFeed").innerHTML += text;
+                    "<h5 class='float-right author'>" + entry.author + " (" + entry.date.substring(8,10) + "-" + entry.date.substring(5,7) + "-" + entry.date.substring(0,4) + ")</h5>" +
+                    "</div></a>";
+
             }
         }
     });
