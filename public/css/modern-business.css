@@ -19,6 +19,10 @@ body {
     padding-top: 35px;
 }
 
+h1, h2, h3, h4, h5, h6 {
+    margin-bottom: 0;
+    margin-top:0;
+}
 .pageInfo {
     position: absolute;
     top: 50%;
@@ -90,12 +94,6 @@ span {
     color:#ffffff;
 }
 
-.item2description {
-    color: #ffffff;
-    /*margin-top:1% !important;*/
-    font-size:1.6vw;
-    height:3% !important;
-}
 /*
 .row {
     margin-left:0;
@@ -149,7 +147,6 @@ span {
 .noPadding {
     padding: 0 0 0 0;
 }
-
 
 #notifier {
     text-align: center;
@@ -218,32 +215,30 @@ div.carousel .fill {
     height: 37.5% !important;
 }
 
-.visitors {
-    font-size: 2.8vw;
+.vertical-center {
+    position: relative;
+    top: 20%;
+    transform: translateY(-20%);
+}
+
+.center {
     text-align: center;
-    margin-bottom: 0 !important;
 }
 
 .currentVisitors-text {
-    font-size:1.1vw;
-    text-align: center;
-    margin-bottom: 0 !important;
-
+    position: relative;
+    top:10%
 }
 
 .visitor-percentage {
-    font-size: 1.8vw;
     vertical-align:middle;
     margin-top: 5%;
 }
 
 .middle {
-    top: 15%;
+    top: 20%;
 }
 
-.browsers {
-    font-size: 1.18vw;
-}
 
 .noPadding-left {
     padding-left:0;
@@ -255,18 +250,14 @@ div.carousel .fill {
 
 
 .weekMonthYear-text {
-    font-size:1.1vw;
     text-align: center;
     position: relative;
     top: 30%;
     transform: translateY(-50%);
 }
 
-table.externalWeb {
-    font-weight: bold;
-    font-size:1.2vw;
-    margin-top: 3%;
-}
+
+
 
 /*------------------------------------------------*/
 
@@ -589,7 +580,7 @@ table.extramargin {
 @media (min-width: 1270px) and (max-width: 1439px){
 
     /*TODO: FIX FONT-SIZE MESS!! */
-
+    /*.heading { font-size: 24px;}
     .italic { font-size:0.9vw; }
     .table.study-ITW { font-size: 1.1vw; }
     .last-week { font-size:1.1vw; }
@@ -610,12 +601,55 @@ table.extramargin {
     .ion-arrow-graph-down-right.reverse { font-size: 24px; }
     .visitor-percentage { font-size: 24px; }
 
-    .visitors { font-size: 40px; }
+    .visitors { font-size: 40px; }*/
+    h3 {
+        font-size: 22px;
+    }
 
 }
 
-@media (min-width: 1440px) {
+@media (min-width: 1440px) and (max-width:1599px) {
+    h1 {font-size:3.4vw;}
 
+    h2 {font-size: 2vw;}
+
+    h3 {font-size: 1.75vw;}
+
+    h4 {font-size: 1.4vw;}
+
+    h5 {font-size:1.2vw;}
+    .browsers h4 {
+        margin-top: 7px !important;
+        margin-bottom: 7px !important;
+    }
+
+    .externalWeb h4 {
+        margin-top: 1vw !important;
+        font-weight: 500;
+        font-size: 1.5vw;
+    }
+}
+
+@media (min-width: 1600px) {
+    h1 {font-size:3.4vw;}
+
+    h2 {font-size: 2vw;}
+
+    h3 {font-size: 1.75vw;}
+
+    h4 {font-size: 1.4vw;}
+
+    h5 {font-size:1.2vw;}
+    .browsers h4 {
+        margin-top: 7px !important;
+        margin-bottom: 7px !important;
+    }
+
+    .externalWeb h4 {
+        margin-top: 1vw !important;
+        font-weight: 500;
+        font-size: 1.5vw;
+    }
 }
 
 /* CONTROL PANEL */

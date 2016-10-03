@@ -126,20 +126,20 @@
     <!-- Header Carousel -->
     <div id="myCarousel" class="carousel slide" data-ride="carousel" data-pause="false" style="display: none">
         <!-- Wrapper for slides -->
-        <div class="carousel-inner">
+        <div class="carousel-inner white">
             <!-- First page -->
             <!-- slideInDown-->
-            <div class="item animated slideInDown">
+            <div class="item active animated slideInDown">
                     <!-- Left side container -->
                     <div class="panelcontent col-md-8 col-sm-8 col-lg-8 noPadding-left noPadding-right">
                         <!-- Left side first line headlines-->
-                        <div class="row special item2description">
+                        <div class="row special">
                             <div class="col-xs-12">
-                                <div class="col-xs-4">Live statistics <span>ntnu.no</span></div>
+                                <div class="col-xs-4"><h3>Live statistics <span>ntnu.no</span></h3></div>
                                 <div class="col-xs-8">
-                                    <div class="col-xs-4">Weekly views</div>
-                                    <div class="col-xs-4">Monthly views</div>
-                                    <div class="col-xs-4">Yearly views</div>
+                                    <div class="col-xs-4"><h3>Weekly views</h3></div>
+                                    <div class="col-xs-4"><h3>Monthly views</h3></div>
+                                    <div class="col-xs-4"><h3>Yearly views</h3></div>
                                 </div>
                             </div>
                         </div>
@@ -148,43 +148,43 @@
                             <div class="row special visitordiv">
                                 <div class="panelcontent col-xs-4">
                                     <div class="panel col-xs-12">
-                                        <div class="row special visitors" id="currentVisitorsExternal"></div>
-                                        <div class="row special currentVisitors-text">Current active sessions</div>
+                                        <div class="row special vertical-center center"><h1 id="currentVisitorsExternal"></h1></div>
+                                        <div class="row special center currentVisitors-text"><h4>Current active sessions</h4></div>
                                     </div>
                                 </div>
                                 <div class="panelcontent col-xs-8">
                                     <div class="panel col-xs-4">
                                         <div class="row two special visitor-percentage">
-                                            <div class="panelcontent col-xs-3 middle"><i id="weekArrowExternal"></i></div>
-                                            <div class="panelcontent col-xs-5 middle" id="changeWeekExternal"></div>
-                                            <div class="panelcontent col-xs-3 middle" id="weekPercentExternal"></div>
+                                            <div class="panelcontent col-xs-3 middle"><h2><i id="weekArrowExternal"></i></h2></div>
+                                            <div class="panelcontent col-xs-5 middle"><h2 id="changeWeekExternal"></h2></div>
+                                            <div class="panelcontent col-xs-3 middle"><h2 id="weekPercentExternal"></h2></div>
                                         </div>
-                                        <div class="row special weekMonthYear-text">Since last week</div>
+                                        <div class="row special weekMonthYear-text"><h4>Since last week</h4></div>
                                     </div>
                                     <div class="panel col-xs-4">
                                         <div class="row two special visitor-percentage">
-                                            <div class="panelcontent col-xs-3 middle"><i id="monthArrowExternal"></i></div>
-                                            <div class="panelcontent col-xs-5 middle" id="changeMonthExternal"></div>
-                                            <div class="panelcontent col-xs-3 middle" id="monthPercentExternal"></div>
+                                            <div class="panelcontent col-xs-3 middle"><h2><i id="monthArrowExternal"></i></h2></div>
+                                            <div class="panelcontent col-xs-5 middle"><h2 id="changeMonthExternal"></h2></div>
+                                            <div class="panelcontent col-xs-3 middle"><h2 id="monthPercentExternal"></h2></div>
                                         </div>
-                                        <div class="row special weekMonthYear-text">Since last month</div>
+                                        <div class="row special weekMonthYear-text"><h4>Since last month</h4></div>
                                     </div>
                                     <div class="panel col-xs-4">
                                         <div class="row two special visitor-percentage">
-                                            <div class="panelcontent col-xs-3 middle"><i id="yearArrowExternal"></i></div>
-                                            <div class="panelcontent col-xs-5 middle" id="changeYearExternal"></div>
-                                            <div class="panelcontent col-xs-3 middle" id="yearPercentExternal"></div>
+                                            <div class="panelcontent col-xs-3 middle"><h2><i id="yearArrowExternal"></i></h2></div>
+                                            <div class="panelcontent col-xs-5 middle"><h2 id="changeYearExternal"></h2></div>
+                                            <div class="panelcontent col-xs-3 middle"><h2 id="yearPercentExternal"></h2></div>
                                         </div>
-                                        <div class="row special weekMonthYear-text">Since last year</div>
+                                        <div class="row special weekMonthYear-text"><h4>Since last year</h4></div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="row special item2description">
+                            <div class="row special">
                                 <div class="col-xs-12">
                                     <!-- Platform headline-->
-                                    <div class="col-xs-6">Platform</div>
+                                    <div class="col-xs-6"><h3>Platform</h3></div>
                                     <!-- Browsers headline-->
-                                    <div class="col-xs-6 extrapad-left">Browsers</div>
+                                    <div class="col-xs-6 extrapad-left"><h3>Browsers</h3></div>
                                 </div>
                             </div>
                             <div class="row special platformAndBrowsers">
@@ -198,50 +198,50 @@
                                         <table class="table browsers">
                                             <tbody>
                                             <tr>
-                                                <td class="col-xs-1" id="browserLogoOne"></td>
-                                                <td class="col-xs-5" id="browserNameOne"></td>
-                                                <td class="col-xs-2 float-right" id="browserNumOne"></td>
-                                                <td class="col-xs-3 float-right" id="browserPercentOne"></td>
+                                                <td class="col-xs-1"><h4 id="browserLogoOne"></h4></td>
+                                                <td class="col-xs-5"><h4 id="browserNameOne"></h4></td>
+                                                <td class="col-xs-2 float-right"><h4 id="browserNumOne"></h4></td>
+                                                <td class="col-xs-3 float-right"><h4 id="browserPercentOne"></h4></td>
                                             </tr>
                                             <tr>
-                                                <td class="col-xs-1" id="browserLogoTwo"></td>
-                                                <td class="col-xs-5" id="browserNameTwo"></td>
-                                                <td class="col-xs-2 float-right" id="browserNumTwo"></td>
-                                                <td class="col-xs-3 float-right" id="browserPercentTwo"></td>
+                                                <td class="col-xs-1"><h4 id="browserLogoTwo"></h4></td>
+                                                <td class="col-xs-5"><h4 id="browserNameTwo"></h4></td>
+                                                <td class="col-xs-2 float-right"><h4 id="browserNumTwo"></h4></td>
+                                                <td class="col-xs-3 float-right"><h4 id="browserPercentTwo"></h4></td>
                                             </tr>
                                             <tr>
-                                                <td class="col-xs-1" id="browserLogoThree"></td>
-                                                <td class="col-xs-5" id="browserNameThree"></td>
-                                                <td class="col-xs-2 float-right" id="browserNumThree"></td>
-                                                <td class="col-xs-3 float-right" id="browserPercentThree"></td>
+                                                <td class="col-xs-1"><h4 id="browserLogoThree"></h4></td>
+                                                <td class="col-xs-5"><h4 id="browserNameThree"></h4></td>
+                                                <td class="col-xs-2 float-right"><h4 id="browserNumThree"></h4></td>
+                                                <td class="col-xs-3 float-right"><h4 id="browserPercentThree"></h4></td>
                                             </tr>
                                             <tr>
-                                                <td class="col-xs-1" id="browserLogoFour"></td>
-                                                <td class="col-xs-5" id="browserNameFour"></td>
-                                                <td class="col-xs-2 float-right" id="browserNumFour"></td>
-                                                <td class="col-xs-3 float-right" id="browserPercentFour"></td>
+                                                <td class="col-xs-1"><h4 id="browserLogoFour"></h4></td>
+                                                <td class="col-xs-5"><h4 id="browserNameFour"></h4></td>
+                                                <td class="col-xs-2 float-right"><h4 id="browserNumFour"></h4></td>
+                                                <td class="col-xs-3 float-right"><h4 id="browserPercentFour"></h4></td>
                                             </tr>
                                             <tr>
-                                                <td class="col-xs-1" id="browserLogoFive"></td>
-                                                <td class="col-xs-5" id="browserNameFive"></td>
-                                                <td class="col-xs-2 float-right" id="browserNumFive"></td>
-                                                <td class="col-xs-3 float-right" id="browserPercentFive"></td>
+                                                <td class="col-xs-1"><h4 id="browserLogoFive"></h4></td>
+                                                <td class="col-xs-5"><h4 id="browserNameFive"></h4></td>
+                                                <td class="col-xs-2 float-right"><h4 id="browserNumFive"></h4></td>
+                                                <td class="col-xs-3 float-right"><h4 id="browserPercentFive"></h4></td>
                                             </tr>
                                             <tr>
-                                                <td class="col-xs-1" id="browserLogoSix"></td>
-                                                <td class="col-xs-5" id="browserNameSix"></td>
-                                                <td class="col-xs-2 float-right" id="browserNumSix"></td>
-                                                <td class="col-xs-3 float-right" id="browserPercentSix"></td>
+                                                <td class="col-xs-1"><h4 id="browserLogoSix"></h4></td>
+                                                <td class="col-xs-5"><h4 id="browserNameSix"></h4></td>
+                                                <td class="col-xs-2 float-right"><h4 id="browserNumSix"></h4></td>
+                                                <td class="col-xs-3 float-right"><h4 id="browserPercentSix"></h4></td>
                                             </tr>
                                             </tbody>
                                         </table>
                                     </div>
                                 </div>
                             </div>
-                            <div class="row special item2description">
+                            <div class="row special">
                                 <div class="col-xs-12">
-                                    <div class="col-xs-6">Popular pages ntnu.no</div>
-                                    <div class="col-xs-6 extrapad-left">Popular pages ntnu.edu</div>
+                                    <div class="col-xs-6"><h3>Popular pages ntnu.no</h3></div>
+                                    <div class="col-xs-6 extrapad-left"><h3>Popular pages ntnu.edu</h3></div>
                                 </div>
                             </div>
                             <div class="row special popularSites">
@@ -250,24 +250,24 @@
                                         <table class="table externalWeb">
                                             <tbody>
                                             <tr>
-                                                <td class="col-xs-1">#1</td>
-                                                <td id="popularNO-one"></td>
+                                                <td class="col-xs-1"><h4>#1</h4></td>
+                                                <td><h4 id="popularNO-one"></h4></td>
                                             </tr>
                                             <tr>
-                                                <td class="col-xs-1">#2</td>
-                                                <td id="popularNO-two"></td>
+                                                <td class="col-xs-1"><h4>#2</h4></td>
+                                                <td><h4 id="popularNO-two"></h4></td>
                                             </tr>
                                             <tr>
-                                                <td class="col-xs-1">#3</td>
-                                                <td id="popularNO-three"></td>
+                                                <td class="col-xs-1"><h4>#3</h4></td>
+                                                <td><h4 id="popularNO-three"></h4></td>
                                             </tr>
                                             <tr>
-                                                <td class="col-xs-1">#4</td>
-                                                <td id="popularNO-four"></td>
+                                                <td class="col-xs-1"><h4>#4</h4></td>
+                                                <td><h4 id="popularNO-four"></h4></td>
                                             </tr>
                                             <tr>
-                                                <td class="col-xs-1">#5</td>
-                                                <td id="popularNO-five"></td>
+                                                <td class="col-xs-1"><h4>#5</h4></td>
+                                                <td><h4 id="popularNO-five"></h4></td>
                                             </tr>
                                             </tbody>
                                         </table>
@@ -278,24 +278,24 @@
                                         <table class="table externalWeb">
                                             <tbody>
                                             <tr>
-                                                <td class="col-xs-1">#1</td>
-                                                <td id="popularEDU-one"></td>
+                                                <td class="col-xs-1"><h4>#1</h4></td>
+                                                <td><h4 id="popularEDU-one"></h4></td>
                                             </tr>
                                             <tr>
-                                                <td class="col-xs-1">#2</td>
-                                                <td id="popularEDU-two"></td>
+                                                <td class="col-xs-1"><h4>#2</h4></td>
+                                                <td><h4 id="popularEDU-two"></h4></td>
                                             </tr>
                                             <tr>
-                                                <td class="col-xs-1">#3</td>
-                                                <td id="popularEDU-three"></td>
+                                                <td class="col-xs-1"><h4>#3</h4></td>
+                                                <td><h4 id="popularEDU-three"></h4></td>
                                             </tr>
                                             <tr>
-                                                <td class="col-xs-1">#4</td>
-                                                <td id="popularEDU-four"></td>
+                                                <td class="col-xs-1"><h4>#4</h4></td>
+                                                <td><h4 id="popularEDU-four"></h4></td>
                                             </tr>
                                             <tr>
-                                                <td class="col-xs-1">#5</td>
-                                                <td id="popularEDU-five"></td>
+                                                <td class="col-xs-1"><h4>#5</h4></td>
+                                                <td><h4 id="popularEDU-five"></h4></td>
                                             </tr>
                                             </tbody>
                                         </table>
@@ -307,11 +307,11 @@
 
                     <!-- Right side first line headline -->
                     <div class="panelcontent col-xs-4 noPadding-left noPadding-right">
-                        <div class="row special item2description">
+                        <div class="row special">
                             <div class="col-xs-12">
                                 <!-- Heatmap headline -->
                                 <div class="col-xs-12 noPadding-left">
-                                    <div class="col-xs-12">User access location</div>
+                                    <div class="col-xs-12"><h3>User access location</h3></div>
                                 </div>
                             </div>
                         </div>
@@ -1260,7 +1260,7 @@
             </div>
             -->
             <!-- /Sixth page -->
-            <div class="item active animated slideInUp">
+            <div class="item animated slideInUp">
                 <div class="row special item2description">
                     <div class="col-xs-8">
                         <div class="col-xs-12">Coverage in national media last six months</div>
@@ -1352,6 +1352,36 @@
             }
             else if(e.which == 37){
                 $('#myCarousel').carousel('prev');
+            }
+        });
+    </script>
+
+    <script>
+        $(window).resize(function() {
+            if($(window).width() > 1900) {
+                devicechart.legend.fontSize = 20;
+            }
+
+            else if($(window).width() > 1600) {
+                devicechart.legend.fontSize = 18;
+            }
+            else if($(window).width() > 1400) {
+                devicechart.legend.fontSize = 16;
+            }
+        });
+    </script>
+
+    <script>
+        $(document).load(function() {
+            if($(window).width() > 1900) {
+                devicechart.legend.fontSize = 20;
+            }
+
+            else if($(window).width() > 1600) {
+                devicechart.legend.fontSize = 18;
+            }
+            else if($(window).width() > 1400) {
+                devicechart.legend.fontSize = 16;
             }
         });
     </script>

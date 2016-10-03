@@ -1691,7 +1691,7 @@ function retrieverFeed() {
             console.log(result.error);
         } else {
             var entries = result.feed.entries;
-            console.dir(entries);
+            //console.dir(entries);
             for(var i = 0; i < entries.length; i++){
                 var entry = entries[i];
                 //console.dir(entry);
