@@ -24,7 +24,7 @@ $(document).ready(function(){
 //Set up charts // Init Firebase // Collect data from firebase
 function init(){
 
-    retrieverFeed();
+    //retrieverFeed();
 
     makeMap();
     makeDeviceChart();
@@ -33,10 +33,16 @@ function init(){
     makeWorldChart();
     makeMonthChart();
     makeHourlyVisitsChart();
-    makeRetrieverNationalChart();
-    makeRetrieverInternationalChart();
+    document.getElementById("navbarPageName").innerHTML = $(".active").attr("id");
+    //makeRetrieverNationalChart();
+    //makeRetrieverInternationalChart();
     //makeWeekChart();
     setInterval(getClock, 1000);
+
+    $("#myCarousel").bind('slide.bs.carousel', function (e) {
+        updateNavPageName(e.relatedTarget.id);
+    });
+
     //setTimeout(pageInfo, 1000);
     config = {
         apiKey: "AIzaSyDGxsSprXYHfxsUwvJa74-g3T_JmJmt5kU",
@@ -57,6 +63,10 @@ function loader() {
     document.getElementById("controller").style.opacity = "1.0";
     setTimeout(showPage, 500);
     /*timeout = 4000*/
+}
+
+function updateNavPageName(id) {
+    document.getElementById("navbarPageName").innerHTML = id;
 }
 
 function showPage() {
@@ -96,7 +106,7 @@ function updateEverything(data) {
     setInterval(validateMap, 20000);
     updateMonthChart(data.study.visitorsByMonth);
     updateHourlyVisitsChart(data.innsida.visitors.hourly);
-    updateRetrieverNationalChart(data.retriever.national);
+    //updateRetrieverNationalChart(data.retriever.national);
 }
 
 //------------------Used on more than one page----------//
@@ -715,12 +725,16 @@ function makeHourlyVisitsChart() {
 }
 
 function updateHourlyVisitsChart(data) {
-    hourlyVisitsChart.dataProvider = [
+    /*hourlyVisitsChart.dataProvider = [
         data.zero, data.one, data.two, data.three, data.four, data.five,
         data.six, data.seven, data.eight, data.nine, data.ten, data.eleven,
         data.twelve, data.thirteen, data.fourteen, data.fifteen, data.sixteen, data.seventeen,
         data.eighteen, data.nineteen, data.twenty, data.twentyone, data.twentytwo, data.twentythree
-    ];
+    ];*/
+     hourlyVisitsChart.dataProvider = [
+     data.zero, data.two, data.four, data.six, data.eight, data.ten,
+     data.twelve, data.fourteen, data.sixteen, data.eighteen, data.twenty, data.twentytwo
+     ];
     hourlyVisitsChart.validateData();
 }
 
@@ -1495,7 +1509,7 @@ function updateElement(id, value, type) {
 
 //--------------------Fifth page------------------------//
 //RETRIEVER
-
+/*
 function updateRetrieverNationalChart(data) {
     data.NTNU["color"] = "#FF0F00";
     data.UiO["color"] = "#FF6600";
@@ -1706,7 +1720,7 @@ function retrieverFeed() {
         }
     });
 }
-
+*/
 //--------------------General------------------------//
 //CLOCK
 function getClock() {

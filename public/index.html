@@ -83,7 +83,9 @@
 <body onload="loader()">
     <!-- Header navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <a class="heading" href="index.html"><span>Kommunikasjonsavdelingen </span>liveFeed </a>
+        <a class="heading" href="index.html"><span>Kommunikasjonsavdelingen </span>liveFeed</a>
+        <p class="navbarAddons">/</p>
+        <p class="navbarAddons" id="navbarPageName"></p>
         <div id="clockdiv">
             <canvas id="clock" width="190px" height="50px"></canvas>
         </div>
@@ -129,7 +131,7 @@
         <div class="carousel-inner white">
             <!-- First page -->
             <!-- slideInDown-->
-            <div class="item active animated slideInDown">
+            <div id="ntnu.no" class="item active animated slideInDown">
                     <!-- Left side container -->
                     <div class="panelcontent col-md-8 col-sm-8 col-lg-8 noPadding-left noPadding-right">
                         <!-- Left side first line headlines-->
@@ -250,23 +252,23 @@
                                         <table class="table externalWeb">
                                             <tbody>
                                             <tr>
-                                                <td class="col-xs-1"><h4>#1</h4></td>
+                                                <td class="col-xs-1"><h4>1</h4></td>
                                                 <td><h4 id="popularNO-one"></h4></td>
                                             </tr>
                                             <tr>
-                                                <td class="col-xs-1"><h4>#2</h4></td>
+                                                <td class="col-xs-1"><h4>2</h4></td>
                                                 <td><h4 id="popularNO-two"></h4></td>
                                             </tr>
                                             <tr>
-                                                <td class="col-xs-1"><h4>#3</h4></td>
+                                                <td class="col-xs-1"><h4>3</h4></td>
                                                 <td><h4 id="popularNO-three"></h4></td>
                                             </tr>
                                             <tr>
-                                                <td class="col-xs-1"><h4>#4</h4></td>
+                                                <td class="col-xs-1"><h4>4</h4></td>
                                                 <td><h4 id="popularNO-four"></h4></td>
                                             </tr>
                                             <tr>
-                                                <td class="col-xs-1"><h4>#5</h4></td>
+                                                <td class="col-xs-1"><h4>5</h4></td>
                                                 <td><h4 id="popularNO-five"></h4></td>
                                             </tr>
                                             </tbody>
@@ -278,23 +280,23 @@
                                         <table class="table externalWeb">
                                             <tbody>
                                             <tr>
-                                                <td class="col-xs-1"><h4>#1</h4></td>
+                                                <td class="col-xs-1"><h4>1</h4></td>
                                                 <td><h4 id="popularEDU-one"></h4></td>
                                             </tr>
                                             <tr>
-                                                <td class="col-xs-1"><h4>#2</h4></td>
+                                                <td class="col-xs-1"><h4>2</h4></td>
                                                 <td><h4 id="popularEDU-two"></h4></td>
                                             </tr>
                                             <tr>
-                                                <td class="col-xs-1"><h4>#3</h4></td>
+                                                <td class="col-xs-1"><h4>3</h4></td>
                                                 <td><h4 id="popularEDU-three"></h4></td>
                                             </tr>
                                             <tr>
-                                                <td class="col-xs-1"><h4>#4</h4></td>
+                                                <td class="col-xs-1"><h4>4</h4></td>
                                                 <td><h4 id="popularEDU-four"></h4></td>
                                             </tr>
                                             <tr>
-                                                <td class="col-xs-1"><h4>#5</h4></td>
+                                                <td class="col-xs-1"><h4>5</h4></td>
                                                 <td><h4 id="popularEDU-five"></h4></td>
                                             </tr>
                                             </tbody>
@@ -326,7 +328,7 @@
             <!-- /First page -->
             <!-- Second page-->
             <!--slideInUp -->
-            <div class="item animated slideInUp">
+            <div id="Study Programs" class="item animated slideInUp">
                 <div class="row special item2description">
                     <div class="col-xs-4">
                         <div class="col-xs-12">Most visited study programs</div>
@@ -344,27 +346,27 @@
                             <table class="table study">
                                 <tbody>
                                 <tr>
-                                    <td class="col-xs-1">#1</td>
+                                    <td class="col-xs-1">1</td>
                                     <td class="col-xs-1"><i class="ion-happy-outline bigArrow green"></i></td>
                                     <td class="col-xs-10" id="study-most-visit-one"></td>
                                 </tr>
                                 <tr>
-                                    <td class="col-xs-1">#2</td>
+                                    <td class="col-xs-1">2</td>
                                     <td class="col-xs-1"><i class="ion-happy-outline bigArrow green"></i></td>
                                     <td class="col-xs-10" id="study-most-visit-two"></td>
                                 </tr>
                                 <tr>
-                                    <td class="col-xs-1">#3</td>
+                                    <td class="col-xs-1">3</td>
                                     <td class="col-xs-1"><i class="ion-happy-outline bigArrow green"></i></td>
                                     <td class="col-xs-10" id="study-most-visit-three"></td>
                                 </tr>
                                 <tr>
-                                    <td class="col-xs-1">#4</td>
+                                    <td class="col-xs-1">4</td>
                                     <td class="col-xs-1"><i class="ion-happy-outline bigArrow green"></i></td>
                                     <td class="col-xs-10" id="study-most-visit-four"></td>
                                 </tr>
                                 <tr>
-                                    <td class="col-xs-1">#5</td>
+                                    <td class="col-xs-1">5</td>
                                     <td class="col-xs-1"><i class="ion-happy-outline bigArrow green"></i></td>
                                     <td class="col-xs-10" id="study-most-visit-five"></td>
                                 </tr>
@@ -377,27 +379,27 @@
                             <table class="table study">
                                 <tbody>
                                 <tr>
-                                    <td class="col-xs-1">#1</td>
+                                    <td class="col-xs-1">1</td>
                                     <td class="col-xs-1"><i class="ion-sad-outline bigArrow red"></i></td>
                                     <td class="col-xs-10" id="study-least-visit-one"></td>
                                 </tr>
                                 <tr>
-                                    <td class="col-xs-1">#2</td>
+                                    <td class="col-xs-1">2</td>
                                     <td class="col-xs-1"><i class="ion-sad-outline bigArrow red"></i></td>
                                     <td class="col-xs-10" id="study-least-visit-two"></td>
                                 </tr>
                                 <tr>
-                                    <td class="col-xs-1">#3</td>
+                                    <td class="col-xs-1">3</td>
                                     <td class="col-xs-1"><i class="ion-sad-outline bigArrow red"></i></td>
                                     <td class="col-xs-10" id="study-least-visit-three"></td>
                                 </tr>
                                 <tr>
-                                    <td class="col-xs-1">#4</td>
+                                    <td class="col-xs-1">4</td>
                                     <td class="col-xs-1"><i class="ion-sad-outline bigArrow red"></i></td>
                                     <td class="col-xs-10" id="study-least-visit-four"></td>
                                 </tr>
                                 <tr>
-                                    <td class="col-xs-1">#5</td>
+                                    <td class="col-xs-1">5</td>
                                     <td class="col-xs-1"><i class="ion-sad-outline bigArrow red"></i></td>
                                     <td class="col-xs-10" id="study-least-visit-five"></td>
                                 </tr>
@@ -410,27 +412,27 @@
                             <table class="table study">
                                 <tbody>
                                 <tr>
-                                    <td class="col-xs-1">#1</td>
+                                    <td class="col-xs-1">1</td>
                                     <td class="col-xs-1"><i id="study-change-one"></i></td>
                                     <td class="col-xs-10" id="study-increasing-one"></td>
                                 </tr>
                                 <tr>
-                                    <td class="col-xs-1">#2</td>
+                                    <td class="col-xs-1">2</td>
                                     <td class="col-xs-1"><i id="study-change-two"></i></td>
                                     <td class="col-xs-10 "id="study-increasing-two"></td>
                                 </tr>
                                 <tr>
-                                    <td class="col-xs-1">#3</td>
+                                    <td class="col-xs-1">3</td>
                                     <td class="col-xs-1"><i id="study-change-three"></i></td>
                                     <td class="col-xs-10 "id="study-increasing-three"></td>
                                 </tr>
                                 <tr>
-                                    <td class="col-xs-1">#4</td>
+                                    <td class="col-xs-1">4</td>
                                     <td class="col-xs-1"><i id="study-change-four"></i></td>
                                     <td class="col-xs-10" id="study-increasing-four"></td>
                                 </tr>
                                 <tr>
-                                    <td class="col-xs-1">#5</td>
+                                    <td class="col-xs-1">5</td>
                                     <td class="col-xs-1"><i id="study-change-five"></i></td>
                                     <td class="col-xs-10" id="study-increasing-five"></td>
                                 </tr>
@@ -462,7 +464,7 @@
             </div>
             <!-- /Second page -->
             <!-- Third page -->
-            <div class="item animated slideInDown">
+            <div id="innsida" class="item animated slideInDown">
                 <!-- Left side container -->
                 <div class="panelcontent col-xs-8 noPadding-left noPadding-right">
                     <!-- Left side first line headlines-->
@@ -536,23 +538,23 @@
                                     <table class="table externalWeb">
                                         <tbody>
                                         <tr>
-                                            <td class="col-xs-1">#1</td>
+                                            <td class="col-xs-1">1</td>
                                             <td id="popularWiki-one"></td>
                                         </tr>
                                         <tr>
-                                            <td class="col-xs-1">#2</td>
+                                            <td class="col-xs-1">2</td>
                                             <td id="popularWiki-two"></td>
                                         </tr>
                                         <tr>
-                                            <td class="col-xs-1">#3</td>
+                                            <td class="col-xs-1">3</td>
                                             <td id="popularWiki-three"></td>
                                         </tr>
                                         <tr>
-                                            <td class="col-xs-1">#4</td>
+                                            <td class="col-xs-1">4</td>
                                             <td id="popularWiki-four"></td>
                                         </tr>
                                         <tr>
-                                            <td class="col-xs-1">#5</td>
+                                            <td class="col-xs-1">5</td>
                                             <td id="popularWiki-five"></td>
                                         </tr>
                                         </tbody>
@@ -564,23 +566,23 @@
                                     <table class="table externalWeb">
                                         <tbody>
                                         <tr>
-                                            <td class="col-xs-1">#1</td>
+                                            <td class="col-xs-1">1</td>
                                             <td id="mostPopularTema-one"></td>
                                         </tr>
                                         <tr>
-                                            <td class="col-xs-1">#2</td>
+                                            <td class="col-xs-1">2</td>
                                             <td id="mostPopularTema-two"></td>
                                         </tr>
                                         <tr>
-                                            <td class="col-xs-1">#3</td>
+                                            <td class="col-xs-1">3</td>
                                             <td id="mostPopularTema-three"></td>
                                         </tr>
                                         <tr>
-                                            <td class="col-xs-1">#4</td>
+                                            <td class="col-xs-1">4</td>
                                             <td id="mostPopularTema-four"></td>
                                         </tr>
                                         <tr>
-                                            <td class="col-xs-1">#5</td>
+                                            <td class="col-xs-1">5</td>
                                             <td id="mostPopularTema-five"></td>
                                         </tr>
                                         </tbody>
@@ -616,23 +618,23 @@
                                     <table class="table externalWeb">
                                         <tbody>
                                         <tr>
-                                            <td class="col-xs-1">#1</td>
+                                            <td class="col-xs-1">1</td>
                                             <td id="leastPopularTema-one"></td>
                                         </tr>
                                         <tr>
-                                            <td class="col-xs-1">#2</td>
+                                            <td class="col-xs-1">2</td>
                                             <td id="leastPopularTema-two"></td>
                                         </tr>
                                         <tr>
-                                            <td class="col-xs-1">#3</td>
+                                            <td class="col-xs-1">3</td>
                                             <td id="leastPopularTema-three"></td>
                                         </tr>
                                         <tr>
-                                            <td class="col-xs-1">#4</td>
+                                            <td class="col-xs-1">4</td>
                                             <td id="leastPopularTema-four"></td>
                                         </tr>
                                         <tr>
-                                            <td class="col-xs-1">#5</td>
+                                            <td class="col-xs-1">5</td>
                                             <td id="leastPopularTema-five"></td>
                                         </tr>
                                         </tbody>
@@ -989,7 +991,7 @@
             <!-- Forth page -->
             <!-- Fifth page -->
             <!--slideInDown -->
-            <div class="item animated slideInDown">
+            <div id="gemini.no" class="item animated slideInDown">
                 <div class="row special item2description">
                     <div class="panelcontent col-xs-12 gemini-description">Top 10 gemini.no last 30 days</div>
                 </div>
@@ -999,7 +1001,7 @@
                             <div class="panel col-xs-12 gemini-box">
                                 <div class="col-xs-10 noPadding">
                                     <div class="row two special item2description gemini">
-                                        <div class="col-xs-1 noPadding-left">#1</div>
+                                        <div class="col-xs-1 noPadding-left">1</div>
                                         <div class="col-xs-11 gemini-headline geminiPad" id="gemini-headline-one"></div>
                                     </div>
                                     <div class="row two special">
@@ -1018,7 +1020,7 @@
                             <div class="panel col-xs-12 gemini-box">
                                 <div class="col-xs-10 noPadding">
                                     <div class="row two special item2description gemini">
-                                        <div class="col-xs-1 noPadding-left">#6</div>
+                                        <div class="col-xs-1 noPadding-left">6</div>
                                         <div class="col-xs-11 gemini-headline geminiPad" id="gemini-headline-six"></div>
                                     </div>
                                     <div class="row two special">
@@ -1041,7 +1043,7 @@
                             <div class="panel col-xs-12 gemini-box">
                                 <div class="col-xs-10 noPadding">
                                     <div class="row two special item2description gemini">
-                                        <div class="col-xs-1 noPadding-left">#2</div>
+                                        <div class="col-xs-1 noPadding-left">2</div>
                                         <div class="col-xs-11 gemini-headline geminiPad" id="gemini-headline-two"></div>
                                     </div>
                                     <div class="row two special">
@@ -1060,7 +1062,7 @@
                             <div class="panel col-xs-12 gemini-box">
                                 <div class="col-xs-10 noPadding">
                                     <div class="row two special item2description gemini">
-                                        <div class="col-xs-1 noPadding-left">#7</div>
+                                        <div class="col-xs-1 noPadding-left">7</div>
                                         <div class="col-xs-11 gemini-headline geminiPad" id="gemini-headline-seven"></div>
                                     </div>
                                     <div class="row two special">
@@ -1083,7 +1085,7 @@
                             <div class="panel col-xs-12 gemini-box">
                                 <div class="col-xs-10 noPadding">
                                     <div class="row two special item2description gemini">
-                                        <div class="col-xs-1 noPadding-left">#3</div>
+                                        <div class="col-xs-1 noPadding-left">3</div>
                                         <div class="col-xs-11 gemini-headline geminiPad" id="gemini-headline-three"></div>
                                     </div>
                                     <div class="row two special">
@@ -1102,7 +1104,7 @@
                             <div class="panel col-xs-12 gemini-box">
                                 <div class="col-xs-10 noPadding">
                                     <div class="row two special item2description gemini">
-                                        <div class="col-xs-1 noPadding-left">#8</div>
+                                        <div class="col-xs-1 noPadding-left">8</div>
                                         <div class="col-xs-11 gemini-headline geminiPad" id="gemini-headline-eight"></div>
                                     </div>
                                     <div class="row two special">
@@ -1125,7 +1127,7 @@
                             <div class="panel col-xs-12 gemini-box">
                                 <div class="col-xs-10 noPadding">
                                     <div class="row two special item2description gemini">
-                                        <div class="col-xs-1 noPadding-left">#4</div>
+                                        <div class="col-xs-1 noPadding-left">4</div>
                                         <div class="col-xs-11 gemini-headline geminiPad" id="gemini-headline-four"></div>
                                     </div>
                                     <div class="row two special">
@@ -1144,7 +1146,7 @@
                             <div class="panel col-xs-12 gemini-box">
                                 <div class="col-xs-10 noPadding">
                                     <div class="row two special item2description gemini">
-                                        <div class="col-xs-1 noPadding-left">#9</div>
+                                        <div class="col-xs-1 noPadding-left">9</div>
                                         <div class="col-xs-11 gemini-headline geminiPad" id="gemini-headline-nine"></div>
                                     </div>
                                     <div class="row two special">
@@ -1167,7 +1169,7 @@
                             <div class="panel col-xs-12 gemini-box">
                                 <div class="col-xs-10 noPadding">
                                     <div class="row two special item2description gemini">
-                                        <div class="col-xs-1 noPadding-left">#5</div>
+                                        <div class="col-xs-1 noPadding-left">5</div>
                                         <div class="col-xs-11 gemini-headline geminiPad" id="gemini-headline-five"></div>
                                     </div>
                                     <div class="row two special">
@@ -1186,7 +1188,7 @@
                             <div class="panel col-xs-12 gemini-box">
                                 <div class="col-xs-10 noPadding">
                                     <div class="row two special item2description gemini">
-                                        <div class="col-xs-1 noPadding-left">#10</div>
+                                        <div class="col-xs-1 noPadding-left">10</div>
                                         <div class="col-xs-11 gemini-headline geminiPad" id="gemini-headline-ten"></div>
                                     </div>
                                     <div class="row two special">
@@ -1260,6 +1262,7 @@
             </div>
             -->
             <!-- /Sixth page -->
+            <!--
             <div class="item animated slideInUp">
                 <div class="row special item2description">
                     <div class="col-xs-8">
@@ -1297,7 +1300,7 @@
                 <div class="panelcontent col-xs-4">
                     <div class="col-xs-12 noPadding" id="retrieverFeed"></div>
                 </div>
-            </div>
+            </div>-->
         </div>
     </div>
 
@@ -1352,6 +1355,7 @@
             }
             else if(e.which == 37){
                 $('#myCarousel').carousel('prev');
+
             }
         });
     </script>

@@ -48,6 +48,20 @@ a.heading {
     margin-left: 3%;
 }
 
+.navbarAddons {
+    color: #ffffff !important;
+    display: block;
+    font-size: 24px;
+    font-family: 'Roboto', sans-serif;
+    white-space: nowrap;
+    float: left;
+    outline: none !important;
+    line-height: 60px;
+    text-decoration: none;
+    margin-left: 1%;
+ }
+
+
 /* Color for @ and # */
 span {
     color: #00abff;
@@ -631,7 +645,7 @@ table.extramargin {
     }
 }
 
-@media (min-width: 1600px) {
+@media (min-width: 1600px) and (max-width: 1919px){
     h1 {font-size:3.4vw;}
 
     h2 {font-size: 2vw;}
@@ -650,6 +664,28 @@ table.extramargin {
         margin-top: 1vw !important;
         font-weight: 500;
         font-size: 1.5vw;
+    }
+}
+
+@media (min-width: 1920px) {
+    h1 {font-size:3vw;}
+
+    h2 {font-size: 1.8vw;}
+
+    h3 {font-size: 1.6vw;}
+
+    h4 {font-size: 1.3vw;}
+
+    h5 {font-size:1.1vw;}
+    .browsers h4 {
+        margin-top: 7px !important;
+        margin-bottom: 7px !important;
+    }
+
+    .externalWeb h4 {
+        margin-top: 1vw !important;
+        font-weight: 500;
+        font-size: 1.4vw;
     }
 }
 
