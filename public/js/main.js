@@ -4,6 +4,7 @@
 $(document).ready(function(){
     //charts and map global variables.
     var map;
+    var worldMap;
     var devicechart;
     var innsidaWeekChart;
     //var innsidaVisitorChart;
@@ -26,7 +27,8 @@ function init(){
 
     //retrieverFeed();
 
-    makeMap();
+    //makeMap();
+    makeWorldMap();
     makeDeviceChart();
     makeInnsidaWeekChart();
     /*makeInnsidaVersusCharts();*/
@@ -90,7 +92,7 @@ function updateEverything(data) {
     updateVisitors(data.innsida.visitors, "Innsida");
     updateBrowserTable(data.ew.visitors.browsers);
     updatePopularPages(data.ew.visitors.popularPages);
-    updateMapData(data.ew.visitors.heatmap);
+    //updateMapData(data.ew.visitors.heatmap);
     updateDeviceChart(data.ew.visitors.platform);
     updateInnsidaWeekChart(data.innsida.visitors);
     updateInnsidaPopularPages(data.innsida.popular);
@@ -103,7 +105,7 @@ function updateEverything(data) {
     updateGemini(data.gemini);
     updateWorldChart(data.ew.visitors.worldVisits);
     updateGeminiImages(data.gemini.image);
-    setInterval(validateMap, 20000);
+    //setInterval(validateMap, 20000);
     updateMonthChart(data.study.visitorsByMonth);
     updateHourlyVisitsChart(data.innsida.visitors.hourly);
     //updateRetrieverNationalChart(data.retriever.national);
@@ -138,6 +140,165 @@ function updateIntervalPercentArrows(value, name, page) {
 
 
 //--------------------First page------------------------//
+
+function makeWorldMap() {
+    // svg path for target icon
+    var targetSVG = "M9,0C4.029,0,0,4.029,0,9s4.029,9,9,9s9-4.029,9-9S13.971,0,9,0z M9,15.93 c-3.83,0-6.93-3.1-6.93-6.93S5.17,2.07,9,2.07s6.93,3.1,6.93,6.93S12.83,15.93,9,15.93 M12.5,9c0,1.933-1.567,3.5-3.5,3.5S5.5,10.933,5.5,9S7.067,5.5,9,5.5 S12.5,7.067,12.5,9z";
+
+    worldMap = AmCharts.makeChart( "worldMapDiv", {
+        "type": "map",
+        "theme": "none",
+        "color":"white",
+        "dataProvider": {
+            "map": "worldLow",
+            "zoomLevel": 2.1,
+            "zoomLongitude": 10.399732,
+            "zoomLatitude": 63.4175868,
+
+            "lines": [ {
+                "latitudes": [ 50.4422, 63.4175868 ],
+                "longitudes": [ 30.5367, 10.399732 ],
+            }, {
+                "latitudes": [ 46.9480, 63.4175868 ],
+                "longitudes": [ 7.4481, 10.399732 ]
+            }, {
+                "latitudes": [ 59.3328, 63.4175868 ],
+                "longitudes": [ 18.0645, 10.399732 ]
+            }, {
+                "latitudes": [  40.4167, 63.4175868 ],
+                "longitudes": [ -3.7033, 10.399732 ]
+            }, {
+                "latitudes": [ 46.0514, 63.4175868 ],
+                "longitudes": [ 14.5060, 10.399732 ]
+            }, {
+                "latitudes": [  48.2116, 63.4175868 ],
+                "longitudes": [ 17.1547, 10.399732 ]
+            }, {
+                "latitudes": [ 44.8048, 63.4175868 ],
+                "longitudes": [ 20.4781, 10.399732 ]
+            }, {
+                "latitudes": [ 55.7558, 63.4175868 ],
+                "longitudes": [ 37.6176, 10.399732 ]
+            }, {
+                "latitudes": [ 38.7072, 63.4175868 ],
+                "longitudes": [ -9.1355, 10.399732 ]
+            }, {
+                "latitudes": [ 64.1353, 63.4175868 ],
+                "longitudes": [ -21.8952, 10.399732 ]
+            }, {
+                "latitudes": [ 40.4300, 63.4175868 ],
+                "longitudes": [ -74.0000, 10.399732 ],
+                "thickness": 4
+            } ],
+            "images": [
+                {
+                    "svgPath": targetSVG,
+                    "title": "Trondheim",
+                    "latitude": 63.4175868,
+                    "longitude": 10.399732,
+                    "scale": 1
+                }, {
+                    "svgPath": targetSVG,
+                    "title": "Reykjavik",
+                    "latitude": 64.1353,
+                    "longitude": -21.8952,
+                    "scale": 0.5
+                }, {
+                    "svgPath": targetSVG,
+                    "title": "Lisbon",
+                    "latitude": 38.7072,
+                    "longitude": -9.1355,
+                    "scale": 0.5
+                }, {
+                    "svgPath": targetSVG,
+                    "title": "Moscow",
+                    "latitude": 55.7558,
+                    "longitude": 37.6176,
+                    "scale": 0.5
+                }, {
+                    "svgPath": targetSVG,
+                    "title": "Belgrade",
+                    "latitude": 44.8048,
+                    "longitude": 20.4781,
+                    "scale": 0.5
+                }, {
+                    "svgPath": targetSVG,
+                    "title": "Bratislava",
+                    "latitude": 48.2116,
+                    "longitude": 17.1547,
+                    "scale": 0.5
+                }, {
+                    "svgPath": targetSVG,
+                    "title": "Ljubljana",
+                    "latitude": 46.0514,
+                    "longitude": 14.5060,
+                    "scale": 0.5
+                }, {
+                    "svgPath": targetSVG,
+                    "title": "Madrid",
+                    "latitude": 40.4167,
+                    "longitude": -3.7033,
+                    "scale": 0.5
+                }, {
+                    "svgPath": targetSVG,
+                    "title": "Stockholm",
+                    "latitude": 59.3328,
+                    "longitude": 18.0645,
+                    "scale": 0.5
+                }, {
+                    "svgPath": targetSVG,
+                    "title": "Bern",
+                    "latitude": 46.9480,
+                    "longitude": 7.4481,
+                    "scale": 0.5
+                }, {
+                    "svgPath": targetSVG,
+                    "title": "Kiev",
+                    "latitude": 50.4422,
+                    "longitude": 30.5367,
+                    "scale": 0.5
+                }, {
+                    "svgPath": targetSVG,
+                    "title": "New York",
+                    "latitude": 40.43,
+                    "longitude": -74,
+                    "scale": 0.5
+                } ]
+        },
+
+        "areasSettings": {
+            "unlistedAreasColor": "#03A9FC",
+            "unlistedAreasAlpha": 0.9
+        },
+
+        "imagesSettings": {
+            "color": "#F05576",
+            "rollOverColor": "#F05576",
+            "selectedColor": "#000000"
+        },
+
+        "linesSettings": {
+            "arc": -0.8, // this makes lines curved. Use value from -1 to 1
+            "arrow": "middle",
+            "color": "#F05576",
+            "alpha": 0.7,
+            "arrowAlpha": 1,
+            "arrowSize": 6
+        },
+        /*"zoomControl": {
+            "gridHeight": 100,
+            "draggerAlpha": 1,
+            "gridAlpha": 0.2
+        },*/
+
+        "backgroundZoomsToTop": true,
+        "linesAboveImages": true,
+
+        "export": {
+            "enabled": false
+        }
+    } );
+}
 
 //brute force solution to map bug
 function validateMap() {
@@ -245,6 +406,7 @@ function makeDeviceChart() {
         legend.bulletType = "round";
         legend.equalWidths = false;
         legend.valueWidth = 40;
+        legend.position = "right";
         legend.useGraphSettings = false;
         legend.color = "#FFFFFF";
         legend.fontSize = 15;
@@ -443,11 +605,11 @@ function updatePopularPages(data) {
     document.getElementById("popularNO-four").innerHTML = data.popularNO.four;
     document.getElementById("popularNO-five").innerHTML = data.popularNO.five;
 
-    document.getElementById("popularEDU-one").innerHTML = data.popularEDU.one;
+    /*document.getElementById("popularEDU-one").innerHTML = data.popularEDU.one;
     document.getElementById("popularEDU-two").innerHTML = data.popularEDU.two;
     document.getElementById("popularEDU-three").innerHTML = data.popularEDU.three;
     document.getElementById("popularEDU-four").innerHTML = data.popularEDU.four;
-    document.getElementById("popularEDU-five").innerHTML = data.popularEDU.five;
+    document.getElementById("popularEDU-five").innerHTML = data.popularEDU.five;*/
 }
 
 //--------------------Second page------------------------//

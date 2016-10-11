@@ -208,8 +208,12 @@ div.carousel .fill {
 /* ---------------FIRST PAGE--------------- */
 
 /*Heatmap container*/
-.mapContainer {
+.rightContainer {
     height: 93% !important;
+}
+
+.mapContainer {
+    height: 41.5% !important;
 }
 
 /*Container for rest of page one*/
@@ -218,15 +222,19 @@ div.carousel .fill {
 }
 
 .visitordiv {
-    height: 13% !important;
+    height: 11% !important;
 }
 
 .platformAndBrowsers {
-    height: 37.5% !important;
+    height: 35.5% !important;
 }
 
 .popularSites {
-    height: 37.5% !important;
+    height: 27% !important;
+}
+
+.brokenUrls {
+    height:19.5% !important;
 }
 
 .vertical-center {
@@ -241,7 +249,8 @@ div.carousel .fill {
 
 .currentVisitors-text {
     position: relative;
-    top:10%
+    top: 20%;
+    transform: translateY(-50%);
 }
 
 .visitor-percentage {
@@ -624,24 +633,23 @@ table.extramargin {
 }
 
 @media (min-width: 1440px) and (max-width:1599px) {
-    h1 {font-size:3.4vw;}
+    h1 {font-size: 42px;}
 
-    h2 {font-size: 2vw;}
+    h2 {font-size: 26px;}
 
-    h3 {font-size: 1.75vw;}
+    h3 {font-size: 22px;}
 
-    h4 {font-size: 1.4vw;}
+    h4 {font-size: 16px;}
 
-    h5 {font-size:1.2vw;}
+    h5 {font-size:14px;}
     .browsers h4 {
-        margin-top: 7px !important;
-        margin-bottom: 7px !important;
+        margin-top: 2px;
     }
 
     .externalWeb h4 {
-        margin-top: 1vw !important;
+        margin-top: 2px;
         font-weight: 500;
-        font-size: 1.5vw;
+
     }
 }
 
