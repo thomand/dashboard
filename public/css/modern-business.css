@@ -207,8 +207,12 @@ div.carousel .fill {
 
 /* ---------------FIRST PAGE--------------- */
 
+.totalRow {
+    height: 100% !important;
+}
+
 /*Heatmap container*/
-.rightContainer {
+.firstPageContainer {
     height: 93% !important;
 }
 
@@ -216,10 +220,6 @@ div.carousel .fill {
     height: 41.5% !important;
 }
 
-/*Container for rest of page one*/
-.visitorsNTNU {
-    height: 93% !important;
-}
 
 .visitordiv {
     height: 11% !important;
@@ -231,6 +231,7 @@ div.carousel .fill {
 
 .popularSites {
     height: 27% !important;
+    margin-top:1%;
 }
 
 .brokenUrls {
@@ -241,6 +242,11 @@ div.carousel .fill {
     position: relative;
     top: 20%;
     transform: translateY(-20%);
+}
+
+.margin-top-bottom-one {
+    margin-bottom:1%;
+    margin-top:1%;
 }
 
 .center {
