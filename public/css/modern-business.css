@@ -162,6 +162,10 @@ span {
     height: 100%;
 }
 
+.row.half {
+    height:50%;
+}
+
 .noPadding {
     padding: 0 0 0 0;
 }
@@ -256,6 +260,12 @@ div.carousel .fill {
     margin:0;
 }
 
+.align-bottom {
+    position: relative;
+    top:100%;
+    transform: translateY(-100%);
+}
+
 .align-middle {
     position: relative;
     top:50%;
@@ -268,7 +278,7 @@ div.carousel .fill {
 }
 
 .center {
-    text-align: center;
+    text-align: center !important;
 }
 
 .currentVisitors-text {
