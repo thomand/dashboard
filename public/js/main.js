@@ -18,6 +18,7 @@ $(document).ready(function(){
     var hourlyVisitsChart;
     var nationalChart;
     var internationalChart;
+    var hourlyNTNUVisitsChart;
     init();
 
 });
@@ -29,6 +30,7 @@ function init(){
 
     //makeMap();
     makeWorldMap();
+    makeHourlyNTNUVisitorsChart();
     makeDeviceChart();
     makeInnsidaWeekChart();
     /*makeInnsidaVersusCharts();*/
@@ -108,6 +110,7 @@ function updateEverything(data) {
     //setInterval(validateMap, 20000);
     updateMonthChart(data.study.visitorsByMonth);
     updateHourlyVisitsChart(data.innsida.visitors.hourly);
+    updateHourlyNTNUVisitorsChart(data.innsida.visitors.hourly);
     //updateRetrieverNationalChart(data.retriever.national);
 }
 
@@ -611,6 +614,55 @@ function updatePopularPages(data) {
     document.getElementById("popularEDU-four").innerHTML = data.popularEDU.four;
     document.getElementById("popularEDU-five").innerHTML = data.popularEDU.five;*/
 }
+
+
+function makeHourlyNTNUVisitorsChart() {
+    hourlyNTNUVisitsChart = AmCharts.makeChart("NTNUhourlyVisitorChart", {
+        "type": "radar",
+        "theme": "light",
+        "color":"#FFFFFF",
+        "creditsPosition":"top-right",
+        "dataProvider": [],
+        "valueAxes": [ {
+            "axisTitleOffset": 20,
+            "minimum": 0,
+            "axisAlpha": 0.45,
+            "axisColor":"#FFFFFF",
+            "gridThickness": 2,
+            "gridColor":"#FFFFFF",
+            "labelsEnabled": false
+        } ],
+        "startDuration": 2,
+        "graphs": [ {
+            "balloonText": "On average [[visits]] visits at [[hour]] last 30 days",
+            "bullet": "round",
+            "lineThickness": 4,
+            "valueField": "visits",
+            "bulletColor": "#8BD25F",
+            "lineColor":"#8BD25F",
+            "bulletSize": 4
+        } ],
+        "categoryField": "hour",
+        "export": {
+            "enabled": false
+        }
+    } );
+}
+
+function updateHourlyNTNUVisitorsChart(data) {
+    /*hourlyVisitsChart.dataProvider = [
+     data.zero, data.one, data.two, data.three, data.four, data.five,
+     data.six, data.seven, data.eight, data.nine, data.ten, data.eleven,
+     data.twelve, data.thirteen, data.fourteen, data.fifteen, data.sixteen, data.seventeen,
+     data.eighteen, data.nineteen, data.twenty, data.twentyone, data.twentytwo, data.twentythree
+     ];*/
+    hourlyNTNUVisitsChart.dataProvider = [
+        data.zero, data.two, data.four, data.six, data.eight, data.ten,
+        data.twelve, data.fourteen, data.sixteen, data.eighteen, data.twenty, data.twentytwo
+    ];
+    hourlyNTNUVisitsChart.validateData();
+}
+
 
 //--------------------Second page------------------------//
 
