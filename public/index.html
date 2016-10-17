@@ -255,7 +255,7 @@
                             </div>
                             <div class="row special mapContainer">
                                 <div class="panelcontent col-xs-12">
-                                    <div class="panel col-xs-12" id="worldMapDiv"></div>
+                                    <div class="panel col-xs-12 noPadding" id="worldMapDiv"></div>
                                 </div>
                             </div>
                         </div>
@@ -310,32 +310,25 @@
                             </div>
                             <div class="row special brokenUrls">
                                 <div class="panelcontent col-xs-12">
-                                    <div class="panel col-xs-12">
-                                        <div class="row special totalRow">
-                                            <div class="col-xs-3 center align-middle">
-                                                <h1>31</h1>
-                                            </div>
-                                            <div class="col-xs-4 center totalRow">
-                                                <div class="row special half">
-                                                    <div class="col-xs-12 center align-bottom">
-                                                        <h3><i class="ion-arrow-graph-down-right reverse"></i> 20%</h3>
-                                                    </div>
-                                                </div>
-                                                <div class="row special half">
-                                                    <h4 class="align-middle center">Since last week</h4>
-                                                </div>
-                                            </div>
-                                            <div class="col-xs-5 center totalRow">
-                                                <div class="row special half">
-                                                    <div class="col-xs-12 center align-bottom">
-                                                        <h3>137</h3>
-                                                    </div>
-                                                </div>
-                                                <div class="row special half">
-                                                    <h4 class="center align-middle">Clicks last week</h4>
-                                                </div>
-                                            </div>
+                                    <div class="panel col-xs-4">
+                                        <div class="row sixty special visitor-percentage align-middle">
+                                            <div class="panelcontent col-xs-12 center"><h1>47</h1></div>
                                         </div>
+                                        <div class="row special center brokenUrls-text"><h4>Links broken</h4></div>
+                                    </div>
+                                    <div class="panel col-xs-4">
+                                        <div class="row sixty special visitor-percentage align-bottom center">
+                                            <div class="panelcontent col-xs-3 align-left noPadding"><h2><i class="ion-arrow-graph-down-right reverse"></i></h2></div>
+                                            <div class="panelcontent col-xs-5 noPadding align-right"><h2>25</h2></div>
+                                            <div class="panelcontent col-xs-4"><h2>%</h2></div>
+                                        </div>
+                                        <div class="row special center brokenUrls-text"><h4>Since last week</h4></div>
+                                    </div>
+                                    <div class="panel col-xs-4">
+                                        <div class="row sixty special visitor-percentage align-middle center">
+                                            <div class="panelcontent col-xs-12 center"><h1>257</h1></div>
+                                        </div>
+                                        <div class="row special center brokenUrls-text"><h4>Clicks last week</h4></div>
                                     </div>
                                 </div>
                             </div>
@@ -1442,7 +1435,7 @@
         });
     </script>
 
-    <script>
+    <!--<script>
         $(document).load(function() {
             if($(window).width() > 1900) {
                 devicechart.legend.fontSize = 20;
@@ -1455,14 +1448,14 @@
                 devicechart.legend.fontSize = 16;
             }
         });
-    </script>
+    </script>-->
 
     <script>
         $('body').flowtype({
-            minimum   : 500,
-            maximum   : 1200,
-            minFont   : 12,
-            maxFont   : 40,
+            minimum   : 1000,
+            maximum   : 1920,
+            minFont   : 10,
+            maxFont   : 16,
             fontRatio : 30
         });
     </script>

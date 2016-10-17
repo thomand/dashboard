@@ -621,7 +621,7 @@ function makeHourlyNTNUVisitorsChart() {
         "type": "radar",
         "theme": "light",
         "color":"#FFFFFF",
-        "creditsPosition":"top-right",
+        "creditsPosition":"bottom-left",
         "dataProvider": [],
         "valueAxes": [ {
             "axisTitleOffset": 20,

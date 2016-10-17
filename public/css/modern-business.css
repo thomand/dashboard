@@ -17,11 +17,22 @@ body {
     background-size: cover;
     font-family: 'Roboto', sans-serif;
     padding-top: 35px;
+    font-size:14px;
+
 }
+
+/*TODO: SET MEDIA QUERY FONT SIZE. FLOWTYPE FIX REST?*/
+
+h1 { font-size: 1.9em; }
+h2 { font-size: 1.7em; }
+h3 { font-size: 1.4em; }
+h4 { font-size: 1em; }
+h5 { font-size: 1em; }
 
 h1, h2, h3, h4, h5, h6 {
     margin-bottom: 0;
     margin-top:0;
+
 }
 .pageInfo {
     position: absolute;
@@ -219,6 +230,10 @@ div.carousel .fill {
     height: 100% !important;
 }
 
+.row.sixty {
+    height:60%;
+}
+
 /*Heatmap container*/
 .firstPageContainer {
     height: 93% !important;
@@ -252,24 +267,30 @@ div.carousel .fill {
     transform: translateY(-20%);
 }
 
-.row.ten {
-    height:10%;
-}
 
 .noMargin {
     margin:0;
 }
 
-.align-bottom {
-    position: relative;
-    top:100%;
-    transform: translateY(-100%);
-}
 
 .align-middle {
     position: relative;
     top:50%;
     transform: translateY(-50%);
+}
+
+.align-right {
+    text-align: right;
+}
+
+.align-left {
+    text-align:left;
+}
+
+.align-bottom {
+    position:relative;
+    top:70%;
+    transform: translateY(-70%);
 }
 
 .margin-top-bottom-one {
@@ -312,6 +333,13 @@ div.carousel .fill {
     position: relative;
     top: 30%;
     transform: translateY(-50%);
+}
+
+.brokenUrls-text {
+    text-align: center;
+    position: relative;
+    top: 20%;
+    transform: translateY(-20%);
 }
 
 
@@ -635,8 +663,8 @@ table.extramargin {
 }
 /*Tweeked for special breakpoint in this design*/
 /* Extra large devices (large desktops, 1200px and up) xl*/
-@media (min-width: 1270px) and (max-width: 1439px){
-
+/*@media (min-width: 1270px) and (max-width: 1439px){
+*/
     /*TODO: FIX FONT-SIZE MESS!! */
     /*.heading { font-size: 24px;}
     .italic { font-size:0.9vw; }
@@ -660,12 +688,12 @@ table.extramargin {
     .visitor-percentage { font-size: 24px; }
 
     .visitors { font-size: 40px; }*/
-    h3 {
+    /*h3 {
         font-size: 22px;
     }
 
-}
-
+}*/
+/*
 @media (min-width: 1440px) and (max-width:1599px) {
     h1 {font-size: 42px;}
 
@@ -729,7 +757,7 @@ table.extramargin {
         font-weight: 500;
         font-size: 1.4vw;
     }
-}
+}*/
 
 /* CONTROL PANEL */
 
