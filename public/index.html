@@ -89,7 +89,7 @@
     <!-- Header navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <a class="heading" href="index.html"><span>Kommunikasjonsavdelingen </span>liveFeed</a>
-        <p class="navbarAddons">/</p>
+        <p class="navbarAddons" id="navbarSlash">/</p>
         <p class="navbarAddons" id="navbarPageName"></p>
         <div id="clockdiv">
             <canvas id="clock" width="190px" height="50px"></canvas>
@@ -109,6 +109,10 @@
     <section id="notifier">
         <div class="white"><i class="ion-arrow-left-b"></i>        Use keyboard arrows or control panel at the bottom of the screen to navigate        <i class="ion-arrow-right-b"></i></div>
         <div class="white" id="notifier-small">(A new page will appear every 45 seconds if you don't)</div>
+    </section>
+    <section id="SmallScreenNotifier" style="margin-top: 20%">
+        <div class="center white">Please use a device with a bigger screen</div>
+        <div class="center white">(or try landscape mode if your on a mobile device)</div>
     </section>
     <section class="pageInfo animated zoomIn" id="firstPageInfo" style="display:none">
         <div class="white">Statistics for ntnu.no and ntnu.edu</div>
@@ -161,7 +165,7 @@
                                     </div>
                                 </div>
                                 <div class="panelcontent col-xs-8">
-                                    <div class="panel col-xs-4">
+                                    <div class="panel col-xs-4 noPadding-left noPadding-right">
                                         <div class="row two special visitor-percentage">
                                             <div class="panelcontent col-xs-3 middle"><h2><i id="weekArrowExternal"></i></h2></div>
                                             <div class="panelcontent col-xs-5 middle"><h2 id="changeWeekExternal"></h2></div>
@@ -169,7 +173,7 @@
                                         </div>
                                         <div class="row special weekMonthYear-text"><h4>Since last week</h4></div>
                                     </div>
-                                    <div class="panel col-xs-4">
+                                    <div class="panel col-xs-4 noPadding-left noPadding-right">
                                         <div class="row two special visitor-percentage">
                                             <div class="panelcontent col-xs-3 middle"><h2><i id="monthArrowExternal"></i></h2></div>
                                             <div class="panelcontent col-xs-5 middle"><h2 id="changeMonthExternal"></h2></div>
@@ -177,7 +181,7 @@
                                         </div>
                                         <div class="row special weekMonthYear-text"><h4>Since last month</h4></div>
                                     </div>
-                                    <div class="panel col-xs-4">
+                                    <div class="panel col-xs-4 noPadding-left noPadding-right">
                                         <div class="row two special visitor-percentage">
                                             <div class="panelcontent col-xs-3 middle"><h2><i id="yearArrowExternal"></i></h2></div>
                                             <div class="panelcontent col-xs-5 middle"><h2 id="changeYearExternal"></h2></div>
@@ -203,43 +207,43 @@
                                 <!-- Browser table-->
                                 <div class="panelcontent col-xs-6" >
                                     <div class="panel col-xs-12">
-                                        <table class="table browsers">
+                                        <table class="table">
                                             <tbody>
                                             <tr>
-                                                <td class="col-xs-1"><h4 id="browserLogoOne"></h4></td>
-                                                <td class="col-xs-5"><h4 id="browserNameOne"></h4></td>
-                                                <td class="col-xs-2 float-right"><h4 id="browserNumOne"></h4></td>
-                                                <td class="col-xs-3 float-right"><h4 id="browserPercentOne"></h4></td>
+                                                <td class="col-xs-1"><h5 id="browserLogoOne"></h5></td>
+                                                <td class="col-xs-5"><h5 id="browserNameOne"></h5></td>
+                                                <td class="col-xs-2 float-right"><h5 id="browserNumOne"></h5></td>
+                                                <td class="col-xs-3 float-right"><h5 id="browserPercentOne"></h5></td>
                                             </tr>
                                             <tr>
-                                                <td class="col-xs-1"><h4 id="browserLogoTwo"></h4></td>
-                                                <td class="col-xs-5"><h4 id="browserNameTwo"></h4></td>
-                                                <td class="col-xs-2 float-right"><h4 id="browserNumTwo"></h4></td>
-                                                <td class="col-xs-3 float-right"><h4 id="browserPercentTwo"></h4></td>
+                                                <td class="col-xs-1"><h5 id="browserLogoTwo"></h5></td>
+                                                <td class="col-xs-5"><h5 id="browserNameTwo"></h5></td>
+                                                <td class="col-xs-2 float-right"><h5 id="browserNumTwo"></h5></td>
+                                                <td class="col-xs-3 float-right"><h5 id="browserPercentTwo"></h5></td>
                                             </tr>
                                             <tr>
-                                                <td class="col-xs-1"><h4 id="browserLogoThree"></h4></td>
-                                                <td class="col-xs-5"><h4 id="browserNameThree"></h4></td>
-                                                <td class="col-xs-2 float-right"><h4 id="browserNumThree"></h4></td>
-                                                <td class="col-xs-3 float-right"><h4 id="browserPercentThree"></h4></td>
+                                                <td class="col-xs-1"><h5 id="browserLogoThree"></h5></td>
+                                                <td class="col-xs-5"><h5 id="browserNameThree"></h5></td>
+                                                <td class="col-xs-2 float-right"><h5 id="browserNumThree"></h5></td>
+                                                <td class="col-xs-3 float-right"><h5 id="browserPercentThree"></h5></td>
                                             </tr>
                                             <tr>
-                                                <td class="col-xs-1"><h4 id="browserLogoFour"></h4></td>
-                                                <td class="col-xs-5"><h4 id="browserNameFour"></h4></td>
-                                                <td class="col-xs-2 float-right"><h4 id="browserNumFour"></h4></td>
-                                                <td class="col-xs-3 float-right"><h4 id="browserPercentFour"></h4></td>
+                                                <td class="col-xs-1"><h5 id="browserLogoFour"></h5></td>
+                                                <td class="col-xs-5"><h5 id="browserNameFour"></h5></td>
+                                                <td class="col-xs-2 float-right"><h5 id="browserNumFour"></h5></td>
+                                                <td class="col-xs-3 float-right"><h5 id="browserPercentFour"></h5></td>
                                             </tr>
                                             <tr>
-                                                <td class="col-xs-1"><h4 id="browserLogoFive"></h4></td>
-                                                <td class="col-xs-5"><h4 id="browserNameFive"></h4></td>
-                                                <td class="col-xs-2 float-right"><h4 id="browserNumFive"></h4></td>
-                                                <td class="col-xs-3 float-right"><h4 id="browserPercentFive"></h4></td>
+                                                <td class="col-xs-1"><h5 id="browserLogoFive"></h5></td>
+                                                <td class="col-xs-5"><h5 id="browserNameFive"></h5></td>
+                                                <td class="col-xs-2 float-right"><h5 id="browserNumFive"></h5></td>
+                                                <td class="col-xs-3 float-right"><h5 id="browserPercentFive"></h5></td>
                                             </tr>
                                             <tr>
-                                                <td class="col-xs-1"><h4 id="browserLogoSix"></h4></td>
-                                                <td class="col-xs-5"><h4 id="browserNameSix"></h4></td>
-                                                <td class="col-xs-2 float-right"><h4 id="browserNumSix"></h4></td>
-                                                <td class="col-xs-3 float-right"><h4 id="browserPercentSix"></h4></td>
+                                                <td class="col-xs-1"><h5 id="browserLogoSix"></h5></td>
+                                                <td class="col-xs-5"><h5 id="browserNameSix"></h5></td>
+                                                <td class="col-xs-2 float-right"><h5 id="browserNumSix"></h5></td>
+                                                <td class="col-xs-3 float-right"><h5 id="browserPercentSix"></h5></td>
                                             </tr>
                                             </tbody>
                                         </table>
@@ -274,27 +278,27 @@
                             <div class="row special popularSites">
                                 <div class="panelcontent col-xs-12">
                                     <div class="panel col-xs-12">
-                                        <table class="table externalWeb">
+                                        <table class="table">
                                             <tbody>
                                             <tr>
-                                                <td class="col-xs-1"><h4>1</h4></td>
-                                                <td><h4 id="popularNO-one"></h4></td>
+                                                <td class="col-xs-1"><h5>1</h5></td>
+                                                <td><h5 id="popularNO-one"></h5></td>
                                             </tr>
                                             <tr>
-                                                <td class="col-xs-1"><h4>2</h4></td>
-                                                <td><h4 id="popularNO-two"></h4></td>
+                                                <td class="col-xs-1"><h5>2</h5></td>
+                                                <td><h5 id="popularNO-two"></h5></td>
                                             </tr>
                                             <tr>
-                                                <td class="col-xs-1"><h4>3</h4></td>
-                                                <td><h4 id="popularNO-three"></h4></td>
+                                                <td class="col-xs-1"><h5>3</h5></td>
+                                                <td><h5 id="popularNO-three"></h5></td>
                                             </tr>
                                             <tr>
-                                                <td class="col-xs-1"><h4>4</h4></td>
-                                                <td><h4 id="popularNO-four"></h4></td>
+                                                <td class="col-xs-1"><h5>4</h5></td>
+                                                <td><h5 id="popularNO-four"></h5></td>
                                             </tr>
                                             <tr>
-                                                <td class="col-xs-1"><h4>5</h4></td>
-                                                <td><h4 id="popularNO-five"></h4></td>
+                                                <td class="col-xs-1"><h5>5</h5></td>
+                                                <td><h5 id="popularNO-five"></h5></td>
                                             </tr>
                                             </tbody>
                                         </table>
@@ -314,21 +318,21 @@
                                         <div class="row sixty special visitor-percentage align-middle">
                                             <div class="panelcontent col-xs-12 center"><h1>47</h1></div>
                                         </div>
-                                        <div class="row special center brokenUrls-text"><h4>Links broken</h4></div>
+                                        <div class="row special center brokenUrls-text noPadding-left noPadding-right"><h6>Links broken</h6></div>
                                     </div>
-                                    <div class="panel col-xs-4">
+                                    <div class="panel col-xs-4 noPadding-right noPadding-left">
                                         <div class="row sixty special visitor-percentage align-bottom center">
-                                            <div class="panelcontent col-xs-3 align-left noPadding"><h2><i class="ion-arrow-graph-down-right reverse"></i></h2></div>
-                                            <div class="panelcontent col-xs-5 noPadding align-right"><h2>25</h2></div>
+                                            <div class="panelcontent col-xs-3 noPadding"><h2><i class="ion-arrow-graph-down-right reverse"></i></h2></div>
+                                            <div class="panelcontent col-xs-5 align-right"><h2>25</h2></div>
                                             <div class="panelcontent col-xs-4"><h2>%</h2></div>
                                         </div>
-                                        <div class="row special center brokenUrls-text"><h4>Since last week</h4></div>
+                                        <div class="row special center brokenUrls-text"><h6>Since last week</h6></div>
                                     </div>
-                                    <div class="panel col-xs-4">
+                                    <div class="panel col-xs-4 noPadding-right noPadding-left">
                                         <div class="row sixty special visitor-percentage align-middle center">
                                             <div class="panelcontent col-xs-12 center"><h1>257</h1></div>
                                         </div>
-                                        <div class="row special center brokenUrls-text"><h4>Clicks last week</h4></div>
+                                        <div class="row special center brokenUrls-text"><h6>Clicks last week</h6></div>
                                     </div>
                                 </div>
                             </div>
@@ -1424,19 +1428,31 @@
         $(window).resize(function() {
             if($(window).width() > 1900) {
                 devicechart.legend.fontSize = 20;
+                imgSize = $(window).width() /100;
             }
 
             else if($(window).width() > 1600) {
                 devicechart.legend.fontSize = 18;
+                imgSize = $(window).width() /100;
             }
             else if($(window).width() > 1400) {
                 devicechart.legend.fontSize = 16;
+                imgSize = $(window).width() /100;
+            }
+            else if ($(window).width() > 1200) {
+                devicechart.legend.fontSize = 14;
+                imgSize = $(window).width() /100;
+            }
+            else {
+                devicechart.legend.fontSize = 12;
+                imgSize = $(window).width() /100;
             }
         });
     </script>
 
-    <!--<script>
+    <script>
         $(document).load(function() {
+            //TODO: Figure out how to set initial font size of devicechart. Works on resize.
             if($(window).width() > 1900) {
                 devicechart.legend.fontSize = 20;
             }
@@ -1446,16 +1462,22 @@
             }
             else if($(window).width() > 1400) {
                 devicechart.legend.fontSize = 16;
+
+            }
+            else {
+                console.log("heisann");
+                devicechart.legend.fontSize = 12;
             }
         });
-    </script>-->
+
+    </script>
 
     <script>
         $('body').flowtype({
             minimum   : 1000,
             maximum   : 1920,
             minFont   : 10,
-            maxFont   : 16,
+            maxFont   : 19,
             fontRatio : 30
         });
     </script>

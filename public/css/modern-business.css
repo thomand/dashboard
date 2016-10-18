@@ -23,11 +23,11 @@ body {
 
 /*TODO: SET MEDIA QUERY FONT SIZE. FLOWTYPE FIX REST?*/
 
-h1 { font-size: 1.9em; }
+/*h1 { font-size: 1.9em; }
 h2 { font-size: 1.7em; }
 h3 { font-size: 1.4em; }
 h4 { font-size: 1em; }
-h5 { font-size: 1em; }
+h5 { font-size: 1em; }*/
 
 h1, h2, h3, h4, h5, h6 {
     margin-bottom: 0;
@@ -220,6 +220,8 @@ div.carousel .fill {
     background-position: center;
     background-size: cover;
 }
+
+
 /*------------------------------------------------*/
 
 
@@ -240,7 +242,7 @@ div.carousel .fill {
 }
 
 .mapContainer {
-    height: 41.5% !important;
+    height: 42.5% !important;
 }
 
 
@@ -253,12 +255,12 @@ div.carousel .fill {
 }
 
 .popularSites {
-    height: 27% !important;
+    height: 29% !important;
     margin-top:1%;
 }
 
 .brokenUrls {
-    height:19.5% !important;
+    height:17.5% !important;
 }
 
 .vertical-center {
@@ -304,7 +306,7 @@ div.carousel .fill {
 
 .currentVisitors-text {
     position: relative;
-    top: 20%;
+    top: 30%;
     transform: translateY(-50%);
 }
 
@@ -642,122 +644,111 @@ table.extramargin {
 /*SCREEN WIDTH BREAK POINTS*/
 
 /* Extra small devices (portrait phones, less than 544px) xs*/
-@media (max-width: 543px) {
+@media (min-width: 320px) and (max-width: 1023px){
+    #myCarousel {
+        display:none !important;
+    }
 
+    #SmallScreenNotifier {
+        display:block;
+    }
+
+    #navbarPageName, #navbarSlash, #notifier, #wrapper, #clockdiv {
+        display:none !important;
+    }
 
 
 }
-/* Small devices (landscape phones, 544px and up) sm*/
-@media (min-width: 544px) and (max-width: 767px) {
+
+@media (min-width: 1024px) and (max-width: 1174px) {
+    #myCarousel { display:block; }
+    #SmallScreenNotifier { display:none; }
+    h1 { font-size: 1.3em; }
+    h2 { font-size: 1em; }
+    h3 { font-size: 0.85em; }
+    h4 { font-size: 0.75em; }
+    h5 { font-size: 0.8em; }
+    h6 { font-size: 0.65em; }
 
 }
 
-/* Medium devices (tablets, 768px and up) md */
-@media (min-width: 768px) and (max-width: 991px) {
-
-}
-/* Large devices (desktops, 992px and up) lg */
-
-@media (min-width: 992px) and (max-width: 1269px) {
-
-}
-/*Tweeked for special breakpoint in this design*/
-/* Extra large devices (large desktops, 1200px and up) xl*/
-/*@media (min-width: 1270px) and (max-width: 1439px){
-*/
-    /*TODO: FIX FONT-SIZE MESS!! */
-    /*.heading { font-size: 24px;}
-    .italic { font-size:0.9vw; }
-    .table.study-ITW { font-size: 1.1vw; }
-    .last-week { font-size:1.1vw; }
-    .currentVisitors-text { font-size: 1.1vw; }
-    .weekMonthYear-text { font-size:1.1vw; }
-    .browsers { font-size: 1.18vw; }
-    table.externalWeb { font-size:1.2vw; }
-    .ion-pricetag { font-size: 1.3vw; }
-    .bigArrow { font-size: 1.4vw; }
-    table.study { font-size:1.4vw; }
-    #worldChart { font-size: 1.5vw; }
-    #monthChart { font-size: 1.5vw; }
-
-    .item2description { font-size:24px; }
-
-    .item2description.gemini { font-size: 22px; }
-    .ion-arrow-graph-up-right.reverse { font-size: 24px; }
-    .ion-arrow-graph-down-right.reverse { font-size: 24px; }
-    .visitor-percentage { font-size: 24px; }
-
-    .visitors { font-size: 40px; }*/
-    /*h3 {
-        font-size: 22px;
-    }
-
-}*/
-/*
-@media (min-width: 1440px) and (max-width:1599px) {
-    h1 {font-size: 42px;}
-
-    h2 {font-size: 26px;}
-
-    h3 {font-size: 22px;}
-
-    h4 {font-size: 16px;}
-
-    h5 {font-size:14px;}
-    .browsers h4 {
-        margin-top: 2px;
-    }
-
-    .externalWeb h4 {
-        margin-top: 2px;
-        font-weight: 500;
-
-    }
+@media (min-width: 1175px) and (max-width: 1325px) {
+    #myCarousel { display:block; }
+    #SmallScreenNotifier { display:none; }
+    h1 { font-size: 1.3em; }
+    h2 { font-size: 1.05em; }
+    h3 { font-size: 0.95em; }
+    h4 { font-size: 0.9em; }
+    h5 { font-size: 0.8em; }
+    h6 { font-size: 0.7em; }
 }
 
-@media (min-width: 1600px) and (max-width: 1919px){
-    h1 {font-size:3.4vw;}
-
-    h2 {font-size: 2vw;}
-
-    h3 {font-size: 1.75vw;}
-
-    h4 {font-size: 1.4vw;}
-
-    h5 {font-size:1.2vw;}
-    .browsers h4 {
-        margin-top: 7px !important;
-        margin-bottom: 7px !important;
-    }
-
-    .externalWeb h4 {
-        margin-top: 1vw !important;
-        font-weight: 500;
-        font-size: 1.5vw;
-    }
+@media (min-width: 1326px) and (max-width: 1439px) {
+    #myCarousel { display:block; }
+    #SmallScreenNotifier { display:none; }
+    h1 { font-size: 1.4em; }
+    h2 { font-size: 1.1em; }
+    h3 { font-size: 1.05em; }
+    h4 { font-size: 1em; }
+    h5 { font-size: 0.9em; }
+    h6 { font-size: 0.8em; }
 }
 
-@media (min-width: 1920px) {
-    h1 {font-size:3vw;}
+@media (min-width: 1440px) and (max-width: 1590px) {
+    #myCarousel { display:block; }
+    #SmallScreenNotifier { display:none; }
+    h1 { font-size: 1.5em; }
+    h2 { font-size: 1.2em; }
+    h3 { font-size: 1.1em; }
+    h4 { font-size: 1em; }
+    h5 { font-size: 0.9em; }
+    h6 { font-size: 0.85em; }
+}
 
-    h2 {font-size: 1.8vw;}
+@media (min-width: 1591px) and (max-width: 1741px) {
+    #myCarousel { display:block; }
+    #SmallScreenNotifier { display:none; }
+    h1 { font-size: 1.3em; }
+    h2 { font-size: 1em; }
+    h3 { font-size: 0.85em; }
+    h4 { font-size: 0.7em; }
+    h5 { font-size: 0.6em; }
+    h6 { font-size: 0.65em; }
+}
 
-    h3 {font-size: 1.6vw;}
+@media (min-width: 1742px) and (max-width: 1919px) {
+    #myCarousel { display:block; }
+    #SmallScreenNotifier { display:none; }
+    h1 { font-size: 1.3em; }
+    h2 { font-size: 1em; }
+    h3 { font-size: 0.85em; }
+    h4 { font-size: 0.7em; }
+    h5 { font-size: 0.6em; }
+    h6 { font-size: 0.65em; }
+}
 
-    h4 {font-size: 1.3vw;}
+@media (min-width: 1920px) and (max-width: 2100px) {
+    #myCarousel { display:block; }
+    #SmallScreenNotifier { display:none; }
+    h1 { font-size: 1.3em; }
+    h2 { font-size: 1em; }
+    h3 { font-size: 0.85em; }
+    h4 { font-size: 0.7em; }
+    h5 { font-size: 0.6em; }
+    h6 { font-size: 0.65em; }
+}
 
-    h5 {font-size:1.1vw;}
-    .browsers h4 {
-        margin-top: 7px !important;
-        margin-bottom: 7px !important;
-    }
+@media (min-width: 2101px) {
+    #myCarousel { display:block; }
+    #SmallScreenNotifier { display:none; }
+    h1 { font-size: 1.3em; }
+    h2 { font-size: 1em; }
+    h3 { font-size: 0.85em; }
+    h4 { font-size: 0.7em; }
+    h5 { font-size: 0.6em; }
+    h6 { font-size: 0.65em; }
+}
 
-    .externalWeb h4 {
-        margin-top: 1vw !important;
-        font-weight: 500;
-        font-size: 1.4vw;
-    }
-}*/
 
 /* CONTROL PANEL */
 

@@ -26,6 +26,7 @@ $(document).ready(function(){
 //Set up charts // Init Firebase // Collect data from firebase
 function init(){
 
+    imgSize = $(window).width() / 100;
     //retrieverFeed();
 
     //makeMap();
@@ -92,7 +93,7 @@ function pageInfo() {
 function updateEverything(data) {
     updateVisitors(data.ew.visitors.visitorCount, "External");
     updateVisitors(data.innsida.visitors, "Innsida");
-    updateBrowserTable(data.ew.visitors.browsers);
+    updateBrowserTable(data.ew.visitors.browsers, imgSize);
     updatePopularPages(data.ew.visitors.popularPages);
     //updateMapData(data.ew.visitors.heatmap);
     updateDeviceChart(data.ew.visitors.platform);
@@ -316,7 +317,7 @@ function validateMap() {
 }
 
 //BrowserTable
-function updateBrowserTable(data) {
+function updateBrowserTable(data, imgSize) {
 
     var firefox = data.Firefox;
     var chrome = data.Chrome;
@@ -327,7 +328,7 @@ function updateBrowserTable(data) {
     var array = [firefox, chrome, ie, safari, opera, edge];
     var sorted = array.sort(function(a, b) {return parseInt(a.numbers) - parseInt(b.numbers);});
     var logoStartString = '<img src="img/';
-    var logoEndString = '.svg" height="20" width="20">';
+    var logoEndString = '.svg" height="' + imgSize + '" width="'+ imgSize +'">';
 
     document.getElementById("browserLogoOne").innerHTML = logoStartString + sorted[5].name.toLowerCase() + logoEndString;
     document.getElementById("browserLogoTwo").innerHTML = logoStartString + sorted[4].name.toLowerCase() + logoEndString;
@@ -409,10 +410,11 @@ function makeDeviceChart() {
         legend.bulletType = "round";
         legend.equalWidths = false;
         legend.valueWidth = 40;
+        legend.marginLeft = 0;
         legend.position = "right";
         legend.useGraphSettings = false;
         legend.color = "#FFFFFF";
-        legend.fontSize = 15;
+        legend.fontSize = $(window).width() /100;
         devicechart.addLegend(legend);
 
         // WRITE
@@ -624,13 +626,14 @@ function makeHourlyNTNUVisitorsChart() {
         "creditsPosition":"bottom-left",
         "dataProvider": [],
         "valueAxes": [ {
-            "axisTitleOffset": 20,
+            "axisTitleOffset": 5,
             "minimum": 0,
             "axisAlpha": 0.45,
             "axisColor":"#FFFFFF",
             "gridThickness": 2,
             "gridColor":"#FFFFFF",
-            "labelsEnabled": false
+            "labelsEnabled": false,
+            "fontSize": $(window).width() /100
         } ],
         "startDuration": 2,
         "graphs": [ {
