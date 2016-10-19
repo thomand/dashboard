@@ -111,7 +111,9 @@ function updateEverything(data) {
     //setInterval(validateMap, 20000);
     updateMonthChart(data.study.visitorsByMonth);
     updateHourlyVisitsChart(data.innsida.visitors.hourly);
-    updateHourlyNTNUVisitorsChart(data.innsida.visitors.hourly);
+    updateHourlyNTNUVisitorsChart(data.ew.visitors.hourly);
+    updateBrokenUrls(data.ew.brokenUrls);
+    updateWorldMap(data.ew.visitors.worldMap);
     //updateRetrieverNationalChart(data.retriever.national);
 }
 
@@ -159,9 +161,9 @@ function makeWorldMap() {
             "zoomLongitude": 10.399732,
             "zoomLatitude": 63.4175868,
 
-            "lines": [ {
+            "lines": [ /*{
                 "latitudes": [ 50.4422, 63.4175868 ],
-                "longitudes": [ 30.5367, 10.399732 ],
+                "longitudes": [ 30.5367, 10.399732 ]
             }, {
                 "latitudes": [ 46.9480, 63.4175868 ],
                 "longitudes": [ 7.4481, 10.399732 ]
@@ -193,9 +195,9 @@ function makeWorldMap() {
                 "latitudes": [ 40.4300, 63.4175868 ],
                 "longitudes": [ -74.0000, 10.399732 ],
                 "thickness": 4
-            } ],
+            }*/ ],
             "images": [
-                {
+                /*{
                     "svgPath": targetSVG,
                     "title": "Trondheim",
                     "latitude": 63.4175868,
@@ -267,7 +269,7 @@ function makeWorldMap() {
                     "latitude": 40.43,
                     "longitude": -74,
                     "scale": 0.5
-                } ]
+                }*/ ]
         },
 
         "areasSettings": {
@@ -304,17 +306,38 @@ function makeWorldMap() {
     } );
 }
 
-//brute force solution to map bug
-function validateMap() {
-    var divLength = document.getElementById("mapdiv").innerHTML.length;
-    if (divLength < 100000) {
-        console.log("map needs to be updated. Length " + divLength);
-        map.write("mapdiv");
+function updateWorldMap(data) {
+    var targetSVG = "M9,0C4.029,0,0,4.029,0,9s4.029,9,9,9s9-4.029,9-9S13.971,0,9,0z M9,15.93 c-3.83,0-6.93-3.1-6.93-6.93S5.17,2.07,9,2.07s6.93,3.1,6.93,6.93S12.83,15.93,9,15.93 M12.5,9c0,1.933-1.567,3.5-3.5,3.5S5.5,10.933,5.5,9S7.067,5.5,9,5.5 S12.5,7.067,12.5,9z";
+    var trondheimLat =  63.4175868;
+    var trondheimLng = 10.399732;
+    var Trondheim = {
+        "svgPath": targetSVG,
+        "title": "Trondheim",
+        "latitude": 63.4175868,
+        "longitude": 10.399732,
+        "scale": 1
+    };
+    var places = [];
+    var lines = [];
+    places.push(Trondheim);
+
+    for (var element in data) {
+        var place = data[element];
+        var line = {
+            latitudes : [place.latitude, trondheimLat],
+            longitudes : [place.longitude, trondheimLng]
+        };
+        place.svgPath = targetSVG;
+        places.push(place);
+        lines.push(line);
     }
-    else {
-        console.log("map is showing " + divLength);
-    }
+    worldMap.dataProvider.images = places;
+    worldMap.dataProvider.lines = lines;
+    worldMap.validateData();
+
+
 }
+
 
 //BrowserTable
 function updateBrowserTable(data, imgSize) {
@@ -428,180 +451,6 @@ function updateDeviceChart(data) {
     devicechart.validateData();
 }
 
-//Generate norway HeatMap (user access location)
-function makeMap() {
-
-    AmCharts.ready(function() {
-        map = new AmCharts.AmMap();
-
-        /*NOTE: There is no id NO-13!!!*/
-        map.colorSteps = 10;
-
-        var dataProvider = {
-            mapVar: AmCharts.maps.norwayLow,
-
-
-            areas: [
-                {
-                    id: "NO-02",
-                    value: 0,
-                    description: ""},
-                {
-                    id: "NO-01",
-                    value: 0,
-                    description: ""},
-                {
-                    id: "NO-03",
-                    value: 0,
-                    description: ""},
-                {
-                    id: "NO-04",
-                    value: 0,
-                    description: ""},
-                {
-                    id: "NO-05",
-                    value: 0,
-                    description: ""},
-                {
-                    id: "NO-06",
-                    value: 0,
-                    description: ""},
-                {
-                    id: "NO-07",
-                    value: 0,
-                    description: ""},
-                {
-                    id: "NO-08",
-                    value: 0,
-                    description: ""},
-                {
-                    id: "NO-09",
-                    value: 0,
-                    description: ""},
-                {
-                    id: "NO-10",
-                    value: 0,
-                    description: ""},
-                {
-                    id: "NO-11",
-                    value: 0,
-                    description: ""},
-                {
-                    id: "NO-12",
-                    value: 0,
-                    description: ""},
-                {
-                    id: "NO-14",
-                    value: 0,
-                    description: ""},
-                {
-                    id: "NO-15",
-                    value: 0,
-                    description: ""},
-                {
-                    id: "NO-16",
-                    value: 0,
-                    description: ""},
-                {
-                    id: "NO-17",
-                    value: 0,
-                    description: ""},
-                {
-                    id: "NO-18",
-                    value: 0,
-                    description: ""},
-                {
-                    id: "NO-19",
-                    value: 0,
-                    description: ""},
-                {
-                    id: "NO-20",
-                    value: 0,
-                    description: ""}]
-        };
-
-
-            map.areasSettings = {
-            alpha: 0.8,
-            //color: "#F95372",
-            color: "#00abff",
-            colorSolid: "#8BD22F",
-            unlistedAreasAlpha: 0.4,
-            unlistedAreasColor: "#000000",
-            outlineColor: "#FFFFFF",
-            outlineAlpha: 0.5,
-            outlineThickness: 1,
-            rollOverColor: "#FFFFFF",
-            rollOverOutlineColor: "#FFFFFF",
-            selectedOutlineColor: "#FFFFFF",
-            selectedColor: "#ffffff",
-            unlistedAreasOutlineColor: "#FFFFFF",
-            unlistedAreasOutlineAlpha: 0.5,
-            balloonText: "<strong>[[description]]</strong> of users access <strong>ntnu.no</strong> from [[title]]",
-            autoZoom: true
-        };
-        map.dataProvider = dataProvider;
-
-        var valueLegend = new AmCharts.ValueLegend();
-        valueLegend.right = 10;
-        valueLegend.minValue = "little";
-        valueLegend.maxValue = "a lot!";
-        valueLegend.color = "white";
-        valueLegend.fontSize = 14;
-        map.valueLegend = valueLegend;
-        map.color = "white";
-        map.write("mapdiv");
-    });
-}
-
-//update norway heatMap (user access location)
-function updateMapData(data) {
-    // generate new values
-    map.dataProvider.areas[0].value = data.Akershus.value;
-    map.dataProvider.areas[0].description = data.Akershus.description;
-    map.dataProvider.areas[1].value = data.Ostfold.value;
-    map.dataProvider.areas[1].description = data.Ostfold.description;
-    map.dataProvider.areas[2].value = data.Oslo.value;
-    map.dataProvider.areas[2].description = data.Oslo.description;
-    map.dataProvider.areas[3].value = data.Hedmark.value;
-    map.dataProvider.areas[3].description = data.Hedmark.description;
-    map.dataProvider.areas[4].value = data.Oppland.value;
-    map.dataProvider.areas[4].description = data.Oppland.description;
-    map.dataProvider.areas[5].value = data.Buskerud.value;
-    map.dataProvider.areas[5].description = data.Buskerud.description;
-    map.dataProvider.areas[6].value = data.Vestfold.value;
-    map.dataProvider.areas[6].description = data.Vestfold.description;
-    map.dataProvider.areas[7].value = data.Telemark.value;
-    map.dataProvider.areas[7].description = data.Telemark.description;
-    map.dataProvider.areas[8].value = data.AustAgder.value;
-    map.dataProvider.areas[8].description = data.AustAgder.description;
-    map.dataProvider.areas[9].value = data.VestAgder.value;
-    map.dataProvider.areas[9].description = data.VestAgder.description;
-    map.dataProvider.areas[10].value = data.Rogaland.value;
-    map.dataProvider.areas[10].description = data.Rogaland.description;
-    map.dataProvider.areas[11].value = data.Hordaland.value;
-    map.dataProvider.areas[11].description = data.Hordaland.description;
-    map.dataProvider.areas[12].value = data.SognOgFjordane.value;
-    map.dataProvider.areas[12].description = data.SognOgFjordane.description;
-    map.dataProvider.areas[13].value = data.MoreOgRomsdal.value;
-    map.dataProvider.areas[13].description = data.MoreOgRomsdal.description;
-    map.dataProvider.areas[14].value = data.SorTrondelag.value;
-    map.dataProvider.areas[14].description = data.SorTrondelag.description;
-    map.dataProvider.areas[15].value = data.NordTrondelag.value;
-    map.dataProvider.areas[15].description = data.NordTrondelag.description;
-    map.dataProvider.areas[16].value = data.Nordland.value;
-    map.dataProvider.areas[16].description = data.Nordland.description;
-    map.dataProvider.areas[17].value = data.Troms.value;
-    map.dataProvider.areas[17].description = data.Troms.description;
-    map.dataProvider.areas[18].value = data.Finnmark.value;
-    map.dataProvider.areas[18].description = data.Finnmark.description;
-
-    // update map
-    map.validateNow();
-    map.validateData();
-    map.write("mapdiv")
-}
-
 //Most popular pages / Least popular pages
 function updatePopularPages(data) {
     document.getElementById("popularNO-one").innerHTML = data.popularNO.one;
@@ -609,12 +458,6 @@ function updatePopularPages(data) {
     document.getElementById("popularNO-three").innerHTML = data.popularNO.three;
     document.getElementById("popularNO-four").innerHTML = data.popularNO.four;
     document.getElementById("popularNO-five").innerHTML = data.popularNO.five;
-
-    /*document.getElementById("popularEDU-one").innerHTML = data.popularEDU.one;
-    document.getElementById("popularEDU-two").innerHTML = data.popularEDU.two;
-    document.getElementById("popularEDU-three").innerHTML = data.popularEDU.three;
-    document.getElementById("popularEDU-four").innerHTML = data.popularEDU.four;
-    document.getElementById("popularEDU-five").innerHTML = data.popularEDU.five;*/
 }
 
 
@@ -664,6 +507,21 @@ function updateHourlyNTNUVisitorsChart(data) {
         data.twelve, data.fourteen, data.sixteen, data.eighteen, data.twenty, data.twentytwo
     ];
     hourlyNTNUVisitsChart.validateData();
+}
+
+function updateBrokenUrls(data) {
+    //ion-arrow-graph-down-right reverse
+    var className = "";
+    if (data.lastWeek.change == "up") {
+        className = "ion-arrow-graph-up-right reverse"
+    }
+    else {
+        className = "ion-arrow-graph-down-right reverse";
+    }
+    document.getElementById("brokenArrow").className = className;
+    document.getElementById("linksBroken").innerHTML = data.brokenLinks;
+    document.getElementById("brokenPercent").innerHTML = data.lastWeek.percent;
+    document.getElementById("brokenClicks").innerHTML = data.clicksOnLinks;
 }
 
 

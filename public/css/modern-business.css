@@ -747,7 +747,7 @@ table.extramargin {
     h6 { font-size: 0.85em; }
     table {
         border-collapse:separate !important;
-        border-spacing:0 5px !important;
+        border-spacing:0 3px !important;
     }
 }
 
