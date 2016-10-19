@@ -306,7 +306,7 @@ div.carousel .fill {
 
 .currentVisitors-text {
     position: relative;
-    top: 30%;
+    top: 40%;
     transform: translateY(-50%);
 }
 
@@ -663,35 +663,77 @@ table.extramargin {
 @media (min-width: 1024px) and (max-width: 1174px) {
     #myCarousel { display:block; }
     #SmallScreenNotifier { display:none; }
-    h1 { font-size: 1.3em; }
+    h1 { font-size: 1.35em; }
     h2 { font-size: 1em; }
     h3 { font-size: 0.85em; }
-    h4 { font-size: 0.75em; }
-    h5 { font-size: 0.8em; }
+    h4 { font-size: 0.8em; }
+    h5 { font-size: 0.75em; }
     h6 { font-size: 0.65em; }
+    table {
+        border-collapse:separate !important;
+        border-spacing:0 5px !important;
+    }
 
 }
 
-@media (min-width: 1175px) and (max-width: 1325px) {
+@media (min-width: 1175px) and (max-width: 1325px) and (min-height:1px) and (max-height:799px) {
     #myCarousel { display:block; }
     #SmallScreenNotifier { display:none; }
-    h1 { font-size: 1.3em; }
-    h2 { font-size: 1.05em; }
-    h3 { font-size: 0.95em; }
+    h1 { font-size: 1.45em; }
+    h2 { font-size: 1.1em; }
+    h3 { font-size: 1em; }
     h4 { font-size: 0.9em; }
     h5 { font-size: 0.8em; }
     h6 { font-size: 0.7em; }
+    table {
+        border-collapse:separate !important;
+        border-spacing:0 5px !important;
+    }
+}
+
+@media (min-width: 1175px) and (max-width: 1325px) and (min-height:800px) and (max-height:1023px) {
+    #myCarousel { display:block; }
+    #SmallScreenNotifier { display:none; }
+    h1 { font-size: 1.45em; }
+    h2 { font-size: 1.1em; }
+    h3 { font-size: 1em; }
+    h4 { font-size: 0.9em; }
+    h5 { font-size: 0.8em; }
+    h6 { font-size: 0.7em; }
+    table {
+        border-collapse:separate !important;
+        border-spacing:0 5px !important;
+    }
+}
+
+@media (min-width: 1175px) and (max-width: 1325px) and (min-height:1024px) {
+    #myCarousel { display:block; }
+    #SmallScreenNotifier { display:none; }
+    h1 { font-size: 1.5em; }
+    h2 { font-size: 1.3em; }
+    h3 { font-size: 1.15em; }
+    h4 { font-size: 1.1em; }
+    h5 { font-size: 1.1em; }
+    h6 { font-size: 0.8em; }
+    table {
+        border-collapse:separate !important;
+        border-spacing:0 5px !important;
+    }
 }
 
 @media (min-width: 1326px) and (max-width: 1439px) {
     #myCarousel { display:block; }
     #SmallScreenNotifier { display:none; }
-    h1 { font-size: 1.4em; }
+    h1 { font-size: 1.45em; }
     h2 { font-size: 1.1em; }
     h3 { font-size: 1.05em; }
     h4 { font-size: 1em; }
-    h5 { font-size: 0.9em; }
+    h5 { font-size: 0.85em; }
     h6 { font-size: 0.8em; }
+    table {
+        border-collapse:separate !important;
+        border-spacing:0 3px !important;
+    }
 }
 
 @media (min-width: 1440px) and (max-width: 1590px) {
@@ -703,50 +745,146 @@ table.extramargin {
     h4 { font-size: 1em; }
     h5 { font-size: 0.9em; }
     h6 { font-size: 0.85em; }
+    table {
+        border-collapse:separate !important;
+        border-spacing:0 5px !important;
+    }
 }
 
 @media (min-width: 1591px) and (max-width: 1741px) {
     #myCarousel { display:block; }
     #SmallScreenNotifier { display:none; }
-    h1 { font-size: 1.3em; }
-    h2 { font-size: 1em; }
-    h3 { font-size: 0.85em; }
-    h4 { font-size: 0.7em; }
-    h5 { font-size: 0.6em; }
-    h6 { font-size: 0.65em; }
+    h1 { font-size: 1.6em; }
+    h2 { font-size: 1.3em; }
+    h3 { font-size: 1.2em; }
+    h4 { font-size: 1em; }
+    h5 { font-size: 1em; }
+    h6 { font-size: 0.9em; }
+    table {
+        border-collapse:separate !important;
+        border-spacing:0 3px !important;
+    }
 }
 
 @media (min-width: 1742px) and (max-width: 1919px) {
     #myCarousel { display:block; }
     #SmallScreenNotifier { display:none; }
-    h1 { font-size: 1.3em; }
-    h2 { font-size: 1em; }
-    h3 { font-size: 0.85em; }
-    h4 { font-size: 0.7em; }
-    h5 { font-size: 0.6em; }
-    h6 { font-size: 0.65em; }
+    h1 { font-size: 1.7em; }
+    h2 { font-size: 1.4em; }
+    h3 { font-size: 1.3em; }
+    h4 { font-size: 1.1em; }
+    h5 { font-size: 1.1em; }
+    h6 { font-size: 1em; }
+    table {
+        border-collapse:separate !important;
+        border-spacing:0 3px !important;
+    }
 }
 
-@media (min-width: 1920px) and (max-width: 2100px) {
+@media (min-width: 1920px) and (max-width: 2047px) {
     #myCarousel { display:block; }
     #SmallScreenNotifier { display:none; }
-    h1 { font-size: 1.3em; }
-    h2 { font-size: 1em; }
-    h3 { font-size: 0.85em; }
-    h4 { font-size: 0.7em; }
-    h5 { font-size: 0.6em; }
-    h6 { font-size: 0.65em; }
+    h1 { font-size: 2em; }
+    h2 { font-size: 1.7em; }
+    h3 { font-size: 1.5em; }
+    h4 { font-size: 1.4em; }
+    h5 { font-size: 1.4em; }
+    h6 { font-size: 1.1em; }
+    table {
+        border-collapse:separate !important;
+        border-spacing:0 5px !important;
+    }
 }
 
-@media (min-width: 2101px) {
+@media (min-width: 2048px) and (max-width: 2198px) {
     #myCarousel { display:block; }
     #SmallScreenNotifier { display:none; }
-    h1 { font-size: 1.3em; }
-    h2 { font-size: 1em; }
-    h3 { font-size: 0.85em; }
-    h4 { font-size: 0.7em; }
-    h5 { font-size: 0.6em; }
-    h6 { font-size: 0.65em; }
+    h1 { font-size: 2.1em; }
+    h2 { font-size: 1.8em; }
+    h3 { font-size: 1.6em; }
+    h4 { font-size: 1.4em; }
+    h5 { font-size: 1.55em; }
+    h6 { font-size: 1.2em; }
+    table {
+        border-collapse:separate !important;
+        border-spacing:0 5px !important;
+    }
+}
+
+@media (min-width: 2199px) and (max-width: 2349px){
+    #myCarousel { display:block; }
+    #SmallScreenNotifier { display:none; }
+    h1 { font-size: 2.2em; }
+    h2 { font-size: 1.9em; }
+    h3 { font-size: 1.7em; }
+    h4 { font-size: 1.5em; }
+    h5 { font-size: 1.6em; }
+    h6 { font-size: 1.3em; }
+    table {
+        border-collapse:separate !important;
+        border-spacing:0 5px !important;
+    }
+}
+
+@media (min-width: 2350px) and (min-height:100px) and (max-height:1152px){
+    #myCarousel { display:block; }
+    #SmallScreenNotifier { display:none; }
+    h1 { font-size: 2.3em; }
+    h2 { font-size: 2em; }
+    h3 { font-size: 1.8em; }
+    h4 { font-size: 1.6em; }
+    h5 { font-size: 1.7em; }
+    h6 { font-size: 1.4em; }
+    table {
+        border-collapse:separate !important;
+        border-spacing:0 5px !important;
+    }
+}
+
+@media (min-width: 2350px) and (min-height:1152px){
+    #myCarousel { display:block; }
+    #SmallScreenNotifier { display:none; }
+    h1 { font-size: 2.3em; }
+    h2 { font-size: 2em; }
+    h3 { font-size: 1.8em; }
+    h4 { font-size: 1.6em; }
+    h5 { font-size: 1.7em; }
+    h6 { font-size: 1.4em; }
+    table {
+        border-collapse:separate !important;
+        border-spacing:0 5px !important;
+    }
+}
+
+
+@media (min-width: 2350px) and (min-height:1153px) and (max-height: 1439px){
+    #myCarousel { display:block; }
+    #SmallScreenNotifier { display:none; }
+    h1 { font-size: 2.3em; }
+    h2 { font-size: 2em; }
+    h3 { font-size: 1.8em; }
+    h4 { font-size: 1.6em; }
+    h5 { font-size: 1.7em; }
+    h6 { font-size: 1.4em; }
+    table {
+        border-collapse:separate !important;
+        border-spacing:0 5px !important;
+    }
+}
+
+@media (min-width: 2350px) and (min-height:1440px){
+    #myCarousel { display:block; }
+    #SmallScreenNotifier { display:none; }
+    h1 { font-size: 2.5em; }
+    h2 { font-size: 2.2em; }
+    h3 { font-size: 2em; }
+    h4 { font-size: 1.7em; }
+    h5 { font-size: 1.9em; }
+    h6 { font-size: 1.6em; }
+    table {
+        border-collapse:separate !important;
+        border-spacing:0 10px !important;
+    }
 }
 
 

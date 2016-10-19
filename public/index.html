@@ -205,45 +205,45 @@
                                     <div class="panel col-xs-12" id="devicediv"></div>
                                 </div>
                                 <!-- Browser table-->
-                                <div class="panelcontent col-xs-6" >
+                                <div class="panelcontent col-xs-6">
                                     <div class="panel col-xs-12">
                                         <table class="table">
                                             <tbody>
-                                            <tr>
+                                            <tr class="table-row">
                                                 <td class="col-xs-1"><h5 id="browserLogoOne"></h5></td>
-                                                <td class="col-xs-5"><h5 id="browserNameOne"></h5></td>
+                                                <td class="col-xs-7"><h5 id="browserNameOne"></h5></td>
                                                 <td class="col-xs-2 float-right"><h5 id="browserNumOne"></h5></td>
-                                                <td class="col-xs-3 float-right"><h5 id="browserPercentOne"></h5></td>
+                                                <td class="col-xs-2 float-right"><h5 id="browserPercentOne"></h5></td>
                                             </tr>
-                                            <tr>
+                                            <tr class="table-row">
                                                 <td class="col-xs-1"><h5 id="browserLogoTwo"></h5></td>
-                                                <td class="col-xs-5"><h5 id="browserNameTwo"></h5></td>
+                                                <td class="col-xs-7"><h5 id="browserNameTwo"></h5></td>
                                                 <td class="col-xs-2 float-right"><h5 id="browserNumTwo"></h5></td>
-                                                <td class="col-xs-3 float-right"><h5 id="browserPercentTwo"></h5></td>
+                                                <td class="col-xs-2 float-right"><h5 id="browserPercentTwo"></h5></td>
                                             </tr>
-                                            <tr>
+                                            <tr class="table-row">
                                                 <td class="col-xs-1"><h5 id="browserLogoThree"></h5></td>
-                                                <td class="col-xs-5"><h5 id="browserNameThree"></h5></td>
+                                                <td class="col-xs-7"><h5 id="browserNameThree"></h5></td>
                                                 <td class="col-xs-2 float-right"><h5 id="browserNumThree"></h5></td>
-                                                <td class="col-xs-3 float-right"><h5 id="browserPercentThree"></h5></td>
+                                                <td class="col-xs-2 float-right"><h5 id="browserPercentThree"></h5></td>
                                             </tr>
-                                            <tr>
+                                            <tr class="table-row">
                                                 <td class="col-xs-1"><h5 id="browserLogoFour"></h5></td>
-                                                <td class="col-xs-5"><h5 id="browserNameFour"></h5></td>
+                                                <td class="col-xs-7"><h5 id="browserNameFour"></h5></td>
                                                 <td class="col-xs-2 float-right"><h5 id="browserNumFour"></h5></td>
-                                                <td class="col-xs-3 float-right"><h5 id="browserPercentFour"></h5></td>
+                                                <td class="col-xs-2 float-right"><h5 id="browserPercentFour"></h5></td>
                                             </tr>
-                                            <tr>
+                                            <tr class="table-row">
                                                 <td class="col-xs-1"><h5 id="browserLogoFive"></h5></td>
-                                                <td class="col-xs-5"><h5 id="browserNameFive"></h5></td>
+                                                <td class="col-xs-7"><h5 id="browserNameFive"></h5></td>
                                                 <td class="col-xs-2 float-right"><h5 id="browserNumFive"></h5></td>
-                                                <td class="col-xs-3 float-right"><h5 id="browserPercentFive"></h5></td>
+                                                <td class="col-xs-2 float-right"><h5 id="browserPercentFive"></h5></td>
                                             </tr>
-                                            <tr>
+                                            <tr class="table-row">
                                                 <td class="col-xs-1"><h5 id="browserLogoSix"></h5></td>
-                                                <td class="col-xs-5"><h5 id="browserNameSix"></h5></td>
+                                                <td class="col-xs-7"><h5 id="browserNameSix"></h5></td>
                                                 <td class="col-xs-2 float-right"><h5 id="browserNumSix"></h5></td>
-                                                <td class="col-xs-3 float-right"><h5 id="browserPercentSix"></h5></td>
+                                                <td class="col-xs-2 float-right"><h5 id="browserPercentSix"></h5></td>
                                             </tr>
                                             </tbody>
                                         </table>
@@ -1428,25 +1428,21 @@
         $(window).resize(function() {
             if($(window).width() > 1900) {
                 devicechart.legend.fontSize = 20;
-                imgSize = $(window).width() /100;
             }
 
             else if($(window).width() > 1600) {
                 devicechart.legend.fontSize = 18;
-                imgSize = $(window).width() /100;
             }
             else if($(window).width() > 1400) {
                 devicechart.legend.fontSize = 16;
-                imgSize = $(window).width() /100;
             }
             else if ($(window).width() > 1200) {
                 devicechart.legend.fontSize = 14;
-                imgSize = $(window).width() /100;
             }
             else {
                 devicechart.legend.fontSize = 12;
-                imgSize = $(window).width() /100;
             }
+            imgSize = ($(window).width() /100) + 1;
         });
     </script>
 

@@ -318,7 +318,7 @@ function validateMap() {
 
 //BrowserTable
 function updateBrowserTable(data, imgSize) {
-
+    imgSize +=1;
     var firefox = data.Firefox;
     var chrome = data.Chrome;
     var ie = data.IE;
