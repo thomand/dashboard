@@ -325,7 +325,8 @@ function updateWorldMap(data) {
         var place = data[element];
         var line = {
             latitudes : [place.latitude, trondheimLat],
-            longitudes : [place.longitude, trondheimLng]
+            longitudes : [place.longitude, trondheimLng],
+            thickness : place.value
         };
         place.svgPath = targetSVG;
         places.push(place);
@@ -334,6 +335,7 @@ function updateWorldMap(data) {
     worldMap.dataProvider.images = places;
     worldMap.dataProvider.lines = lines;
     worldMap.validateData();
+    worldMap.validateNow();
 
 
 }
