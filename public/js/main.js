@@ -21,6 +21,23 @@ $(document).ready(function(){
     var hourlyNTNUVisitsChart;
     init();
 
+    $('.tooltip-region').hover(function(){
+        var width = $(this).parent().parent().width();
+        $('body').append("<div id='hoveringTooltip' style='position:fixed; height: 10%; background-color: #222222' class='panel'></div>");
+        $('#hoveringTooltip').html($(this).parent().parent().children()[4].textContent);
+        $('#hoveringTooltip').css({
+            "top" : $(this).parent().parent().offset().top + 40,
+            "left" : $(this).parent().parent().offset().left,
+            "width":width
+        });
+    });
+    $('.tooltip-region').mouseleave(function(){
+        $('#hoveringTooltip').css({
+            "-webkit-animation": "1s ease-out"
+        });
+        $('#hoveringTooltip').remove();
+    });
+
 });
 
 //Set up charts // Init Firebase // Collect data from firebase
