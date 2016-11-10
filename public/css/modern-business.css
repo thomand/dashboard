@@ -17,8 +17,23 @@ body {
     background-size: cover;
     font-family: 'Roboto', sans-serif;
     padding-top: 35px;
+    font-size:14px;
+
 }
 
+/*TODO: SET MEDIA QUERY FONT SIZE. FLOWTYPE FIX REST?*/
+
+/*h1 { font-size: 1.9em; }
+h2 { font-size: 1.7em; }
+h3 { font-size: 1.4em; }
+h4 { font-size: 1em; }
+h5 { font-size: 1em; }*/
+
+h1, h2, h3, h4, h5, h6 {
+    margin-bottom: 0;
+    margin-top:0;
+
+}
 .pageInfo {
     position: absolute;
     top: 50%;
@@ -43,6 +58,20 @@ a.heading {
     text-decoration: none;
     margin-left: 3%;
 }
+
+.navbarAddons {
+    color: #ffffff !important;
+    display: block;
+    font-size: 24px;
+    font-family: 'Roboto', sans-serif;
+    white-space: nowrap;
+    float: left;
+    outline: none !important;
+    line-height: 60px;
+    text-decoration: none;
+    margin-left: 1%;
+ }
+
 
 /* Color for @ and # */
 span {
@@ -90,12 +119,6 @@ span {
     color:#ffffff;
 }
 
-.item2description {
-    color: #ffffff;
-    /*margin-top:1% !important;*/
-    font-size:1.6vw;
-    height:3% !important;
-}
 /*
 .row {
     margin-left:0;
@@ -105,6 +128,10 @@ span {
 */
 .row.two {
     height:40%;
+}
+
+.row.sixty {
+    height:60%;
 }
 
 .row.nationalMedia {
@@ -146,10 +173,13 @@ span {
     height: 100%;
 }
 
+.row.half {
+    height:50%;
+}
+
 .noPadding {
     padding: 0 0 0 0;
 }
-
 
 #notifier {
     text-align: center;
@@ -190,60 +220,105 @@ div.carousel .fill {
     background-position: center;
     background-size: cover;
 }
+
+
 /*------------------------------------------------*/
 
 
 
 /* ---------------FIRST PAGE--------------- */
 
+.totalRow {
+    height: 100% !important;
+}
+
+.row.sixty {
+    height:60%;
+}
+
 /*Heatmap container*/
-.mapContainer {
+.firstPageContainer {
     height: 93% !important;
 }
 
-/*Container for rest of page one*/
-.visitorsNTNU {
-    height: 93% !important;
+.mapContainer {
+    height: 42.5% !important;
 }
+
 
 .visitordiv {
-    height: 13% !important;
+    height: 11% !important;
 }
 
 .platformAndBrowsers {
-    height: 37.5% !important;
+    height: 35.5% !important;
 }
 
 .popularSites {
-    height: 37.5% !important;
+    height: 29% !important;
+    margin-top:1%;
 }
 
-.visitors {
-    font-size: 2.8vw;
-    text-align: center;
-    margin-bottom: 0 !important;
+.brokenUrls {
+    height:17.5% !important;
+}
+
+.vertical-center {
+    position: relative;
+    top: 20%;
+    transform: translateY(-20%);
+}
+
+
+.noMargin {
+    margin:0;
+}
+
+
+.align-middle {
+    position: relative;
+    top:50%;
+    transform: translateY(-50%);
+}
+
+.align-right {
+    text-align: right;
+}
+
+.align-left {
+    text-align:left;
+}
+
+.align-bottom {
+    position:relative;
+    top:70%;
+    transform: translateY(-70%);
+}
+
+.margin-top-bottom-one {
+    margin-bottom:1%;
+    margin-top:1%;
+}
+
+.center {
+    text-align: center !important;
 }
 
 .currentVisitors-text {
-    font-size:1.1vw;
-    text-align: center;
-    margin-bottom: 0 !important;
-
+    position: relative;
+    top: 40%;
+    transform: translateY(-50%);
 }
 
 .visitor-percentage {
-    font-size: 1.8vw;
     vertical-align:middle;
     margin-top: 5%;
 }
 
 .middle {
-    top: 15%;
+    top: 20%;
 }
 
-.browsers {
-    font-size: 1.18vw;
-}
 
 .noPadding-left {
     padding-left:0;
@@ -255,18 +330,22 @@ div.carousel .fill {
 
 
 .weekMonthYear-text {
-    font-size:1.1vw;
+
     text-align: center;
     position: relative;
     top: 30%;
     transform: translateY(-50%);
 }
 
-table.externalWeb {
-    font-weight: bold;
-    font-size:1.2vw;
-    margin-top: 3%;
+.brokenUrls-text {
+    text-align: center;
+    position: relative;
+    top: 20%;
+    transform: translateY(-20%);
 }
+
+
+
 
 /*------------------------------------------------*/
 
@@ -289,7 +368,7 @@ table.externalWeb {
 }
 
 .row.study-row-bottom {
-    height:53%;
+    height:54%;
 }
 
 table.study {
@@ -299,10 +378,6 @@ table.study {
 
 table.study tr td {
     vertical-align: middle;
-}
-
-.bigArrow {
-    font-size: 1.4vw;
 }
 
 /*------------------------------------------------*/
@@ -320,13 +395,19 @@ table.study tr td {
 }
 
 .topPanel {
-    height:56.5% !important;
+    height:58.5% !important;
     margin-bottom: 3% !important;
 }
 
-#bottomPanel {
-    height: 30% !important;
+.innsidaWeekly {
+    height: 40.5% !important;
 }
+
+.innsidaPopular {
+    height: 37% !important;
+    margin-top:1%;
+}
+
 
 
 
@@ -462,8 +543,12 @@ table.extramargin {
 
 /* ---------------PAGE FIVE (Gemini)--------------- */
 .gemini-image {
-    height:7vw;
-    width:7vw;
+    height:8vw;
+    width:8vw;
+}
+
+.gemini-box {
+    overflow-y: hidden;
 }
 
 .gemini-image-container {
@@ -480,17 +565,15 @@ table.extramargin {
     padding-left:3%;
 }
 .ion-pricetag {
-    font-size: 1.3vw;
     color: rgb(139,210,47);
     vertical-align: top;
 }
-
-.item2description.gemini {
-    font-size: 1.8vw;
+.gemini-topPad {
+    padding-top: 2%;
 }
 
+
 .italic {
-    font-size:0.9vw;
     font-style: italic;
 }
 
@@ -499,7 +582,7 @@ table.extramargin {
 }
 
 .five {
-    height: 17%;
+    height: 22%;
 }
 
 .gemini-box {
@@ -565,58 +648,249 @@ table.extramargin {
 /*SCREEN WIDTH BREAK POINTS*/
 
 /* Extra small devices (portrait phones, less than 544px) xs*/
-@media (max-width: 543px) {
+@media (min-width: 320px) and (max-width: 1023px){
+    #myCarousel {
+        display:none !important;
+    }
 
+    #SmallScreenNotifier {
+        display:block;
+    }
+
+    #navbarPageName, #navbarSlash, #notifier, #wrapper, #clockdiv {
+        display:none !important;
+    }
 
 
 }
-/* Small devices (landscape phones, 544px and up) sm*/
-@media (min-width: 544px) and (max-width: 767px) {
+
+@media (min-width: 1024px) and (max-width: 1174px) {
+    #myCarousel { display:block; }
+    #SmallScreenNotifier { display:none; }
+    h1 { font-size: 1.35em; }
+    h2 { font-size: 1em; }
+    h3 { font-size: 0.85em; }
+    h4 { font-size: 0.8em; }
+    h5 { font-size: 0.75em; }
+    h6 { font-size: 0.65em; }
+    table {
+        border-collapse:separate !important;
+        border-spacing:0 5px !important;
+    }
 
 }
 
-/* Medium devices (tablets, 768px and up) md */
-@media (min-width: 768px) and (max-width: 991px) {
-
-}
-/* Large devices (desktops, 992px and up) lg */
-
-@media (min-width: 992px) and (max-width: 1269px) {
-
-}
-/*Tweeked for special breakpoint in this design*/
-/* Extra large devices (large desktops, 1200px and up) xl*/
-@media (min-width: 1270px) and (max-width: 1439px){
-
-    /*TODO: FIX FONT-SIZE MESS!! */
-
-    .italic { font-size:0.9vw; }
-    .table.study-ITW { font-size: 1.1vw; }
-    .last-week { font-size:1.1vw; }
-    .currentVisitors-text { font-size: 1.1vw; }
-    .weekMonthYear-text { font-size:1.1vw; }
-    .browsers { font-size: 1.18vw; }
-    table.externalWeb { font-size:1.2vw; }
-    .ion-pricetag { font-size: 1.3vw; }
-    .bigArrow { font-size: 1.4vw; }
-    table.study { font-size:1.4vw; }
-    #worldChart { font-size: 1.5vw; }
-    #monthChart { font-size: 1.5vw; }
-
-    .item2description { font-size:24px; }
-
-    .item2description.gemini { font-size: 22px; }
-    .ion-arrow-graph-up-right.reverse { font-size: 24px; }
-    .ion-arrow-graph-down-right.reverse { font-size: 24px; }
-    .visitor-percentage { font-size: 24px; }
-
-    .visitors { font-size: 40px; }
-
+@media (min-width: 1175px) and (max-width: 1325px) and (min-height:1px) and (max-height:799px) {
+    #myCarousel { display:block; }
+    #SmallScreenNotifier { display:none; }
+    h1 { font-size: 1.45em; }
+    h2 { font-size: 1.1em; }
+    h3 { font-size: 1em; }
+    h4 { font-size: 0.9em; }
+    h5 { font-size: 0.8em; }
+    h6 { font-size: 0.7em; }
+    table {
+        border-collapse:separate !important;
+        border-spacing:0 5px !important;
+    }
 }
 
-@media (min-width: 1440px) {
-
+@media (min-width: 1175px) and (max-width: 1325px) and (min-height:800px) and (max-height:1023px) {
+    #myCarousel { display:block; }
+    #SmallScreenNotifier { display:none; }
+    h1 { font-size: 1.45em; }
+    h2 { font-size: 1.1em; }
+    h3 { font-size: 1em; }
+    h4 { font-size: 0.9em; }
+    h5 { font-size: 0.8em; }
+    h6 { font-size: 0.7em; }
+    table {
+        border-collapse:separate !important;
+        border-spacing:0 5px !important;
+    }
 }
+
+@media (min-width: 1175px) and (max-width: 1325px) and (min-height:1024px) {
+    #myCarousel { display:block; }
+    #SmallScreenNotifier { display:none; }
+    h1 { font-size: 1.5em; }
+    h2 { font-size: 1.3em; }
+    h3 { font-size: 1.15em; }
+    h4 { font-size: 1.1em; }
+    h5 { font-size: 1.1em; }
+    h6 { font-size: 0.8em; }
+    table {
+        border-collapse:separate !important;
+        border-spacing:0 5px !important;
+    }
+}
+
+@media (min-width: 1326px) and (max-width: 1439px) {
+    #myCarousel { display:block; }
+    #SmallScreenNotifier { display:none; }
+    h1 { font-size: 1.45em; }
+    h2 { font-size: 1.1em; }
+    h3 { font-size: 1.05em; }
+    h4 { font-size: 1em; }
+    h5 { font-size: 0.85em; }
+    h6 { font-size: 0.8em; }
+    table {
+        border-collapse:separate !important;
+        border-spacing:0 3px !important;
+    }
+}
+
+@media (min-width: 1440px) and (max-width: 1590px) {
+    #myCarousel { display:block; }
+    #SmallScreenNotifier { display:none; }
+    h1 { font-size: 1.5em; }
+    h2 { font-size: 1.2em; }
+    h3 { font-size: 1.1em; }
+    h4 { font-size: 1em; }
+    h5 { font-size: 0.9em; }
+    h6 { font-size: 0.85em; }
+    table {
+        border-collapse:separate !important;
+        border-spacing:0 3px !important;
+    }
+}
+
+@media (min-width: 1591px) and (max-width: 1741px) {
+    #myCarousel { display:block; }
+    #SmallScreenNotifier { display:none; }
+    h1 { font-size: 1.6em; }
+    h2 { font-size: 1.3em; }
+    h3 { font-size: 1.2em; }
+    h4 { font-size: 1em; }
+    h5 { font-size: 1em; }
+    h6 { font-size: 0.9em; }
+    table {
+        border-collapse:separate !important;
+        border-spacing:0 3px !important;
+    }
+}
+
+@media (min-width: 1742px) and (max-width: 1919px) {
+    #myCarousel { display:block; }
+    #SmallScreenNotifier { display:none; }
+    h1 { font-size: 1.7em; }
+    h2 { font-size: 1.4em; }
+    h3 { font-size: 1.3em; }
+    h4 { font-size: 1.1em; }
+    h5 { font-size: 1.1em; }
+    h6 { font-size: 1em; }
+    table {
+        border-collapse:separate !important;
+        border-spacing:0 3px !important;
+    }
+}
+
+@media (min-width: 1920px) and (max-width: 2047px) {
+    #myCarousel { display:block; }
+    #SmallScreenNotifier { display:none; }
+    h1 { font-size: 2em; }
+    h2 { font-size: 1.7em; }
+    h3 { font-size: 1.5em; }
+    h4 { font-size: 1.4em; }
+    h5 { font-size: 1.4em; }
+    h6 { font-size: 1.1em; }
+    table {
+        border-collapse:separate !important;
+        border-spacing:0 5px !important;
+    }
+}
+
+@media (min-width: 2048px) and (max-width: 2198px) {
+    #myCarousel { display:block; }
+    #SmallScreenNotifier { display:none; }
+    h1 { font-size: 2.1em; }
+    h2 { font-size: 1.8em; }
+    h3 { font-size: 1.6em; }
+    h4 { font-size: 1.4em; }
+    h5 { font-size: 1.55em; }
+    h6 { font-size: 1.2em; }
+    table {
+        border-collapse:separate !important;
+        border-spacing:0 5px !important;
+    }
+}
+
+@media (min-width: 2199px) and (max-width: 2349px){
+    #myCarousel { display:block; }
+    #SmallScreenNotifier { display:none; }
+    h1 { font-size: 2.2em; }
+    h2 { font-size: 1.9em; }
+    h3 { font-size: 1.7em; }
+    h4 { font-size: 1.5em; }
+    h5 { font-size: 1.6em; }
+    h6 { font-size: 1.3em; }
+    table {
+        border-collapse:separate !important;
+        border-spacing:0 5px !important;
+    }
+}
+
+@media (min-width: 2350px) and (min-height:100px) and (max-height:1152px){
+    #myCarousel { display:block; }
+    #SmallScreenNotifier { display:none; }
+    h1 { font-size: 2.3em; }
+    h2 { font-size: 2em; }
+    h3 { font-size: 1.8em; }
+    h4 { font-size: 1.6em; }
+    h5 { font-size: 1.7em; }
+    h6 { font-size: 1.4em; }
+    table {
+        border-collapse:separate !important;
+        border-spacing:0 5px !important;
+    }
+}
+
+@media (min-width: 2350px) and (min-height:1152px){
+    #myCarousel { display:block; }
+    #SmallScreenNotifier { display:none; }
+    h1 { font-size: 2.3em; }
+    h2 { font-size: 2em; }
+    h3 { font-size: 1.8em; }
+    h4 { font-size: 1.6em; }
+    h5 { font-size: 1.7em; }
+    h6 { font-size: 1.4em; }
+    table {
+        border-collapse:separate !important;
+        border-spacing:0 5px !important;
+    }
+}
+
+
+@media (min-width: 2350px) and (min-height:1153px) and (max-height: 1439px){
+    #myCarousel { display:block; }
+    #SmallScreenNotifier { display:none; }
+    h1 { font-size: 2.3em; }
+    h2 { font-size: 2em; }
+    h3 { font-size: 1.8em; }
+    h4 { font-size: 1.6em; }
+    h5 { font-size: 1.7em; }
+    h6 { font-size: 1.4em; }
+    table {
+        border-collapse:separate !important;
+        border-spacing:0 5px !important;
+    }
+}
+
+@media (min-width: 2350px) and (min-height:1440px){
+    #myCarousel { display:block; }
+    #SmallScreenNotifier { display:none; }
+    h1 { font-size: 2.5em; }
+    h2 { font-size: 2.2em; }
+    h3 { font-size: 2em; }
+    h4 { font-size: 1.7em; }
+    h5 { font-size: 1.9em; }
+    h6 { font-size: 1.6em; }
+    table {
+        border-collapse:separate !important;
+        border-spacing:0 10px !important;
+    }
+}
+
 
 /* CONTROL PANEL */
 

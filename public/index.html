@@ -55,6 +55,7 @@
     <script src="map/ammap.js" type="text/javascript"></script>
     <!-- map file should be included after ammap.js -->
     <script src="map/norwayLow.js" type="text/javascript"></script>
+    <script src="https://www.amcharts.com/lib/3/maps/js/worldLow.js"></script>
 
     <!-- AmCharts JS -->
     <script src="charts/amcharts.js" type="text/javascript"></script>
@@ -62,6 +63,10 @@
     <script src="charts/serial.js" type="text/javascript"></script>
     <script src="charts/light.js"></script>
     <script src="https://www.amcharts.com/lib/3/radar.js"></script>
+
+
+
+
 
     <!-- JQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
@@ -83,7 +88,9 @@
 <body onload="loader()">
     <!-- Header navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <a class="heading" href="index.html"><span>Kommunikasjonsavdelingen </span>liveFeed </a>
+        <a class="heading" href="index.html"><span>Kommunikasjonsavdelingen </span>liveFeed</a>
+        <p class="navbarAddons" id="navbarSlash">/</p>
+        <p class="navbarAddons" id="navbarPageName"></p>
         <div id="clockdiv">
             <canvas id="clock" width="190px" height="50px"></canvas>
         </div>
@@ -102,6 +109,10 @@
     <section id="notifier">
         <div class="white"><i class="ion-arrow-left-b"></i>        Use keyboard arrows or control panel at the bottom of the screen to navigate        <i class="ion-arrow-right-b"></i></div>
         <div class="white" id="notifier-small">(A new page will appear every 45 seconds if you don't)</div>
+    </section>
+    <section id="SmallScreenNotifier" style="margin-top: 20%">
+        <div class="center white">Please use a device with a bigger screen</div>
+        <div class="center white">(or try landscape mode if your on a mobile device)</div>
     </section>
     <section class="pageInfo animated zoomIn" id="firstPageInfo" style="display:none">
         <div class="white">Statistics for ntnu.no and ntnu.edu</div>
@@ -126,180 +137,129 @@
     <!-- Header Carousel -->
     <div id="myCarousel" class="carousel slide" data-ride="carousel" data-pause="false" style="display: none">
         <!-- Wrapper for slides -->
-        <div class="carousel-inner">
+        <div class="carousel-inner white">
             <!-- First page -->
             <!-- slideInDown-->
-            <div class="item animated slideInDown">
+            <div id="ntnu.no" class="item active animated slideInDown">
+                <div class="row special totalRow">
                     <!-- Left side container -->
-                    <div class="panelcontent col-md-8 col-sm-8 col-lg-8 noPadding-left noPadding-right">
+                    <div class="panelcontent col-xs-8 noPadding-left noPadding-right">
                         <!-- Left side first line headlines-->
-                        <div class="row special item2description">
+                        <div class="row special">
                             <div class="col-xs-12">
-                                <div class="col-xs-4">Live statistics <span>ntnu.no</span></div>
+                                <div class="col-xs-4"><h3>Current active users</h3></div>
                                 <div class="col-xs-8">
-                                    <div class="col-xs-4">Weekly views</div>
-                                    <div class="col-xs-4">Monthly views</div>
-                                    <div class="col-xs-4">Yearly views</div>
+                                    <div class="col-xs-4"><h3>Weekly views</h3></div>
+                                    <div class="col-xs-4"><h3>Monthly views</h3></div>
+                                    <div class="col-xs-4"><h3>Yearly views</h3></div>
                                 </div>
                             </div>
                         </div>
                         <!-- Left container div-->
-                        <div class="row special visitorsNTNU">
+                        <div class="row special firstPageContainer">
                             <div class="row special visitordiv">
                                 <div class="panelcontent col-xs-4">
                                     <div class="panel col-xs-12">
-                                        <div class="row special visitors" id="currentVisitorsExternal"></div>
-                                        <div class="row special currentVisitors-text">Current active sessions</div>
+                                        <div class="row special center"><h1 id="currentVisitorsExternal"></h1></div>
+                                        <div class="row special center currentVisitors-text"><h4>Current active sessions</h4></div>
                                     </div>
                                 </div>
                                 <div class="panelcontent col-xs-8">
-                                    <div class="panel col-xs-4">
+                                    <div class="panel col-xs-4 noPadding-left noPadding-right">
                                         <div class="row two special visitor-percentage">
-                                            <div class="panelcontent col-xs-3 middle"><i id="weekArrowExternal"></i></div>
-                                            <div class="panelcontent col-xs-5 middle" id="changeWeekExternal"></div>
-                                            <div class="panelcontent col-xs-3 middle" id="weekPercentExternal"></div>
+                                            <div class="panelcontent col-xs-3 middle"><h2><i id="weekArrowExternal"></i></h2></div>
+                                            <div class="panelcontent col-xs-5 middle"><h2 id="changeWeekExternal"></h2></div>
+                                            <div class="panelcontent col-xs-3 middle"><h2 id="weekPercentExternal"></h2></div>
                                         </div>
-                                        <div class="row special weekMonthYear-text">Since last week</div>
+                                        <div class="row special weekMonthYear-text"><h4>Since last week</h4></div>
                                     </div>
-                                    <div class="panel col-xs-4">
+                                    <div class="panel col-xs-4 noPadding-left noPadding-right">
                                         <div class="row two special visitor-percentage">
-                                            <div class="panelcontent col-xs-3 middle"><i id="monthArrowExternal"></i></div>
-                                            <div class="panelcontent col-xs-5 middle" id="changeMonthExternal"></div>
-                                            <div class="panelcontent col-xs-3 middle" id="monthPercentExternal"></div>
+                                            <div class="panelcontent col-xs-3 middle"><h2><i id="monthArrowExternal"></i></h2></div>
+                                            <div class="panelcontent col-xs-5 middle"><h2 id="changeMonthExternal"></h2></div>
+                                            <div class="panelcontent col-xs-3 middle"><h2 id="monthPercentExternal"></h2></div>
                                         </div>
-                                        <div class="row special weekMonthYear-text">Since last month</div>
+                                        <div class="row special weekMonthYear-text"><h4>Since last month</h4></div>
                                     </div>
-                                    <div class="panel col-xs-4">
+                                    <div class="panel col-xs-4 noPadding-left noPadding-right">
                                         <div class="row two special visitor-percentage">
-                                            <div class="panelcontent col-xs-3 middle"><i id="yearArrowExternal"></i></div>
-                                            <div class="panelcontent col-xs-5 middle" id="changeYearExternal"></div>
-                                            <div class="panelcontent col-xs-3 middle" id="yearPercentExternal"></div>
+                                            <div class="panelcontent col-xs-3 middle"><h2><i id="yearArrowExternal"></i></h2></div>
+                                            <div class="panelcontent col-xs-5 middle"><h2 id="changeYearExternal"></h2></div>
+                                            <div class="panelcontent col-xs-3 middle"><h2 id="yearPercentExternal"></h2></div>
                                         </div>
-                                        <div class="row special weekMonthYear-text">Since last year</div>
+                                        <div class="row special weekMonthYear-text"><h4>Since last year</h4></div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="row special item2description">
+                            <div class="row special">
                                 <div class="col-xs-12">
                                     <!-- Platform headline-->
-                                    <div class="col-xs-6">Platform</div>
+                                    <div class="col-xs-6"><h3>Platform</h3></div>
                                     <!-- Browsers headline-->
-                                    <div class="col-xs-6 extrapad-left">Browsers</div>
+                                    <div class="col-xs-6 extrapad-left"><h3>Browsers</h3></div>
                                 </div>
                             </div>
                             <div class="row special platformAndBrowsers">
                                 <!-- Device platform (pc/smartphone/tablet)-->
-                                <div class="panelcontent col-xs-6" >
+                                <div class="panelcontent col-xs-6">
                                     <div class="panel col-xs-12" id="devicediv"></div>
                                 </div>
                                 <!-- Browser table-->
-                                <div class="panelcontent col-xs-6" >
+                                <div class="panelcontent col-xs-6">
                                     <div class="panel col-xs-12">
-                                        <table class="table browsers">
+                                        <table class="table">
                                             <tbody>
-                                            <tr>
-                                                <td class="col-xs-1" id="browserLogoOne"></td>
-                                                <td class="col-xs-5" id="browserNameOne"></td>
-                                                <td class="col-xs-2 float-right" id="browserNumOne"></td>
-                                                <td class="col-xs-3 float-right" id="browserPercentOne"></td>
+                                            <tr class="table-row">
+                                                <td class="col-xs-1"><h5 id="browserLogoOne"></h5></td>
+                                                <td class="col-xs-7"><h5 id="browserNameOne"></h5></td>
+                                                <td class="col-xs-2 float-right"><h5 id="browserNumOne"></h5></td>
+                                                <td class="col-xs-2 float-right"><h5 id="browserPercentOne"></h5></td>
                                             </tr>
-                                            <tr>
-                                                <td class="col-xs-1" id="browserLogoTwo"></td>
-                                                <td class="col-xs-5" id="browserNameTwo"></td>
-                                                <td class="col-xs-2 float-right" id="browserNumTwo"></td>
-                                                <td class="col-xs-3 float-right" id="browserPercentTwo"></td>
+                                            <tr class="table-row">
+                                                <td class="col-xs-1"><h5 id="browserLogoTwo"></h5></td>
+                                                <td class="col-xs-7"><h5 id="browserNameTwo"></h5></td>
+                                                <td class="col-xs-2 float-right"><h5 id="browserNumTwo"></h5></td>
+                                                <td class="col-xs-2 float-right"><h5 id="browserPercentTwo"></h5></td>
                                             </tr>
-                                            <tr>
-                                                <td class="col-xs-1" id="browserLogoThree"></td>
-                                                <td class="col-xs-5" id="browserNameThree"></td>
-                                                <td class="col-xs-2 float-right" id="browserNumThree"></td>
-                                                <td class="col-xs-3 float-right" id="browserPercentThree"></td>
+                                            <tr class="table-row">
+                                                <td class="col-xs-1"><h5 id="browserLogoThree"></h5></td>
+                                                <td class="col-xs-7"><h5 id="browserNameThree"></h5></td>
+                                                <td class="col-xs-2 float-right"><h5 id="browserNumThree"></h5></td>
+                                                <td class="col-xs-2 float-right"><h5 id="browserPercentThree"></h5></td>
                                             </tr>
-                                            <tr>
-                                                <td class="col-xs-1" id="browserLogoFour"></td>
-                                                <td class="col-xs-5" id="browserNameFour"></td>
-                                                <td class="col-xs-2 float-right" id="browserNumFour"></td>
-                                                <td class="col-xs-3 float-right" id="browserPercentFour"></td>
+                                            <tr class="table-row">
+                                                <td class="col-xs-1"><h5 id="browserLogoFour"></h5></td>
+                                                <td class="col-xs-7"><h5 id="browserNameFour"></h5></td>
+                                                <td class="col-xs-2 float-right"><h5 id="browserNumFour"></h5></td>
+                                                <td class="col-xs-2 float-right"><h5 id="browserPercentFour"></h5></td>
                                             </tr>
-                                            <tr>
-                                                <td class="col-xs-1" id="browserLogoFive"></td>
-                                                <td class="col-xs-5" id="browserNameFive"></td>
-                                                <td class="col-xs-2 float-right" id="browserNumFive"></td>
-                                                <td class="col-xs-3 float-right" id="browserPercentFive"></td>
+                                            <tr class="table-row">
+                                                <td class="col-xs-1"><h5 id="browserLogoFive"></h5></td>
+                                                <td class="col-xs-7"><h5 id="browserNameFive"></h5></td>
+                                                <td class="col-xs-2 float-right"><h5 id="browserNumFive"></h5></td>
+                                                <td class="col-xs-2 float-right"><h5 id="browserPercentFive"></h5></td>
                                             </tr>
-                                            <tr>
-                                                <td class="col-xs-1" id="browserLogoSix"></td>
-                                                <td class="col-xs-5" id="browserNameSix"></td>
-                                                <td class="col-xs-2 float-right" id="browserNumSix"></td>
-                                                <td class="col-xs-3 float-right" id="browserPercentSix"></td>
+                                            <tr class="table-row">
+                                                <td class="col-xs-1"><h5 id="browserLogoSix"></h5></td>
+                                                <td class="col-xs-7"><h5 id="browserNameSix"></h5></td>
+                                                <td class="col-xs-2 float-right"><h5 id="browserNumSix"></h5></td>
+                                                <td class="col-xs-2 float-right"><h5 id="browserPercentSix"></h5></td>
                                             </tr>
                                             </tbody>
                                         </table>
                                     </div>
                                 </div>
                             </div>
-                            <div class="row special item2description">
+                            <div class="row special">
                                 <div class="col-xs-12">
-                                    <div class="col-xs-6">Popular pages ntnu.no</div>
-                                    <div class="col-xs-6 extrapad-left">Popular pages ntnu.edu</div>
+                                    <div class="col-xs-12 noPadding-left">
+                                        <div class="col-xs-12"><h3>User access location</h3></div>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="row special popularSites">
-                                <div class="panelcontent col-xs-6">
-                                    <div class="panel col-xs-12">
-                                        <table class="table externalWeb">
-                                            <tbody>
-                                            <tr>
-                                                <td class="col-xs-1">#1</td>
-                                                <td id="popularNO-one"></td>
-                                            </tr>
-                                            <tr>
-                                                <td class="col-xs-1">#2</td>
-                                                <td id="popularNO-two"></td>
-                                            </tr>
-                                            <tr>
-                                                <td class="col-xs-1">#3</td>
-                                                <td id="popularNO-three"></td>
-                                            </tr>
-                                            <tr>
-                                                <td class="col-xs-1">#4</td>
-                                                <td id="popularNO-four"></td>
-                                            </tr>
-                                            <tr>
-                                                <td class="col-xs-1">#5</td>
-                                                <td id="popularNO-five"></td>
-                                            </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                                <div class="panelcontent col-xs-6">
-                                    <div class="panel col-xs-12">
-                                        <table class="table externalWeb">
-                                            <tbody>
-                                            <tr>
-                                                <td class="col-xs-1">#1</td>
-                                                <td id="popularEDU-one"></td>
-                                            </tr>
-                                            <tr>
-                                                <td class="col-xs-1">#2</td>
-                                                <td id="popularEDU-two"></td>
-                                            </tr>
-                                            <tr>
-                                                <td class="col-xs-1">#3</td>
-                                                <td id="popularEDU-three"></td>
-                                            </tr>
-                                            <tr>
-                                                <td class="col-xs-1">#4</td>
-                                                <td id="popularEDU-four"></td>
-                                            </tr>
-                                            <tr>
-                                                <td class="col-xs-1">#5</td>
-                                                <td id="popularEDU-five"></td>
-                                            </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
+                            <div class="row special mapContainer">
+                                <div class="panelcontent col-xs-12">
+                                    <div class="panel col-xs-12 noPadding" id="worldMapDiv"></div>
                                 </div>
                             </div>
                         </div>
@@ -307,35 +267,141 @@
 
                     <!-- Right side first line headline -->
                     <div class="panelcontent col-xs-4 noPadding-left noPadding-right">
-                        <div class="row special item2description">
+                        <div class="row special">
                             <div class="col-xs-12">
-                                <!-- Heatmap headline -->
-                                <div class="col-xs-12 noPadding-left">
-                                    <div class="col-xs-12">User access location</div>
+                                <div class="col-xs-12">
+                                    <h3>Today's top pages</h3>
                                 </div>
                             </div>
                         </div>
-                        <div class="row special mapContainer">
-                            <!-- Heatmap of Norway -->
-                            <div class="panelcontent col-xs-12">
-                                <div class="panel col-xs-12" id="mapdiv"></div>
+                        <div class="row special firstPageContainer">
+                            <div class="row special popularSites">
+                                <div class="panelcontent col-xs-12">
+                                    <div class="panel col-xs-12">
+                                        <table class="table">
+                                            <tbody>
+                                            <tr>
+                                                <td class="col-xs-1"><h5>1</h5></td>
+                                                <td class="col-xs-11"><h5 id="popularNO-one"></h5></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="col-xs-1"><h5>2</h5></td>
+                                                <td class="col-xs-11"><h5 id="popularNO-two"></h5></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="col-xs-1"><h5>3</h5></td>
+                                                <td class="col-xs-11"><h5 id="popularNO-three"></h5></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="col-xs-1"><h5>4</h5></td>
+                                                <td class="col-xs-11"><h5 id="popularNO-four"></h5></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="col-xs-1"><h5>5</h5></td>
+                                                <td class="col-xs-11"><h5 id="popularNO-five"></h5></td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
                             </div>
+                            <div class="row special">
+                                <div class="col-xs-12">
+                                    <div class="col-xs-12 extrapad-left margin-top-bottom-one">
+                                        <h3>Broken links</h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row special brokenUrls">
+                                <div class="panelcontent col-xs-12">
+                                    <div class="panel col-xs-4">
+                                        <div class="row sixty special visitor-percentage align-middle">
+                                            <div class="panelcontent col-xs-12 center"><h1 id="linksBroken"></h1></div>
+                                        </div>
+                                        <div class="row special center brokenUrls-text noPadding-left noPadding-right"><h6>Links broken</h6></div>
+                                    </div>
+                                    <div class="panel col-xs-4 noPadding-right noPadding-left">
+                                        <div class="row sixty special visitor-percentage align-bottom center">
+                                            <div class="panelcontent col-xs-3 noPadding"><h2><i id="brokenArrow"></i></h2></div>
+                                            <div class="panelcontent col-xs-5 align-right"><h2 id="brokenPercent"></h2></div>
+                                            <div class="panelcontent col-xs-4"><h2>%</h2></div>
+                                        </div>
+                                        <div class="row special center brokenUrls-text"><h6>Since last week</h6></div>
+                                    </div>
+                                    <div class="panel col-xs-4 noPadding-right noPadding-left">
+                                        <div class="row sixty special visitor-percentage align-middle center">
+                                            <div class="panelcontent col-xs-12 center"><h1 id="brokenClicks"></h1></div>
+                                        </div>
+                                        <div class="row special center brokenUrls-text"><h6>Clicks last week</h6></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row special">
+                                <div class="col-xs-12">
+                                    <div class="col-xs-12 extrapad-left margin-top-bottom-one">
+                                        <h3>Visits by hour of the day</h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row special mapContainer">
+                                <div class="panelcontent col-xs-12">
+                                    <div class="panel col-xs-12" id="NTNUhourlyVisitorChart">
+                                    </div>
+                                </div>
+                            </div>
+                            <!--<div class="row special">
+                                <div class="col-xs-12">
+                                    <h3>Popular pages ntnu.edu</h3>
+                                </div>
+                            </div>
+                            <div class="row special popularSites">
+                                <div class="panelcontent col-xs-12">
+                                    <div class="panel col-xs-12">
+                                        <table class="table externalWeb">
+                                            <tbody>
+                                            <tr>
+                                                <td class="col-xs-1"><h4>1</h4></td>
+                                                <td><h4 id="popularEDU-one"></h4></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="col-xs-1"><h4>2</h4></td>
+                                                <td><h4 id="popularEDU-two"></h4></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="col-xs-1"><h4>3</h4></td>
+                                                <td><h4 id="popularEDU-three"></h4></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="col-xs-1"><h4>4</h4></td>
+                                                <td><h4 id="popularEDU-four"></h4></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="col-xs-1"><h4>5</h4></td>
+                                                <td><h4 id="popularEDU-five"></h4></td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>-->
+
                         </div>
                     </div>
                 </div>
+            </div>
             <!-- /First page -->
             <!-- Second page-->
             <!--slideInUp -->
-            <div class="item animated slideInUp">
-                <div class="row special item2description">
+            <div id="Study Programs" class="item animated slideInUp">
+                <div class="row special">
                     <div class="col-xs-4">
-                        <div class="col-xs-12">Most visited study programs</div>
+                        <div class="col-xs-12"><h3>Most visited study programs</h3></div>
                     </div>
                     <div class="col-xs-4">
-                        <div class="col-xs-12">Least visited study programs</div>
+                        <div class="col-xs-12"><h3>Least visited study programs</h3></div>
                     </div>
                     <div class="col-xs-4">
-                        <div class="col-xs-12">Change in popularity</div>
+                        <div class="col-xs-12"><h3>Change in popularity</h3></div>
                     </div>
                 </div>
                 <div class="row study-row-top special">
@@ -344,29 +410,29 @@
                             <table class="table study">
                                 <tbody>
                                 <tr>
-                                    <td class="col-xs-1">#1</td>
-                                    <td class="col-xs-1"><i class="ion-happy-outline bigArrow green"></i></td>
-                                    <td class="col-xs-10" id="study-most-visit-one"></td>
+                                    <td class="col-xs-1"><h5>1</h5></td>
+                                    <td class="col-xs-1"><h5><i class="ion-happy-outline green"></i></h5></td>
+                                    <td class="col-xs-10"><h5 id="study-most-visit-one"></h5></td>
                                 </tr>
                                 <tr>
-                                    <td class="col-xs-1">#2</td>
-                                    <td class="col-xs-1"><i class="ion-happy-outline bigArrow green"></i></td>
-                                    <td class="col-xs-10" id="study-most-visit-two"></td>
+                                    <td class="col-xs-1"><h5>2</h5></td>
+                                    <td class="col-xs-1"><h5><i class="ion-happy-outline green"></i></h5></td>
+                                    <td class="col-xs-10"><h5 id="study-most-visit-two"></h5></td>
                                 </tr>
                                 <tr>
-                                    <td class="col-xs-1">#3</td>
-                                    <td class="col-xs-1"><i class="ion-happy-outline bigArrow green"></i></td>
-                                    <td class="col-xs-10" id="study-most-visit-three"></td>
+                                    <td class="col-xs-1"><h5>3</h5></td>
+                                    <td class="col-xs-1"><h5><i class="ion-happy-outline green"></i></h5></td>
+                                    <td class="col-xs-10"><h5 id="study-most-visit-three"></h5></td>
                                 </tr>
                                 <tr>
-                                    <td class="col-xs-1">#4</td>
-                                    <td class="col-xs-1"><i class="ion-happy-outline bigArrow green"></i></td>
-                                    <td class="col-xs-10" id="study-most-visit-four"></td>
+                                    <td class="col-xs-1"><h5>4</h5></td>
+                                    <td class="col-xs-1"><h5><i class="ion-happy-outline green"></i></h5></td>
+                                    <td class="col-xs-10"><h5 id="study-most-visit-four"></h5></td>
                                 </tr>
                                 <tr>
-                                    <td class="col-xs-1">#5</td>
-                                    <td class="col-xs-1"><i class="ion-happy-outline bigArrow green"></i></td>
-                                    <td class="col-xs-10" id="study-most-visit-five"></td>
+                                    <td class="col-xs-1"><h5>5</h5></td>
+                                    <td class="col-xs-1"><h5><i class="ion-happy-outline green"></i></h5></td>
+                                    <td class="col-xs-10"><h5 id="study-most-visit-five"></h5></td>
                                 </tr>
                                 </tbody>
                             </table>
@@ -377,29 +443,29 @@
                             <table class="table study">
                                 <tbody>
                                 <tr>
-                                    <td class="col-xs-1">#1</td>
-                                    <td class="col-xs-1"><i class="ion-sad-outline bigArrow red"></i></td>
-                                    <td class="col-xs-10" id="study-least-visit-one"></td>
+                                    <td class="col-xs-1"><h5>1</h5></td>
+                                    <td class="col-xs-1"><h5><i class="ion-sad-outline red"></i></h5></td>
+                                    <td class="col-xs-10"><h5 id="study-least-visit-one"></h5></td>
                                 </tr>
                                 <tr>
-                                    <td class="col-xs-1">#2</td>
-                                    <td class="col-xs-1"><i class="ion-sad-outline bigArrow red"></i></td>
-                                    <td class="col-xs-10" id="study-least-visit-two"></td>
+                                    <td class="col-xs-1"><h5>2</h5></td>
+                                    <td class="col-xs-1"><h5><i class="ion-sad-outline red"></i></h5></td>
+                                    <td class="col-xs-10"><h5 id="study-least-visit-two"></h5></td>
                                 </tr>
                                 <tr>
-                                    <td class="col-xs-1">#3</td>
-                                    <td class="col-xs-1"><i class="ion-sad-outline bigArrow red"></i></td>
-                                    <td class="col-xs-10" id="study-least-visit-three"></td>
+                                    <td class="col-xs-1"><h5>3</h5></td>
+                                    <td class="col-xs-1"><h5><i class="ion-sad-outline red"></i></h5></td>
+                                    <td class="col-xs-10"><h5 id="study-least-visit-three"></h5></td>
                                 </tr>
                                 <tr>
-                                    <td class="col-xs-1">#4</td>
-                                    <td class="col-xs-1"><i class="ion-sad-outline bigArrow red"></i></td>
-                                    <td class="col-xs-10" id="study-least-visit-four"></td>
+                                    <td class="col-xs-1"><h5>4</h5></td>
+                                    <td class="col-xs-1"><h5><i class="ion-sad-outline red"></i></h5></td>
+                                    <td class="col-xs-10"><h5 id="study-least-visit-four"></h5></td>
                                 </tr>
                                 <tr>
-                                    <td class="col-xs-1">#5</td>
-                                    <td class="col-xs-1"><i class="ion-sad-outline bigArrow red"></i></td>
-                                    <td class="col-xs-10" id="study-least-visit-five"></td>
+                                    <td class="col-xs-1"><h5>5</h5></td>
+                                    <td class="col-xs-1"><h5><i class="ion-sad-outline red"></i></h5></td>
+                                    <td class="col-xs-10"><h5 id="study-least-visit-five"></h5></td>
                                 </tr>
                                 </tbody>
                             </table>
@@ -410,41 +476,41 @@
                             <table class="table study">
                                 <tbody>
                                 <tr>
-                                    <td class="col-xs-1">#1</td>
-                                    <td class="col-xs-1"><i id="study-change-one"></i></td>
+                                    <td class="col-xs-1"><h5>1</h5></td>
+                                    <td class="col-xs-1"><h5><i id="study-change-one"></i></h5></td>
                                     <td class="col-xs-10" id="study-increasing-one"></td>
                                 </tr>
                                 <tr>
-                                    <td class="col-xs-1">#2</td>
-                                    <td class="col-xs-1"><i id="study-change-two"></i></td>
-                                    <td class="col-xs-10 "id="study-increasing-two"></td>
+                                    <td class="col-xs-1"><h5>2</h5></td>
+                                    <td class="col-xs-1"><h5><i id="study-change-two"></i></h5></td>
+                                    <td class="col-xs-10"><h5 id="study-increasing-two"></h5></td>
                                 </tr>
                                 <tr>
-                                    <td class="col-xs-1">#3</td>
-                                    <td class="col-xs-1"><i id="study-change-three"></i></td>
-                                    <td class="col-xs-10 "id="study-increasing-three"></td>
+                                    <td class="col-xs-1"><h5>3</h5></td>
+                                    <td class="col-xs-1"><h5><i id="study-change-three"></i></h5></td>
+                                    <td class="col-xs-10"><h5 id="study-increasing-three"></h5></td>
                                 </tr>
                                 <tr>
-                                    <td class="col-xs-1">#4</td>
-                                    <td class="col-xs-1"><i id="study-change-four"></i></td>
-                                    <td class="col-xs-10" id="study-increasing-four"></td>
+                                    <td class="col-xs-1"><h5>4</h5></td>
+                                    <td class="col-xs-1"><h5><i id="study-change-four"></i></h5></td>
+                                    <td class="col-xs-10"><h5 id="study-increasing-four"></h5></td>
                                 </tr>
                                 <tr>
-                                    <td class="col-xs-1">#5</td>
-                                    <td class="col-xs-1"><i id="study-change-five"></i></td>
-                                    <td class="col-xs-10" id="study-increasing-five"></td>
+                                    <td class="col-xs-1"><h5>5</h5></td>
+                                    <td class="col-xs-1"><h5><i id="study-change-five"></i></h5></td>
+                                    <td class="col-xs-10"><h5 id="study-increasing-five"></h5></td>
                                 </tr>
                                 </tbody>
                             </table>
                         </div>
                     </div>
                 </div>
-                <div class="row special item2description">
+                <div class="row special">
                     <div class="col-xs-6">
-                        <div class="col-xs-12">Study page views by month</div>
+                        <div class="col-xs-12"><h3>Study page views by month</h3></div>
                     </div>
                     <div class="col-xs-6">
-                        <div class="col-xs-12">Visits by foreign country last 30 days</div>
+                        <div class="col-xs-12"><h3>Visits by foreign country last 30 days</h3></div>
                     </div>
                 </div>
                 <div class="row study-row-bottom special">
@@ -462,17 +528,17 @@
             </div>
             <!-- /Second page -->
             <!-- Third page -->
-            <div class="item animated slideInDown">
+            <div id="innsida" class="item animated slideInDown">
                 <!-- Left side container -->
                 <div class="panelcontent col-xs-8 noPadding-left noPadding-right">
                     <!-- Left side first line headlines-->
-                    <div class="row special item2description">
+                    <div class="row special">
                         <div class="col-xs-12">
-                            <div class="col-xs-4">Live statistics <span>innsida</span></div>
+                            <div class="col-xs-4"><h3>Current active users</h3></div>
                             <div class="col-xs-8">
-                                <div class="col-xs-4">Weekly views</div>
-                                <div class="col-xs-4">Monthly views</div>
-                                <div class="col-xs-4">Yearly views</div>
+                                <div class="col-xs-4"><h3>Weekly views</h3></div>
+                                <div class="col-xs-4"><h3>Monthly views</h3></div>
+                                <div class="col-xs-4"><h3>Yearly views</h3></div>
                             </div>
                         </div>
                     </div>
@@ -481,79 +547,79 @@
                         <div class="row special visitordiv">
                             <div class="panelcontent col-xs-4">
                                 <div class="panel col-xs-12">
-                                    <div class="row special visitors" id="currentVisitorsInnsida"></div>
-                                    <div class="row special currentVisitors-text">Current active sessions</div>
+                                    <div class="row special center"><h1 id="currentVisitorsInnsida"></h1></div>
+                                    <div class="row special center currentVisitors-text"><h4>Current active sessions</h4></div>
                                 </div>
                             </div>
                             <div class="panelcontent col-xs-8">
                                 <div class="panel col-xs-4">
                                     <div class="row two special visitor-percentage">
-                                        <div class="panelcontent col-xs-3 middle"><i id="weekArrowInnsida"></i></div>
-                                        <div class="panelcontent col-xs-5 middle" id="changeWeekInnsida"></div>
-                                        <div class="panelcontent col-xs-3 middle" id="weekPercentInnsida"></div>
+                                        <div class="panelcontent col-xs-3 middle"><h2><i id="weekArrowInnsida"></i></h2></div>
+                                        <div class="panelcontent col-xs-5 middle"><h2 id="changeWeekInnsida"></h2></div>
+                                        <div class="panelcontent col-xs-3 middle"><h2 id="weekPercentInnsida"></h2></div>
                                     </div>
-                                    <div class="row special weekMonthYear-text">Since last week</div>
+                                    <div class="row special weekMonthYear-text"><h4>Since last week</h4></div>
                                 </div>
                                 <div class="panel col-xs-4">
                                     <div class="row two special visitor-percentage">
-                                        <div class="panelcontent col-xs-3 middle"><i id="monthArrowInnsida"></i></div>
-                                        <div class="panelcontent col-xs-5 middle" id="changeMonthInnsida"></div>
-                                        <div class="panelcontent col-xs-3 middle" id="monthPercentInnsida"></div>
+                                        <div class="panelcontent col-xs-3 middle"><h2><i id="monthArrowInnsida"></i></h2></div>
+                                        <div class="panelcontent col-xs-5 middle"><h2 id="changeMonthInnsida"></h2></div>
+                                        <div class="panelcontent col-xs-3 middle"><h2 id="monthPercentInnsida"></h2></div>
                                     </div>
-                                    <div class="row special weekMonthYear-text">Since last month</div>
+                                    <div class="row special weekMonthYear-text"><h4>Since last month</h4></div>
                                 </div>
                                 <div class="panel col-xs-4">
                                     <div class="row two special visitor-percentage">
-                                        <div class="panelcontent col-xs-3 middle"><i id="yearArrowInnsida"></i></div>
-                                        <div class="panelcontent col-xs-5 middle" id="changeYearInnsida"></div>
-                                        <div class="panelcontent col-xs-3 middle" id="yearPercentInnsida"></div>
+                                        <div class="panelcontent col-xs-3 middle"><h2><i id="yearArrowInnsida"></i></h2></div>
+                                        <div class="panelcontent col-xs-5 middle"><h2 id="changeYearInnsida"></h2></div>
+                                        <div class="panelcontent col-xs-3 middle"><h2 id="yearPercentInnsida"></h2></div>
                                     </div>
-                                    <div class="row special weekMonthYear-text">Since last year</div>
+                                    <div class="row special weekMonthYear-text"><h4>Since last year</h4></div>
                                 </div>
                             </div>
                         </div>
-                        <div class="row special item2description">
+                        <div class="row special">
                             <div class="col-xs-12">
                                 <!-- Platform headline-->
-                                <div class="col-xs-12">Users on innsida by day of week</div>
+                                <div class="col-xs-12"><h3>Users on innsida by day of week</h3></div>
                             </div>
                         </div>
-                        <div class="row special platformAndBrowsers">
+                        <div class="row special innsidaWeekly">
                             <!-- Innsida views this week and last week -->
                             <div class="panelcontent col-xs-12">
                                 <div class="panel col-xs-12" id="innsidaWeekChart"></div>
                             </div>
                         </div>
-                        <div class="row special item2description">
+                        <div class="row special">
                             <div class="col-xs-12">
-                                <div class="col-xs-6">Popular wiki pages</div>
-                                <div class="col-xs-6 extrapad-left">Most popular tema pages</div>
+                                <div class="col-xs-6"><h3>Popular wiki pages</h3></div>
+                                <div class="col-xs-6 extrapad-left"><h3>Most popular tema pages</h3></div>
                             </div>
                         </div>
-                        <div class="row special popularSites">
+                        <div class="row special innsidaPopular">
                             <div class="panelcontent col-xs-6">
                                 <div class="panel col-xs-12">
-                                    <table class="table externalWeb">
+                                    <table class="table">
                                         <tbody>
                                         <tr>
-                                            <td class="col-xs-1">#1</td>
-                                            <td id="popularWiki-one"></td>
+                                            <td class="col-xs-1"><h5>1</h5></td>
+                                            <td class="col-xs-11"><h5 id="popularWiki-one"></h5></td>
                                         </tr>
                                         <tr>
-                                            <td class="col-xs-1">#2</td>
-                                            <td id="popularWiki-two"></td>
+                                            <td class="col-xs-1"><h5>2</h5></td>
+                                            <td class="col-xs-11"><h5 id="popularWiki-two"></h5></td>
                                         </tr>
                                         <tr>
-                                            <td class="col-xs-1">#3</td>
-                                            <td id="popularWiki-three"></td>
+                                            <td class="col-xs-1"><h5>3</h5></td>
+                                            <td class="col-xs-11"><h5 id="popularWiki-three"></h5></td>
                                         </tr>
                                         <tr>
-                                            <td class="col-xs-1">#4</td>
-                                            <td id="popularWiki-four"></td>
+                                            <td class="col-xs-1"><h5>4</h5></td>
+                                            <td class="col-xs-11"><h5 id="popularWiki-four"></h5></td>
                                         </tr>
                                         <tr>
-                                            <td class="col-xs-1">#5</td>
-                                            <td id="popularWiki-five"></td>
+                                            <td class="col-xs-1"><h5>5</h5></td>
+                                            <td class="col-xs-11"><h5 id="popularWiki-five"></h5></td>
                                         </tr>
                                         </tbody>
                                     </table>
@@ -561,27 +627,27 @@
                             </div>
                             <div class="panelcontent col-xs-6">
                                 <div class="panel col-xs-12">
-                                    <table class="table externalWeb">
+                                    <table class="table">
                                         <tbody>
                                         <tr>
-                                            <td class="col-xs-1">#1</td>
-                                            <td id="mostPopularTema-one"></td>
+                                            <td class="col-xs-1"><h5>1</h5></td>
+                                            <td class="col-xs-11"><h5 id="mostPopularTema-one"></h5></td>
                                         </tr>
                                         <tr>
-                                            <td class="col-xs-1">#2</td>
-                                            <td id="mostPopularTema-two"></td>
+                                            <td class="col-xs-1"><h5>2</h5></td>
+                                            <td class="col-xs-11"><h5 id="mostPopularTema-two"></h5></td>
                                         </tr>
                                         <tr>
-                                            <td class="col-xs-1">#3</td>
-                                            <td id="mostPopularTema-three"></td>
+                                            <td class="col-xs-1"><h5>3</h5></td>
+                                            <td class="col-xs-11"><h5 id="mostPopularTema-three"></h5></td>
                                         </tr>
                                         <tr>
-                                            <td class="col-xs-1">#4</td>
-                                            <td id="mostPopularTema-four"></td>
+                                            <td class="col-xs-1"><h5>4</h5></td>
+                                            <td class="col-xs-11"><h5 id="mostPopularTema-four"></h5></td>
                                         </tr>
                                         <tr>
-                                            <td class="col-xs-1">#5</td>
-                                            <td id="mostPopularTema-five"></td>
+                                            <td class="col-xs-1"><h5>5</h5></td>
+                                            <td class="col-xs-11"><h5 id="mostPopularTema-five"></h5></td>
                                         </tr>
                                         </tbody>
                                     </table>
@@ -592,11 +658,11 @@
                 </div>
                 <!-- Right side first line headline -->
                 <div class="panelcontent col-xs-4 noPadding-left noPadding-right">
-                    <div class="row special item2description">
+                    <div class="row special">
                         <div class="col-xs-12 noPadding-left">
                             <!-- Heatmap headline -->
                             <div class="col-xs-12">
-                                <div class="col-xs-12">Visits by hour of the day</div>
+                                <div class="col-xs-12"><h3>Visits by hour of the day</h3></div>
                             </div>
                         </div>
                     </div>
@@ -607,33 +673,35 @@
                                 <div class="panel col-xs-12" id="hourlyVisitsChart"></div>
                             </div>
                         </div>
-                        <div class="row special item2description">
-                                <div class="col-xs-12 extraExtrapad-left">Least popular tema pages</div>
+                        <div class="row special">
+                            <div class="col-xs-12">
+                                <div class="col-xs-12"><h3>Least popular tema pages</h3></div>
+                            </div>
                         </div>
-                        <div class="row special popularSites">
+                        <div class="row special innsidaPopular">
                             <div class="panelcontent col-xs-12">
                                 <div class="panel col-xs-12">
-                                    <table class="table externalWeb">
+                                    <table class="table">
                                         <tbody>
                                         <tr>
-                                            <td class="col-xs-1">#1</td>
-                                            <td id="leastPopularTema-one"></td>
+                                            <td class="col-xs-1"><h5>1</h5></td>
+                                            <td class="col-xs-11"><h5 id="leastPopularTema-one"></h5></td>
                                         </tr>
                                         <tr>
-                                            <td class="col-xs-1">#2</td>
-                                            <td id="leastPopularTema-two"></td>
+                                            <td class="col-xs-1"><h5>2</h5></td>
+                                            <td class="col-xs-11"><h5 id="leastPopularTema-two"></h5></td>
                                         </tr>
                                         <tr>
-                                            <td class="col-xs-1">#3</td>
-                                            <td id="leastPopularTema-three"></td>
+                                            <td class="col-xs-1"><h5>3</h5></td>
+                                            <td class="col-xs-11"><h5 id="leastPopularTema-three"></h5></td>
                                         </tr>
                                         <tr>
-                                            <td class="col-xs-1">#4</td>
-                                            <td id="leastPopularTema-four"></td>
+                                            <td class="col-xs-1"><h5>4</h5></td>
+                                            <td class="col-xs-11"><h5 id="leastPopularTema-four"></h5></td>
                                         </tr>
                                         <tr>
-                                            <td class="col-xs-1">#5</td>
-                                            <td id="leastPopularTema-five"></td>
+                                            <td class="col-xs-1"><h5>5</h5></td>
+                                            <td class="col-xs-11"><h5 id="leastPopularTema-five"></h5></td>
                                         </tr>
                                         </tbody>
                                     </table>
@@ -989,23 +1057,23 @@
             <!-- Forth page -->
             <!-- Fifth page -->
             <!--slideInDown -->
-            <div class="item animated slideInDown">
+            <div id="gemini.no" class="item animated slideInDown">
                 <div class="row special item2description">
-                    <div class="panelcontent col-xs-12 gemini-description">Top 10 gemini.no last 30 days</div>
+                    <div class="panelcontent col-xs-12 gemini-description"><h3>Top articles last 30 days</h3></div>
                 </div>
                 <div class="row special five">
                     <div class="panelcontent col-xs-12">
                         <a id="gemini-url-one" href="#" target="_blank"><div class="panelcontent col-xs-6">
                             <div class="panel col-xs-12 gemini-box">
                                 <div class="col-xs-10 noPadding">
-                                    <div class="row two special item2description gemini">
-                                        <div class="col-xs-1 noPadding-left">#1</div>
-                                        <div class="col-xs-11 gemini-headline geminiPad" id="gemini-headline-one"></div>
+                                    <div class="row two special gemini-topPad">
+                                        <div class="col-xs-1 noPadding-left"><h3>1</h3></div>
+                                        <div class="col-xs-11 gemini-headline geminiPad"><h3 id="gemini-headline-one"></h3></div>
                                     </div>
-                                    <div class="row two special">
+                                    <div class="row two special gemini-topPad">
                                         <div class="panelcontent col-md-12">
-                                            <div class="col-xs-1 noPadding-left"><i class="ion-pricetag"></i></div>
-                                            <div class="col-xs-11 italic geminiPad" id="gemini-tag-one"></div>
+                                            <div class="col-xs-1 noPadding-left"><h6><i class="ion-pricetag"></i></h6></div>
+                                            <div class="col-xs-11 italic geminiPad"><h6 id="gemini-tag-one"></h6></div>
                                         </div>
                                     </div>
                                 </div>
@@ -1014,64 +1082,22 @@
                                 </div>
                             </div>
                         </div></a>
-                        <a id="gemini-url-six" href="#" target="_blank"><div class="panelcontent col-xs-6">
-                            <div class="panel col-xs-12 gemini-box">
-                                <div class="col-xs-10 noPadding">
-                                    <div class="row two special item2description gemini">
-                                        <div class="col-xs-1 noPadding-left">#6</div>
-                                        <div class="col-xs-11 gemini-headline geminiPad" id="gemini-headline-six"></div>
-                                    </div>
-                                    <div class="row two special">
-                                    <div class="panelcontent col-xs-12">
-                                        <div class="col-xs-1 noPadding-left"><i class="ion-pricetag"></i></div>
-                                        <div class="col-xs-11 italic geminiPad" id="gemini-tag-six"></div>
-                                    </div>
-                                </div>
-                                </div>
-                                <div class="col-xs-2 noPadding gemini-image-container">
-                                    <img class="gemini-image" id="gemini-img-six" src="http://gemini.no/wp-content/uploads/2016/07/menneske-robot-thinkstockphotos-330x190.jpg">
-                                </div>
-                            </div>
-                        </div></a>
-                    </div>
-                </div>
-                <div class="row special five">
-                    <div class="panelcontent col-xs-12">
                         <a id="gemini-url-two" href="#" target="_blank"><div class="panelcontent col-xs-6">
                             <div class="panel col-xs-12 gemini-box">
                                 <div class="col-xs-10 noPadding">
-                                    <div class="row two special item2description gemini">
-                                        <div class="col-xs-1 noPadding-left">#2</div>
-                                        <div class="col-xs-11 gemini-headline geminiPad" id="gemini-headline-two"></div>
+                                    <div class="row two special gemini-topPad">
+                                        <div class="col-xs-1 noPadding-left"><h3>2</h3></div>
+                                        <div class="col-xs-11 gemini-headline geminiPad"><h3 id="gemini-headline-two"></h3></div>
                                     </div>
-                                    <div class="row two special">
-                                        <div class="panelcontent col-xs-12">
-                                            <div class="col-xs-1 noPadding-left"><i class="ion-pricetag"></i></div>
-                                            <div class="col-xs-11 italic geminiPad" id="gemini-tag-two"></div>
+                                    <div class="row two special gemini-topPad">
+                                        <div class="panelcontent col-md-12">
+                                            <div class="col-xs-1 noPadding-left"><h6><i class="ion-pricetag"></i></h6></div>
+                                            <div class="col-xs-11 italic geminiPad"><h6 id="gemini-tag-two"></h6></div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-xs-2 noPadding gemini-image-container">
                                     <img class="gemini-image" id="gemini-img-two" src="http://gemini.no/wp-content/uploads/2016/07/menneske-robot-thinkstockphotos-330x190.jpg">
-                                </div>
-                            </div>
-                        </div></a>
-                        <a id="gemini-url-seven" href="#" target="_blank"><div class="panelcontent col-xs-6">
-                            <div class="panel col-xs-12 gemini-box">
-                                <div class="col-xs-10 noPadding">
-                                    <div class="row two special item2description gemini">
-                                        <div class="col-xs-1 noPadding-left">#7</div>
-                                        <div class="col-xs-11 gemini-headline geminiPad" id="gemini-headline-seven"></div>
-                                    </div>
-                                    <div class="row two special">
-                                    <div class="panelcontent col-xs-12">
-                                        <div class="col-xs-1 noPadding-left"><i class="ion-pricetag"></i></div>
-                                        <div class="col-xs-11 italic geminiPad" id="gemini-tag-seven"></div>
-                                    </div>
-                                </div>
-                                </div>
-                                <div class="col-xs-2 noPadding gemini-image-container">
-                                    <img class="gemini-image" id="gemini-img-seven" src="http://gemini.no/wp-content/uploads/2016/07/menneske-robot-thinkstockphotos-330x190.jpg">
                                 </div>
                             </div>
                         </div></a>
@@ -1082,14 +1108,14 @@
                         <a id="gemini-url-three" href="#" target="_blank"><div class="panelcontent col-xs-6">
                             <div class="panel col-xs-12 gemini-box">
                                 <div class="col-xs-10 noPadding">
-                                    <div class="row two special item2description gemini">
-                                        <div class="col-xs-1 noPadding-left">#3</div>
-                                        <div class="col-xs-11 gemini-headline geminiPad" id="gemini-headline-three"></div>
+                                    <div class="row two special gemini-topPad">
+                                        <div class="col-xs-1 noPadding-left"><h3>3</h3></div>
+                                        <div class="col-xs-11 gemini-headline geminiPad"><h3 id="gemini-headline-three"></h3></div>
                                     </div>
-                                    <div class="row two special">
-                                        <div class="panelcontent col-xs-12">
-                                            <div class="col-xs-1 noPadding-left"><i class="ion-pricetag"></i></div>
-                                            <div class="col-xs-11 italic geminiPad" id="gemini-tag-three"></div>
+                                    <div class="row two special gemini-topPad">
+                                        <div class="panelcontent col-md-12">
+                                            <div class="col-xs-1 noPadding-left"><h6><i class="ion-pricetag"></i></h6></div>
+                                            <div class="col-xs-11 italic geminiPad"><h6 id="gemini-tag-three"></h6></div>
                                         </div>
                                     </div>
                                 </div>
@@ -1098,64 +1124,22 @@
                                 </div>
                             </div>
                         </div></a>
-                        <a id="gemini-url-eight" href="#" target="_blank"><div class="panelcontent col-xs-6">
-                            <div class="panel col-xs-12 gemini-box">
-                                <div class="col-xs-10 noPadding">
-                                    <div class="row two special item2description gemini">
-                                        <div class="col-xs-1 noPadding-left">#8</div>
-                                        <div class="col-xs-11 gemini-headline geminiPad" id="gemini-headline-eight"></div>
-                                    </div>
-                                    <div class="row two special">
-                                        <div class="panelcontent col-xs-12">
-                                            <div class="col-xs-1 noPadding-left"><i class="ion-pricetag"></i></div>
-                                            <div class="col-xs-11 italic geminiPad" id="gemini-tag-eight"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xs-2 noPadding gemini-image-container">
-                                    <img class="gemini-image" id="gemini-img-eight" src="http://gemini.no/wp-content/uploads/2016/07/menneske-robot-thinkstockphotos-330x190.jpg">
-                                </div>
-                            </div>
-                        </div></a>
-                    </div>
-                </div>
-                <div class="row special five">
-                    <div class="panelcontent col-xs-12">
                         <a id="gemini-url-four" href="#" target="_blank"><div class="panelcontent col-xs-6">
                             <div class="panel col-xs-12 gemini-box">
                                 <div class="col-xs-10 noPadding">
-                                    <div class="row two special item2description gemini">
-                                        <div class="col-xs-1 noPadding-left">#4</div>
-                                        <div class="col-xs-11 gemini-headline geminiPad" id="gemini-headline-four"></div>
+                                    <div class="row two special gemini-topPad">
+                                        <div class="col-xs-1 noPadding-left"><h3>4</h3></div>
+                                        <div class="col-xs-11 gemini-headline geminiPad"><h3 id="gemini-headline-four"></h3></div>
                                     </div>
-                                    <div class="row two special">
-                                        <div class="panelcontent col-xs-12">
-                                            <div class="col-xs-1 noPadding-left"><i class="ion-pricetag"></i></div>
-                                            <div class="col-xs-11 italic geminiPad" id="gemini-tag-four"></div>
+                                    <div class="row two special gemini-topPad">
+                                        <div class="panelcontent col-md-12">
+                                            <div class="col-xs-1 noPadding-left"><h6><i class="ion-pricetag"></i></h6></div>
+                                            <div class="col-xs-11 italic geminiPad"><h6 id="gemini-tag-four"></h6></div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-xs-2 noPadding gemini-image-container">
                                     <img class="gemini-image" id="gemini-img-four" src="http://gemini.no/wp-content/uploads/2016/07/menneske-robot-thinkstockphotos-330x190.jpg">
-                                </div>
-                            </div>
-                        </div></a>
-                        <a id="gemini-url-nine" href="#" target="_blank"><div class="panelcontent col-xs-6">
-                            <div class="panel col-xs-12 gemini-box">
-                                <div class="col-xs-10 noPadding">
-                                    <div class="row two special item2description gemini">
-                                        <div class="col-xs-1 noPadding-left">#9</div>
-                                        <div class="col-xs-11 gemini-headline geminiPad" id="gemini-headline-nine"></div>
-                                    </div>
-                                    <div class="row two special">
-                                        <div class="panelcontent col-xs-12">
-                                            <div class="col-xs-1 noPadding-left"><i class="ion-pricetag"></i></div>
-                                            <div class="col-xs-11 italic geminiPad" id="gemini-tag-nine"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xs-2 noPadding gemini-image-container">
-                                    <img class="gemini-image" id="gemini-img-nine" src="http://gemini.no/wp-content/uploads/2016/07/menneske-robot-thinkstockphotos-330x190.jpg">
                                 </div>
                             </div>
                         </div></a>
@@ -1166,14 +1150,98 @@
                         <a id="gemini-url-five" href="#" target="_blank"><div class="panelcontent col-xs-6">
                             <div class="panel col-xs-12 gemini-box">
                                 <div class="col-xs-10 noPadding">
-                                    <div class="row two special item2description gemini">
-                                        <div class="col-xs-1 noPadding-left">#5</div>
-                                        <div class="col-xs-11 gemini-headline geminiPad" id="gemini-headline-five"></div>
+                                    <div class="row two special gemini-topPad">
+                                        <div class="col-xs-1 noPadding-left"><h3>5</h3></div>
+                                        <div class="col-xs-11 gemini-headline geminiPad"><h3 id="gemini-headline-five"></h3></div>
                                     </div>
-                                    <div class="row two special">
-                                        <div class="panelcontent col-xs-12">
-                                            <div class="col-xs-1 noPadding-left"><i class="ion-pricetag"></i></div>
-                                            <div class="col-xs-11 italic geminiPad" id="gemini-tag-five"></div>
+                                    <div class="row two special gemini-topPad">
+                                        <div class="panelcontent col-md-12">
+                                            <div class="col-xs-1 noPadding-left"><h6><i class="ion-pricetag"></i></h6></div>
+                                            <div class="col-xs-11 italic geminiPad"><h6 id="gemini-tag-five"></h6></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-2 noPadding gemini-image-container">
+                                    <img class="gemini-image" id="gemini-img-five" src="http://gemini.no/wp-content/uploads/2016/07/menneske-robot-thinkstockphotos-330x190.jpg">
+                                </div>
+                            </div>
+                        </div></a>
+                        <a id="gemini-url-six" href="#" target="_blank"><div class="panelcontent col-xs-6">
+                            <div class="panel col-xs-12 gemini-box">
+                                <div class="col-xs-10 noPadding">
+                                    <div class="row two special gemini-topPad">
+                                        <div class="col-xs-1 noPadding-left"><h3>6</h3></div>
+                                        <div class="col-xs-11 gemini-headline geminiPad"><h3 id="gemini-headline-six"></h3></div>
+                                    </div>
+                                    <div class="row two special gemini-topPad">
+                                        <div class="panelcontent col-md-12">
+                                            <div class="col-xs-1 noPadding-left"><h6><i class="ion-pricetag"></i></h6></div>
+                                            <div class="col-xs-11 italic geminiPad"><h6 id="gemini-tag-six"></h6></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-2 noPadding gemini-image-container">
+                                    <img class="gemini-image" id="gemini-img-six" src="http://gemini.no/wp-content/uploads/2016/07/menneske-robot-thinkstockphotos-330x190.jpg">
+                                </div>
+                            </div>
+                        </div></a>
+                    </div>
+                </div>
+                <div class="row special five">
+                    <div class="panelcontent col-xs-12">
+                        <a id="gemini-url-seven" href="#" target="_blank"><div class="panelcontent col-xs-6">
+                            <div class="panel col-xs-12 gemini-box">
+                                <div class="col-xs-10 noPadding">
+                                    <div class="row two special gemini-topPad">
+                                        <div class="col-xs-1 noPadding-left"><h3>7</h3></div>
+                                        <div class="col-xs-11 gemini-headline geminiPad"><h3 id="gemini-headline-seven"></h3></div>
+                                    </div>
+                                    <div class="row two special gemini-topPad">
+                                        <div class="panelcontent col-md-12">
+                                            <div class="col-xs-1 noPadding-left"><h6><i class="ion-pricetag"></i></h6></div>
+                                            <div class="col-xs-11 italic geminiPad"><h6 id="gemini-tag-seven"></h6></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-2 noPadding gemini-image-container">
+                                    <img class="gemini-image" id="gemini-img-seven" src="http://gemini.no/wp-content/uploads/2016/07/menneske-robot-thinkstockphotos-330x190.jpg">
+                                </div>
+                            </div>
+                        </div></a>
+                        <a id="gemini-url-eight" href="#" target="_blank"><div class="panelcontent col-xs-6">
+                            <div class="panel col-xs-12 gemini-box">
+                                <div class="col-xs-10 noPadding">
+                                    <div class="row two special gemini-topPad">
+                                        <div class="col-xs-1 noPadding-left"><h3>8</h3></div>
+                                        <div class="col-xs-11 gemini-headline geminiPad"><h3 id="gemini-headline-eight"></h3></div>
+                                    </div>
+                                    <div class="row two special gemini-topPad">
+                                        <div class="panelcontent col-md-12">
+                                            <div class="col-xs-1 noPadding-left"><h6><i class="ion-pricetag"></i></h6></div>
+                                            <div class="col-xs-11 italic geminiPad"><h6 id="gemini-tag-eight"></h6></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-2 noPadding gemini-image-container">
+                                    <img class="gemini-image" id="gemini-img-eight" src="http://gemini.no/wp-content/uploads/2016/07/menneske-robot-thinkstockphotos-330x190.jpg">
+                                </div>
+                            </div>
+                        </div></a>
+                    </div>
+                </div>
+                <!--<div class="row special five">
+                    <div class="panelcontent col-xs-12">
+                        <a id="gemini-url-five" href="#" target="_blank"><div class="panelcontent col-xs-6">
+                            <div class="panel col-xs-12 gemini-box">
+                                <div class="col-xs-10 noPadding">
+                                    <div class="row two special gemini-topPad">
+                                        <div class="col-xs-1 noPadding-left"><h3>5</h3></div>
+                                        <div class="col-xs-11 gemini-headline geminiPad"><h3 id="gemini-headline-five"></h3></div>
+                                    </div>
+                                    <div class="row two special gemini-topPad">
+                                        <div class="panelcontent col-md-12">
+                                            <div class="col-xs-1 noPadding-left"><h6><i class="ion-pricetag"></i></h6></div>
+                                            <div class="col-xs-11 italic geminiPad"><h6 id="gemini-tag-five"></h6></div>
                                         </div>
                                     </div>
                                 </div>
@@ -1185,14 +1253,14 @@
                         <a id="gemini-url-ten" href="#" target="_blank"><div class="panelcontent col-xs-6">
                             <div class="panel col-xs-12 gemini-box">
                                 <div class="col-xs-10 noPadding">
-                                    <div class="row two special item2description gemini">
-                                        <div class="col-xs-1 noPadding-left">#10</div>
-                                        <div class="col-xs-11 gemini-headline geminiPad" id="gemini-headline-ten"></div>
+                                    <div class="row two special gemini-topPad">
+                                        <div class="col-xs-1 noPadding-left"><h3>10</h3></div>
+                                        <div class="col-xs-11 gemini-headline geminiPad"><h3 id="gemini-headline-ten"></h3></div>
                                     </div>
-                                    <div class="row two special">
-                                        <div class="panelcontent col-xs-12">
-                                            <div class="col-xs-1 noPadding-left"><i class="ion-pricetag"></i></div>
-                                            <div class="col-xs-11 italic geminiPad" id="gemini-tag-ten"></div>
+                                    <div class="row two special gemini-topPad">
+                                        <div class="panelcontent col-md-12">
+                                            <div class="col-xs-1 noPadding-left"><h6><i class="ion-pricetag"></i></h6></div>
+                                            <div class="col-xs-11 italic geminiPad"><h6 id="gemini-tag-ten"></h6></div>
                                         </div>
                                     </div>
                                 </div>
@@ -1202,7 +1270,7 @@
                             </div>
                         </div></a>
                     </div>
-                </div>
+                </div> -->
             </div>
             <!-- /Fifth page -->
             <!-- Sixth page -->
@@ -1260,7 +1328,8 @@
             </div>
             -->
             <!-- /Sixth page -->
-            <div class="item active animated slideInUp">
+            <!--
+            <div class="item animated slideInUp">
                 <div class="row special item2description">
                     <div class="col-xs-8">
                         <div class="col-xs-12">Coverage in national media last six months</div>
@@ -1297,7 +1366,7 @@
                 <div class="panelcontent col-xs-4">
                     <div class="col-xs-12 noPadding" id="retrieverFeed"></div>
                 </div>
-            </div>
+            </div>-->
         </div>
     </div>
 
@@ -1352,16 +1421,61 @@
             }
             else if(e.which == 37){
                 $('#myCarousel').carousel('prev');
+
             }
         });
     </script>
 
     <script>
+        $(window).resize(function() {
+            if($(window).width() > 1900) {
+                devicechart.legend.fontSize = 20;
+            }
+
+            else if($(window).width() > 1600) {
+                devicechart.legend.fontSize = 18;
+            }
+            else if($(window).width() > 1400) {
+                devicechart.legend.fontSize = 16;
+            }
+            else if ($(window).width() > 1200) {
+                devicechart.legend.fontSize = 14;
+            }
+            else {
+                devicechart.legend.fontSize = 12;
+            }
+            imgSize = ($(window).width() /100) + 1;
+        });
+    </script>
+
+    <script>
+        $(document).load(function() {
+            //TODO: Figure out how to set initial font size of devicechart. Works on resize.
+            if($(window).width() > 1900) {
+                devicechart.legend.fontSize = 20;
+            }
+
+            else if($(window).width() > 1600) {
+                devicechart.legend.fontSize = 18;
+            }
+            else if($(window).width() > 1400) {
+                devicechart.legend.fontSize = 16;
+
+            }
+            else {
+                console.log("heisann");
+                devicechart.legend.fontSize = 12;
+            }
+        });
+
+    </script>
+
+    <script>
         $('body').flowtype({
-            minimum   : 500,
-            maximum   : 1200,
-            minFont   : 12,
-            maxFont   : 40,
+            minimum   : 1000,
+            maximum   : 1920,
+            minFont   : 10,
+            maxFont   : 19,
             fontRatio : 30
         });
     </script>

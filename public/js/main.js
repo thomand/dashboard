@@ -4,6 +4,7 @@
 $(document).ready(function(){
     //charts and map global variables.
     var map;
+    var worldMap;
     var devicechart;
     var innsidaWeekChart;
     //var innsidaVisitorChart;
@@ -17,6 +18,7 @@ $(document).ready(function(){
     var hourlyVisitsChart;
     var nationalChart;
     var internationalChart;
+    var hourlyNTNUVisitsChart;
     init();
 
 });
@@ -24,19 +26,28 @@ $(document).ready(function(){
 //Set up charts // Init Firebase // Collect data from firebase
 function init(){
 
-    retrieverFeed();
+    imgSize = $(window).width() / 100;
+    //retrieverFeed();
 
-    makeMap();
+    //makeMap();
+    makeWorldMap();
+    makeHourlyNTNUVisitorsChart();
     makeDeviceChart();
     makeInnsidaWeekChart();
     /*makeInnsidaVersusCharts();*/
     makeWorldChart();
     makeMonthChart();
     makeHourlyVisitsChart();
-    makeRetrieverNationalChart();
-    makeRetrieverInternationalChart();
+    document.getElementById("navbarPageName").innerHTML = $(".active").attr("id");
+    //makeRetrieverNationalChart();
+    //makeRetrieverInternationalChart();
     //makeWeekChart();
     setInterval(getClock, 1000);
+
+    $("#myCarousel").bind('slide.bs.carousel', function (e) {
+        updateNavPageName(e.relatedTarget.id);
+    });
+
     //setTimeout(pageInfo, 1000);
     config = {
         apiKey: "AIzaSyDGxsSprXYHfxsUwvJa74-g3T_JmJmt5kU",
@@ -59,6 +70,10 @@ function loader() {
     /*timeout = 4000*/
 }
 
+function updateNavPageName(id) {
+    document.getElementById("navbarPageName").innerHTML = id;
+}
+
 function showPage() {
     document.getElementById("wrapper").style.display = "none";
     document.getElementById("controller").style.opacity = ".0";
@@ -78,9 +93,9 @@ function pageInfo() {
 function updateEverything(data) {
     updateVisitors(data.ew.visitors.visitorCount, "External");
     updateVisitors(data.innsida.visitors, "Innsida");
-    updateBrowserTable(data.ew.visitors.browsers);
+    updateBrowserTable(data.ew.visitors.browsers, imgSize);
     updatePopularPages(data.ew.visitors.popularPages);
-    updateMapData(data.ew.visitors.heatmap);
+    //updateMapData(data.ew.visitors.heatmap);
     updateDeviceChart(data.ew.visitors.platform);
     updateInnsidaWeekChart(data.innsida.visitors);
     updateInnsidaPopularPages(data.innsida.popular);
@@ -93,10 +108,13 @@ function updateEverything(data) {
     updateGemini(data.gemini);
     updateWorldChart(data.ew.visitors.worldVisits);
     updateGeminiImages(data.gemini.image);
-    setInterval(validateMap, 20000);
+    //setInterval(validateMap, 20000);
     updateMonthChart(data.study.visitorsByMonth);
     updateHourlyVisitsChart(data.innsida.visitors.hourly);
-    updateRetrieverNationalChart(data.retriever.national);
+    updateHourlyNTNUVisitorsChart(data.ew.visitors.hourly);
+    updateBrokenUrls(data.ew.brokenUrls);
+    updateWorldMap(data.ew.visitors.worldMap);
+    //updateRetrieverNationalChart(data.retriever.national);
 }
 
 //------------------Used on more than one page----------//
@@ -129,21 +147,203 @@ function updateIntervalPercentArrows(value, name, page) {
 
 //--------------------First page------------------------//
 
-//brute force solution to map bug
-function validateMap() {
-    var divLength = document.getElementById("mapdiv").innerHTML.length;
-    if (divLength < 100000) {
-        console.log("map needs to be updated. Length " + divLength);
-        map.write("mapdiv");
-    }
-    else {
-        console.log("map is showing " + divLength);
-    }
+function makeWorldMap() {
+    // svg path for target icon
+    var targetSVG = "M9,0C4.029,0,0,4.029,0,9s4.029,9,9,9s9-4.029,9-9S13.971,0,9,0z M9,15.93 c-3.83,0-6.93-3.1-6.93-6.93S5.17,2.07,9,2.07s6.93,3.1,6.93,6.93S12.83,15.93,9,15.93 M12.5,9c0,1.933-1.567,3.5-3.5,3.5S5.5,10.933,5.5,9S7.067,5.5,9,5.5 S12.5,7.067,12.5,9z";
+
+    worldMap = AmCharts.makeChart( "worldMapDiv", {
+        "type": "map",
+        "theme": "none",
+        "color":"white",
+        "dataProvider": {
+            "map": "worldLow",
+            "zoomLevel": 2.1,
+            "zoomLongitude": 10.399732,
+            "zoomLatitude": 63.4175868,
+
+            "lines": [ /*{
+                "latitudes": [ 50.4422, 63.4175868 ],
+                "longitudes": [ 30.5367, 10.399732 ]
+            }, {
+                "latitudes": [ 46.9480, 63.4175868 ],
+                "longitudes": [ 7.4481, 10.399732 ]
+            }, {
+                "latitudes": [ 59.3328, 63.4175868 ],
+                "longitudes": [ 18.0645, 10.399732 ]
+            }, {
+                "latitudes": [  40.4167, 63.4175868 ],
+                "longitudes": [ -3.7033, 10.399732 ]
+            }, {
+                "latitudes": [ 46.0514, 63.4175868 ],
+                "longitudes": [ 14.5060, 10.399732 ]
+            }, {
+                "latitudes": [  48.2116, 63.4175868 ],
+                "longitudes": [ 17.1547, 10.399732 ]
+            }, {
+                "latitudes": [ 44.8048, 63.4175868 ],
+                "longitudes": [ 20.4781, 10.399732 ]
+            }, {
+                "latitudes": [ 55.7558, 63.4175868 ],
+                "longitudes": [ 37.6176, 10.399732 ]
+            }, {
+                "latitudes": [ 38.7072, 63.4175868 ],
+                "longitudes": [ -9.1355, 10.399732 ]
+            }, {
+                "latitudes": [ 64.1353, 63.4175868 ],
+                "longitudes": [ -21.8952, 10.399732 ]
+            }, {
+                "latitudes": [ 40.4300, 63.4175868 ],
+                "longitudes": [ -74.0000, 10.399732 ],
+                "thickness": 4
+            }*/ ],
+            "images": [
+                /*{
+                    "svgPath": targetSVG,
+                    "title": "Trondheim",
+                    "latitude": 63.4175868,
+                    "longitude": 10.399732,
+                    "scale": 1
+                }, {
+                    "svgPath": targetSVG,
+                    "title": "Reykjavik",
+                    "latitude": 64.1353,
+                    "longitude": -21.8952,
+                    "scale": 0.5
+                }, {
+                    "svgPath": targetSVG,
+                    "title": "Lisbon",
+                    "latitude": 38.7072,
+                    "longitude": -9.1355,
+                    "scale": 0.5
+                }, {
+                    "svgPath": targetSVG,
+                    "title": "Moscow",
+                    "latitude": 55.7558,
+                    "longitude": 37.6176,
+                    "scale": 0.5
+                }, {
+                    "svgPath": targetSVG,
+                    "title": "Belgrade",
+                    "latitude": 44.8048,
+                    "longitude": 20.4781,
+                    "scale": 0.5
+                }, {
+                    "svgPath": targetSVG,
+                    "title": "Bratislava",
+                    "latitude": 48.2116,
+                    "longitude": 17.1547,
+                    "scale": 0.5
+                }, {
+                    "svgPath": targetSVG,
+                    "title": "Ljubljana",
+                    "latitude": 46.0514,
+                    "longitude": 14.5060,
+                    "scale": 0.5
+                }, {
+                    "svgPath": targetSVG,
+                    "title": "Madrid",
+                    "latitude": 40.4167,
+                    "longitude": -3.7033,
+                    "scale": 0.5
+                }, {
+                    "svgPath": targetSVG,
+                    "title": "Stockholm",
+                    "latitude": 59.3328,
+                    "longitude": 18.0645,
+                    "scale": 0.5
+                }, {
+                    "svgPath": targetSVG,
+                    "title": "Bern",
+                    "latitude": 46.9480,
+                    "longitude": 7.4481,
+                    "scale": 0.5
+                }, {
+                    "svgPath": targetSVG,
+                    "title": "Kiev",
+                    "latitude": 50.4422,
+                    "longitude": 30.5367,
+                    "scale": 0.5
+                }, {
+                    "svgPath": targetSVG,
+                    "title": "New York",
+                    "latitude": 40.43,
+                    "longitude": -74,
+                    "scale": 0.5
+                }*/ ]
+        },
+
+        "areasSettings": {
+            "unlistedAreasColor": "#03A9FC",
+            "unlistedAreasAlpha": 0.9
+        },
+
+        "imagesSettings": {
+            "color": "#F05576",
+            "rollOverColor": "#F05576",
+            "selectedColor": "#000000"
+        },
+
+        "linesSettings": {
+            "arc": -0.8, // this makes lines curved. Use value from -1 to 1
+            "arrow": "middle",
+            "color": "#F05576",
+            "alpha": 0.7,
+            "arrowAlpha": 1,
+            "arrowSize": 6
+        },
+        /*"zoomControl": {
+            "gridHeight": 100,
+            "draggerAlpha": 1,
+            "gridAlpha": 0.2
+        },*/
+
+        "backgroundZoomsToTop": true,
+        "linesAboveImages": true,
+
+        "export": {
+            "enabled": false
+        }
+    } );
 }
 
-//BrowserTable
-function updateBrowserTable(data) {
+function updateWorldMap(data) {
+    var targetSVG = "M9,0C4.029,0,0,4.029,0,9s4.029,9,9,9s9-4.029,9-9S13.971,0,9,0z M9,15.93 c-3.83,0-6.93-3.1-6.93-6.93S5.17,2.07,9,2.07s6.93,3.1,6.93,6.93S12.83,15.93,9,15.93 M12.5,9c0,1.933-1.567,3.5-3.5,3.5S5.5,10.933,5.5,9S7.067,5.5,9,5.5 S12.5,7.067,12.5,9z";
+    var trondheimLat =  63.4175868;
+    var trondheimLng = 10.399732;
+    var Trondheim = {
+        "svgPath": targetSVG,
+        "title": "Trondheim",
+        "latitude": 63.4175868,
+        "longitude": 10.399732,
+        "scale": 1
+    };
+    var places = [];
+    var lines = [];
+    places.push(Trondheim);
 
+    for (var element in data) {
+        var place = data[element];
+        var line = {
+            latitudes : [place.latitude, trondheimLat],
+            longitudes : [place.longitude, trondheimLng],
+            thickness : place.value
+        };
+        place.svgPath = targetSVG;
+        places.push(place);
+        lines.push(line);
+    }
+    worldMap.dataProvider.images = places;
+    worldMap.dataProvider.lines = lines;
+    worldMap.validateData();
+    worldMap.validateNow();
+
+
+}
+
+
+//BrowserTable
+function updateBrowserTable(data, imgSize) {
+    imgSize +=1;
     var firefox = data.Firefox;
     var chrome = data.Chrome;
     var ie = data.IE;
@@ -153,7 +353,7 @@ function updateBrowserTable(data) {
     var array = [firefox, chrome, ie, safari, opera, edge];
     var sorted = array.sort(function(a, b) {return parseInt(a.numbers) - parseInt(b.numbers);});
     var logoStartString = '<img src="img/';
-    var logoEndString = '.svg" height="20" width="20">';
+    var logoEndString = '.svg" height="' + imgSize + '" width="'+ imgSize +'">';
 
     document.getElementById("browserLogoOne").innerHTML = logoStartString + sorted[5].name.toLowerCase() + logoEndString;
     document.getElementById("browserLogoTwo").innerHTML = logoStartString + sorted[4].name.toLowerCase() + logoEndString;
@@ -235,9 +435,11 @@ function makeDeviceChart() {
         legend.bulletType = "round";
         legend.equalWidths = false;
         legend.valueWidth = 40;
+        legend.marginLeft = 0;
+        legend.position = "right";
         legend.useGraphSettings = false;
         legend.color = "#FFFFFF";
-        legend.fontSize = 15;
+        legend.fontSize = $(window).width() /100;
         devicechart.addLegend(legend);
 
         // WRITE
@@ -251,180 +453,6 @@ function updateDeviceChart(data) {
     devicechart.validateData();
 }
 
-//Generate norway HeatMap (user access location)
-function makeMap() {
-
-    AmCharts.ready(function() {
-        map = new AmCharts.AmMap();
-
-        /*NOTE: There is no id NO-13!!!*/
-        map.colorSteps = 10;
-
-        var dataProvider = {
-            mapVar: AmCharts.maps.norwayLow,
-
-
-            areas: [
-                {
-                    id: "NO-02",
-                    value: 0,
-                    description: ""},
-                {
-                    id: "NO-01",
-                    value: 0,
-                    description: ""},
-                {
-                    id: "NO-03",
-                    value: 0,
-                    description: ""},
-                {
-                    id: "NO-04",
-                    value: 0,
-                    description: ""},
-                {
-                    id: "NO-05",
-                    value: 0,
-                    description: ""},
-                {
-                    id: "NO-06",
-                    value: 0,
-                    description: ""},
-                {
-                    id: "NO-07",
-                    value: 0,
-                    description: ""},
-                {
-                    id: "NO-08",
-                    value: 0,
-                    description: ""},
-                {
-                    id: "NO-09",
-                    value: 0,
-                    description: ""},
-                {
-                    id: "NO-10",
-                    value: 0,
-                    description: ""},
-                {
-                    id: "NO-11",
-                    value: 0,
-                    description: ""},
-                {
-                    id: "NO-12",
-                    value: 0,
-                    description: ""},
-                {
-                    id: "NO-14",
-                    value: 0,
-                    description: ""},
-                {
-                    id: "NO-15",
-                    value: 0,
-                    description: ""},
-                {
-                    id: "NO-16",
-                    value: 0,
-                    description: ""},
-                {
-                    id: "NO-17",
-                    value: 0,
-                    description: ""},
-                {
-                    id: "NO-18",
-                    value: 0,
-                    description: ""},
-                {
-                    id: "NO-19",
-                    value: 0,
-                    description: ""},
-                {
-                    id: "NO-20",
-                    value: 0,
-                    description: ""}]
-        };
-
-
-            map.areasSettings = {
-            alpha: 0.8,
-            //color: "#F95372",
-            color: "#00abff",
-            colorSolid: "#8BD22F",
-            unlistedAreasAlpha: 0.4,
-            unlistedAreasColor: "#000000",
-            outlineColor: "#FFFFFF",
-            outlineAlpha: 0.5,
-            outlineThickness: 1,
-            rollOverColor: "#FFFFFF",
-            rollOverOutlineColor: "#FFFFFF",
-            selectedOutlineColor: "#FFFFFF",
-            selectedColor: "#ffffff",
-            unlistedAreasOutlineColor: "#FFFFFF",
-            unlistedAreasOutlineAlpha: 0.5,
-            balloonText: "<strong>[[description]]</strong> of users access <strong>ntnu.no</strong> from [[title]]",
-            autoZoom: true
-        };
-        map.dataProvider = dataProvider;
-
-        var valueLegend = new AmCharts.ValueLegend();
-        valueLegend.right = 10;
-        valueLegend.minValue = "little";
-        valueLegend.maxValue = "a lot!";
-        valueLegend.color = "white";
-        valueLegend.fontSize = 14;
-        map.valueLegend = valueLegend;
-        map.color = "white";
-        map.write("mapdiv");
-    });
-}
-
-//update norway heatMap (user access location)
-function updateMapData(data) {
-    // generate new values
-    map.dataProvider.areas[0].value = data.Akershus.value;
-    map.dataProvider.areas[0].description = data.Akershus.description;
-    map.dataProvider.areas[1].value = data.Ostfold.value;
-    map.dataProvider.areas[1].description = data.Ostfold.description;
-    map.dataProvider.areas[2].value = data.Oslo.value;
-    map.dataProvider.areas[2].description = data.Oslo.description;
-    map.dataProvider.areas[3].value = data.Hedmark.value;
-    map.dataProvider.areas[3].description = data.Hedmark.description;
-    map.dataProvider.areas[4].value = data.Oppland.value;
-    map.dataProvider.areas[4].description = data.Oppland.description;
-    map.dataProvider.areas[5].value = data.Buskerud.value;
-    map.dataProvider.areas[5].description = data.Buskerud.description;
-    map.dataProvider.areas[6].value = data.Vestfold.value;
-    map.dataProvider.areas[6].description = data.Vestfold.description;
-    map.dataProvider.areas[7].value = data.Telemark.value;
-    map.dataProvider.areas[7].description = data.Telemark.description;
-    map.dataProvider.areas[8].value = data.AustAgder.value;
-    map.dataProvider.areas[8].description = data.AustAgder.description;
-    map.dataProvider.areas[9].value = data.VestAgder.value;
-    map.dataProvider.areas[9].description = data.VestAgder.description;
-    map.dataProvider.areas[10].value = data.Rogaland.value;
-    map.dataProvider.areas[10].description = data.Rogaland.description;
-    map.dataProvider.areas[11].value = data.Hordaland.value;
-    map.dataProvider.areas[11].description = data.Hordaland.description;
-    map.dataProvider.areas[12].value = data.SognOgFjordane.value;
-    map.dataProvider.areas[12].description = data.SognOgFjordane.description;
-    map.dataProvider.areas[13].value = data.MoreOgRomsdal.value;
-    map.dataProvider.areas[13].description = data.MoreOgRomsdal.description;
-    map.dataProvider.areas[14].value = data.SorTrondelag.value;
-    map.dataProvider.areas[14].description = data.SorTrondelag.description;
-    map.dataProvider.areas[15].value = data.NordTrondelag.value;
-    map.dataProvider.areas[15].description = data.NordTrondelag.description;
-    map.dataProvider.areas[16].value = data.Nordland.value;
-    map.dataProvider.areas[16].description = data.Nordland.description;
-    map.dataProvider.areas[17].value = data.Troms.value;
-    map.dataProvider.areas[17].description = data.Troms.description;
-    map.dataProvider.areas[18].value = data.Finnmark.value;
-    map.dataProvider.areas[18].description = data.Finnmark.description;
-
-    // update map
-    map.validateNow();
-    map.validateData();
-    map.write("mapdiv")
-}
-
 //Most popular pages / Least popular pages
 function updatePopularPages(data) {
     document.getElementById("popularNO-one").innerHTML = data.popularNO.one;
@@ -432,13 +460,72 @@ function updatePopularPages(data) {
     document.getElementById("popularNO-three").innerHTML = data.popularNO.three;
     document.getElementById("popularNO-four").innerHTML = data.popularNO.four;
     document.getElementById("popularNO-five").innerHTML = data.popularNO.five;
-
-    document.getElementById("popularEDU-one").innerHTML = data.popularEDU.one;
-    document.getElementById("popularEDU-two").innerHTML = data.popularEDU.two;
-    document.getElementById("popularEDU-three").innerHTML = data.popularEDU.three;
-    document.getElementById("popularEDU-four").innerHTML = data.popularEDU.four;
-    document.getElementById("popularEDU-five").innerHTML = data.popularEDU.five;
 }
+
+
+function makeHourlyNTNUVisitorsChart() {
+    hourlyNTNUVisitsChart = AmCharts.makeChart("NTNUhourlyVisitorChart", {
+        "type": "radar",
+        "theme": "light",
+        "color":"#FFFFFF",
+        "creditsPosition":"bottom-left",
+        "dataProvider": [],
+        "valueAxes": [ {
+            "axisTitleOffset": 5,
+            "minimum": 0,
+            "axisAlpha": 0.45,
+            "axisColor":"#FFFFFF",
+            "gridThickness": 2,
+            "gridColor":"#FFFFFF",
+            "labelsEnabled": false,
+            "fontSize": $(window).width() /100
+        } ],
+        "startDuration": 2,
+        "graphs": [ {
+            "balloonText": "On average [[visits]] visits at [[hour]] last 30 days",
+            "bullet": "round",
+            "lineThickness": 4,
+            "valueField": "visits",
+            "bulletColor": "#8BD25F",
+            "lineColor":"#8BD25F",
+            "bulletSize": 4
+        } ],
+        "categoryField": "hour",
+        "export": {
+            "enabled": false
+        }
+    } );
+}
+
+function updateHourlyNTNUVisitorsChart(data) {
+    /*hourlyVisitsChart.dataProvider = [
+     data.zero, data.one, data.two, data.three, data.four, data.five,
+     data.six, data.seven, data.eight, data.nine, data.ten, data.eleven,
+     data.twelve, data.thirteen, data.fourteen, data.fifteen, data.sixteen, data.seventeen,
+     data.eighteen, data.nineteen, data.twenty, data.twentyone, data.twentytwo, data.twentythree
+     ];*/
+    hourlyNTNUVisitsChart.dataProvider = [
+        data.zero, data.two, data.four, data.six, data.eight, data.ten,
+        data.twelve, data.fourteen, data.sixteen, data.eighteen, data.twenty, data.twentytwo
+    ];
+    hourlyNTNUVisitsChart.validateData();
+}
+
+function updateBrokenUrls(data) {
+    //ion-arrow-graph-down-right reverse
+    var className = "";
+    if (data.lastWeek.change == "up") {
+        className = "ion-arrow-graph-up-right reverse"
+    }
+    else {
+        className = "ion-arrow-graph-down-right reverse";
+    }
+    document.getElementById("brokenArrow").className = className;
+    document.getElementById("linksBroken").innerHTML = data.brokenLinks;
+    document.getElementById("brokenPercent").innerHTML = data.lastWeek.percent;
+    document.getElementById("brokenClicks").innerHTML = data.clicksOnLinks;
+}
+
 
 //--------------------Second page------------------------//
 
@@ -715,12 +802,16 @@ function makeHourlyVisitsChart() {
 }
 
 function updateHourlyVisitsChart(data) {
-    hourlyVisitsChart.dataProvider = [
+    /*hourlyVisitsChart.dataProvider = [
         data.zero, data.one, data.two, data.three, data.four, data.five,
         data.six, data.seven, data.eight, data.nine, data.ten, data.eleven,
         data.twelve, data.thirteen, data.fourteen, data.fifteen, data.sixteen, data.seventeen,
         data.eighteen, data.nineteen, data.twenty, data.twentyone, data.twentytwo, data.twentythree
-    ];
+    ];*/
+     hourlyVisitsChart.dataProvider = [
+     data.zero, data.two, data.four, data.six, data.eight, data.ten,
+     data.twelve, data.fourteen, data.sixteen, data.eighteen, data.twenty, data.twentytwo
+     ];
     hourlyVisitsChart.validateData();
 }
 
@@ -1447,10 +1538,10 @@ function updateGemini(data) {
     updateElement("gemini-tag-seven",data.tag.seven, "t");
     updateElement("gemini-headline-eight",data.headlines.eight, "h");
     updateElement("gemini-tag-eight",data.tag.eight, "t");
-    updateElement("gemini-headline-nine",data.headlines.nine, "h");
-    updateElement("gemini-tag-nine",data.tag.nine, "t");
-    updateElement("gemini-headline-ten",data.headlines.ten, "h");
-    updateElement("gemini-tag-ten",data.tag.ten, "t");
+    //updateElement("gemini-headline-nine",data.headlines.nine, "h");
+    //updateElement("gemini-tag-nine",data.tag.nine, "t");
+    //updateElement("gemini-headline-ten",data.headlines.ten, "h");
+    //updateElement("gemini-tag-ten",data.tag.ten, "t");
 
     document.getElementById("gemini-url-one").setAttribute("href",data.url.one);
     document.getElementById("gemini-url-two").setAttribute("href",data.url.two);
@@ -1460,13 +1551,13 @@ function updateGemini(data) {
     document.getElementById("gemini-url-six").setAttribute("href",data.url.six);
     document.getElementById("gemini-url-seven").setAttribute("href",data.url.seven);
     document.getElementById("gemini-url-eight").setAttribute("href",data.url.eight);
-    document.getElementById("gemini-url-nine").setAttribute("href",data.url.nine);
-    document.getElementById("gemini-url-ten").setAttribute("href",data.url.ten);
+    //document.getElementById("gemini-url-nine").setAttribute("href",data.url.nine);
+    //document.getElementById("gemini-url-ten").setAttribute("href",data.url.ten);
 }
 
 function updateGeminiImages(data) {
-    var images = [data.one, data.two, data.three, data.four, data.five, data.six, data.seven, data.eight, data.nine, data.ten];
-    var translation = {0:"one",1:"two",2:"three",3:"four",4:"five",5:"six",6:"seven",7:"eight",8:"nine",9:"ten"};
+    var images = [data.one, data.two, data.three, data.four, data.five, data.six, data.seven, data.eight];
+    var translation = {0:"one",1:"two",2:"three",3:"four",4:"five",5:"six",6:"seven",7:"eight"};
     for (var i=0; i<images.length;i++){
         var id = "gemini-img-";
         if (images[i] != "") {
@@ -1482,20 +1573,20 @@ function updateGeminiImages(data) {
 
 //helper method for updating html element by id.
 function updateElement(id, value, type) {
-    if (type == "t" && value.length > 150) {
+    /*if (type == "t" && value.length > 150) {
         document.getElementById(id).innerHTML = value.substring(0,150) + "...";
     }
     else if (type == "h" && value.length > 70) {
         document.getElementById(id).innerHTML = value.substring(0,46) + "...";
     }
-    else {
+    else {*/
         document.getElementById(id).innerHTML = value;
-    }
+    /*}*/
 }
 
 //--------------------Fifth page------------------------//
 //RETRIEVER
-
+/*
 function updateRetrieverNationalChart(data) {
     data.NTNU["color"] = "#FF0F00";
     data.UiO["color"] = "#FF6600";
@@ -1691,7 +1782,7 @@ function retrieverFeed() {
             console.log(result.error);
         } else {
             var entries = result.feed.entries;
-            console.dir(entries);
+            //console.dir(entries);
             for(var i = 0; i < entries.length; i++){
                 var entry = entries[i];
                 //console.dir(entry);
@@ -1706,7 +1797,7 @@ function retrieverFeed() {
         }
     });
 }
-
+*/
 //--------------------General------------------------//
 //CLOCK
 function getClock() {
