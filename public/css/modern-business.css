@@ -543,8 +543,12 @@ table.extramargin {
 
 /* ---------------PAGE FIVE (Gemini)--------------- */
 .gemini-image {
-    height:7vw;
-    width:7vw;
+    height:8vw;
+    width:8vw;
+}
+
+.gemini-box {
+    overflow-y: hidden;
 }
 
 .gemini-image-container {
@@ -561,7 +565,6 @@ table.extramargin {
     padding-left:3%;
 }
 .ion-pricetag {
-    font-size: 1.3vw;
     color: rgb(139,210,47);
     vertical-align: top;
 }
@@ -569,12 +572,8 @@ table.extramargin {
     padding-top: 2%;
 }
 
-.item2description.gemini {
-    font-size: 1.8vw;
-}
 
 .italic {
-    font-size:0.9vw;
     font-style: italic;
 }
 
@@ -583,7 +582,7 @@ table.extramargin {
 }
 
 .five {
-    height: 17%;
+    height: 22%;
 }
 
 .gemini-box {

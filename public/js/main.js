@@ -1538,10 +1538,10 @@ function updateGemini(data) {
     updateElement("gemini-tag-seven",data.tag.seven, "t");
     updateElement("gemini-headline-eight",data.headlines.eight, "h");
     updateElement("gemini-tag-eight",data.tag.eight, "t");
-    updateElement("gemini-headline-nine",data.headlines.nine, "h");
-    updateElement("gemini-tag-nine",data.tag.nine, "t");
-    updateElement("gemini-headline-ten",data.headlines.ten, "h");
-    updateElement("gemini-tag-ten",data.tag.ten, "t");
+    //updateElement("gemini-headline-nine",data.headlines.nine, "h");
+    //updateElement("gemini-tag-nine",data.tag.nine, "t");
+    //updateElement("gemini-headline-ten",data.headlines.ten, "h");
+    //updateElement("gemini-tag-ten",data.tag.ten, "t");
 
     document.getElementById("gemini-url-one").setAttribute("href",data.url.one);
     document.getElementById("gemini-url-two").setAttribute("href",data.url.two);
@@ -1551,13 +1551,13 @@ function updateGemini(data) {
     document.getElementById("gemini-url-six").setAttribute("href",data.url.six);
     document.getElementById("gemini-url-seven").setAttribute("href",data.url.seven);
     document.getElementById("gemini-url-eight").setAttribute("href",data.url.eight);
-    document.getElementById("gemini-url-nine").setAttribute("href",data.url.nine);
-    document.getElementById("gemini-url-ten").setAttribute("href",data.url.ten);
+    //document.getElementById("gemini-url-nine").setAttribute("href",data.url.nine);
+    //document.getElementById("gemini-url-ten").setAttribute("href",data.url.ten);
 }
 
 function updateGeminiImages(data) {
-    var images = [data.one, data.two, data.three, data.four, data.five, data.six, data.seven, data.eight, data.nine, data.ten];
-    var translation = {0:"one",1:"two",2:"three",3:"four",4:"five",5:"six",6:"seven",7:"eight",8:"nine",9:"ten"};
+    var images = [data.one, data.two, data.three, data.four, data.five, data.six, data.seven, data.eight];
+    var translation = {0:"one",1:"two",2:"three",3:"four",4:"five",5:"six",6:"seven",7:"eight"};
     for (var i=0; i<images.length;i++){
         var id = "gemini-img-";
         if (images[i] != "") {
@@ -1573,15 +1573,15 @@ function updateGeminiImages(data) {
 
 //helper method for updating html element by id.
 function updateElement(id, value, type) {
-    if (type == "t" && value.length > 150) {
+    /*if (type == "t" && value.length > 150) {
         document.getElementById(id).innerHTML = value.substring(0,150) + "...";
     }
     else if (type == "h" && value.length > 70) {
         document.getElementById(id).innerHTML = value.substring(0,46) + "...";
     }
-    else {
+    else {*/
         document.getElementById(id).innerHTML = value;
-    }
+    /*}*/
 }
 
 //--------------------Fifth page------------------------//
