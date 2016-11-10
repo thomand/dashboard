@@ -368,7 +368,7 @@ div.carousel .fill {
 }
 
 .row.study-row-bottom {
-    height:53%;
+    height:54%;
 }
 
 table.study {
@@ -395,13 +395,19 @@ table.study tr td {
 }
 
 .topPanel {
-    height:56.5% !important;
+    height:58.5% !important;
     margin-bottom: 3% !important;
 }
 
-#bottomPanel {
-    height: 30% !important;
+.innsidaWeekly {
+    height: 40.5% !important;
 }
+
+.innsidaPopular {
+    height: 37% !important;
+    margin-top:1%;
+}
+
 
 
 
@@ -558,6 +564,9 @@ table.extramargin {
     font-size: 1.3vw;
     color: rgb(139,210,47);
     vertical-align: top;
+}
+.gemini-topPad {
+    padding-top: 2%;
 }
 
 .item2description.gemini {
